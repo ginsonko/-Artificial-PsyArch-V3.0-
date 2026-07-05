@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_ce5eaedb0aa00d52",
+  "concept": "apple",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_ce5eaedb0aa00d52.png",
+  "sha256": "ce5eaedb0aa00d52c6d6809776c0be69b3aee55c9d9d5a7c26c61669ec3cab15",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/113312228@N06/12197470614",
+  "download_url": "https://api.openverse.org/v1/images/45533746-f9fd-4c99-a9cc-5a82f685f1fa/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Apple and Pear Australia Ltd",
+  "title": "Pink Lady",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

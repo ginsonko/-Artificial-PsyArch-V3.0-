@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_ed78cb51b8522f33",
+  "concept": "cat",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_ed78cb51b8522f33.png",
+  "sha256": "ed78cb51b8522f33e33adfc247f9f3012d1d3e3ba78f53026e5b7c21fa63a506",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/65724937@N02/6001816539",
+  "download_url": "https://api.openverse.org/v1/images/13b54b60-def7-41d5-b5c3-ffc0bf4e0019/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "martie1swart",
+  "title": "Cat",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

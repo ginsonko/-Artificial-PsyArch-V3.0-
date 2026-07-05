@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_6882351c5edc6a45",
+  "concept": "phone",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/phone/cand_6882351c5edc6a45.png",
+  "sha256": "6882351c5edc6a4584130e6bbd51edd02284cebef97299d858a91ff456da5153",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/23408922@N07/8094337736",
+  "download_url": "https://api.openverse.org/v1/images/474f66a2-4eb0-4355-9a16-7f73098768a9/thumb/",
+  "license_id": "PDM-1.0",
+  "author": "comedy_nose",
+  "title": "Project 366 #290: 161012 The Horror!",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

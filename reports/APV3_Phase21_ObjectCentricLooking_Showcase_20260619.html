@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 21：对象中心扫视识别</title>
+  <style>
+    body{margin:0;font-family:"Microsoft YaHei","Segoe UI",Arial,sans-serif;background:#f6f7f5;color:#18221d;line-height:1.65}
+    header,main{max-width:1180px;margin:0 auto;padding:24px}
+    section{background:white;border:1px solid #dce5df;border-radius:8px;padding:18px;margin:14px 0}
+    h1{font-size:30px;margin:0 0 8px} h2{font-size:21px;margin:0 0 8px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+    figure{margin:0;border:1px solid #dce5df;border-radius:8px;padding:8px;background:#fbfcfa}
+    img{max-width:100%;height:140px;object-fit:contain;display:block;margin:auto}
+    table{width:100%;border-collapse:collapse;font-size:14px} th,td{border-bottom:1px solid #dce5df;padding:8px;text-align:left;vertical-align:top}
+    code{background:#edf4f0;padding:1px 5px;border-radius:5px} .good{color:#17653a;font-weight:700} .muted{color:#65736b}
+  </style>
+</head>
+<body>
+<header>
+  <h1>APV3 Phase 21：对象中心扫视识别</h1>
+  <p>这页展示一个最小闭环：先教 AP 看单个苹果、香蕉、橙子，再把少量变形后的水果放到同一张图里，让 AP 用候选目标、视焦点跳转和局部对象特征逐个列举。</p>
+</header>
+<main>
+  <section><h2>教学材料</h2><div class="cards"><figure><img src='phase21_object_looking_assets/teacher_apple_0.png'><figcaption>apple</figcaption></figure>
+<figure><img src='phase21_object_looking_assets/teacher_apple_1.png'><figcaption>apple</figcaption></figure>
+<figure><img src='phase21_object_looking_assets/teacher_apple_2.png'><figcaption>apple</figcaption></figure>
+<figure><img src='phase21_object_looking_assets/teacher_apple_3.png'><figcaption>apple</figcaption></figure>
+<figure><img src='phase21_object_looking_assets/teacher_banana_0.png'><figcaption>banana</figcaption></figure>
+<figure><img src='phase21_object_looking_assets/teacher_banana_1.png'><figcaption>banana</figcaption></figure></div></section>
+  <section>
+    <h2>AP 逐图输出</h2>
+    <table><thead><tr><th>题目图</th><th>整图倾向</th><th>扫视过程</th><th>列举结果</th><th>计数</th></tr></thead><tbody><tr><td><img src='phase21_object_looking_assets/probe_multi_0.png'><br><span class='muted'>probe_multi_0.png</span></td><td>orange <code>ambig</code><br>margin 0.228</td><td>tick 0: 看 bbox=(19, 6, 115, 129) -> apple<br>tick 1: 看 bbox=(77, 137, 180, 240) -> orange<br>tick 2: 看 bbox=(128, 57, 249, 108) -> banana<br>tick 3: 看 bbox=None -> None<br>tick 4: 看 bbox=None -> None<br>tick 5: 看 bbox=None -> None<br>tick 6: 看 bbox=None -> None<br>tick 7: 看 bbox=None -> None</td><td class='good'>apple <code>ambig</code> 0.280<br>orange <code>soft</code> 0.466<br>banana <code>ambig</code> 0.306</td><td>3</td></tr>
+<tr><td><img src='phase21_object_looking_assets/probe_multi_1.png'><br><span class='muted'>probe_multi_1.png</span></td><td>apple <code>ambig</code><br>margin 0.149</td><td>tick 0: 看 bbox=(135, 99, 234, 228) -> apple<br>tick 1: 看 bbox=(15, 63, 130, 111) -> banana<br>tick 2: 看 bbox=None -> None<br>tick 3: 看 bbox=None -> None<br>tick 4: 看 bbox=None -> None<br>tick 5: 看 bbox=None -> None<br>tick 6: 看 bbox=None -> None<br>tick 7: 看 bbox=None -> None</td><td class='good'>apple <code>soft</code> 0.456<br>banana <code>ambig</code> 0.300</td><td>2</td></tr>
+<tr><td><img src='phase21_object_looking_assets/probe_multi_2.png'><br><span class='muted'>probe_multi_2.png</span></td><td>orange <code>no_call</code><br>margin 0.060</td><td>tick 0: 看 bbox=(27, 41, 118, 132) -> orange<br>tick 1: 看 bbox=(133, 132, 236, 217) -> banana<br>tick 2: 看 bbox=None -> None<br>tick 3: 看 bbox=None -> None<br>tick 4: 看 bbox=None -> None<br>tick 5: 看 bbox=None -> None<br>tick 6: 看 bbox=None -> None<br>tick 7: 看 bbox=None -> None</td><td class='good'>orange <code>soft</code> 0.458<br>banana <code>soft</code> 0.376</td><td>2</td></tr>
+<tr><td><img src='phase21_object_looking_assets/probe_multi_3.png'><br><span class='muted'>probe_multi_3.png</span></td><td>apple <code>ambig</code><br>margin 0.165</td><td>tick 0: 看 bbox=(25, 14, 121, 137) -> apple<br>tick 1: 看 bbox=(136, 126, 233, 223) -> orange<br>tick 2: 看 bbox=None -> None<br>tick 3: 看 bbox=None -> None<br>tick 4: 看 bbox=None -> None<br>tick 5: 看 bbox=None -> None<br>tick 6: 看 bbox=None -> None<br>tick 7: 看 bbox=None -> None</td><td class='good'>apple <code>ambig</code> 0.280<br>orange <code>soft</code> 0.463</td><td>2</td></tr></tbody></table>
+  </section>
+  <section>
+    <h2>证明了什么</h2>
+    <p>本阶段证明识别不再只是整图 label：候选区域先以 class-agnostic 方式进入 state_pool，再由视觉注意力动作选择焦点，最后在局部对象视野里重算 V7/V10/V11/V12 等特征。它仍不宣称真实世界照片识别完成，也不宣称 Zvec 或开放对话底座已完成。</p>
+  </section>
+</main>
+</body>
+</html>

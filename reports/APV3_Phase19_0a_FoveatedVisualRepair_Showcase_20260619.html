@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 19.0a：焦点高清与多 tick 内心画面</title>
+  <style>
+    body { margin:0; font-family:"Microsoft YaHei","Segoe UI",Arial,sans-serif; background:#f4f6f4; color:#17211d; line-height:1.62; }
+    header, main { max-width:1180px; margin:0 auto; padding:24px; }
+    h1 { font-size:32px; margin:0 0 10px; }
+    h2 { font-size:21px; margin:0 0 10px; }
+    section { background:white; border:1px solid #dbe4df; border-radius:8px; padding:18px; margin:14px 0; }
+    .grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
+    figure { margin:0; border:1px solid #dbe4df; border-radius:8px; padding:8px; background:#fbfdfc; }
+    img { width:100%; height:210px; object-fit:contain; background:white; display:block; border-radius:6px; }
+    figcaption { color:#64736d; font-size:13px; margin-top:6px; }
+    code { background:#eef4f1; border:1px solid #d6e2dd; border-radius:5px; padding:1px 5px; }
+    table { width:100%; border-collapse:collapse; }
+    td { border-bottom:1px solid #dbe4df; padding:8px; }
+    td:first-child { color:#245a8f; font-weight:700; }
+    .warn { background:#fff7e4; }
+    @media(max-width:900px) { .grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>APV3 Phase 19.0a：焦点高清与多 tick 内心画面</h1>
+    <p>这一阶段修复的是你指出的核心体验问题：AP 的内心画面必须来自原图焦点直采，周边按清晰度渐变，连续看多个 tick 后画布覆盖和相似度上升。</p>
+  </header>
+  <main>
+    <section>
+      <h2>逐 tick 回放</h2>
+      <div class="grid">
+        <figure><img src="phase19_0a_foveated/input.png" alt="原图"><figcaption>原图。用于 audit，对 AP 不暴露文件名语义。</figcaption></figure>
+        <figure><img src="phase19_0a_foveated/canvas_tick_1.png" alt="单 tick"><figcaption>单 tick：只有一个注视点附近最清楚。</figcaption></figure>
+        <figure><img src="phase19_0a_foveated/canvas_tick_5.png" alt="5 tick"><figcaption>5 tick：多个注视区域被拼到 SensoryCanvas。</figcaption></figure>
+        <figure><img src="phase19_0a_foveated/canvas_tick_10.png" alt="10 tick"><figcaption>10 tick：覆盖更广，画面认知更稳定。</figcaption></figure>
+      </div>
+    </section>
+    <section>
+      <h2>三层内心画面边界</h2>
+      <div class="grid">
+        <figure><img src="phase19_0a_foveated/canvas_tick_10.png" alt="perceived"><figcaption><code>PERCEIVED_SENSORY_SKETCH</code>，只来自当前感受器和 canvas。</figcaption></figure>
+        <figure><img src="phase19_0a_foveated/remembered_overlay.png" alt="remembered"><figcaption><code>REMEMBERED_SKETCH</code>，19.0b1 之前只是 schema overlay。</figcaption></figure>
+        <figure><img src="phase19_0a_foveated/prediction_overlay.png" alt="predicted"><figcaption><code>INFERRED_SKETCH</code>，19.2 之前只是 schema overlay。</figcaption></figure>
+      </div>
+    </section>
+    <section>
+      <h2>审计数字</h2>
+      <table>
+        <tr><td>feature_vector_dim</td><td>28686</td></tr>
+        <tr><td>V0 foveated</td><td>24576</td></tr>
+        <tr><td>receptor_version</td><td><code>phase19_0a_foveated</code></td></tr>
+        <tr><td>patch_native_resolution</td><td>True</td></tr>
+        <tr><td>evaluator_label_accessed</td><td>False</td></tr>
+      </table>
+    </section>
+    <section class="warn">
+      <h2>边界</h2>
+      <p>Phase 19.0a 不证明真实照片识别、不证明对象泛化、不证明 B/C 召回质量、不证明多模态绑定，也不证明开放对话完成。它只证明 foveated visual repair：原图焦点直采、ClarityField、多 tick SensoryCanvas 和三层 overlay 边界。</p>
+    </section>
+  </main>
+</body>
+</html>

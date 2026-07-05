@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 20.2/20.3：共现教学与记忆包</title>
+  <style>
+    body{margin:0;background:#f4f7f8;color:#172126;font-family:"Microsoft YaHei","Segoe UI",Arial,sans-serif;line-height:1.68;letter-spacing:0}
+    header,main{max-width:1160px;margin:0 auto;padding:24px}
+    section{background:#fff;border:1px solid #d8e2e7;border-radius:8px;padding:18px;margin:14px 0}
+    h1{margin:0 0 8px;font-size:28px} h2{font-size:20px} code{background:#edf4f2;border-radius:5px;padding:2px 5px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .kv{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px;margin:5px 0}
+    .kv b{color:#63727a;font-weight:500} .mono{font-family:Consolas,"Courier New",monospace;overflow-wrap:anywhere}
+    table{width:100%;border-collapse:collapse;font-size:13px} td,th{border:1px solid #d8e2e7;padding:6px;text-align:left;vertical-align:top} th{background:#fbfdff}
+    .ok{color:#0f766e;font-weight:700} .warn{color:#a33b35;font-weight:700}
+    @media(max-width:860px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header>
+  <h1>APV3 Phase 20.2/20.3：标注不是标签表,而是共现波峰</h1>
+  <p>这页展示用户教“像苹果。”后,AP 如何把视觉对象 SA 与老师短句 SA 写进共现图,并通过记忆包导出、导入、卸载治理这些记忆。</p>
+</header>
+<main>
+  <section>
+    <h2>AP 输出过程</h2>
+    <div class="grid">
+      <div>
+        <div class="kv"><b>题目</b><span>图片 + “这是什么”</span></div>
+        <div class="kv"><b>第一次 AP</b><span>...嗯,看到了。</span></div>
+        <div class="kv"><b>用户教学</b><span>像苹果。</span></div>
+        <div class="kv"><b>再问 AP</b><span class="ok">像苹果。</span></div>
+      </div>
+      <div>
+        <div class="kv"><b>teacher source</b><span class="mono">teacher_event_cooccurrence</span></div>
+        <div class="kv"><b>context</b><span class="mono">phase20ctx::9499270ac028a6fb</span></div>
+        <div class="kv"><b>visual SAs</b><span class="mono">phase20ctx::9499270ac028a6fb, visual_object::730d7f6a068603dd3568d3d2, visual_concept::c_95098696ad7469f70c4cd77d</span></div>
+        <div class="kv"><b>style import</b><span>1200 / 11830</span></div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>共现边</h2>
+    <p>这些边是 AP-native 记忆。它们不是 image_label_map,也不是 answer table。</p>
+    <table><thead><tr><th>source SA</th><th>phrase SA</th><th>support</th></tr></thead><tbody><tr><td>phase20ctx::9499270ac028a6fb</td><td>teacher_phrase::3ddb8788eb9fa937</td><td>1.000</td></tr><tr><td>visual_concept::c_95098696ad7469f70c4cd77d</td><td>teacher_phrase::3ddb8788eb9fa937</td><td>1.000</td></tr><tr><td>visual_object::730d7f6a068603dd3568d3d2</td><td>teacher_phrase::3ddb8788eb9fa937</td><td>1.000</td></tr></tbody></table>
+  </section>
+  <section>
+    <h2>本地记忆与记忆包</h2>
+    <table><thead><tr><th>kind</th><th>text</th><th>memory id</th></tr></thead><tbody><tr><td>expression_phrase</td><td>像苹果。</td><td>expr::teacher_phrase::3ddb8788eb9fa937</td></tr></tbody></table>
+    <p>导出包: <code>苹果共现教学包</code>, memories=1</p>
+    <p>导入: added=1, dedup=0; 卸载: removed=1。</p>
+  </section>
+  <section>
+    <h2>边界</h2>
+    <p><span class="ok">已证明:</span> 视觉/文本教学走共现图,风格语料千句级进入 AP 表达记忆,记忆包可导入去重和精确卸载。</p>
+    <p><span class="warn">仍不能宣称:</span> 完整中文 NLU、任意真实图鲁棒识别、社区包法律审计完成、成人级语义抽象完成。</p>
+  </section>
+</main>
+</body>
+</html>

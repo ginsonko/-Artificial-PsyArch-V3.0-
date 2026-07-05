@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_1d2f697841441dfd",
+  "concept": "cat",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_1d2f697841441dfd.png",
+  "sha256": "1d2f697841441dfddc0adaa54ce5609a2d05b2c4d109a18ec2a73ba992593459",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/70561195@N00/6508022985",
+  "download_url": "https://api.openverse.org/v1/images/adbc155d-5376-43ec-8c29-1e193f2a8833/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "GirlieMac",
+  "title": "404 - Not Found",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

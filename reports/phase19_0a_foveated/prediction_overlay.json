@@ -1,0 +1,7 @@
+{
+  "epistemic_source": "INFERRED_SKETCH",
+  "evaluator_label_accessed": false,
+  "phase19_2_required_for_real_prediction": true,
+  "render_mode": "prediction_overlay",
+  "schema_only": true
+}

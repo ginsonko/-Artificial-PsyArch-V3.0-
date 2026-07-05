@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_8573ee5ff8cd9ffc",
+  "concept": "cake",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_8573ee5ff8cd9ffc.png",
+  "sha256": "8573ee5ff8cd9ffc3d8aa287d859b4032bef1427c671643c1675b55a9d12f64e",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/23088039@N08/3622160675",
+  "download_url": "https://api.openverse.org/v1/images/217d18ce-d81c-40b9-9e90-8e7bdccc8401/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Rachel from Cupcakes Take the Cake",
+  "title": "Cupcake kebabs!",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

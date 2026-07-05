@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase5.1 增量式 Tick Runtime</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --paper: #ffffff;
+      --ink: #17202d;
+      --muted: #5f6d7c;
+      --line: #d9e1eb;
+      --accent: #255aa8;
+      --ok: #0f7b55;
+      --warn: #9b6000;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    main {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 32px 20px 52px;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 20px;
+      margin-bottom: 22px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 4vw, 42px);
+      letter-spacing: 0;
+    }
+    h2 { margin: 28px 0 12px; font-size: 22px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); max-width: 920px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--ok); }
+    .warn { color: var(--warn); }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .step {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 92px;
+    }
+    .step strong { color: var(--accent); }
+    code {
+      background: #eef3f8;
+      border: 1px solid #dbe4ee;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: Consolas, "Cascadia Mono", monospace;
+      font-size: 0.94em;
+    }
+    pre {
+      overflow: auto;
+      background: #111827;
+      color: #edf4ff;
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 13px;
+    }
+    ul { padding-left: 22px; margin: 8px 0; }
+    li { margin: 6px 0; }
+    .note {
+      border-left: 4px solid var(--accent);
+      background: var(--paper);
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase5.1 增量式 Tick Runtime</h1>
+    <p class="subtitle">本阶段把 Phase5.0 的增量式范式学习器接入最小 tick runtime。未提交 observation 只暂存；commit 或 feedback 后才进入长期学习证据；support 足够时生成 ParadigmSA，并复用低粒度草稿/提交链路。</p>
+  </header>
+
+  <section class="grid" aria-label="状态摘要">
+    <div class="card">
+      <div class="label">阶段</div>
+      <div class="value ok">Phase5.1 已通过</div>
+      <p><code>IncrementalTickRuntime</code> 已接入。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">96 passed</div>
+      <p>未破坏前序 Phase0-5.0 门。</p>
+    </div>
+    <div class="card">
+      <div class="label">学习边界</div>
+      <div class="value ok">commit/feedback 后学习</div>
+      <p>输入和草稿不会自动固化为长期技能。</p>
+    </div>
+    <div class="card">
+      <div class="label">教学等价</div>
+      <div class="value ok">行为 probe 通过</div>
+      <p>自然教学与 LLM 标准教学输出同一运行行为。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>运行链路</h2>
+    <div class="flow">
+      <div class="step"><strong>1. Tick 输入</strong><br>外界或教师侧 observation 进入 runtime。</div>
+      <div class="step"><strong>2. 暂存</strong><br>未 commit/feedback 时只进 pending。</div>
+      <div class="step"><strong>3. 学习</strong><br>commit/feedback 后进入 incremental learner。</div>
+      <div class="step"><strong>4. 范式</strong><br>support 足够时生成或刷新 ParadigmSA。</div>
+      <div class="step"><strong>5. 草稿</strong><br>已暴露范式逐 token 写入草稿并可 commit。</div>
+      <div class="step"><strong>6. 持久化</strong><br>SQLite 保存恢复后状态等价。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>关键原则</h2>
+    <ul>
+      <li><code>pending_paradigm_observations</code> 不抬高 support。</li>
+      <li><code>RoleTransitionStats.bias_map()</code> 在后续 tick 中参与范式解码。</li>
+      <li>idle tick 只整理 dirty bucket，不新增策略或答案。</li>
+      <li>LLM 只能作为教师侧标准教学来源，不写入 <code>llm_policy</code>。</li>
+      <li>草稿仍由 <code>draft_editor</code> 低粒度行动逐 token 完成。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>验收结果</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase5_1_incremental_tick_runtime.py APV3.0test\tests\test_phase5_0_incremental_paradigm.py APV3.0test\tests\test_phase4_0_minimal_dialogue_runtime.py -q
+17 passed in 0.56s
+
+python -m pytest APV3.0test\tests -q
+96 passed in 2.10s</code></pre>
+    <div class="note">
+      禁用通道扫描只命中 <code>draft_action.py</code> 的 <code>if text:</code>，人工审查确认为草稿 buffer 非空检查，不是文本模态特权分支。
+    </div>
+  </section>
+
+  <section>
+    <h2>仍不宣称</h2>
+    <ul>
+      <li>不宣称完整 APV3.0 中文开放自由对话底座完成。</li>
+      <li>不宣称完整开放对话的 Bn 召回、注意力选择和多技能竞争已完成。</li>
+      <li>不宣称 LLM 标准教学协议六阶段全流程已经全部接入。</li>
+      <li>不宣称所有旧 GL 技能已经复现。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>下一步</h2>
+    <p>Phase5.2 应把 tick runtime 与 Bn/Cn recall 和注意力焦点接起来：当前输入先召回候选 ParadigmSA，Cn 沿显式 successor 或范式统计读取后继，attention focus 选择当前最相关范式，再进入逐 token 草稿行动。</p>
+  </section>
+</main>
+</body>
+</html>

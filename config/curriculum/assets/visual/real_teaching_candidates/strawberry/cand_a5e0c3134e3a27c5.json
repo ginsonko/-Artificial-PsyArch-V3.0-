@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_a5e0c3134e3a27c5",
+  "concept": "strawberry",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_a5e0c3134e3a27c5.png",
+  "sha256": "a5e0c3134e3a27c5080ed678dffbeb7001a6fb4dadeee2c2b72b0186e5a7cf7d",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/36291048@N06/3563623650",
+  "download_url": "https://api.openverse.org/v1/images/b12002f2-955e-42ef-b6cd-26f05a151a53/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "roger.karlsson",
+  "title": "A strawberry shot a sunny day",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

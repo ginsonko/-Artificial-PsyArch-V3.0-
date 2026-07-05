@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase7.9 多轮极简中文对话流</title>
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #667789;
+      --line: #d9e2ec;
+      --bg: #f4f7f8;
+      --panel: #ffffff;
+      --green: #0d7a4f;
+      --blue: #245a8f;
+      --soft-green: #e8f6ef;
+      --soft-blue: #e8f1fb;
+      --soft-gray: #f8fafc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.68;
+    }
+    main {
+      width: min(1180px, calc(100% - 48px));
+      margin: 28px auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 45px rgba(30, 44, 64, 0.08);
+    }
+    header {
+      padding: 36px 42px 26px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbfc 100%);
+    }
+    h1 { margin: 0; font-size: 30px; line-height: 1.25; letter-spacing: 0; }
+    h2 { margin: 0 0 12px; font-size: 21px; }
+    h3 { margin: 18px 0 8px; color: var(--blue); font-size: 16px; }
+    p { margin: 8px 0; }
+    section { padding: 28px 42px; border-bottom: 1px solid var(--line); }
+    section:last-child { border-bottom: 0; }
+    .subtitle { max-width: 930px; color: var(--muted); font-size: 16px; margin-top: 12px; }
+    .status {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 7px 12px;
+      border-radius: 6px;
+      color: var(--green);
+      background: var(--soft-green);
+      border: 1px solid #bfe6d1;
+      font-weight: 700;
+    }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fbfdff;
+      min-height: 118px;
+    }
+    .card strong { display: block; color: var(--green); font-size: 28px; line-height: 1.1; margin-bottom: 8px; }
+    .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 14px; }
+    .step { border: 1px solid var(--line); border-radius: 8px; padding: 13px; background: #fff; font-size: 14px; }
+    .step b { color: var(--blue); display: block; margin-bottom: 4px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #edf3f8; }
+    code { font-family: Consolas, "Courier New", monospace; background: #f2f5f7; border: 1px solid #e1e7ee; border-radius: 4px; padding: 1px 5px; }
+    .bubble {
+      display: inline-block;
+      padding: 7px 11px;
+      border-radius: 8px;
+      background: var(--soft-blue);
+      color: #23466b;
+      border: 1px solid #c6dbf3;
+      font-weight: 700;
+      min-width: 54px;
+      text-align: center;
+    }
+    .dialogue {
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: var(--soft-gray);
+      margin-top: 12px;
+    }
+    .speaker { color: var(--muted); font-weight: 700; }
+    .ap { color: var(--green); font-weight: 700; }
+    ul { padding-left: 20px; margin: 8px 0 0; }
+    li { margin: 6px 0; }
+    @media (max-width: 900px) {
+      main { width: calc(100% - 24px); margin: 12px auto; }
+      header, section { padding: 22px; }
+      .grid, .flow { grid-template-columns: 1fr; }
+      .dialogue { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3 Phase7.9：多轮极简中文对话流</h1>
+    <p class="subtitle">
+      这一阶段把“固定极简中文表达底座”推进到连续轮次。
+      系统能在几轮对话里观察、学习、复用短语；用户反馈会改变下一轮表达；话题切换后不会被上一轮状态污染。
+    </p>
+    <div class="status">验收通过：多轮学习、反馈改变、话题切换、SQLite parity 全部成立</div>
+  </header>
+
+  <section>
+    <h2>多轮链路</h2>
+    <div class="flow">
+      <div class="step"><b>输入</b>当前用户 query 进入状态池</div>
+      <div class="step"><b>感受</b>结构态产生 draft introspection feeling</div>
+      <div class="step"><b>观察</b>用户/环境短句形成共现证据</div>
+      <div class="step"><b>召回</b>feeling 召回 phrase id 和短句</div>
+      <div class="step"><b>反馈</b>下一轮奖惩作用于上轮表达</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>直观结果</h2>
+    <table>
+      <tr><th>轮次</th><th>结构 feeling</th><th>本轮观察到的短句</th><th>系统输出</th><th>发生了什么</th></tr>
+      <tr><td>1</td><td><code>proto_0</code></td><td><code>p:resp:dunno</code></td><td><span class="bubble">不知道</span></td><td>第一次观察到“不知道”，立刻形成可复用证据。</td></tr>
+      <tr><td>2</td><td><code>proto_0</code></td><td>无</td><td><span class="bubble">不知道</span></td><td>teacher-off，靠上一轮学到的共现召回。</td></tr>
+      <tr><td>3</td><td><code>proto_0</code></td><td><code>p:resp:cantyet</code></td><td><span class="bubble">还不会</span></td><td>上一轮“不知道”被惩罚，本轮观察“还不会”。</td></tr>
+      <tr><td>4</td><td><code>proto_0</code></td><td>无</td><td><span class="bubble">还不会</span></td><td>同一结构态下，下一轮表达已改变。</td></tr>
+      <tr><td>5-6</td><td><code>proto_1</code></td><td><code>p:ack:yes</code></td><td><span class="bubble">嗯</span></td><td>切到顺畅/确认态，不再被“不知道”污染。</td></tr>
+      <tr><td>7-8</td><td><code>proto_2</code></td><td><code>p:request:help</code></td><td><span class="bubble">教教</span></td><td>请求态学会更像“想被教”的表达。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>它证明了什么</h2>
+    <div class="grid">
+      <div class="card"><strong>6</strong>Phase7.9 targeted tests passed</div>
+      <div class="card"><strong>72</strong>Phase7.0-7.9 combined passed</div>
+      <div class="card"><strong>245</strong>Full suite passed</div>
+      <div class="card"><strong>0</strong>runtime 红线命中</div>
+    </div>
+    <h3>后天学习</h3>
+    <p>短句不是写死在多轮 runtime 里。它们来自观察到的用户/环境表达，并通过 feeling-expression 共现进入后续召回。</p>
+    <h3>反馈改变</h3>
+    <p>惩罚上一轮输出会降低对应 phrase 支持度；同结构态下一轮可以转向另一个已观察表达。</p>
+    <h3>状态不污染</h3>
+    <p>切换结构态后，当前 feeling 由当前 views 产生，不被上一轮强表达继续拖拽。</p>
+  </section>
+
+  <section>
+    <h2>对话质感示例</h2>
+    <div class="dialogue">
+      <div class="speaker">用户</div><div>这是什么?</div>
+      <div class="speaker">系统</div><div class="ap">不知道</div>
+      <div class="speaker">用户</div><div>嗯，这次说“还不会”更合适。</div>
+      <div class="speaker">系统</div><div class="ap">还不会</div>
+      <div class="speaker">用户</div><div>今天天气很好。</div>
+      <div class="speaker">系统</div><div class="ap">嗯</div>
+      <div class="speaker">用户</div><div>这个要怎么学?</div>
+      <div class="speaker">系统</div><div class="ap">教教</div>
+    </div>
+    <p>
+      这个阶段的重点不是“它已经懂很多”，而是它已经能在连续互动中表现出一种可教的稳定模式：
+      不知道就说不知道，被纠正后会改，换话题后能换状态。
+    </p>
+  </section>
+
+  <section>
+    <h2>验收</h2>
+    <ul>
+      <li>Phase7.9 targeted: <strong>6 passed</strong></li>
+      <li>Phase7.8-7.9 combined: <strong>15 passed</strong></li>
+      <li>Phase7.0-7.9 combined regression: <strong>72 passed</strong></li>
+      <li>Full suite: <strong>245 passed</strong></li>
+      <li>Compileall 通过；runtime 红线扫描无命中。</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

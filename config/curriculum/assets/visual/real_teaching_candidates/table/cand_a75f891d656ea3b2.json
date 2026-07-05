@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_a75f891d656ea3b2",
+  "concept": "table",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_a75f891d656ea3b2.png",
+  "sha256": "a75f891d656ea3b2f24991e3de97606a8c707e77c65e440f01d33bd5956d1316",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/56068058@N00/1939958147",
+  "download_url": "https://api.openverse.org/v1/images/1545b3ec-a6c7-497e-a650-5bb9d9380cf1/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Malcolm Tredinnick",
+  "title": "My work area",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

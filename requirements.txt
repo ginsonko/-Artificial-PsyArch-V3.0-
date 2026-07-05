@@ -1,0 +1,19 @@
+# APV3.0test runtime dependencies
+# Pin exact versions for reproducibility
+
+# Scientific computing (vision/audio feature extraction)
+numpy==1.26.4
+scipy==1.13.1
+
+# Image processing (Phase 19 visual receptor)
+Pillow==10.3.0
+
+# TTS (audio synthesis, already used via pyttsx3)
+pyttsx3==2.90
+
+# Web service (workbench demo server)
+flask==3.0.3
+
+# Testing
+pytest==8.2.2
+pytest-timeout==2.3.1

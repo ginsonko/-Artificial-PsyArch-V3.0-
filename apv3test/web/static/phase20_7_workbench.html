@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>APV3 开放对话底座</title>
+  <link rel="stylesheet" href="/phase20_7_workbench.css" />
+</head>
+<body>
+  <nav class="nav-bar">
+    <div class="nav-brand">
+      <span class="brand-mark">AP</span>
+      <span class="brand-text">APV3 开放对话底座</span>
+    </div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" data-page="home">首页</button>
+      <button class="nav-tab" data-page="detail">详情</button>
+      <button class="nav-tab" data-page="config">配置</button>
+      <button class="nav-tab" data-page="help">理论</button>
+    </div>
+    <div class="nav-status">
+      <small id="navStatus">待机</small>
+    </div>
+  </nav>
+
+  <!-- ============ 首页 ============ -->
+  <main class="page page-home active" id="page-home">
+    <div class="home-layout">
+      <!-- 左：对话区 -->
+      <section class="dialogue-section">
+        <div class="dialogue-head">
+          <span class="section-title">对话</span>
+          <small id="runtimeStatus">待机</small>
+        </div>
+        <div id="progressBanner" class="progress-banner">等待输入。</div>
+        <div id="chatLog" class="chat-log" aria-live="polite"></div>
+        <div class="composer">
+          <textarea id="userText" rows="3" placeholder="输入中文文本，或留空发送教学纠正"></textarea>
+          <div class="inputs">
+            <div class="path-picker">
+              <input id="imagePath" placeholder="图片路径，可空" />
+              <label class="file-button" for="imageFile">选择图片</label>
+              <input id="imageFile" class="file-input" type="file" accept="image/*" />
+            </div>
+            <div class="path-picker">
+              <input id="audioPath" placeholder="音频路径，可空" />
+              <label class="file-button" for="audioFile">选择音频</label>
+              <input id="audioFile" class="file-input" type="file" accept="audio/*" />
+            </div>
+            <input id="teacherFeedback" placeholder="教学纠正：单独填纠正上一轮；和文本一起填则教学本轮" />
+          </div>
+          <div class="actions">
+            <button id="sendTurn" type="button" class="btn-primary">发送</button>
+            <button id="idleTurn" type="button">闲时 tick</button>
+            <button id="clearInput" type="button">清空</button>
+          </div>
+          <div class="actions-row2">
+            <button id="demoExperience" type="button" title="一键体验 AP 拟人看图学习">多模态识图示例</button>
+            <button id="demoMath" type="button" title="一键体验 AP 竖式数学范式">小学数学泛化学习</button>
+            <button id="demoAgency" type="button" title="一键体验 AP 主观能动性">主观能动性示例</button>
+            <button id="demoReminisce" type="button" title="教过之后挂机，看 AP 自己在闲时把近期教过的事再过一遍（9f 回味）">看它回味示例</button>
+            <button id="demoSelfTest" type="button" title="教一道对齐题后挂机，看 AP 自测一道同源冷启动题并自发报率（9g/9h 自我练习）">看它自测示例</button>
+            <button id="demoPainting" type="button" title="一键体验 AP 把脑中的画面一笔一笔投影到画板">看它画画示例</button>
+            <button id="demoCorrect" type="button" title="教学纠正:泛化后 punish 不复读,只让它对这条泛化更谨慎——纠错和学习是两条通道">看它被纠正示例</button>
+            <button id="loadSeeds" type="button">加载范式种子</button>
+            <button id="loadStarter" type="button">加载预热包</button>
+          </div>
+          <div class="actions-row3">
+            <button id="autoIdle" type="button" aria-pressed="false">连续闲时</button>
+            <button id="refreshMemory" type="button">刷新记忆</button>
+            <label class="toggle-line">
+              <input id="autoSpeak" type="checkbox" checked />
+              <span>回复后朗读</span>
+            </label>
+            <button id="playTts" type="button">朗读最新回复</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 中：新手建议 + 画板 -->
+      <section class="home-column home-column-middle">
+        <div class="inner-guide">
+          <p>第一次来可以先点一张引导卡，再发一句文本。画板、图片和语音都是真实通道，不是贴图演示。</p>
+          <p><b>建议顺序</b>：先教说话，再看识图，再试数学，最后挂机看主动。</p>
+        </div>
+        <section class="guide-cards" id="guideCards">
+          <div class="guide-card" data-guide="1">
+            <b>教它说话</b>
+            <p>1. 点"教说话"看示例，或点"看它被纠正示例"看泛化-惩罚-变化</p>
+            <p>2. 先发"你好"再用 teacher_feedback 纠正上一轮——教学只走经验流,不是答案表</p>
+            <p>3. 你自己按"文本+纠正"协议教即可;惩罚不变成它的答案,只让它对这条泛化更谨慎</p>
+          </div>
+          <div class="guide-card" data-guide="2">
+            <b>教它识图</b>
+            <p>1. 点"多模态识图示例"——它会先失败一次(没见过的取景答不出),再教,再看召回</p>
+            <p>2. 在画板上传一张图,再问"这是什么"</p>
+            <p>3. 让它先看图、焦点 patch + 周边 gist 进入视觉记忆,再根据反馈写入指代</p>
+          </div>
+          <div class="guide-card" data-guide="3">
+            <b>教它算数</b>
+            <p>1. 点"小学数学泛化学习"——先失败一次没教过的题,再教 4 个位事实 + 1 道竖式</p>
+            <p>2. 重问时它会用教过的事实+竖式范式拼出未教过的题,自动弹出草稿格写入序列重放</p>
+            <p>3. 没教过的部分(如 7+6)它诚实说不会——白箱:它不编答案</p>
+          </div>
+          <div class="guide-card" data-guide="4">
+            <b>教它画画</b>
+            <p>1. 点"看它画画示例"——全程隔离 demo 会话,4 幕真实 turn:先看它没见过香蕉答不出,再教视觉名"香蕉",再让它召回香蕉想象,最后教"画一个香蕉"触发 painting 子循环</p>
+            <p>2. 子循环真触发会逐 tick 投影轮廓单元(project_contour → observe_painting 回读 → commit_painting 出 PNG):下方"按 tick 回放"是它真跑的动作时间线,最后落 commit PNG 进对话气泡</p>
+            <p>3. 不假造像素逐笔动画——单元几何细节不在前端能拿的字段里;fable5 的 painting 路径是经验 gate 触发,没教过的不画,没有任何图库</p>
+          </div>
+          <div class="guide-card" data-guide="5">
+            <b>看它主动</b>
+            <p>1. 点"主观能动性示例"，给它没解决的话题再加压三轮再进入连续闲时——重复 + 子目张力让它 idle 自己冒出没直接教过的复语（如"我还在想这个"）。六时刻 M-A 已经验证它真的会自开口</p>
+            <p>2. 注意：这套兜底走的是重复 + 召回路径；而把"未闭合张力"驱动主开口的独立路（M4-3 unclosed_drive）现在还硬编为 0.0 占位，没激活——能看到的是由重复/召回带动的间接自开口</p>
+            <p>3. 点"看它回味示例"——9f idle_learning_review 已激活，教过之后挂机它会把近期教学再过一遍</p>
+            <p>4. 点"看它自测示例"——9g/9h idle_self_test 已激活，教一道对齐题后挂机它会对同源题自测还自发报率</p>
+            <p>5. "找新东西"要靠 browse_page 这类环境接口，现在诚实说还没接；接上后再开</p>
+          </div>
+        </section>
+        <section class="inner-panel canvas-panel">
+          <h3>画板</h3>
+          <p class="panel-hint">本地画出来的内容会先上传成图片，再像草稿一样通过真实 turn 发送到对话里。</p>
+          <div class="canvas-stage">
+            <canvas id="homeCanvas" width="300" height="300" aria-label="AP 画板"></canvas>
+          </div>
+          <div class="canvas-toolbar">
+            <div class="canvas-swatches" aria-label="画笔颜色">
+              <button type="button" class="canvas-swatch active" data-canvas-color="#111111" style="background:#111111" aria-label="黑色"></button>
+              <button type="button" class="canvas-swatch" data-canvas-color="#d23c3c" style="background:#d23c3c" aria-label="红色"></button>
+              <button type="button" class="canvas-swatch" data-canvas-color="#3d67f2" style="background:#3d67f2" aria-label="蓝色"></button>
+              <button type="button" class="canvas-swatch" data-canvas-color="#2f9e6b" style="background:#2f9e6b" aria-label="绿色"></button>
+            </div>
+            <label class="canvas-size">
+              <span>粗细</span>
+              <input id="canvasBrushSize" type="range" min="1" max="12" step="1" value="4" />
+              <span id="canvasBrushSizeVal">4</span>
+            </label>
+            <button id="canvasClear" type="button">清空画板</button>
+            <button id="canvasSend" type="button" class="btn-primary">把画发给 AP</button>
+          </div>
+          <div class="canvas-caption">
+            <input id="canvasCaption" type="text" placeholder="可选：给这幅画配一句话，留空也能发" />
+          </div>
+          <div id="canvasStatus" class="canvas-status">画板就绪。</div>
+        </section>
+      </section>
+
+      <!-- 右：内心活动区 -->
+      <section class="home-column home-column-right">
+        <section class="inner-panel visual-panel">
+          <h3>内心画面</h3>
+          <p class="panel-hint">AP"看到的"画面——不是原图缩略图，而是从状态池视觉 SA 重建的内心画面。多看几 tick 后细节会增加。</p>
+          <div id="innerPicture" class="inner-picture empty">等待视觉 tick</div>
+        </section>
+        <section class="inner-panel thought-panel">
+          <h3>想法云</h3>
+          <p class="panel-hint">AP 内部短期结构流的快照——它在"想"什么。</p>
+          <div id="thoughtCloud" class="thought-cloud"></div>
+        </section>
+        <section class="inner-panel audio-panel">
+          <h3>内心音频</h3>
+          <p class="panel-hint">AP 听到的音频感受快照。</p>
+          <div id="innerAudio" class="inner-audio empty">等待听觉 tick</div>
+          <audio id="ttsAudio" controls preload="none"></audio>
+          <div id="ttsStatus" class="tts-status"></div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <!-- ============ 详情页 ============ -->
+  <main class="page page-detail" id="page-detail">
+    <div class="detail-intro">
+      <h2>运行详情</h2>
+      <p>以下是 AP 最近一次回复的完整认知过程。每个卡片展示一个认知环节，你可以看到 AP"看见了什么、召回了什么、为什么选这个动作"。</p>
+    </div>
+    <section class="detail-card">
+      <h3>运行状态 <small>当前 tick 的核心指标</small></h3>
+      <p class="card-desc">展示 AP 当前的 tick 编号、状态池对象数、记忆条目数、未闭合项数。这些是 AP"活着"的证据。</p>
+      <div id="runtimePulse" class="runtime-pulse">待机</div>
+      <div id="runtimeSummary" class="runtime-summary">等待输入或闲时 tick。</div>
+      <div class="metric-grid">
+        <div><span id="metricTick">0</span><small>最新 tick</small></div>
+        <div><span id="metricPool">0</span><small>状态对象</small></div>
+        <div><span id="metricMemory">0</span><small>记忆条目</small></div>
+        <div><span id="metricUnclosed">0</span><small>未闭合</small></div>
+      </div>
+    </section>
+    <section class="detail-card">
+      <h3>学习闭环 <small>六阶段学习协议投影</small></h3>
+      <p class="card-desc">展示 AP 在"模仿→预测→聚合→范式→组织→精修"六阶段学习协议中各阶段的分数。分数越高表示该阶段越成熟。</p>
+      <div id="learningLoopPanel" class="learning-loop empty-note">等待 learning_loop_metrics。</div>
+    </section>
+    <section class="detail-card">
+      <h3>学习生命周期验收 <small>教学褪除+冷重测就绪度</small></h3>
+      <p class="card-desc">展示学习对象的完整生命周期：被教→复盘→自测→反馈调整→重测→教师退场就绪→冷重测就绪。这是判断"AP是否真的学会了"的依据。</p>
+      <div id="learningLifecyclePanel" class="learning-lifecycle empty-note">等待真实教学、复盘、自测和反馈稳定 tick。</div>
+    </section>
+    <section class="detail-card">
+      <h3>本 tick 为什么这样做</h3>
+      <p class="card-desc">用中文解释 AP 在这个 tick 看见了什么、召回了什么、为什么选这个动作。这是白箱可解释性的核心。</p>
+      <div id="tickReason" class="reason-card">选择一个 tick 后，这里会用中文解释。</div>
+    </section>
+    <section class="detail-card">
+      <h3>Tick 回放</h3>
+      <p class="card-desc">逐 tick 回放 AP 的认知过程。点击任意 tick 查看详情。每个 tick 都是真实的 RuntimeTickEvent，不是脚本伪造。</p>
+      <div id="tickList" class="tick-list"></div>
+    </section>
+    <section class="detail-card">
+      <h3>AP 的画板 <small>逐轮廓投影绘画 · 按 tick 回放</small></h3>
+      <p class="card-desc">AP 把想象中的画面一个轮廓一个轮廓地投影到画板上：先勾主体外轮廓、再上色、再补细节斑点——顺序和小孩画画一样。下面按真实 tick 序回放它的作画过程，每帧都是它真实跑过的画板中间态，不是动画特效。首页对话里出现金框画作时，这里能看到它是怎么画出来的。</p>
+      <div class="paint-replay-controls">
+        <button id="paintReplayPlay" type="button">▶ 回放作画过程</button>
+        <span id="paintReplayStatus" class="panel-hint">还没有画板活动。让它画一幅画试试（看首页"看它画画示例"）。</span>
+      </div>
+      <div id="paintBoardReplay" class="paint-board-replay"></div>
+      <div id="detailInnerPictures" class="detail-inner-pictures" hidden></div>
+    </section>
+      <section class="detail-card">
+        <h3>草稿格 <small>DraftGrid 二维可视化 · 逐 tick 回放</small></h3>
+        <p class="card-desc">AP 写回复时的草稿区。AP 不是一次性输出整句，而是逐字写入 DraftGrid、回读、修改、提交。点"回放书写过程"看它逐格写字的真实顺序；数学题会额外显示竖式逐列计算过程（每列都是它召回的已教事实）。</p>
+        <div class="draft-replay-controls">
+          <button id="draftReplayPlay" type="button">▶ 回放书写过程</button>
+          <span id="draftReplayStatus" class="panel-hint"></span>
+        </div>
+        <div id="draftPreview" class="draft-preview">还没有草稿。</div>
+        <div id="verticalMathPanel" class="vertical-math-panel" hidden>
+          <h4>竖式过程 <small>每列都是已教事实的召回，非计算器</small></h4>
+          <div id="verticalMathLayout" class="vertical-math-layout"></div>
+        </div>
+        <div id="draftProcess" class="draft-process"></div>
+      </section>
+    <section class="detail-card">
+      <h3>短期结构流</h3>
+      <p class="card-desc">AP 当前 tick 的短期记忆结构——它刚才看到的文本/视觉/行动的顺序和关系。</p>
+      <div id="structureStream" class="structure-stream">等待真实 RuntimeTickEvent。</div>
+    </section>
+    <section class="detail-card">
+      <h3>审计曲线</h3>
+      <p class="card-desc">AP 认知过程的量化曲线——认知压、把握感、情绪等随 tick 变化的趋势。全部来自真实 tick 数值。</p>
+      <div id="auditCharts" class="audit-charts"></div>
+    </section>
+    <section class="detail-card tabs-card">
+      <h3>记忆 <small>统一经验流</small></h3>
+      <p class="card-desc">AP 记住的所有教学经验。每条都是真实写入经验流的教学事件，可删除可重建。[纠错] 标记的是被惩罚的反例。</p>
+      <div class="tabs">
+        <button class="tab-button active" type="button" data-tab="memoryPanel">统一记忆</button>
+        <button class="tab-button" type="button" data-tab="unclosedPanel">未闭合</button>
+      </div>
+      <div id="memoryPanel" class="tab-panel active"><div id="memoryList" class="memory-list"></div></div>
+      <div id="unclosedPanel" class="tab-panel"><div id="unclosedList" class="memory-list"></div></div>
+    </section>
+  </main>
+
+  <!-- ============ 配置页 ============ -->
+  <main class="page page-config" id="page-config">
+    <div class="detail-intro">
+      <h2>配置</h2>
+      <p>调整 AP 的运行参数。大部分参数有推荐值，改动后点"应用"生效。</p>
+    </div>
+      <section class="detail-card">
+        <h3>本地语音 <small>TTS 朗读</small></h3>
+        <p class="card-desc">AP 回复后自动朗读。使用浏览器内置 Web Speech API，无需下载语音包。xiaoyi 音色在支持的浏览器上自动选用。</p>
+        <div class="config-row">
+          <label>音色</label>
+          <select id="configVoice"></select>
+          <button id="testVoice" type="button">测试朗读</button>
+        </div>
+        <div class="config-row">
+          <label>语速</label>
+          <input id="configRate" type="range" min="0.5" max="2" step="0.1" value="1" />
+          <span id="configRateVal">1.0</span>
+        </div>
+        <div class="config-row config-text-row">
+          <label>测试文本</label>
+          <input id="configSpeechSample" type="text" placeholder="无可朗读回复时回退到此测试句" value="你好，我是AP。" />
+        </div>
+        <p class="config-note">说明：点“测试朗读”时优先朗读 AP 最近一条回复，没有回复才用上面的测试句。浏览器语音音色来自本机系统或浏览器实现，仓库能保存的是选择逻辑，不是音色本体。</p>
+      </section>
+    <section class="detail-card">
+      <h3>连续闲时 <small>自动 tick 节奏</small></h3>
+      <p class="card-desc">开启后 AP 会按自适应节奏自动跑 idle tick。节奏由情绪（arousal/fatigue）派生，不是定时器。</p>
+      <div class="config-row">
+        <label>最小间隔 (秒)</label>
+        <input id="configMinIdle" type="number" min="1" max="30" value="2" />
+      </div>
+      <div class="config-row">
+        <label>最大间隔 (秒)</label>
+        <input id="configMaxIdle" type="number" min="5" max="120" value="30" />
+      </div>
+    </section>
+      <section class="detail-card">
+        <h3>记忆包 <small>分享 / 导入 / 卸载</small></h3>
+        <p class="card-desc">接通现成的记忆包接口：先筛选、再预览、再勾选，最后导出或导入。当前只暴露后端已有筛选能力，不额外发明新实体。</p>
+        <div id="memoryPackageControls" aria-live="polite" class="package-controls"></div>
+      </section>
+    <div class="config-actions">
+      <button id="applyConfig" type="button" class="btn-primary">应用</button>
+      <button id="resetConfig" type="button">恢复默认</button>
+    </div>
+  </main>
+
+  <!-- ============ 帮助页 ============ -->
+  <main class="page page-help" id="page-help">
+    <div class="help-layout">
+      <aside class="help-nav">
+        <div class="help-nav-title">理论目录</div>
+        <a href="#help-what">什么是 AP</a>
+        <a href="#help-principle">内生认知主义</a>
+        <a href="#help-diff">与 Transformer 的区别</a>
+        <a href="#help-symbolic">与符号主义 / 规则系统</a>
+        <a href="#help-math">为什么能数学泛化</a>
+        <a href="#help-learn">为什么能实时学习</a>
+        <a href="#help-feelings">12 认知感受</a>
+        <a href="#help-emotion">情绪如何工作</a>
+        <a href="#help-learning-loop">六阶段学习协议</a>
+        <a href="#help-teaching">教学协议与 teacher-off</a>
+        <a href="#help-api">接口一览</a>
+        <a href="#help-founder">创始人</a>
+        <a href="#help-publication">相关发表</a>
+        <a href="#help-usage">版权与使用</a>
+      </aside>
+      <article class="help-article">
+      <h1 id="help-what">什么是 AP？</h1>
+      <p><b>AP</b>（Artificial PsyArch，人工心智架构）是一种<b>白箱、持续、全栈拟人</b>的认知架构。它不是单个模型，也不是普通聊天机器人，而是一套让信息在多模态感受器、状态池、结构池、记忆、预测、追溯、认知感受、情绪、行动、反馈和自适应调参之间循环流动的心智运行框架。</p>
+      <p>AP 的核心是<b>以 tick 为周期</b>运行：每个 tick 中，外界刺激和内源预测共同进入状态池，形成认知场；被注意力调制的对象进入短期结构池形成认知流；召回历史经验，向后预测，向前追溯，形成 C* 预测/解释包回灌状态池；由此产生惊、违和、合理、正确、把握、期待、压力、闭合/未闭合等认知感受，再调制情绪与行动竞争；行动结果和奖惩反馈重新进入下一 tick，长期形成学习和适应。</p>
+
+      <h2 id="help-diff">AP 和 Transformer 有什么不同？</h2>
+      <table class="help-table">
+        <tr><th>维度</th><th>Transformer</th><th>AP</th></tr>
+        <tr><td>架构</td><td>黑箱参数函数</td><td>白箱认知闭环</td></tr>
+        <tr><td>学习</td><td>海量数据预训练，不可在线学</td><td>小参数+持续在线学习，每次教学即学</td></tr>
+        <tr><td>输出</td><td>一次性根据上下文输出下一个 token</td><td>多 tick 拟人过程：观察→草稿→回读→修改→提交</td></tr>
+        <tr><td>泛化</td><td>模式匹配</td><td>经验后验+范式组合（如竖式=事实×过程范式）</td></tr>
+        <tr><td>可解释</td><td>注意力热图（事后解释）</td><td>每个 tick 完整审计槽可回放</td></tr>
+        <tr><td>情感</td><td>无</td><td>12 认知感受通道+情绪慢量调制表达</td></tr>
+      </table>
+
+      <h2 id="help-principle">内生认知主义</h2>
+      <p>AP 的哲学核心是<b>内生认知主义</b>：认知过程本身产生的内部状态——惊、违和、合理、把握、期待、压力、未闭合、疲劳——都应作为可被感受、可被记忆、可被召回、可被学习的信号进入认知流程。这不是给系统加标签，而是让这些状态真正参与行动竞争和学习的闭环。</p>
+      <p>这意味着 AP 的"恐惧"来自对惩罚的预测（§27），"求知欲"来自认知压高伴随的惩罚信号（§27.1），"把握感"来自 B/C 召回的支持度和退火后验（§173.5）——全部从经验涌现，不由关键词设置。</p>
+
+      <h2 id="help-math">为什么 AP 能数学泛化？</h2>
+      <p>AP 的数学能力不是内置计算器（白皮书 §65.3 红线禁止 eval/solver），而是<b>"事实库 × 过程范式"</b>的乘法结构：</p>
+      <ol>
+        <li><b>事实库</b>（echo 阶段）：先教 AP 个位加法事实（2+3=5, 4+5=9...），AP 通过正常教学写入经验流。</li>
+        <li><b>过程范式</b>（范式阶段）：教师示范竖式过程（先写第一行→换行对齐→逐列加→进位→回读验算），AP 从行动序列共现波峰自动发现这套范式。</li>
+        <li><b>组合</b>：未教过的组合（如 42+35）由"逐列子召回+进位链"组合出来——每列结果是已教事实的 exact 召回，进位是"召回结果的高位进入下一列"。缺哪条事实就卡住，教了就通。</li>
+      </ol>
+      <p>这正是儿童学习路径：先背加法表，再学竖式过程，然后能算没背过的题。</p>
+
+      <h2 id="help-learn">APV3 开放对话底座</h2>
+      <p>APV3 的目标是<b>多模态中文开放自由对话底座</b>。它需要把 AP 的所有新理解落成真 runtime，不是继续修 demo。当前版本已实现：</p>
+      <ul>
+        <li>✅ 文本教学-召回-泛化-持久闭环</li>
+        <li>✅ 视觉感受器+内心画面重建+教学共现</li>
+        <li>✅ 12 认知感受通道+情绪慢量跨 turn 积分</li>
+        <li>✅ 竖式数学过程范式（教事实+示范→未教组合逐列算出）</li>
+        <li>✅ 行动竞争+DraftGrid 逐字写+回读+修改+提交</li>
+        <li>✅ 范式发现（行动序列共现→涌现→偏置注入→反例抑制）</li>
+        <li>✅ 感受 SA 回灌（AP"感到自己在慌"→元认知）</li>
+        <li>✅ 自发外显（未闭合张力→idle 主动说"我还在想这个"）</li>
+        <li>✅ 先天编码审计（InnateRule 表可查看 AP 的 DNA）</li>
+      </ul>
+
+      <h2 id="help-api">接口与使用</h2>
+      <p>APV3 提供 Web API 和 CLI 两种接口：</p>
+      <ul>
+        <li><code>POST /api/phase20_7/turn</code> — 发送一轮对话（文本/图片/音频/教学反馈）</li>
+        <li><code>GET /api/phase20_7/turn</code>... — 详见 web_chat.py 路由表</li>
+        <li><code>python -m apv3test.chat</code> — CLI 命令行对话</li>
+        <li><code>python scripts/cold_retest_harness.py &lt;db&gt;</code> — 冷重测召回通过率</li>
+        <li><code>python scripts/six_moments_acceptance.py</code> — 六时刻自动验收</li>
+      </ul>
+
+      <h2 id="help-founder">创始人</h2>
+      <p><b>银子老师</b>（pen name）</p>
+      <p>邮箱：ginsonko@foxmail.com<br>
+      QQ：474764004<br>
+      交流群：671372218</p>
+
+      <h2 id="help-publication">相关发表</h2>
+      <p>APV2 长篇技术报告：白箱预测-行动闭环的完整论证与实验附录<br>
+      <a href="https://www.scxxb.com.cn/index/index/articleDetail/id/195629.html">市场信息网</a></p>
+
+      <h2 id="help-usage">版权与使用</h2>
+      <p>本项目仅限<b>学术研究使用</b>，禁止商业用途。如需商业授权，请联系作者。禁止抄袭和剽窃。</p>
+      <p>AP 不是符号主义，也不是传统规则模型。它是一套让认知从感受器到行动的完整信息流动框架，所有"智能"从经验涌现，不由硬编码规则产生。</p>
+
+      <div class="help-theory-entry">
+        <h2>想看完整理论读本？</h2>
+        <p>本页是浓缩要点；如果要读完整的小白可懂版（17 章 · 基于白皮书 30 卷提炼），点下面在新窗口打开理论读本。包含完整闭环图、12 感受通道、数学泛化原理、主观能动性机制和红线防作弊总表。</p>
+        <a class="btn-primary theory-open-btn" href="/phase20_7_theory.html" target="_blank" rel="noopener noreferrer">打开完整理论读本</a>
+        <p><small>提示：读本在新窗口打开。左上角"返回工作台"按钮可回到对话页；断网时 CDN 加载会失败，读本会自动降级为纯文本展示，内容不会丢。</small></p>
+      </div>
+      </article>
+    </div>
+  </main>
+
+  <script src="/phase20_7_workbench.js"></script>
+</body>
+</html>

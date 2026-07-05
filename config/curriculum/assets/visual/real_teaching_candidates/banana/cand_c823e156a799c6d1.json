@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_c823e156a799c6d1",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_c823e156a799c6d1.png",
+  "sha256": "c823e156a799c6d16a0de89f5c1fca608a26b9b03d570adcdc89ebc2dd01c16c",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/44345361@N06/5633608409",
+  "download_url": "https://api.openverse.org/v1/images/f13fe171-eab0-4bf2-893e-3fc4e0cf672c/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "VinothChandar",
+  "title": "A Banana a Day Keeps the Doctor Away!!!",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase5.6 后理论纠偏</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --paper: #ffffff;
+      --ink: #182230;
+      --muted: #667085;
+      --line: #d7e0ea;
+      --blue: #2458a6;
+      --green: #087443;
+      --amber: #a15c00;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 56px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(27px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 12px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    code { background: #eef3f8; border: 1px solid #dce5ef; border-radius: 5px; padding: 1px 5px; font-family: Consolas, "Cascadia Mono", monospace; }
+    pre { margin: 10px 0; overflow: auto; background: #111827; color: #edf4ff; border-radius: 8px; padding: 14px; font-size: 13px; }
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .subtitle { color: var(--muted); max-width: 980px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--green); }
+    .warn { color: var(--amber); }
+    .note { background: var(--paper); border-left: 4px solid var(--blue); padding: 12px 14px; margin: 14px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase5.6 后理论纠偏</h1>
+    <p class="subtitle">本页记录进入 Phase5.7 前对 Claude 纠偏讨论的吸收: 教师重复教学是合法婴儿期学习方式，但 runtime 召回期不能保留整句回放 fallback。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">结论</div>
+      <div class="value ok">方向修正完成</div>
+      <p>保留教师重复教学，删除 Cn 整句 fallback。</p>
+    </div>
+    <div class="card">
+      <div class="label">目标测试</div>
+      <div class="value ok">15 passed</div>
+      <p>覆盖补习、奖惩冲突、Cn recall。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">121 passed</div>
+      <p>删 fallback 后前序能力仍稳定。</p>
+    </div>
+    <div class="card">
+      <div class="label">下一步</div>
+      <div class="value warn">Phase5.7</div>
+      <p>工作记忆 / 跨 tick 打断恢复。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>核心边界</h2>
+    <div class="note">教师重复教学不是答案表。只要它经过 commit、reward、support、ParadigmSA、Bn/Cn、attention 和逐 token 草稿行动，就是 AP-native 学习。真正要删的是 runtime 召回期的整句回放捷径。</div>
+    <pre><code>合法:
+teacher observation -> AP-native evidence -> recall/action
+
+禁止:
+token-level successor 失败 -> most_common_reply 整句回放</code></pre>
+  </section>
+
+  <section>
+    <h2>已吸收修改</h2>
+    <ul>
+      <li>补习 suggestion 新增 <code>evidence_repeats</code> 和 <code>remediation_intensity</code>。</li>
+      <li>冷启动补到 <code>min_support</code>，已 exposed 范式只补 1 次。</li>
+      <li>补习 stage 固定为 <code>remediate</code>，诊断类型只保留在 failure_kind。</li>
+      <li>Cn 删除 <code>most_common_reply</code> fallback，token-level 不足时显式失败。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>样例</h2>
+    <pre><code>冷启动补习:
+diagnosis = bn_not_recalled
+stage = remediate
+evidence_repeats = 2
+remediation_intensity = 1.0
+final emitted = 我 在
+
+已暴露范式:
+evidence_repeats = 1
+remediation_intensity = 0.5
+
+Cn:
+token-level successor 存在 -> 正常召回
+token-level successor 不存在 -> Cn 为空，不回放整句</code></pre>
+  </section>
+
+  <section>
+    <h2>验收记录</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase5_5_remediation_loop.py APV3.0test\tests\test_phase5_6_conflict_reward_punish.py APV3.0test\tests\test_phase5_2_recall_attention_runtime.py -q
+15 passed in 0.49s
+
+python -m pytest APV3.0test\tests -q
+121 passed in 2.94s
+
+旧后门扫描:
+most_common_reply / _observations_for_bucket / remediate: 均无命中</code></pre>
+  </section>
+
+  <section>
+    <h2>长期方向</h2>
+    <p>Phase6+ 需要把“系统主动召唤教师”作为设计目标: 教师应从外部控制器逐渐变成系统在困惑、压力高、反复失败时主动请求的资源。</p>
+  </section>
+</main>
+</body>
+</html>

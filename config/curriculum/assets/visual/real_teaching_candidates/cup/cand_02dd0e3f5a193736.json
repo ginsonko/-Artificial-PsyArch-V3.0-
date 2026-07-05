@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_02dd0e3f5a193736",
+  "concept": "cup",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_02dd0e3f5a193736.png",
+  "sha256": "02dd0e3f5a193736560fae51c6dbd7686df293f8ce0ca102e23dc72a8df806be",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/58816914@N05/6657718181",
+  "download_url": "https://api.openverse.org/v1/images/a81907c0-c88a-4820-a3d1-22bccfc81952/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "VFS Digital Design",
+  "title": "Motion Machine (Jan '12)",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase2.1 锚相对 DP 对齐</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d8dee8;
+      --soft: #f7faf9;
+      --accent: #0f766e;
+      --good: #166534;
+      --warn: #9a3412;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.65;
+    }
+    header {
+      padding: 34px 6vw 24px;
+      border-bottom: 1px solid var(--line);
+      background: #ecfdf5;
+    }
+    main { max-width: 1120px; margin: 0 auto; padding: 28px 24px 56px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 10px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    .meta { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      background: var(--soft);
+    }
+    .card strong { display: block; font-size: 20px; margin-bottom: 4px; }
+    .ok { color: var(--good); }
+    .warn { color: var(--warn); }
+    .band {
+      border-left: 4px solid var(--accent);
+      background: #f0fdfa;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    code, pre {
+      font-family: Consolas, "Cascadia Mono", monospace;
+      background: #f2f4f7;
+      border-radius: 6px;
+    }
+    code { padding: 1px 5px; }
+    pre { padding: 14px; overflow: auto; border: 1px solid var(--line); }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0; }
+    th, td { border: 1px solid var(--line); padding: 9px 10px; text-align: left; }
+    th { background: #f8fafc; }
+    ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>APV3.0test Phase2.1 锚相对 DP 对齐</h1>
+    <p class="meta">范式通道关键件 | 变长序列跨 gap 对齐 | 2026-06-16</p>
+  </header>
+  <main>
+    <section class="grid">
+      <div class="card"><strong class="ok">41/41</strong>全量测试通过</div>
+      <div class="card"><strong class="ok">通过</strong>Python 编译检查</div>
+      <div class="card"><strong class="ok">无命中</strong>禁用通道扫描</div>
+      <div class="card"><strong class="warn">边界清楚</strong>仍不是完整 APV3.0</div>
+    </section>
+
+    <h2>阶段结论</h2>
+    <div class="band">
+      APV3.0test 已从“最长前缀/后缀式的最小自发现雏形”推进到“锚相对 DP 对齐雏形”。现在范式发现可以把变长序列中跨 gap 后重新收敛的共享片段配准到同一列。
+    </div>
+
+    <h2>本轮做了什么</h2>
+    <ul>
+      <li>新增 <code>AnchorRelativeAligner</code>, 做有界 Needleman-Wunsch 风格序列对齐。</li>
+      <li>新增 <code>AlignmentColumn</code>, 每列记录占用率、不同 token、角色和锚标签。</li>
+      <li><code>ParadigmDiscoveryEngine</code> 改为从 DP columns 派生 fixed prefix、shared suffix 与 slot spans。</li>
+      <li>修正单侧 gap 列误标: 只有至少两条观测共同出现同一 token, 才能成为 <code>shared_fragment</code>。</li>
+    </ul>
+
+    <h2>关键探针</h2>
+    <table>
+      <thead>
+        <tr><th>输入序列 A</th><th>输入序列 B</th><th>期望</th><th>结果</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>茅庐</td>
+          <td>臣于草庐之中</td>
+          <td>庐 跨 gap 重收敛为 shared_fragment</td>
+          <td class="ok">通过</td>
+        </tr>
+        <tr>
+          <td>人人都说人</td>
+          <td>人们都说人</td>
+          <td>重复字不大量错列, 尾部人保持对齐</td>
+          <td class="ok">通过</td>
+        </tr>
+        <tr>
+          <td>ParadigmDiscoveryEngine</td>
+          <td>idiom_gap_reply</td>
+          <td>发现引擎使用 DP columns, 不是纯后缀贪心</td>
+          <td class="ok">通过</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>验收命令</h2>
+    <pre><code>python -m pytest APV3.0test\tests -q
+
+$files = Get-ChildItem -Path APV3.0test\apv3test\config,APV3.0test\apv3test\runtime -Filter *.py | ForEach-Object { $_.FullName }; python -m py_compile @files
+
+rg -n "keyword|answer_table|student_side_llm|branch_alignment|math_process_tokens|regex|full_sentence_macro" APV3.0test\apv3test APV3.0test\tests</code></pre>
+
+    <h2>诚实边界</h2>
+    <ul>
+      <li>这不是完整 APV3.0 数学模型完成。</li>
+      <li>这不是完整 v2.1/APV3.0 范式通道完成。</li>
+      <li>边界感受 SA、跨 tick 切分、关系重叠 coherence、Viterbi 角色解码、跨模态原型 token 仍未落地。</li>
+    </ul>
+
+    <h2>下一步</h2>
+    <ul>
+      <li>Phase2.2: 边界感受 SA 与跨 tick 切分。</li>
+      <li>Phase2.3: 关系重叠 coherence 与列质量评估。</li>
+      <li>Phase2.4: Viterbi 角色联合解码。</li>
+      <li>Phase2.5: 跨模态感知原型 token 最小门。</li>
+      <li>之后再进入旧 GL 成功技能 3-5 个小批复现。</li>
+    </ul>
+  </main>
+</body>
+</html>

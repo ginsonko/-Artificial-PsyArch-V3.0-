@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_c9a4215fdd5eadf0",
+  "concept": "strawberry",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_c9a4215fdd5eadf0.png",
+  "sha256": "c9a4215fdd5eadf0c8588b48f19fb8f9d9ea0eb83490c5fa638b92f2c953e0f3",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/60057912@N00/5423854392",
+  "download_url": "https://api.openverse.org/v1/images/90a7625d-ecdb-4e17-aef4-86b96fe1eb90/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Patrick Hoesly",
+  "title": "iPhone Background - Juicy Strawberry",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_1ce5181a8b56b749",
+  "concept": "grape",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_1ce5181a8b56b749.png",
+  "sha256": "1ce5181a8b56b749653a0a974e7a09d555638c9ad5f99bef987067af1b5cb023",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/28577026@N02/5067007009",
+  "download_url": "https://api.openverse.org/v1/images/3bcb83c0-a072-4f7b-97e5-ff91ffe6eaad/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Allie_Caulfield",
+  "title": "2010-10-01 10-03 Südtirol 046 Meran, Tscherms, Waalweg",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

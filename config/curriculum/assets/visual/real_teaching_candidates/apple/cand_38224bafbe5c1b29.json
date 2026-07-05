@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_38224bafbe5c1b29",
+  "concept": "apple",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_38224bafbe5c1b29.png",
+  "sha256": "38224bafbe5c1b29ce15c5036fd6ee8c2f1260933cfe81980a51323e6b8cf78a",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/33345813@N00/3933707942",
+  "download_url": "https://api.openverse.org/v1/images/844b2124-0446-41dc-8c07-9026a25501a2/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "nattu",
+  "title": "Which one would you prefer, cherry or orange?",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

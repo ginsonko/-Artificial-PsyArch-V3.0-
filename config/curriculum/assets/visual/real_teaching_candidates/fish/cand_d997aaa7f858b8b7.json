@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_d997aaa7f858b8b7",
+  "concept": "fish",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_d997aaa7f858b8b7.png",
+  "sha256": "d997aaa7f858b8b79620509f6ad52febbd9c74045f68811a47aa9030182adbb3",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/52133016@N08/5546703373",
+  "download_url": "https://api.openverse.org/v1/images/06f56630-a398-4def-b493-886c8f326def/thumb/",
+  "license_id": "PDM-1.0",
+  "author": "USFWS Pacific",
+  "title": "Wisdom returns to feed her chick",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

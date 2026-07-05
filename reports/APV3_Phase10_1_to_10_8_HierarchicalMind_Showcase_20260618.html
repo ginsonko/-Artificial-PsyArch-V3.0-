@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 10 层级心智验收展示</title>
+  <style>
+    :root {
+      --bg: #f5f7f4;
+      --panel: #ffffff;
+      --ink: #16201d;
+      --muted: #5b6c66;
+      --line: #d8e2dd;
+      --green: #0c7568;
+      --blue: #235c8d;
+      --gold: #8b6b18;
+      --red: #9a3f3f;
+      --soft-green: #e7f5ef;
+      --soft-blue: #e8f1fb;
+      --soft-gold: #fff5da;
+      --soft-red: #faece9;
+      --shadow: rgba(32, 49, 43, 0.09);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, #eef4f1 0%, #f8faf8 46%, #f3f6f4 100%);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0;
+    }
+    main {
+      width: min(1240px, calc(100% - 44px));
+      margin: 24px auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 48px var(--shadow);
+    }
+    header {
+      padding: 38px 44px 30px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(231, 245, 239, 0.95), rgba(232, 241, 251, 0.92));
+    }
+    section {
+      padding: 28px 44px;
+      border-bottom: 1px solid var(--line);
+    }
+    section:last-child { border-bottom: 0; }
+    h1 {
+      margin: 0;
+      font-size: 32px;
+      line-height: 1.22;
+      max-width: 980px;
+    }
+    h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: var(--blue);
+    }
+    p { margin: 8px 0; }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      padding: 1px 5px;
+      border-radius: 4px;
+      border: 1px solid #dde6ed;
+      background: #f4f7f9;
+    }
+    .subtitle {
+      margin-top: 12px;
+      color: var(--muted);
+      max-width: 1000px;
+      font-size: 16px;
+    }
+    .status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 12px;
+      border: 1px solid #bfe1d4;
+      border-radius: 6px;
+      background: var(--soft-green);
+      color: var(--green);
+      font-weight: 700;
+    }
+    .pill.blue {
+      border-color: #c7d9ef;
+      background: var(--soft-blue);
+      color: var(--blue);
+    }
+    .pill.gold {
+      border-color: #ead99d;
+      background: var(--soft-gold);
+      color: var(--gold);
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      background: #fbfdfc;
+      min-height: 112px;
+    }
+    .metric strong {
+      display: block;
+      font-size: 25px;
+      line-height: 1.1;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+    .phase-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .phase {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fbfdfc;
+      min-height: 172px;
+    }
+    .phase b {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+    .phase small {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-family: Consolas, "Courier New", monospace;
+      line-height: 1.45;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 9px;
+      margin-top: 14px;
+    }
+    .step {
+      padding: 12px;
+      min-height: 108px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--soft-blue);
+    }
+    .step b {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 5px;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fbfdfc;
+    }
+    .callout {
+      margin-top: 12px;
+      border-left: 4px solid var(--green);
+      background: var(--soft-green);
+      padding: 13px 15px;
+    }
+    .callout.gold {
+      border-left-color: var(--gold);
+      background: var(--soft-gold);
+    }
+    .audit-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 14px;
+    }
+    .audit-table th,
+    .audit-table td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .audit-table th {
+      background: #edf3f1;
+      color: #263a34;
+    }
+    .bar {
+      height: 10px;
+      border-radius: 999px;
+      background: #e2e9e6;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .bar i {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, var(--green), var(--blue));
+      width: 100%;
+    }
+    @media (max-width: 980px) {
+      main { width: calc(100% - 22px); margin: 12px auto; }
+      header, section { padding: 22px; }
+      .metric-grid, .phase-grid, .flow, .two-col {
+        grid-template-columns: 1fr;
+      }
+      h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3 Phase 10：从“会主动反应”推进到“有层级心智雏形”</h1>
+    <p class="subtitle">
+      Phase 10 把前面的多模态地基、来源感受、主动驱力和社会信号继续向上搭了一层：
+      系统现在能用自己的状态结构记录事件顺序、形成匿名概念类、做受控反事实、固化因果关系、
+      区分他人信念和现实、给匿名类别命名、对可信来源产生可降级的先验，并把阅读输入纳入同一个字符感受器管道。
+    </p>
+    <div class="status-row">
+      <span class="pill">Phase 10.1-10.8 验收通过</span>
+      <span class="pill blue">28 个 Phase10 行为测试通过</span>
+      <span class="pill gold">AP-native，无脚本答案通道</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>这一步最重要的价值</h2>
+    <p>
+      Phase 8 证明了“感受器、来源、想象、长期记忆”可以进入同一个 AP 状态场；
+      Phase 9 证明了“驱力、奖惩误差、挫败、依恋、共同注意、共情、痛记忆、睡眠重放、玩乐”可以让系统更像一个会主动活动的幼年心智。
+      Phase 10 的价值，是让这些经验开始组织成更高层的结构：先后顺序、类别、因果、别人怎么想、整体和部分、可信的人、阅读材料。
+    </p>
+    <div class="metric-grid">
+      <div class="metric">
+        <strong>8</strong>
+        个 Phase10 子阶段
+        <span>叙事、聚类、反事实、因果、信念、层级、信任、阅读</span>
+      </div>
+      <div class="metric">
+        <strong>0</strong>
+        个学生侧 LLM 或答案表
+        <span>能力来自 StateItem、MarkerEvent、ledger、SDPL 与统计门</span>
+      </div>
+      <div class="metric">
+        <strong>CDE</strong>
+        受控直接效应
+        <span>明确不是夸大的 total causal effect</span>
+      </div>
+      <div class="metric">
+        <strong>1</strong>
+        条文本感受器管道
+        <span>streaming 与 reading 共用字符 SA，只用 source 区分来源</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>八个能力块</h2>
+    <div class="phase-grid">
+      <div class="phase">
+        <b>10.1 叙事链</b>
+        多个事件 SA 反复以 A->B->C 的顺序出现时，lag-PMI 会把它们固化成 narrative SA。
+        <small>runtime/cognitive/narrative/lag_pmi.py</small>
+      </div>
+      <div class="phase">
+        <b>10.2 匿名概念类</b>
+        先根据共享 slot 与 channel 产生匿名 super-cluster，再等待命名，不从人类词表硬塞类别。
+        <small>runtime/cognitive/hierarchy/anonymous_cluster.py</small>
+      </div>
+      <div class="phase">
+        <b>10.3 反事实 CDE</b>
+        冻结上下文，改变 source SA 的干预水平，检查 target SA 是否单调响应。
+        <small>framework = controlled_direct_effect</small>
+      </div>
+      <div class="phase">
+        <b>10.4 因果 SA</b>
+        只有通过 CDE 门的 trace 才能生成 causal SA，相关性不能直接升级成因果。
+        <small>runtime/cognitive/causal/causal_sa.py</small>
+      </div>
+      <div class="phase">
+        <b>10.5 他人信念</b>
+        同一个物体可以同时有“现实位置”和“用户相信的位置”，最小假信念测试成立。
+        <small>belief::other::entity::topic</small>
+      </div>
+      <div class="phase">
+        <b>10.6 层级命名</b>
+        匿名 cluster 可以绑定名字，part-of 关系也能作为普通 hierarchy SA 存在。
+        <small>先结构，后名字</small>
+      </div>
+      <div class="phase">
+        <b>10.7 信任先验</b>
+        熟悉性与教学准确率共同形成 trust prior；负 Delta-P 会让信任降级。
+        <small>TRUST_PROMOTED 可被反证削弱</small>
+      </div>
+      <div class="phase">
+        <b>10.8 阅读单管道</b>
+        阅读文本不是特殊理解器，而是 source=reading 的字符流，和 streaming 共用同一入口。
+        <small>TextCharStream</small>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>为什么这不是脚本式“看起来聪明”</h2>
+    <div class="flow">
+      <div class="step"><b>感受</b>文本、视觉、听觉、marker 与内部状态都进入 SA 场。</div>
+      <div class="step"><b>统计</b>lag-PMI、slot/channel similarity、Delta-P、Q backoff 形成证据。</div>
+      <div class="step"><b>反事实</b>通过干预水平曲线估计受控直接效应。</div>
+      <div class="step"><b>固化</b>通过门槛后才生成 narrative、causal、hierarchy 等 StateItem。</div>
+      <div class="step"><b>修正</b>负反馈、负 Delta-P、低样本数会阻止或降级错误结构。</div>
+      <div class="step"><b>审计</b>每个结构都有 source、metadata、report 和测试证据。</div>
+    </div>
+    <div class="callout">
+      这套路径保留了拟人哲学里的“会想象、会误判、会修正”：它不是追求机器式绝对正确，而是让不同来源、不同证据强度、不同后果反馈进入可区分的学习结构。
+    </div>
+  </section>
+
+  <section>
+    <h2>一个小白也能理解的正面例子</h2>
+    <div class="two-col">
+      <div class="panel">
+        <h3>假信念场景</h3>
+        <p>
+          用户看到玩具在左边，然后离开。AP 后来看见玩具被移到右边。
+          Phase 10.5 允许 AP 同时保留两件事：现实是“右边”，用户相信“左边”。
+          当预测用户回来会去哪里找时，AP 会预测“左边”，因为那是用户的信念位置。
+        </p>
+        <div class="bar"><i></i></div>
+      </div>
+      <div class="panel">
+        <h3>因果场景</h3>
+        <p>
+          AP 反复观察到“按按钮后灯亮”。Phase 10.3 不会只因为两者一起出现就说有因果；
+          它会在受控反事实里把“按按钮”的强度从 1.0 降到 0.0，看“灯亮”的响应是否稳定下降。
+          只有通过这个门，Phase 10.4 才会生成 causal SA。
+        </p>
+        <div class="bar"><i></i></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>验收矩阵</h2>
+    <table class="audit-table">
+      <thead>
+        <tr>
+          <th>项目</th>
+          <th>当前证据</th>
+          <th>意义</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Phase10 行为测试</td>
+          <td>28 passed</td>
+          <td>验证八个能力块不是文件占位，而是真有行为断言。</td>
+        </tr>
+        <tr>
+          <td>Phase deliverable gate</td>
+          <td>10.1-10.8 PASS</td>
+          <td>每个阶段必须有 runtime、test、report 和展示交付物。</td>
+        </tr>
+        <tr>
+          <td>v14 红线</td>
+          <td>PASS</td>
+          <td>防止硬编码数字、漏 ledger、audit_db 混入 cognitive、缺 @op_count。</td>
+        </tr>
+        <tr>
+          <td>常量治理</td>
+          <td>PASS，229 numeric constants governed</td>
+          <td>新增阈值统一进入 yaml，不散落在 runtime 代码里。</td>
+        </tr>
+        <tr>
+          <td>全套回归</td>
+          <td>385 passed</td>
+          <td>确保 Phase 8/9 已完成能力不被 Phase 10 破坏。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>阶段边界</h2>
+    <p>
+      Phase 10 已经把 APV3 从“主动幼年心智”推进到“层级心智雏形”：它能形成事件链、类别、因果、他人信念和层级关系。
+      这一页展示的是积极成立的能力和它们的工程证据。后续 Phase 11 会继续推进元认知、抽象词汇、目标视野、 deliberative virtual track 和 self model。
+    </p>
+    <div class="callout gold">
+      最关键的进展是：这些能力不是孤立 UI 效果，而是继续沿用同一个 AP-native 状态场与审计链条。系统开始有“为什么我觉得这是一类”“为什么我觉得它会导致那个结果”“为什么他会按自己的信念行动”的最小内部结构。
+    </div>
+  </section>
+</main>
+</body>
+</html>

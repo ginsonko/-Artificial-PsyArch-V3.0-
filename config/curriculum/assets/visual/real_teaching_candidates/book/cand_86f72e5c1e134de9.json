@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_86f72e5c1e134de9",
+  "concept": "book",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_86f72e5c1e134de9.png",
+  "sha256": "86f72e5c1e134de96acd645cbab5f9302b02358199d9cc17e1241c593c4e6cd8",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/30098694@N02/4960429183",
+  "download_url": "https://api.openverse.org/v1/images/6f2c6cb3-d380-4403-92c4-b3d690e46402/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Spree2010",
+  "title": "familiy history in pictures",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

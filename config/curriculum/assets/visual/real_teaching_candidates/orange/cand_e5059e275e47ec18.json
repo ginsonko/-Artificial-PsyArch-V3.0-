@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_e5059e275e47ec18",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_e5059e275e47ec18.png",
+  "sha256": "e5059e275e47ec1823e879e0b3a7223ba0f60d3518b5903894c0e5408fff3795",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/96799823@N00/98537359",
+  "download_url": "https://api.openverse.org/v1/images/844be1f6-bc58-4486-bc31-3299f605d682/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "eperales",
+  "title": "Cazuela",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

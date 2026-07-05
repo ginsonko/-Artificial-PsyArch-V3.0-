@@ -1,0 +1,35 @@
+{
+  "schema_id": "apv3_phase20_7_performance_report/v1",
+  "thresholds": {
+    "text_turn_p95_ms": 1500,
+    "visual_turn_p95_ms": 3000,
+    "stage6_turn_p95_ms": 3000
+  },
+  "samples": {
+    "text_ms": {
+      "count": 8,
+      "min_ms": 10.657,
+      "median_ms": 16.771,
+      "p95_ms": 154.188,
+      "max_ms": 154.188
+    },
+    "visual_ms": {
+      "count": 1,
+      "min_ms": 52.247,
+      "median_ms": 52.247,
+      "p95_ms": 52.247,
+      "max_ms": 52.247
+    },
+    "stage6_ms": {
+      "count": 1,
+      "min_ms": 11.481,
+      "median_ms": 11.481,
+      "p95_ms": 11.481,
+      "max_ms": 11.481
+    }
+  },
+  "notes": [
+    "Performance is local prototype timing, not a final optimized benchmark.",
+    "TTS voice enumeration may be slower on first local run."
+  ]
+}

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase4.0 最小自由对话 runtime skeleton</title>
+  <style>
+    :root {
+      --ink: #142033;
+      --muted: #667085;
+      --line: #d8dee8;
+      --soft: #f8fafc;
+      --accent: #0f766e;
+      --good: #166534;
+      --warn: #9a3412;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.65;
+    }
+    header {
+      padding: 34px 6vw 24px;
+      border-bottom: 1px solid var(--line);
+      background: #ecfdf5;
+    }
+    main { max-width: 1120px; margin: 0 auto; padding: 28px 24px 56px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 10px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    .meta { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      background: var(--soft);
+    }
+    .card strong { display: block; font-size: 20px; margin-bottom: 4px; }
+    .ok { color: var(--good); }
+    .warn { color: var(--warn); }
+    .band {
+      border-left: 4px solid var(--accent);
+      background: #f0fdfa;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    .warnband {
+      border-left: 4px solid var(--warn);
+      background: #fff7ed;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    code, pre {
+      font-family: Consolas, "Cascadia Mono", monospace;
+      background: #f2f4f7;
+      border-radius: 6px;
+    }
+    code { padding: 1px 5px; }
+    pre { padding: 14px; overflow: auto; border: 1px solid var(--line); }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0; }
+    th, td { border: 1px solid var(--line); padding: 9px 10px; text-align: left; }
+    th { background: #f8fafc; }
+    ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>APV3.0test Phase4.0 最小自由对话 runtime skeleton</h1>
+    <p class="meta">slot fill -> habit -> action competition -> draft -> commit -> persistence | 2026-06-16</p>
+  </header>
+  <main>
+    <section class="grid">
+      <div class="card"><strong class="ok">4/4</strong>Phase4.0 专门测试通过</div>
+      <div class="card"><strong class="ok">76/76</strong>APV3.0test 全量测试通过</div>
+      <div class="card"><strong class="ok">无命中</strong>禁用通道与脚手架扫描</div>
+      <div class="card"><strong class="warn">边界清楚</strong>最小 skeleton, 不是完整自由对话底座</div>
+    </section>
+
+    <h2>阶段结论</h2>
+    <div class="band">
+      APV3.0test 已经有最小自由对话 runtime skeleton。它把范式槽填充、快系统习惯、行动竞争、逐 token 草稿、commit 后学习写入和 SQLite 恢复串成了一条可测链路。
+    </div>
+
+    <h2>最小 tick 链</h2>
+    <pre><code>当前焦点/候选池
+  -> 范式槽填充
+  -> 快系统习惯候选
+  -> 行动竞争 trace
+  -> 草稿行动器逐 token 执行
+  -> commit 后学习写入
+  -> SQLite 保存恢复</code></pre>
+
+    <h2>已验证现象</h2>
+    <table>
+      <thead>
+        <tr><th>现象</th><th>结果</th><th>意义</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>逐 token 行动</td>
+          <td>每个 draft token 一个 tick</td>
+          <td>保留低粒度行动哲学</td>
+        </tr>
+        <tr>
+          <td>同一行动器竞争</td>
+          <td>强 habit 可压过范式 token</td>
+          <td>不硬写、不绕过竞争</td>
+        </tr>
+        <tr>
+          <td>不同行动器并存</td>
+          <td>attention habit 与 draft token 同 tick 可共存</td>
+          <td>为快系统多动作/多想法打基础</td>
+        </tr>
+        <tr>
+          <td>commit 后学习</td>
+          <td><code>text_commit</code> 获得奖励后果</td>
+          <td>未提交草稿不正向固化</td>
+        </tr>
+        <tr>
+          <td>持久化恢复</td>
+          <td>commit 与 action outcome 保存恢复一致</td>
+          <td>不是内存态孤例</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>验收命令</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase4_0_minimal_dialogue_runtime.py -q
+python -m pytest APV3.0test\tests -q
+
+rg -n --glob "*.py" "keyword|answer_table|student_side_llm|branch_alignment|math_process_tokens|regex|full_sentence_macro|黄色苹果" APV3.0test\apv3test
+
+rg -n "TODO|FIXME|hardcode|shortcut|route|magic" APV3.0test\apv3test\runtime\dialogue_runtime.py APV3.0test\tests\test_phase4_0_minimal_dialogue_runtime.py</code></pre>
+
+    <h2>下一步</h2>
+    <div class="warnband">
+      Phase4.1 应进入小批旧技能 APV3.0test 复现: 问候、成语后继、感知槽填充、简单数学过程范式、打断恢复压力。通过后再进入更大规模中文对话训练和 Fresh 测试。
+    </div>
+  </main>
+</body>
+</html>

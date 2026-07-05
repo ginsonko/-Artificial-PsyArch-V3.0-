@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_9b9c883796f4bdc7",
+  "concept": "dog",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_9b9c883796f4bdc7.png",
+  "sha256": "9b9c883796f4bdc70453b2acd1c99069fef2b486082391a995e814bd97d2e879",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/127523566@N08/16774327517",
+  "download_url": "https://api.openverse.org/v1/images/dc548acf-3a21-42bc-a461-b04fbd0e5470/thumb/",
+  "license_id": "CC0-1.0",
+  "author": "roizroiz",
+  "title": "#One #Smile Explore #01 11.20.2014",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

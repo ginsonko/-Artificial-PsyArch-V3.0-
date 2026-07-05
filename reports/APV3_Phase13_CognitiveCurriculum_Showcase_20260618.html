@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>APV3 Phase 13 - 认知课程 Alpha</title>
+  <style>
+    :root {
+      --ink:#18242b; --muted:#60717b; --line:#d8e3e7; --paper:#fbfdff;
+      --green:#0f766e; --blue:#245a8f; --rose:#9c3f39; --gold:#9b6b18;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Microsoft YaHei","Segoe UI",Arial,sans-serif; color:var(--ink); background:var(--paper); line-height:1.65; }
+    header {
+      min-height:64vh; display:grid; align-items:center; border-bottom:1px solid var(--line);
+      background:
+        linear-gradient(rgba(255,255,255,.78),rgba(255,255,255,.88)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='820' viewBox='0 0 1400 820'%3E%3Crect width='1400' height='820' fill='%23eaf5f4'/%3E%3Cg fill='none' stroke='%230f766e' stroke-opacity='.24' stroke-width='3'%3E%3Cpath d='M120 620 C300 380 465 470 650 260 S980 160 1210 360'/%3E%3Cpath d='M190 210 L410 350 L610 240 L820 420 L1110 260'/%3E%3Cpath d='M260 665 L520 520 L780 585 L1120 460'/%3E%3C/g%3E%3Cg fill='%23ffffff' stroke='%23245a8f' stroke-opacity='.5' stroke-width='2'%3E%3Ccircle cx='190' cy='210' r='52'/%3E%3Ccircle cx='410' cy='350' r='62'/%3E%3Ccircle cx='650' cy='260' r='58'/%3E%3Ccircle cx='820' cy='420' r='56'/%3E%3Ccircle cx='1110' cy='260' r='66'/%3E%3C/g%3E%3Cg fill='%230f766e' fill-opacity='.16'%3E%3Crect x='300' y='540' width='230' height='96' rx='8'/%3E%3Crect x='760' y='520' width='290' height='118' rx='8'/%3E%3C/g%3E%3C/svg%3E") center/cover;
+    }
+    .wrap { width:min(1120px, calc(100% - 40px)); margin:0 auto; }
+    h1 { font-size:clamp(36px,5vw,64px); line-height:1.08; margin:0 0 18px; letter-spacing:0; }
+    .lead { max-width:900px; font-size:20px; color:#26333a; margin:0; }
+    .summary { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:28px; }
+    .metric { border:1px solid var(--line); border-radius:8px; background:rgba(255,255,255,.88); padding:16px; }
+    .metric strong { display:block; font-size:30px; color:var(--green); }
+    section { padding:42px 0; border-bottom:1px solid var(--line); }
+    h2 { font-size:27px; margin:0 0 16px; letter-spacing:0; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .panel { background:white; border:1px solid var(--line); border-radius:8px; padding:18px; }
+    .panel h3 { margin:0 0 8px; font-size:18px; }
+    .panel p { margin:0; color:var(--muted); }
+    .timeline { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; }
+    .step { border:1px solid var(--line); border-radius:8px; background:white; padding:15px; min-height:132px; }
+    .step b { color:var(--blue); }
+    pre { margin:0; white-space:pre-wrap; background:#142026; color:#edf7f6; border-radius:8px; padding:16px; }
+    .tests { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .pass { color:#73d0bc; font-weight:700; }
+    .warn { color:#e3bd68; font-weight:700; }
+    footer { padding:26px 0 34px; color:var(--muted); }
+    @media (max-width:900px) { .summary,.grid,.tests,.timeline { grid-template-columns:1fr; } header { min-height:72vh; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Phase 13：APV3 进入认知课程 Alpha</h1>
+      <p class="lead">这一步把“能学习的心智底座”推进为“能接课程、能审计、能小规模演示”的 alpha：课程包必须干净进入，知识要经过 held-out 与对比边际，表达保持简洁人设，数学通过草稿网格和字焦点展示过程。</p>
+      <div class="summary">
+        <div class="metric"><strong>10</strong><span>Phase 13 子阶段闭环</span></div>
+        <div class="metric"><strong>40</strong><span>Phase 13 专项测试通过</span></div>
+        <div class="metric"><strong>4/4</strong><span>四场景 alpha readiness</span></div>
+        <div class="metric"><strong>0</strong><span>数学捷径红线命中</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <h2>本轮真正新增的能力</h2>
+      <div class="grid">
+        <div class="panel"><h3>课程进入纪律</h3><p>课程包需要 schema、作者、许可、trust tier、review status；public payload 不能带答案、event_id 或 private handle。</p></div>
+        <div class="panel"><h3>内容不是答案表</h3><p>字、词、视觉、音频分别用 prototype、component、contrast margin 进入，不靠中文关键词或标签 oracle。</p></div>
+        <div class="panel"><h3>数学有过程底座</h3><p>DraftGrid + 字焦点让 AP 能在草稿空间移动注意，回读自己写过的格子，并用已教事实做最小竖式。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Phase 13 路线</h2>
+      <div class="timeline">
+        <div class="step"><b>13.0</b><br>隐私、held-out、trust gate、红线地基。</div>
+        <div class="step"><b>13.1</b><br>课程 schema、loader、一致性 gate、备份。</div>
+        <div class="step"><b>13.2-13.5</b><br>字词视觉音频的小规模 AP-native 内容探针。</div>
+        <div class="step"><b>13.5b</b><br>DraftGrid、字焦点、substrate-aware packet、最小竖式。</div>
+        <div class="step"><b>13.6-13.9</b><br>表达、行动、社交、四场景 alpha 验收。</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>直观正向示例</h2>
+      <div class="grid">
+        <div class="panel"><h3>隐私</h3><p>用户输入“你好”可以被当前 tick 使用，但 SQLite 和 Web 回放默认只保留 HMAC、长度、计数。</p></div>
+        <div class="panel"><h3>视觉</h3><p>“黄色 + 苹果形状”必须在对比样本中明显强于“黄色 + 香蕉”和“红色 + 苹果”，才算课程有效。</p></div>
+        <div class="panel"><h3>竖式</h3><p>同一个 23+47 在不同 origin 下，字焦点仍按相同相对列移动，召回已教事实并提交 70。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>验收证据</h2>
+      <div class="tests">
+        <pre><span class="pass">PASS</span> 13.1 schema / loader / consistency / backup
+<span class="pass">PASS</span> 13.2 radical prototype OOD + ambiguity reject
+<span class="pass">PASS</span> 13.3 vocabulary plural component gate
+<span class="pass">PASS</span> 13.4 visual contrast + ablation reject
+<span class="pass">PASS</span> 13.5 audio pattern contrast</pre>
+        <pre><span class="pass">PASS</span> 13.5b DraftGrid + char focus + vertical fact trace
+<span class="pass">PASS</span> 13.6 quiet expression style gate
+<span class="pass">PASS</span> 13.7 SDPL action prototype
+<span class="pass">PASS</span> 13.8 social multi-source gate
+<span class="pass">PASS</span> 13.9 four-scenario alpha readiness</pre>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>诚实边界</h2>
+      <p>Phase 13 完成的是 alpha 课程机制和小规模正向样例，不等于已经拥有完整 3500 字、7000 词、真实图像/音频大库、完整小学数学或正式开源发布包。现在可以进入 Phase 14：扩充内容、打磨 Web 工作台、准备公开视频和开源材料。</p>
+    </div>
+  </section>
+
+  <footer><div class="wrap">APV3.0test Phase 13 Cognitive Curriculum Alpha · 2026-06-18</div></footer>
+</body>
+</html>

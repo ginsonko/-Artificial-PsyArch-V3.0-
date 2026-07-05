@@ -1,0 +1,37 @@
+# constants_governance.yaml — 常量治理协议
+#
+# v14 UNIFIED 配套。每常量必须分类:
+# - @structural: 数学上有明确意义,无需 derivation
+# - @scenario_tuneable: 场景可覆盖,需 A/B 实验记录
+# - @experimental: 初值猜测,Phase X.Y 验收后 tune
+
+categories:
+  structural:
+    description: |
+      数学上有明确意义的常量(Bayesian prior=0.5, sigmoid 中心=0, indexing 边界).
+      允许无 derivation 注释存在.
+    examples:
+      - "slot_preference.jsd_smoothing_alpha: 0.5  # Laplace smoothing prior"
+      - "composed_vocab.delta_p.n_situations_per_eval: 8  # paired-t df=7"
+
+  scenario_tuneable:
+    description: |
+      场景相关的可调参数. 必须有 scenario_profiles/*.yaml 覆盖示例.
+      A/B 实验记录格式: a_b_experiment_id + delta_metric + scenario
+    examples:
+      - "attention.type_budget.PerceptSA: 0.35  # text_dialogue baseline; desktop_pet may use 0.45"
+
+  experimental:
+    description: |
+      初值仅是 plausible 猜测,需 Phase 8.X 实测后 tune.
+      必须在 docstring 标 @experimental + initial_rationale.
+    examples:
+      - |
+        marker.decay_rates.PAIN: 0.998
+        # @experimental
+        # initial_rationale: PAIN 应远比 NOVELTY 慢衰减(人类痛持续小时级),
+        # 0.998 给约 30 分钟半衰期 @ 100ms/tick. Phase 9.7 实测后 tune.
+
+governance_check:
+  scan_command: "python3 scripts/check_constant_governance.py"
+  must_pass_before_phase: 8.2

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_7e5b92ed1dfc3a6f",
+  "concept": "rice",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_7e5b92ed1dfc3a6f.png",
+  "sha256": "7e5b92ed1dfc3a6f48341fdc0ffb37deaaa5f236592f9b6f30faf6e200aecb6c",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/44373968@N00/84012732",
+  "download_url": "https://api.openverse.org/v1/images/2515bbdf-5a59-42c2-861c-e087a5355618/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "moriza",
+  "title": "Fried Rice Reads Math",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

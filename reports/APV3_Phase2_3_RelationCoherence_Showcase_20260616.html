@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase2.3 关系重叠 coherence 与列质量评估</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d8dee8;
+      --soft: #f8fafc;
+      --accent: #0f766e;
+      --good: #166534;
+      --warn: #9a3412;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.65;
+    }
+    header {
+      padding: 34px 6vw 24px;
+      border-bottom: 1px solid var(--line);
+      background: #ecfdf5;
+    }
+    main { max-width: 1120px; margin: 0 auto; padding: 28px 24px 56px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 10px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    .meta { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      background: var(--soft);
+    }
+    .card strong { display: block; font-size: 20px; margin-bottom: 4px; }
+    .ok { color: var(--good); }
+    .warn { color: var(--warn); }
+    .band {
+      border-left: 4px solid var(--accent);
+      background: #f0fdfa;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    code, pre {
+      font-family: Consolas, "Cascadia Mono", monospace;
+      background: #f2f4f7;
+      border-radius: 6px;
+    }
+    code { padding: 1px 5px; }
+    pre { padding: 14px; overflow: auto; border: 1px solid var(--line); }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0; }
+    th, td { border: 1px solid var(--line); padding: 9px 10px; text-align: left; }
+    th { background: #f8fafc; }
+    ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>APV3.0test Phase2.3 关系重叠 coherence 与列质量评估</h1>
+    <p class="meta">范式槽质量 | 任意一等 SA 关系签名 | 2026-06-16</p>
+  </header>
+  <main>
+    <section class="grid">
+      <div class="card"><strong class="ok">48/48</strong>全量测试通过</div>
+      <div class="card"><strong class="ok">通过</strong>Python 编译检查</div>
+      <div class="card"><strong class="ok">无命中</strong>禁用通道扫描</div>
+      <div class="card"><strong class="warn">边界清楚</strong>仍不是完整自由对话底座</div>
+    </section>
+
+    <h2>阶段结论</h2>
+    <div class="band">
+      APV3.0test 现在具备了最小列质量评估: 对齐列里的替换项不再只因位置相同或出现次数多而成立, 还必须看它们是否共享关系邻域。坏槽会拖低 slot_quality, 进而拖低范式 conf。
+    </div>
+
+    <h2>本轮新增</h2>
+    <ul>
+      <li><code>RelationCoherenceScorer</code>: 只读关系重叠评分器。</li>
+      <li><code>RelationSignature</code>: 每个 SA/token 的 prev、next、co 关系签名。</li>
+      <li><code>ColumnCoherence</code>: 对齐列内关系重叠结果。</li>
+      <li><code>AlignmentColumn</code> 新增 <code>relation_coherence</code>、<code>relation_pair_count</code>、<code>relation_signature_tokens</code>。</li>
+    </ul>
+
+    <h2>设计一致性</h2>
+    <table>
+      <thead>
+        <tr><th>模块</th><th>职责</th><th>是否冲突</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Phase2.2 边界</td><td>把连续 tick 流切成 unit</td><td class="ok">不冲突</td></tr>
+        <tr><td>Phase2.1 DP</td><td>把 unit 序列对齐成列</td><td class="ok">不冲突</td></tr>
+        <tr><td>Phase2.3 coherence</td><td>读出列内替换项关系质量</td><td class="ok">补全列质量</td></tr>
+      </tbody>
+    </table>
+
+    <h2>关键探针</h2>
+    <pre><code>good_conf 0.632121 good_col0_coh 1.0
+bad_conf 0.0 bad_col0_coh 0.0</code></pre>
+    <p>
+      好槽位共享同一个右邻与共现关系, 所以 coherence 高。坏槽位的关系邻域分散, 即使 support 一样, conf 也会被 slot_quality 拖低。
+    </p>
+
+    <h2>验收命令</h2>
+    <pre><code>python -m pytest APV3.0test\tests -q
+
+$files = Get-ChildItem -Path APV3.0test\apv3test\config,APV3.0test\apv3test\runtime -Filter *.py | ForEach-Object { $_.FullName }; python -m py_compile @files
+
+rg -n "keyword|answer_table|student_side_llm|branch_alignment|math_process_tokens|regex|full_sentence_macro" APV3.0test\apv3test APV3.0test\tests</code></pre>
+
+    <h2>通往最终目标的路径</h2>
+    <ul>
+      <li>Phase2.4: Viterbi 角色联合解码, 防止 per-column 分类抖动。</li>
+      <li>Phase2.5: 跨模态感知原型 token, 支持黄色苹果类泛化。</li>
+      <li>Phase3: habit action / habit thought, 用行动后果记忆形成快系统熟练复刻。</li>
+      <li>Phase4: 小型自由中文开放对话 runtime, 串起边界、DP、coherence、范式发现、草稿行动、持久化学习。</li>
+    </ul>
+
+    <h2>诚实边界</h2>
+    <p>
+      当前可以说 APV3.0test 已补上最小关系重叠列质量评估。不能说完整 Viterbi、完整跨模态原型、完整 habit 快系统或完整自由中文开放对话底座已经完成。
+    </p>
+  </main>
+</body>
+</html>

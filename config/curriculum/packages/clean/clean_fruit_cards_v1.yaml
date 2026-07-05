@@ -1,0 +1,93 @@
+{
+  "schema_id": "apv3_clean_card_curriculum_pack/v1",
+  "package_id": "clean_fruit_cards_v1",
+  "phase_id": "18.0",
+  "title": "Clean fruit concept cards v1",
+  "governance": {
+    "trust_tier": "official",
+    "license_id": "LicenseRef-APV3-Synthetic-Generated",
+    "author_id": "apv3_clean_card_generator",
+    "source_policy": "generated_static_seed_no_text_in_pixels",
+    "review_status": "phase18_alpha_reviewed"
+  },
+  "entries": [
+    {
+      "entry_id": "noun_apple",
+      "content_kind": "clean_visual_vocabulary",
+      "public_payload": {
+        "concept_kind": "fruit",
+        "neutral_label": "苹果",
+        "teaching_intent": "clean_card_first_concept"
+      },
+      "train_asset_refs": [
+        "asset::clean_card::noun_apple::train::0",
+        "asset::clean_card::noun_apple::train::1",
+        "asset::clean_card::noun_apple::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::clean_card::noun_apple::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::clean_card::noun_apple::contrast::0"
+      ],
+      "governance_tags": [
+        "phase18",
+        "clean_card",
+        "fruit",
+        "no_text_in_pixels"
+      ]
+    },
+    {
+      "entry_id": "noun_banana",
+      "content_kind": "clean_visual_vocabulary",
+      "public_payload": {
+        "concept_kind": "fruit",
+        "neutral_label": "香蕉",
+        "teaching_intent": "clean_card_first_concept"
+      },
+      "train_asset_refs": [
+        "asset::clean_card::noun_banana::train::0",
+        "asset::clean_card::noun_banana::train::1",
+        "asset::clean_card::noun_banana::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::clean_card::noun_banana::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::clean_card::noun_banana::contrast::0"
+      ],
+      "governance_tags": [
+        "phase18",
+        "clean_card",
+        "fruit",
+        "no_text_in_pixels"
+      ]
+    },
+    {
+      "entry_id": "noun_orange",
+      "content_kind": "clean_visual_vocabulary",
+      "public_payload": {
+        "concept_kind": "fruit",
+        "neutral_label": "橙子",
+        "teaching_intent": "clean_card_first_concept"
+      },
+      "train_asset_refs": [
+        "asset::clean_card::noun_orange::train::0",
+        "asset::clean_card::noun_orange::train::1",
+        "asset::clean_card::noun_orange::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::clean_card::noun_orange::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::clean_card::noun_orange::contrast::0"
+      ],
+      "governance_tags": [
+        "phase18",
+        "clean_card",
+        "fruit",
+        "no_text_in_pixels"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_2c40b9431a1147c2",
+  "concept": "key",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_2c40b9431a1147c2.png",
+  "sha256": "2c40b9431a1147c231a60b8fffd462fe6057118329d4226e7f34f98404b88e56",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/44124348109@N01/24652029823",
+  "download_url": "https://api.openverse.org/v1/images/693b3013-d1db-44ad-b504-07daaa762a53/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "jurvetson",
+  "title": "The second-largest Mars rock in private hands, Dar al Gani 1037",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>APV3 Phase 14 内容资产课程展示页</title>
+  <style>
+    :root {
+      --ink:#172329;
+      --muted:#65757d;
+      --paper:#f7faf8;
+      --white:#ffffff;
+      --line:#d9e3df;
+      --teal:#0f766e;
+      --blue:#285f93;
+      --amber:#9a6b18;
+      --coral:#a64d3f;
+      --violet:#6754a3;
+      --dark:#132126;
+      --soft-teal:#e5f3ef;
+      --soft-blue:#e7f0f7;
+      --soft-amber:#f7efd9;
+      --soft-coral:#f8e8e2;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      font-family:"Microsoft YaHei","PingFang SC","Segoe UI",Arial,sans-serif;
+      color:var(--ink);
+      background:var(--paper);
+      line-height:1.7;
+    }
+    .wrap { width:min(1160px, calc(100% - 40px)); margin:0 auto; }
+    .topbar {
+      min-height:56px;
+      display:flex;
+      align-items:center;
+      border-bottom:1px solid var(--line);
+      background:var(--white);
+      color:var(--muted);
+      font-size:14px;
+    }
+    .topbar .wrap { display:flex; justify-content:space-between; gap:16px; align-items:center; }
+    .brand { color:var(--teal); font-weight:700; }
+    header {
+      padding:56px 0 42px;
+      border-bottom:1px solid var(--line);
+      background:
+        linear-gradient(rgba(247,250,248,.9), rgba(247,250,248,.96)),
+        repeating-linear-gradient(135deg, rgba(40,95,147,.08) 0, rgba(40,95,147,.08) 1px, transparent 1px, transparent 18px),
+        linear-gradient(135deg, #f8fbfa 0%, #eef7f2 52%, #f8f0df 100%);
+    }
+    h1 { max-width:900px; margin:0 0 18px; font-size:46px; line-height:1.14; letter-spacing:0; }
+    h2 { margin:0 0 16px; font-size:28px; line-height:1.25; letter-spacing:0; }
+    h3 { margin:0 0 10px; font-size:20px; line-height:1.35; letter-spacing:0; }
+    p { margin:0 0 12px; }
+    .lead { max-width:940px; color:#2d3c42; font-size:19px; }
+    .hero-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:18px; margin-top:30px; }
+    .panel, .case, .metric, .step, .proof-card {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:var(--white);
+    }
+    .panel { padding:18px; }
+    .metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:16px; }
+    .metric { padding:14px; min-height:92px; }
+    .metric strong { display:block; color:var(--teal); font-size:29px; line-height:1.15; }
+    .metric span { color:var(--muted); font-size:14px; }
+    section { padding:44px 0; border-bottom:1px solid var(--line); }
+    .intro { max-width:950px; font-size:17px; color:#314249; }
+    .flow { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; margin-top:14px; }
+    .step { min-height:108px; padding:13px; }
+    .step b { display:block; color:var(--blue); margin-bottom:4px; }
+    .step span { color:var(--muted); font-size:13px; }
+    .case { overflow:hidden; margin-top:18px; }
+    .case-head {
+      display:grid;
+      grid-template-columns:180px 1fr;
+      gap:18px;
+      padding:18px;
+      background:#fbfdfc;
+      border-bottom:1px solid var(--line);
+    }
+    .case-index {
+      border-radius:8px;
+      padding:14px;
+      color:#fff;
+      background:var(--teal);
+      min-height:112px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .case-index b { font-size:30px; line-height:1; }
+    .case-index span { font-size:14px; opacity:.95; }
+    .case-body { display:grid; grid-template-columns:1fr 1fr; gap:18px; padding:18px; }
+    .case-body.single { grid-template-columns:1fr; }
+    .asset-row { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+    .asset-tile {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fbfdfc;
+      padding:10px;
+      width:116px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .asset-tile img {
+      display:block;
+      width:96px;
+      height:96px;
+      image-rendering:auto;
+      margin:0 auto 6px;
+      border-radius:6px;
+      background:#fff;
+    }
+    .label {
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      padding:3px 9px;
+      border-radius:6px;
+      color:#fff;
+      font-size:13px;
+      font-weight:700;
+      background:var(--blue);
+      margin-bottom:10px;
+    }
+    .label.amber { background:var(--amber); }
+    .label.coral { background:var(--coral); }
+    .label.violet { background:var(--violet); }
+    .trace {
+      margin:0;
+      white-space:pre-wrap;
+      overflow:auto;
+      border-radius:8px;
+      background:var(--dark);
+      color:#edf7f4;
+      padding:15px;
+      font-family:"Cascadia Mono","Consolas",monospace;
+      font-size:14px;
+      line-height:1.55;
+    }
+    .mini-list { margin:0; padding:0; list-style:none; }
+    .mini-list li { border-top:1px solid var(--line); padding:9px 0; color:#3c4c53; }
+    .mini-list li:first-child { border-top:0; padding-top:0; }
+    .proof-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:18px; }
+    .proof-card { padding:16px; min-height:140px; }
+    .proof-card p { color:var(--muted); }
+    .pass { color:var(--teal); font-weight:700; }
+    .note { color:var(--muted); font-size:14px; }
+    audio { width:100%; margin-top:8px; }
+    footer { padding:28px 0 36px; color:var(--muted); background:var(--white); }
+    @media (max-width:960px) {
+      h1 { font-size:36px; }
+      .hero-grid,.metrics,.flow,.case-head,.case-body,.proof-grid { grid-template-columns:1fr; }
+      .case-index { min-height:auto; }
+    }
+    @media (max-width:560px) {
+      .wrap { width:min(100% - 26px, 1160px); }
+      header { padding:38px 0 32px; }
+      h1 { font-size:31px; }
+      .lead { font-size:17px; }
+      .asset-tile { width:104px; }
+      .asset-tile img { width:84px; height:84px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div><span class="brand">APV3.0test</span> Phase 14 内容资产 Alpha</div>
+      <div>公开分享解释版 · 2026-06-18</div>
+    </div>
+  </div>
+
+  <header>
+    <div class="wrap">
+      <h1>AP 开始有第一批干净、可审计、可复现的课程材料了</h1>
+      <p class="lead">Phase 13 证明“课程系统能学”。Phase 14 进一步回答“该教什么、材料从哪来、会不会污染测试、版权是否干净”。这一次我们先不用网上素材，而是生成一批可复现的合成图片和音频，用它们搭建第一批中性基础课程包。</p>
+      <div class="hero-grid">
+        <div class="panel">
+          <h3>一句话结论</h3>
+          <p>Phase 14 完成了内容资产治理、合成视觉/音频资源、8 个中性基础课程包，以及给外部人看的完整展示页。它证明 AP 的课程内容现在可以带着来源、许可、hash、训练/held-out/干扰分组进入系统。</p>
+          <div class="metrics">
+            <div class="metric"><strong>200</strong><span>合成课程资源</span></div>
+            <div class="metric"><strong>175</strong><span>PNG 视觉资源</span></div>
+            <div class="metric"><strong>25</strong><span>WAV 音频资源</span></div>
+            <div class="metric"><strong>8</strong><span>中性课程包</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>为什么先用合成素材</h3>
+          <ul class="mini-list">
+            <li>版权清楚：全部 `generated_local`，许可为 `LicenseRef-APV3-Synthetic-Generated`。</li>
+            <li>可复现：资源由脚本生成，每个文件记录 sha256。</li>
+            <li>不污染：训练、held-out、干扰资源分开，held-out 不和训练图共享 hash。</li>
+            <li>可扩展：以后接 Wikimedia / Open Images / Freesound 时，必须先过同一套 manifest gate。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <h2>AP 看到一份课程材料时，内部流程是什么</h2>
+      <p class="intro">AP 不会直接把“黄”“苹果”“轻声呼唤”这些词当成答案塞进去。课程材料先以资产进入 manifest，再由课程包引用；训练素材、held-out 素材、干扰素材有不同用途。之后 AP 才能把这些素材转成感知、来源标记、学习包和行动候选。</p>
+      <div class="flow">
+        <div class="step"><b>1 资源生成</b><span>脚本生成 PNG/WAV，写入 sha256 和来源。</span></div>
+        <div class="step"><b>2 manifest 审计</b><span>检查 license、source_url、用途、安全状态。</span></div>
+        <div class="step"><b>3 课程引用</b><span>每个词条引用 3 train、1 held-out、1 contrast。</span></div>
+        <div class="step"><b>4 AP 学习</b><span>训练素材进入课程路径，held-out 保留给验收。</span></div>
+        <div class="step"><b>5 输出验收</b><span>看 AP 是否能在干扰项下给出正确倾向。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>案例一：颜色课，“黄”不是一个裸标签，而是一组可审计图像</h2>
+      <div class="case">
+        <div class="case-head">
+          <div class="case-index"><b>01</b><span>颜色课程</span></div>
+          <div>
+            <h3>题目内容</h3>
+            <p>课程包 `neutral_colors_v1` 里有红、黄、蓝、绿、白 5 个 entry。以“黄”为例，它有 3 张训练图、1 张 held-out 图和 1 张干扰图。AP 训练时看训练图，验收时再看 held-out 和干扰。</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <span class="label">训练材料</span>
+            <div class="asset-row">
+              <div class="asset-tile"><img src="../config/curriculum/assets/visual/synthetic/color_yellow_train_0.png" alt="yellow train 0">train 0</div>
+              <div class="asset-tile"><img src="../config/curriculum/assets/visual/synthetic/color_yellow_train_1.png" alt="yellow train 1">train 1</div>
+              <div class="asset-tile"><img src="../config/curriculum/assets/visual/synthetic/color_yellow_train_2.png" alt="yellow train 2">train 2</div>
+            </div>
+          </div>
+          <div>
+            <span class="label amber">验收与干扰</span>
+            <div class="asset-row">
+              <div class="asset-tile"><img src="../config/curriculum/assets/visual/synthetic/color_yellow_held_out_0.png" alt="yellow held out">held-out</div>
+              <div class="asset-tile"><img src="../config/curriculum/assets/visual/synthetic/color_yellow_contrast_0.png" alt="yellow contrast">contrast</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-body single">
+          <pre class="trace">AP 课程 entry:
+entry_id: color_yellow
+neutral_label: 黄
+train_asset_refs: 3
+held_out_asset_refs: 1
+contrast_asset_refs: 1
+
+治理输出:
+accepted = true
+held_out_asset_leaked_into_train_refs = false</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>案例二：形状课，三角形有训练图、未见图和干扰图</h2>
+      <div class="case">
+        <div class="case-head">
+          <div class="case-index" style="background:var(--blue)"><b>02</b><span>形状课程</span></div>
+          <div>
+            <h3>题目内容</h3>
+            <p>形状课程包含圆、方、三角、菱形、长条。这里展示“三角”。这不是为了让 AP 背图片文件名，而是让课程材料在进入 AP 前先满足多样训练、held-out、干扰的基本纪律。</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <span class="label">训练图</span>
+            <div class="asset-row">
+              <div class="asset-tile"><img src="../config/curriculum/assets/visual/synthetic/shape_triangle_train_0.png" alt="triangle train 0">train 0</div>
+              <div class="asset-tile"><img src="../config/curriculum/assets/visual/synthetic/shape_triangle_train_1.png" alt="triangle train 1">train 1</div>
+              <div class="asset-tile"><img src="../config/curriculum/assets/visual/synthetic/shape_triangle_train_2.png" alt="triangle train 2">train 2</div>
+            </div>
+          </div>
+          <div>
+            <span class="label coral">AP 输出过程</span>
+            <ul class="mini-list">
+              <li>视觉资源通过 manifest hash 校验。</li>
+              <li>课程包确认每个 entry 至少 3 个训练视图。</li>
+              <li>held-out 图不进入训练引用。</li>
+              <li><span class="pass">输出：该 entry 可进入后续视觉课程运行。</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>案例三：日常物体课，苹果/杯子/书/桌子/椅子进入第一批中性词汇</h2>
+      <div class="case">
+        <div class="case-head">
+          <div class="case-index" style="background:var(--amber)"><b>03</b><span>日常名词</span></div>
+          <div>
+            <h3>题目内容</h3>
+            <p>这是给后续真实对话和视觉共同注意准备的中性词汇底座。以“苹果”为例，课程材料有训练图、held-out 图和干扰图；后续 AP 才能把“看到苹果”“听到你说苹果”“自己记起苹果”区分来源地学习。</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <span class="label">苹果训练材料</span>
+            <div class="asset-row">
+              <div class="asset-tile"><img src="../config/curriculum/assets/visual/synthetic/noun_apple_train_0.png" alt="apple train 0">train 0</div>
+              <div class="asset-tile"><img src="../config/curriculum/assets/visual/synthetic/noun_apple_train_1.png" alt="apple train 1">train 1</div>
+              <div class="asset-tile"><img src="../config/curriculum/assets/visual/synthetic/noun_apple_train_2.png" alt="apple train 2">train 2</div>
+            </div>
+          </div>
+          <div>
+            <span class="label violet">课程包输出</span>
+            <pre class="trace">package: neutral_daily_nouns_v1
+entries: 苹果 / 杯子 / 书 / 桌子 / 椅子
+per entry:
+  train = 3
+  held_out = 1
+  contrast = 1
+payload private fields = none</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>案例四：音频课，AP 的“轻声呼唤”素材有真实 WAV 文件</h2>
+      <div class="case">
+        <div class="case-head">
+          <div class="case-index" style="background:var(--violet)"><b>04</b><span>音频模式</span></div>
+          <div>
+            <h3>题目内容</h3>
+            <p>Phase 14 也生成了第一批 WAV 音频素材：轻声呼唤、确认音、纠正音、不确定音、注意音。它们不是人声大语料，而是合成音型，用于验证音频课程资产路径。</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <span class="label">训练音频</span>
+            <audio controls src="../config/curriculum/assets/audio/synthetic/audio_soft_call_train_0.wav"></audio>
+            <audio controls src="../config/curriculum/assets/audio/synthetic/audio_soft_call_train_1.wav"></audio>
+            <audio controls src="../config/curriculum/assets/audio/synthetic/audio_soft_call_train_2.wav"></audio>
+          </div>
+          <div>
+            <span class="label amber">AP 输出过程</span>
+            <pre class="trace">entry_id: audio_soft_call
+content_kind: audio_pattern
+train wav refs: 3
+held_out wav refs: 1
+contrast wav refs: 1
+
+file header check:
+RIFF / WAVE = pass</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>案例五：反馈符号课，为后续“知道自己错了”打底</h2>
+      <div class="case">
+        <div class="case-head">
+          <div class="case-index" style="background:var(--coral)"><b>05</b><span>反馈基础</span></div>
+          <div>
+            <h3>题目内容</h3>
+            <p>第一批反馈符号包含“对、不对、再来、慢点、谢谢”。这不是风格化表达语料，而是中性课程底座。后续自然对话里，AP 可以把外部纠正、奖励、惩罚和行动范式连接起来。</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <span class="label">反馈训练图</span>
+            <div class="asset-row">
+              <div class="asset-tile"><img src="../config/curriculum/assets/visual/synthetic/feedback_correct_train_0.png" alt="correct feedback">对</div>
+              <div class="asset-tile"><img src="../config/curriculum/assets/visual/synthetic/feedback_wrong_train_0.png" alt="wrong feedback">不对</div>
+              <div class="asset-tile"><img src="../config/curriculum/assets/visual/synthetic/feedback_again_train_0.png" alt="again feedback">再来</div>
+            </div>
+          </div>
+          <div>
+            <span class="label violet">为什么重要</span>
+            <ul class="mini-list">
+              <li>用户说“错了”时，系统不能只做关键词路由。</li>
+              <li>它需要把反馈作为来源明确的学习事件。</li>
+              <li>中性反馈课程为后续自然纠错、奖励惩罚按钮、行动竞争提供基础材料。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Phase 14 的硬验收</h2>
+      <div class="proof-grid">
+        <div class="proof-card"><h3>资源治理</h3><p><span class="pass">200/200</span> 资产通过 schema、license、source_url、sha256、安全检查。</p></div>
+        <div class="proof-card"><h3>训练隔离</h3><p><span class="pass">0</span> 个 train/held-out hash 泄漏组。</p></div>
+        <div class="proof-card"><h3>课程包</h3><p><span class="pass">8</span> 个中性课程包，<span class="pass">40</span> 个 entry。</p></div>
+        <div class="proof-card"><h3>引用结构</h3><p><span class="pass">120</span> train refs，<span class="pass">40</span> held-out refs，<span class="pass">40</span> contrast refs。</p></div>
+      </div>
+      <div class="case">
+        <div class="case-body">
+          <div>
+            <span class="label">Phase 14 targeted tests</span>
+            <pre class="trace">tests/test_phase14_0_asset_governance.py
+tests/test_phase14_1_synthetic_assets.py
+tests/test_phase14_2_neutral_curriculum_packs.py
+tests/test_phase14_3_public_showcase.py
+
+Result:
+16 passed</pre>
+          </div>
+          <div>
+            <span class="label amber">全套回归</span>
+            <pre class="trace">python -m pytest -q
+
+Result:
+465 passed</pre>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <span class="label violet">红线与治理</span>
+            <pre class="trace">red_line_check_v14.py
+OK: All red line checks pass
+
+check_constant_governance.py
+OK: 284 numeric constants</pre>
+          </div>
+          <div>
+            <span class="label amber">边界</span>
+            <ul class="mini-list">
+              <li>不宣称 3500 字全集。</li>
+              <li>不宣称 7000 词完整词库。</li>
+              <li>不宣称真实外部图像/音频大库已经接入。</li>
+              <li>不宣称 AP 已经在开放对话中掌握全部基础词。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>现在可以诚实说什么</h2>
+      <p class="intro">可以说：APV3 已经有了第一批干净课程材料的工程闭环。课程内容不再只是临时测试样例，而是开始具备资源来源、许可、hash、训练/held-out/干扰分组、课程包引用和公开展示。下一步可以在这个基础上扩真实素材库、接风格化表达语料、做 Web 工作台课程回放。</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      APV3 Phase 14 Public Readable Showcase · Synthetic first content assets · 2026-06-18
+    </div>
+  </footer>
+</body>
+</html>

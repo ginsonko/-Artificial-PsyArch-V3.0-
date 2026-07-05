@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_a338d3fbc53016b5",
+  "concept": "apple",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_a338d3fbc53016b5.png",
+  "sha256": "a338d3fbc53016b5b7d50adf731236decedf1e49edd5b4116685e72f68eb192c",
+  "source": "openverse",
+  "source_url": "https://www.rawpixel.com/image/6029465/photo-image-public-domain-fruit-red",
+  "download_url": "https://api.openverse.org/v1/images/55aff42c-80f4-4c01-b67a-87949db0bf5e/thumb/",
+  "license_id": "CC0-1.0",
+  "author": "",
+  "title": "Red apples fruit bowl",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

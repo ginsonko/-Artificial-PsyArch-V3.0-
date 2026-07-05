@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_b96db93b040109ae",
+  "concept": "phone",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/phone/cand_b96db93b040109ae.png",
+  "sha256": "b96db93b040109ae322b8c454cec8e7b4bd18df376a5cf424f38d64828bb2c2f",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/23408922@N07/16168114115",
+  "download_url": "https://api.openverse.org/v1/images/d0fb2708-ca8a-438c-92d3-57eb77e93924/thumb/",
+  "license_id": "PDM-1.0",
+  "author": "comedy_nose",
+  "title": "Project 365 #365: 311214 When All Is Said And Done",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

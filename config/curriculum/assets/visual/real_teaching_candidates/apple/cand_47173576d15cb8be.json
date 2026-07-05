@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_47173576d15cb8be",
+  "concept": "apple",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_47173576d15cb8be.png",
+  "sha256": "47173576d15cb8be69434e8909671f7a44f4e12f4292e20ca4abc7d58de30482",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/90692748@N04/32337696372",
+  "download_url": "https://api.openverse.org/v1/images/ba61831e-70c4-4a39-b810-5e4c44652c69/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "docoverachiever",
+  "title": "Repeel",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

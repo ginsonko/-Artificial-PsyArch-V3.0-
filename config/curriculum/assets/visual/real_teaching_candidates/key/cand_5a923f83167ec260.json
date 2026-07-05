@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_5a923f83167ec260",
+  "concept": "key",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_5a923f83167ec260.png",
+  "sha256": "5a923f83167ec2604a5a3d9eb2f25ad02925b0ae9ae01627abb79cd8ba11e957",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/24662369@N07/8511397136",
+  "download_url": "https://api.openverse.org/v1/images/79abc3a6-8d21-4b70-a49d-acb46d959f08/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "NASA Goddard Photo and Video",
+  "title": "NASA's Webb Telescope Components Meet ’Big Red’",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

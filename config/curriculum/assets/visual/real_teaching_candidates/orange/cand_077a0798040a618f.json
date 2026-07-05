@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_077a0798040a618f",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_077a0798040a618f.png",
+  "sha256": "077a0798040a618f021a85a31b2de18ee4a5ad311c5df097361989f9d0302c89",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/53133240@N00/100655342",
+  "download_url": "https://api.openverse.org/v1/images/38f7aa0c-f933-4284-9e9d-c580ff69a2fc/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Muffet",
+  "title": "citrus",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_e49d728c5ea381da",
+  "concept": "rice",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_e49d728c5ea381da.png",
+  "sha256": "e49d728c5ea381da101c949cdf501b5f28a06a3488e08d160b92959787150e5d",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/47626742@N07/8079859570",
+  "download_url": "https://api.openverse.org/v1/images/6feb419f-822f-40c1-b976-3acbfc80122f/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "t-mizo",
+  "title": "Taco Rice! (Kashiwa, Chiba, Japan)",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

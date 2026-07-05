@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_7aa9af4c74eaec8e",
+  "concept": "strawberry",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_7aa9af4c74eaec8e.png",
+  "sha256": "7aa9af4c74eaec8e2a808a932cf26f7b63b8779ee2f03a5beffae585ffe750bd",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/83346641@N00/8671399450",
+  "download_url": "https://api.openverse.org/v1/images/077cb80b-8975-4a4e-ba53-54f1aa438d26/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "JD Hancock",
+  "title": "Berry Hard Work",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_1a6860d379430da6",
+  "concept": "book",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_1a6860d379430da6.png",
+  "sha256": "1a6860d379430da6f510c0c696a817ae5b6eae22ab7423f70c60e9c5a14a2c8a",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/35759981@N08/16260412919",
+  "download_url": "https://api.openverse.org/v1/images/28bb964e-1b06-47c5-8c92-70569bf65cb0/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Archives New Zealand",
+  "title": "'Opo' (Known as 'Opo Jack'), the celebrity dolphin of Opononi, entertains visitors in 1956",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

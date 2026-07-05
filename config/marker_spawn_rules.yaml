@@ -1,0 +1,96 @@
+# marker_spawn_rules.yaml — EpistemicSource 5 marker spawn 完整规则
+# v14.1: B2 文本 3 层拆分 + S1 IMAGINATION→IMAGINED 合并
+
+# 顺序:5 个 documented EpistemicSource markers
+# + CORRECTION 路径澄清(本质属 feedback channel,不是 epistemic source)
+
+PERCEIVED:
+  spawn_when: |
+    Sensor adapter 输出 normalized SA event 时,
+    包括 text utterance percept(听到/看到用户说话本身)+
+    vision/audio percept.
+  spawn_function: "sensor_adapters/*/numeric_sensor.py:emit_percept"
+  spawn_strength: "percept_R * 0.8"
+  coexist_with: ["REMEMBERED", "HEARSAY"]
+  rationale: |
+    "听到/看到用户说了什么" 是 PERCEIVED.
+    与 HEARSAY 并存:听到话(PERCEIVED) + 话里陈述了什么(HEARSAY).
+
+HEARSAY:
+  spawn_when: |
+    v14.1 §B2 关键:HEARSAY 不在 text_char 层 spawn,只在命题层 spawn.
+
+    Text 内容经文本理解后产生命题 SA 时:
+    - text_char SA 经 vocab 链接组合产生 proposition vocab SA
+    - 该 proposition vocab SA spawn HEARSAY marker
+    - 同时 source_entity_id = 说话方
+  spawn_function: "runtime/cognitive/text_understanding/proposition_emit.py"
+  spawn_strength: "proposition_vocab.R * 0.7"
+  source_entity_id: "speaker_entity_id"
+  coexist_with: ["INFERRED", "PERCEIVED"]
+  rationale: |
+    用户说"苹果是红的" → PERCEIVED text_chars + HEARSAY vocab::苹果是红的.
+    HEARSAY 标记内容来源是听别人说,不是亲见.
+
+# v14.1 §B2 关键修订:CORRECTION 改归 feedback channel
+# 不直接由用户文本 spawn,而是经 reward handler 触发
+CORRECTION:
+  spawn_when: |
+    System 自身 commit 后收到 negative feedback signal 时:
+
+    1. 用户文本经 sensor 进入 PERCEIVED text_chars (sensor adapter)
+    2. text_understanding 提取命题 → HEARSAY proposition + negative_polarity
+    3. feedback handler 识别 negative → apply_punishment
+    4. apply_punishment → MISMATCH event → CORRECTION hypothesis spawn (v8 §16.11)
+
+    重要:不由"用户说'不对'"文本直接 spawn,经分层路径.
+  spawn_function: "runtime/cognitive/reward/handler.py:apply_punishment"
+  spawn_strength: "mismatch_sa.real_energy"
+  coexist_with: []
+  rationale: "纠错是反馈通道事件派生,不是 epistemic source"
+
+NOVELTY:
+  spawn_when: |
+    External surprise has enough current pressure to pull attention away from endogenous chains.
+  spawn_function: "runtime/cognitive/marker/spawn_novelty.py"
+  spawn_strength: "external_surprise_pressure"
+  coexist_with: ["PERCEIVED"]
+  rationale: "新异外部刺激标记,用于 Phase 8.10 safety gate mini-gate"
+
+REMEMBERED:
+  spawn_when: |
+    long_term cold→active rehydration 触发:
+    - 从 cold_index 激活的 SA 同时 spawn REMEMBERED marker
+  spawn_function: "runtime/cognitive/long_term/rehydration.py:_activate"
+  spawn_strength: "cue_alignment_factor * cold_sa.long_term_R * 0.5"
+  coexist_with: ["PERCEIVED"]
+  rationale: "记忆召回标记"
+
+# v14.1 §S1: 合并 v12 IMAGINATION + v13 IMAGINED 为单 marker
+IMAGINED:
+  spawn_when: |
+    SA 同时满足:
+    1. 在 active_pool 但本 tick 无 sensor adapter 注入(no external R fresh)
+    2. ledger.endogenous_share > 0.5
+    3. R 来源中 imagined/replay/internal chain 占主导
+
+    含义双重(实质等价):
+    - 当前激活机制:这条 SA 正由内源链维持(原 IMAGINATION 语义)
+    - 学习 packet 认识来源:这次内容来自想象(原 IMAGINED 语义)
+  spawn_function: "runtime/cognitive/endogenous/imagined_marker_spawn.py"
+  spawn_strength: "sa.endogenous_share * 0.6"
+  coexist_with: ["REMEMBERED", "INFERRED"]
+  rationale: "内源链产生的 SA。能由内源链维持 ⇔ 来源是想象。"
+
+INFERRED:
+  phase_8_behavior: "spawn_disabled"
+  spawn_when_phase_11: |
+    deliberative virtual track (§41.4) 产生新 SA 时:
+    - virtual conclusion → main pool 时 spawn INFERRED marker
+  spawn_function: "runtime/cognitive/deliberative/conclusion_reify.py"
+  rationale: |
+    Phase 8 阶段:
+    - INFERRED marker spawn 禁用
+    - guess_sense feature INFERRED_marker_present 暂返回 0
+    - guess_sense 仍可经 low_grasp_score / candidate_entropy_high 涌现
+    Phase 11 启用 deliberative 后自动启动

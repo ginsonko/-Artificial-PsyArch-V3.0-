@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase1.2 草稿行动报告</title>
+  <style>
+    :root {
+      --ink: #1f2937;
+      --muted: #667085;
+      --line: #d8dee8;
+      --soft: #f8fafc;
+      --accent: #0f766e;
+      --good: #166534;
+      --warn: #92400e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.65;
+    }
+    header {
+      padding: 34px 6vw 24px;
+      border-bottom: 1px solid var(--line);
+      background: #f0fdfa;
+    }
+    main { max-width: 1120px; margin: 0 auto; padding: 28px 24px 56px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 10px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    .meta { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      background: var(--soft);
+    }
+    .card strong { display: block; font-size: 20px; margin-bottom: 4px; }
+    .ok { color: var(--good); }
+    .warn { color: var(--warn); }
+    .band {
+      border-left: 4px solid var(--accent);
+      background: #ecfdf5;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    code, pre {
+      font-family: Consolas, "Cascadia Mono", monospace;
+      background: #f2f4f7;
+      border-radius: 6px;
+    }
+    code { padding: 1px 5px; }
+    pre { padding: 14px; overflow: auto; border: 1px solid var(--line); }
+    ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>APV3.0test Phase1.2 草稿行动报告</h1>
+    <p class="meta">逐字写入 | 回读 | 修改 | 提交清空 | 未提交不固化 | 2026-06-16</p>
+  </header>
+  <main>
+    <section class="grid">
+      <div class="card"><strong class="ok">31/31</strong>单元测试通过</div>
+      <div class="card"><strong class="ok">通过</strong>Python 编译检查</div>
+      <div class="card"><strong class="ok">无命中</strong>禁用通道扫描</div>
+      <div class="card"><strong class="warn">边界</strong>尚未接完整自由对话 runtime</div>
+    </section>
+
+    <h2>本轮结论</h2>
+    <div class="band">
+      Phase1.2 已证明最小草稿行动链可以持久化恢复, commit 后清空草稿, 未提交草稿不会成为正向长期技能, 同一行动器同一 tick 只能执行一个行动。
+    </div>
+
+    <h2>行动覆盖</h2>
+    <ul>
+      <li><code>type_text</code>: 逐字/片段写入。</li>
+      <li><code>reread</code>: 回读当前草稿。</li>
+      <li><code>delete_chars</code>: 删除 cursor 前字符。</li>
+      <li><code>replace_tail</code>: 修改草稿尾部。</li>
+      <li><code>commit</code>: 提交并清空草稿。</li>
+    </ul>
+
+    <h2>学习边界</h2>
+    <ul>
+      <li>未提交草稿可以保存恢复, 但不会写入正向长期学习对象。</li>
+      <li>commit 后只生成 <code>text_commit</code> 行动后果证据。</li>
+      <li>提交文本不会被当作 learned token 或 transition 捷径写入。</li>
+    </ul>
+
+    <h2>验证命令</h2>
+    <pre><code>python -m pytest APV3.0test/tests -q
+
+$files = Get-ChildItem -Path APV3.0test\apv3test\config,APV3.0test\apv3test\runtime -Filter *.py | ForEach-Object { $_.FullName }; python -m py_compile @files
+
+rg -n "keyword|answer_table|student_side_llm|branch_alignment|math_process_tokens|regex|full_sentence_macro" APV3.0test\apv3test APV3.0test\tests</code></pre>
+
+    <h2>下一步</h2>
+    <ul>
+      <li>Phase1.3: 串联 teacher protocol 小 episode。</li>
+      <li>把学习写入、逐字草稿、回读、commit、保存恢复、再召回放进同一条链。</li>
+      <li>通过后再做旧 GL 技能包小批复现。</li>
+    </ul>
+  </main>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_d4d00bd6d410eed0",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_d4d00bd6d410eed0.png",
+  "sha256": "d4d00bd6d410eed0d87d96f0f797add06d4e2bc9919bd3a587ca309d54dc1adf",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/12568962@N00/412416958",
+  "download_url": "https://api.openverse.org/v1/images/24bf2692-a0b2-479c-b9da-96cfeb228dad/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "David Blaikie",
+  "title": "Muesli for Breakfast, with BLUE milk",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

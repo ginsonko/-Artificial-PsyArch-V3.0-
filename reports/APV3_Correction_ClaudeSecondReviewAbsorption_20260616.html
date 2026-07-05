@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Claude 二次评审吸收报告</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17202a;
+      --muted: #5d6775;
+      --line: #d8dee8;
+      --paper: #ffffff;
+      --band: #f4f7fb;
+      --ok: #0f7b55;
+      --warn: #9a5b00;
+      --accent: #2457a6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      background: var(--band);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 4vw, 42px);
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 28px 0 12px;
+      font-size: 22px;
+    }
+    p { margin: 8px 0; }
+    .subtitle {
+      color: var(--muted);
+      max-width: 880px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .label {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    .value {
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .ok { color: var(--ok); }
+    .warn { color: var(--warn); }
+    .accent { color: var(--accent); }
+    ul {
+      padding-left: 22px;
+      margin: 8px 0;
+    }
+    li { margin: 6px 0; }
+    code {
+      background: #eef2f7;
+      border: 1px solid #d9e1ec;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: Consolas, "Cascadia Mono", monospace;
+      font-size: 0.94em;
+    }
+    pre {
+      overflow: auto;
+      background: #101828;
+      color: #edf4ff;
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 13px;
+    }
+    .note {
+      border-left: 4px solid var(--accent);
+      background: var(--paper);
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Claude 二次评审吸收报告</h1>
+    <p class="subtitle">本页记录本轮对 APV3.0test 的纠偏吸收：清理剩余内联证据地板，确认测试与扫描结果，并把 Phase5 的在线增量学习、角色转移后天学习、自然教学与 LLM 教学等价性写入设计门。</p>
+  </header>
+
+  <section class="grid" aria-label="状态摘要">
+    <div class="card">
+      <div class="label">代码纠偏</div>
+      <div class="value ok">已落地</div>
+      <p>删除 <code>role_decode.py</code> 与 <code>paradigm_fill.py</code> 中低证据地板。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">83 passed</div>
+      <p>当前测试集全部通过。</p>
+    </div>
+    <div class="card">
+      <div class="label">禁用通道扫描</div>
+      <div class="value ok">无命中</div>
+      <p>未发现关键词路由、答案表、学生侧 LLM、隐藏数学分支等红线。</p>
+    </div>
+    <div class="card">
+      <div class="label">Phase5 边界</div>
+      <div class="value warn">设计门已建立</div>
+      <p>增量式范式发现与教学等价性尚未宣称完成。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>本轮吸收了什么</h2>
+    <ul>
+      <li>接受评审意见：<code>shared_fragment</code> 的 <code>max(..., 0.1)</code> 地板会让低证据对象获得隐藏底分。</li>
+      <li>追加发现：<code>paradigm_fill.py</code> 的锚点 strength 也有同类地板，已一起清理。</li>
+      <li>不把地板移动到 config，而是直接删除，因为 APV3.0 的原则是低证据自然低能量。</li>
+      <li>保留 Viterbi transition 的弱平滑，但将其列入 Phase5 后天学习化门槛。</li>
+      <li>明确 LLM 可以作为教师侧协议加速器，但不能成为学生侧 runtime policy。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>关键修改</h2>
+    <pre><code>role_decode.py:
+role_viterbi_shared_match_reward * column.occupancy * coherence
+
+paradigm_fill.py:
+strength = max(0.0, paradigm.conf) * column.occupancy</code></pre>
+  </section>
+
+  <section>
+    <h2>验收结果</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase2_4_role_viterbi.py APV3.0test\tests\test_phase2_6_percept_slot_fill.py APV3.0test\tests\test_phase4_0_minimal_dialogue_runtime.py APV3.0test\tests\test_phase4_1_small_skill_reproduction.py -q
+20 passed in 0.57s
+
+python -m pytest APV3.0test\tests -q
+83 passed in 1.75s</code></pre>
+    <pre><code>禁用通道扫描: 无命中
+残留硬地板/旧位置语法扫描: 无命中</code></pre>
+  </section>
+
+  <section>
+    <h2>Phase5 设计门</h2>
+    <div class="note">
+      Phase5 的目标是把当前“批量观察后发现范式”的骨架，推进到 tick 流中的增量式范式学习。自然教学和 LLM 标准教学协议必须写入同一种 AP-native evidence，运行时效果才允许被视为等价。
+    </div>
+    <ul>
+      <li>新增或改造 <code>ParadigmObservationStore</code> 与 <code>IncrementalParadigmStats</code>。</li>
+      <li>新观察只更新相关 dirty bucket，不在 tick 主链全量重算。</li>
+      <li><code>RoleTransitionStats</code> 由已提交、已奖励或未惩罚的范式使用经验学习。</li>
+      <li>未提交草稿、自回环草稿、失败行动不能抬高 support。</li>
+      <li>SQLite 恢复后，增量统计与纯内存连续学习需要 parity。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>仍不宣称</h2>
+    <ul>
+      <li>不宣称完整 APV3.0 范式通道已全部完成。</li>
+      <li>不宣称完整跨模态泛化已完成。</li>
+      <li>不宣称自由中文开放对话底座已完成。</li>
+      <li>不宣称 Viterbi transition 权重已经完成后天学习化。</li>
+      <li>不宣称范式发现已经完全在线增量化。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>文件</h2>
+    <ul>
+      <li><code>APV3.0test/docs/CorrectionReport_ClaudeSecondReviewAbsorption_20260616.md</code></li>
+      <li><code>APV3.0test/docs/DesignGate_Phase5_IncrementalParadigm_TeachingEquivalence_20260616.md</code></li>
+      <li><code>APV3.0test/reports/APV3_Correction_ClaudeSecondReviewAbsorption_20260616.html</code></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

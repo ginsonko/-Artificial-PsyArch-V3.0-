@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_7feadba732d00c72",
+  "concept": "key",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_7feadba732d00c72.png",
+  "sha256": "7feadba732d00c7263d1d3fd891087754a94b08bf346c1c2abf4178b0d144caf",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/130551911@N05/17326491641",
+  "download_url": "https://api.openverse.org/v1/images/4f179d9c-ea14-4166-b09d-701677d637ef/thumb/",
+  "license_id": "CC0-1.0",
+  "author": "mpardo.photo",
+  "title": "Hold it!",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

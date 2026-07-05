@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_6f51ec8eab7f2b25",
+  "concept": "table",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_6f51ec8eab7f2b25.png",
+  "sha256": "6f51ec8eab7f2b25065e9d4726e425d4dd8d71a7076945fff0724a13b285d81c",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/52634191@N08/4847495314",
+  "download_url": "https://api.openverse.org/v1/images/10e1bfb5-2082-43b2-a5bd-6299f8581e1f/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "HALDANE MARTIN",
+  "title": "Haldane Martin Studio, Fiela Feather Chandeliers, Weightless Round glass Table, Weightless Tub Chairs, Designed by Haldane Martin, Photo Inge Prins",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

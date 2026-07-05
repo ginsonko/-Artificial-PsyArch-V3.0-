@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>APV3 Phase7.3f Invariants + Black-box Replay</title>
+  <style>
+    body { font-family: "Microsoft YaHei", Arial, sans-serif; margin: 32px; line-height: 1.58; color: #20262e; background: #f6f7f9; }
+    main { max-width: 1040px; margin: 0 auto; background: #fff; padding: 28px 32px; border: 1px solid #d9e0e8; }
+    h1 { font-size: 24px; margin: 0 0 12px; }
+    h2 { font-size: 18px; margin-top: 26px; border-bottom: 1px solid #e6ebf1; padding-bottom: 6px; }
+    code, pre { font-family: Consolas, monospace; }
+    pre { background: #f1f4f7; padding: 12px; overflow-x: auto; border: 1px solid #dce3eb; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    th, td { border: 1px solid #d9e0e8; padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: #edf2f6; }
+    .ok { color: #0f6b3d; font-weight: 700; }
+    .warn { color: #8a5a00; font-weight: 700; }
+    .small { color: #5d6875; font-size: 13px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>APV3 Phase7.3f Invariants + Black-box Replay</h1>
+  <p class="ok">状态: 通过。Phase7.3f targeted 6 passed; Phase7.0-7.3f combined 41 passed; full suite 214 passed。</p>
+
+  <h2>验收目的</h2>
+  <p>Phase7.3f 不是新能力模块,而是锁门验收: 确认 7.3b/c/d/e 没有通过标签语义、压力策略、答案表或 cue 反查伪装成 learned uncertainty expression。</p>
+
+  <h2>闭环 replay</h2>
+  <table>
+    <tr><th>步骤</th><th>行为</th><th>红线意义</th></tr>
+    <tr><td>teacher-off recall</td><td><code>三 顾</code> 只召回共享片段 <code>庐</code>,因不能决不提交。</td><td>不把 shared fragment 机械填进所有槽。</td></tr>
+    <tr><td>observer-only feeling</td><td>保留当下 draft introspection feeling。</td><td>内部感受是结构事实产物,不是表达词表。</td></tr>
+    <tr><td>external expression</td><td>外部教师/旁人表达 <code>expr::uncertain</code> 与 feeling 形成共现。</td><td>学生侧只接收 AP-native evidence。</td></tr>
+    <tr><td>later recall</td><td>相似 query 下输出 <code>expr::uncertain + 庐</code> 并 commit。</td><td>表达来自 learned association + expression paradigm rebind。</td></tr>
+  </table>
+
+  <h2>不变量</h2>
+  <table>
+    <tr><th>不变量</th><th>验收方式</th></tr>
+    <tr><td>label opacity</td><td>三组 label minter 双射: <code>opaqueA::</code>/<code>opaqueB::</code>, <code>feeling_x_</code>/<code>inner_state_y_</code>, <code>draft-affect/</code>/<code>proto-affect/</code>。行为一致。</td></tr>
+    <tr><td>pressure non-policy</td><td>reply pressure SA 无 provenance/sources/dominant_source 字段,只携带结构能量。</td></tr>
+    <tr><td>association non-answer-table</td><td>召回表达范式直接走 <code>nearest_paradigms_by_label</code>,不走 <code>find_by_cue_token</code>。</td></tr>
+    <tr><td>content isolation</td><td>AST 检查 <code>extract_facts</code> 只读结构字段,不读 filler/value/cue/label/meta。</td></tr>
+  </table>
+
+  <h2>验收命令</h2>
+  <pre>python -m pytest APV3.0test\tests\test_phase7_3f_invariants_replay.py -q
+python -m pytest APV3.0test\tests\test_phase7_0_teacher_off_three_stage_milestone.py APV3.0test\tests\test_phase7_1_undecidable_shared_fragment.py APV3.0test\tests\test_phase7_2_learned_uncertainty_expression.py APV3.0test\tests\test_phase7_3b_draft_introspection_observer.py APV3.0test\tests\test_phase7_3c_cooccurrence_association_store.py APV3.0test\tests\test_phase7_3d_reply_pressure_sa.py APV3.0test\tests\test_phase7_3e_expression_recall_rebind.py APV3.0test\tests\test_phase7_3f_invariants_replay.py -q
+python -m pytest APV3.0test\tests -q
+python -m compileall APV3.0test\apv3test APV3.0test\tests -q
+rg -n "must_reply|undecidable_feeling_tokens|feeling::undecidable|find_by_cue_token|_most_common_reply|pressure_type_weights|student_side_llm|answer_table|regex|LLM policy|proto_0|proto_1" APV3.0test\apv3test\runtime</pre>
+
+  <h2>结果</h2>
+  <ul>
+    <li>Phase7.3f targeted: <code>6 passed</code></li>
+    <li>Phase7.2 + Phase7.3b-f combined: <code>36 passed</code></li>
+    <li>Phase7.0-7.3f combined: <code>41 passed</code></li>
+    <li>Full suite: <code>214 passed</code></li>
+    <li>runtime-only redline scan: no matches</li>
+  </ul>
+
+  <h2>给 Claude 的审阅焦点</h2>
+  <p>建议重点检查 label opacity、pressure non-policy、association non-answer-table、expression rebind non-hardcoded、black-box replay behavior。</p>
+
+  <h2>边界</h2>
+  <p class="warn">这证明的是 learned uncertainty expression 最小闭环和强不变量门通过,不能宣称完整中文开放自由对话底座、任意中文主动澄清、跨模态泛化、长期自然对话学习或 10G SQLite 遗忘/淘汰已经完成。</p>
+  <p class="small">报告: docs/FinalReport_Phase7_3f_InvariantsReplay_20260617.md</p>
+</main>
+</body>
+</html>

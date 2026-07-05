@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 20.4 工作台修复展示</title>
+  <style>
+    body { margin:0; font-family:"Microsoft YaHei",Arial,sans-serif; background:#f4f7f8; color:#172126; line-height:1.65; }
+    main { max-width:1120px; margin:0 auto; padding:28px 18px 42px; }
+    h1 { margin:0 0 8px; font-size:28px; }
+    h2 { margin:26px 0 10px; font-size:20px; }
+    .lead { color:#63727a; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .card, table, ul { background:#fff; border:1px solid #d8e2e7; border-radius:8px; padding:14px; }
+    .bubble { max-width:78%; padding:10px 12px; border-radius:8px; margin:8px 0; white-space:pre-wrap; }
+    .user { margin-left:auto; background:#12343b; color:#fff; }
+    .ap { background:#e8f4f2; border:1px solid #cbdeda; }
+    .system { margin-left:auto; margin-right:auto; background:#fff7ed; border:1px solid #e8c9a1; color:#5f3a0c; }
+    table { border-collapse:collapse; width:100%; padding:0; overflow:hidden; }
+    td, th { border-bottom:1px solid #e1e8ec; padding:9px 10px; text-align:left; vertical-align:top; }
+    tr:last-child td { border-bottom:0; }
+    img { width:180px; max-height:150px; object-fit:contain; border:1px solid #d8e2e7; border-radius:8px; background:#fff; }
+    li { margin:8px 0; }
+    li span { display:block; color:#63727a; font-size:13px; }
+    .num { font-size:24px; color:#0f766e; font-weight:700; }
+    @media (max-width:780px) { .grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Phase 20.4: 本地对话工作台修复</h1>
+  <p class="lead">这页给非技术读者看: 这次不是证明 AP 已经完整会聊天,而是证明工作台现在能清楚展示 AP 的输入、回复、教学、tick 回放和记忆内容,并且主聊天路径统一走 Phase20 共现学习底座。</p>
+
+  <h2>这次修了什么</h2>
+  <div class="grid">
+    <div class="card"><span class="num">1</span><p>发送文字和发送图文都走同一个 Phase20 runtime,不再一半旧聊天、一半新教学。</p></div>
+    <div class="card"><span class="num">2</span><p>当前会话直接显示用户原文；SQLite 仍只保存 hash/长度,不保存普通用户原文。</p></div>
+    <div class="card"><span class="num">3</span><p>教学不会覆盖聊天泡泡,而是追加“纠正回答已学习”。</p></div>
+    <div class="card"><span class="num">4</span><p>记忆列表显示真实短句和共现关系,支持记忆包查看/卸载。</p></div>
+  </div>
+
+  <h2>示例对话</h2>
+  <div class="card">
+    <div class="bubble user">你好</div>
+    <div class="bubble ap">嗯,在。</div>
+    <div class="bubble system">纠正回答 &quot;你好。&quot; 已学习</div>
+    <div class="bubble user">这是什么<br><img src="../config/curriculum/assets/visual/clean_cards/noun_apple_held_out_0.png" alt="apple"></div>
+    <div class="bubble ap">...嗯。</div>
+    <div class="bubble system">纠正回答 &quot;像苹果。&quot; 已学习</div>
+    <div class="bubble user">这是什么</div>
+    <div class="bubble ap">像苹果。</div>
+    <div class="bubble user">你是谁?</div>
+    <div class="bubble ap">嗯,听着。</div>
+  </div>
+
+  <h2>AP 输出过程</h2>
+  <table>
+    <thead><tr><th>tick</th><th>阶段</th><th>做了什么</th><th>细节</th></tr></thead>
+    <tbody><tr><td>1</td><td>输入进入</td><td>收到当前会话输入 4 字 + 图片</td><td>原文只用于当前页面显示；普通用户文本仍按隐私规则只持久化 hash/长度。</td></tr>
+<tr><td>2</td><td>视觉聚焦</td><td>枚举到 1 个 ObjectFile</td><td>图像路径只进入视觉感受器；文本通道不偷读视觉标签。</td></tr>
+<tr><td>3</td><td>文本运行时</td><td>底层 tick 3 产生候选表达</td><td>文本 hash=ac0b06818ee571fb</td></tr>
+<tr><td>4</td><td>共现召回</td><td>命中教师共现记忆</td><td>teacher_phrase::3ddb8788eb9fa937</td></tr>
+<tr><td>5</td><td>风格组装</td><td>PAR-Q.06 -&gt; 像苹果。</td><td>风格化只负责表达外形，不作为独立答案表。</td></tr>
+<tr><td>6</td><td>提交回复</td><td>像苹果。</td><td>提交后进入空 tick 观察窗口，用于展示是否仍有未完成压力。</td></tr>
+<tr><td>7</td><td>空 tick 1</td><td>无新输入，保持最近工作记忆并等待下一轮。</td><td>Phase 20.4 只展示空 tick 投影，不宣称额外深层推理已完成。</td></tr>
+<tr><td>8</td><td>空 tick 2</td><td>无新输入，保持最近工作记忆并等待下一轮。</td><td>Phase 20.4 只展示空 tick 投影，不宣称额外深层推理已完成。</td></tr></tbody>
+  </table>
+
+  <h2>可读记忆</h2>
+  <ul><li><b>对话场景 815bd083 ↔ 教师短句「像苹果。」</b><span>phase20ctx::720c049a815bd083 / teacher_phrase::3ddb8788eb9fa937 · support 1.000</span></li>
+<li><b>视觉对象 3568d3d2 ↔ 教师短句「像苹果。」</b><span>visual_object::730d7f6a068603dd3568d3d2 / teacher_phrase::3ddb8788eb9fa937 · support 1.000</span></li>
+<li><b>视觉概念 c_95098696ad7469f70c4cd77d ↔ 教师短句「像苹果。」</b><span>visual_concept::c_95098696ad7469f70c4cd77d / teacher_phrase::3ddb8788eb9fa937 · support 1.000</span></li>
+<li><b>教师短句「像苹果。」</b><span>教师纠正短句 · support 1.000</span></li>
+<li><b>对话场景 815bd083 ↔ 教师短句「像苹果。」</b><span>phase20ctx::720c049a815bd083 / teacher_phrase::3ddb8788eb9fa937 · support 1.000</span></li>
+<li><b>视觉对象 3568d3d2 ↔ 教师短句「像苹果。」</b><span>visual_object::730d7f6a068603dd3568d3d2 / teacher_phrase::3ddb8788eb9fa937 · support 1.000</span></li>
+<li><b>视觉概念 c_95098696ad7469f70c4cd77d ↔ 教师短句「像苹果。」</b><span>visual_concept::c_95098696ad7469f70c4cd77d / teacher_phrase::3ddb8788eb9fa937 · support 1.000</span></li></ul>
+
+  <h2>边界</h2>
+  <div class="card">
+    <p>Phase 20.4 的 tick trace 是工作台从 Phase20 runtime 事件投影出来的展示序列,不是宣称已经完成更深层的开放式长程推理。音频在工作台可以上传和播放,但本阶段不宣称听觉识别完成。</p>
+  </div>
+</main>
+</body>
+</html>

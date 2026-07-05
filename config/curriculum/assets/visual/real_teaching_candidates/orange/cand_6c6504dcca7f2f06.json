@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_6c6504dcca7f2f06",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_6c6504dcca7f2f06.png",
+  "sha256": "6c6504dcca7f2f06e0b608f5d303450302111c93cec4e88921570f6b461d5f12",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/44345361@N06/5639996708",
+  "download_url": "https://api.openverse.org/v1/images/95fc6877-b269-4be7-a6e0-2601b8f9afac/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "VinothChandar",
+  "title": "Fruits For Sale!",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

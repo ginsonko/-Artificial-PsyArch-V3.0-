@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase7.8 极简中文表达底座</title>
+  <style>
+    :root {
+      --ink: #1e2732;
+      --muted: #657386;
+      --line: #d9e2ec;
+      --bg: #f4f7f8;
+      --panel: #fff;
+      --green: #0d7a4f;
+      --blue: #245a8f;
+      --rose: #8d4b61;
+      --soft-green: #e8f6ef;
+      --soft-blue: #e8f1fb;
+      --soft-rose: #f8edf1;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.68;
+    }
+    main {
+      width: min(1180px, calc(100% - 48px));
+      margin: 28px auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 45px rgba(30, 44, 64, 0.08);
+    }
+    header {
+      padding: 36px 42px 26px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbfc 100%);
+    }
+    h1 { margin: 0; font-size: 30px; line-height: 1.25; letter-spacing: 0; }
+    h2 { margin: 0 0 12px; font-size: 21px; }
+    h3 { margin: 16px 0 8px; font-size: 16px; color: var(--blue); }
+    p { margin: 8px 0; }
+    section { padding: 28px 42px; border-bottom: 1px solid var(--line); }
+    section:last-child { border-bottom: 0; }
+    .subtitle { max-width: 940px; color: var(--muted); font-size: 16px; margin-top: 12px; }
+    .status {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 7px 12px;
+      border-radius: 6px;
+      color: var(--green);
+      background: var(--soft-green);
+      border: 1px solid #bfe6d1;
+      font-weight: 700;
+    }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fbfdff;
+      min-height: 120px;
+    }
+    .card strong { display: block; color: var(--green); font-size: 28px; line-height: 1.1; margin-bottom: 8px; }
+    .flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+    .step { border: 1px solid var(--line); border-radius: 8px; padding: 15px; background: #fff; }
+    .step b { color: var(--blue); }
+    table { border-collapse: collapse; width: 100%; margin-top: 14px; font-size: 14px; }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #edf3f8; }
+    code { font-family: Consolas, "Courier New", monospace; background: #f2f5f7; border: 1px solid #e1e7ee; border-radius: 4px; padding: 1px 5px; }
+    .bubble {
+      display: inline-block;
+      padding: 7px 11px;
+      border-radius: 8px;
+      background: var(--soft-blue);
+      color: #23466b;
+      border: 1px solid #c6dbf3;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+    .dialogue {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fbfdff;
+      margin-top: 12px;
+    }
+    .speaker { color: var(--muted); font-weight: 700; }
+    .ap { color: var(--green); font-weight: 700; }
+    .note { padding: 15px 17px; border-radius: 8px; background: var(--soft-rose); border: 1px solid #ebcbd5; color: #6f3347; }
+    ul { padding-left: 20px; margin: 8px 0 0; }
+    li { margin: 6px 0; }
+    @media (max-width: 860px) {
+      main { width: calc(100% - 24px); margin: 12px auto; }
+      header, section { padding: 22px; }
+      .grid, .flow { grid-template-columns: 1fr; }
+      .dialogue { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3 Phase7.8：极简中文表达底座</h1>
+    <p class="subtitle">
+      这一步把 7.7 的自然中文短句召回，收束成一个固定、可审计、低出错率的“发声按钮”词库。
+      它让系统在知识还少的时候更诚实、更可教，也更容易让人愿意继续陪它学。
+    </p>
+    <div class="status">验收通过：120 词组、风格红线、固定词库、SQLite parity 全部成立</div>
+  </header>
+
+  <section>
+    <h2>这不是装饰性人设，是工程上的安全表达层</h2>
+    <p>
+      初级系统最容易出错的地方不是“不知道”，而是“看起来会说很多，但其实在乱说”。
+      Phase7.8 选择相反路线：先给系统一个少量、短句、诚实的表达按钮库。
+      这样它能表达状态、接受教学、请求澄清，同时避免复杂语法和自信编造。
+    </p>
+    <div class="flow">
+      <div class="step"><b>固定按钮库</b><br>120 个 phrase，分三层成长，不靠 runtime 现场造句。</div>
+      <div class="step"><b>AP-native 选择</b><br>用 feeling-expression 共现、支持度和奖励惩罚决定该按哪个按钮。</div>
+      <div class="step"><b>风格红线</b><br>过长、夸张、LLM 味表达会回退到“知道边界”的短句。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>核心结果</h2>
+    <div class="grid">
+      <div class="card"><strong>120</strong>固定中文 phrase seed corpus</div>
+      <div class="card"><strong>30/40/50</strong>tier 0/1/2 三层分布</div>
+      <div class="card"><strong>≤3</strong>任意输出 token 上限</div>
+      <div class="card"><strong>239</strong>全量测试 passed</div>
+    </div>
+    <table>
+      <tr><th>能力点</th><th>验证结果</th><th>意义</th></tr>
+      <tr><td>短表达优先</td><td><code>p:resp:ok</code> 赢过 <code>p:combo:tryok</code></td><td>同等证据下自然偏向更短表达。</td></tr>
+      <tr><td>不会就诚实</td><td>无强关联时输出 <span class="bubble">不知道</span></td><td>不把不确定包装成长句。</td></tr>
+      <tr><td>防倒灌</td><td>未知 4-token 外部表达被拒绝</td><td>外部 LLM 或教师不能把任意句子塞进学生词库。</td></tr>
+      <tr><td>保存恢复</td><td>SQLite warm-load 后仍召回 <span class="bubble">早</span></td><td>词库与学习支持度能持久化。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>词库质感</h2>
+    <p>这批短语像一个初级中文对话伙伴的“发声按钮”。它不急着说完整长句，而是先学会可靠地表达少量状态。</p>
+    <p>
+      <span class="bubble">嗯</span>
+      <span class="bubble">好</span>
+      <span class="bubble">不知道</span>
+      <span class="bubble">还不会</span>
+      <span class="bubble">想想看</span>
+      <span class="bubble">没听懂</span>
+      <span class="bubble">教教</span>
+      <span class="bubble">早</span>
+      <span class="bubble">这个...?</span>
+    </p>
+    <div class="note">
+      关键不是“短句可爱”，而是短句让错误空间变小。系统不会因为想显得聪明而输出复杂解释；
+      它更容易让使用者自然进入“我来教它”的互动状态。
+    </div>
+  </section>
+
+  <section>
+    <h2>对话示例</h2>
+    <div class="dialogue">
+      <div class="speaker">用户</div><div>你好</div>
+      <div class="speaker">系统</div><div class="ap">你好</div>
+      <div class="speaker">用户</div><div>你叫什么名字?</div>
+      <div class="speaker">系统</div><div class="ap">不知道</div>
+      <div class="speaker">用户</div><div>今天天气真好</div>
+      <div class="speaker">系统</div><div class="ap">嗯</div>
+      <div class="speaker">用户</div><div>我教你，早上见面可以说“早”。</div>
+      <div class="speaker">系统</div><div class="ap">好的</div>
+      <div class="speaker">用户</div><div>早上好</div>
+      <div class="speaker">系统</div><div class="ap">早</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>验收</h2>
+    <ul>
+      <li>Phase7.8 targeted: <strong>9 passed</strong></li>
+      <li>Phase7.7 compatibility: <strong>5 passed</strong></li>
+      <li>Phase7.0-7.8 combined regression: <strong>66 passed</strong></li>
+      <li>Full suite: <strong>239 passed</strong></li>
+      <li>Compileall 通过，runtime backdoor 扫描无命中。</li>
+    </ul>
+    <p>
+      Phase7.8 的价值：APV3.0test 现在不只是能学到中文短句，
+      还开始拥有一个适合“初级中文对话伙伴”的稳定表达口味。
+      它话少、边界清楚、可被继续教育。
+    </p>
+  </section>
+</main>
+</body>
+</html>

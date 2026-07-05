@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_882e8d32939f74c1",
+  "concept": "cake",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_882e8d32939f74c1.png",
+  "sha256": "882e8d32939f74c1257a02a586b0852329fe034779a5e1c064cb0440d53419c2",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/47626742@N07/7954960682",
+  "download_url": "https://api.openverse.org/v1/images/2c7f4931-f18b-457e-b50a-7d2273775b85/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "t-mizo",
+  "title": "Fruits Mille Crepe! (Tokyo, Japan)",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_fc81fcf78f5bf7f7",
+  "concept": "table",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_fc81fcf78f5bf7f7.png",
+  "sha256": "fc81fcf78f5bf7f75cf812f350dae751014dfb032ae682de2d0b283ba556949a",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/34427466731@N01/2198622410",
+  "download_url": "https://api.openverse.org/v1/images/c9ef833e-3327-42c3-a903-b3a54ac89767/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "striatic",
+  "title": "current location",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

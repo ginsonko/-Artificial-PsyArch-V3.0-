@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_7f382337b3512965",
+  "concept": "book",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_7f382337b3512965.png",
+  "sha256": "7f382337b3512965c707c02798d4d8d8469c8dcd44eba962efc1912f84bcb970",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/17557997@N02/4131323610",
+  "download_url": "https://api.openverse.org/v1/images/b8ac089a-55e2-4948-a734-04f0171ed029/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Calsidyrose",
+  "title": "Tape Scrap",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

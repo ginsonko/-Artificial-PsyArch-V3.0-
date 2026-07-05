@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 本地对话工作台</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">AP</span>
+      <div>
+        <h1>APV3 本地对话工作台</h1>
+        <p id="statusLine">连接中</p>
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="segmented" role="group" aria-label="结构态">
+        <button class="mode active" data-mode="uncertain" title="不确定结构态">?</button>
+        <button class="mode" data-mode="flow" title="顺畅结构态">~</button>
+        <button class="mode" data-mode="request" title="求教结构态">+</button>
+        <button class="mode" data-mode="corrective" title="纠错结构态">!</button>
+      </div>
+      <button id="refreshBtn" title="刷新状态">刷新</button>
+    </div>
+  </header>
+
+  <main class="workspace phase20-5-grid">
+    <aside id="panel0History" class="history-pane panel-shell" data-panel="0">
+      <div class="panel-head">
+        <h2>会话历史</h2>
+        <span>Panel 0</span>
+      </div>
+      <div class="panel-note">默认不保存历史原文；这里只显示时间、轮数和用户命名。</div>
+      <div id="sessionHistoryList" class="list-panel"></div>
+    </aside>
+
+    <section id="panel1Chat" class="chat-pane panel-shell" data-panel="1">
+      <div id="chatTimeline" class="chat-timeline"></div>
+      <form id="sendForm" class="composer">
+        <div id="phase20Panel" class="detail-box turn-restore-box"></div>
+        <div class="composer-help">
+          <span><b>发送文字</b>只跑文本对话。</span>
+          <span><b>发送图文</b>会把图片交给视觉通道。</span>
+          <span><b>教上一轮这样回</b>会奖励新回答并轻惩旧回答。</span>
+        </div>
+        <textarea id="messageInput" rows="3" placeholder="输入中文"></textarea>
+        <div class="media-row">
+          <input id="imagePathInput" class="path-input" type="text" placeholder="可选: 本地图片路径">
+          <label class="file-button" for="mediaFileInput" title="选择本地图片/音频并导入到工作台缓存">浏览</label>
+          <input id="mediaFileInput" type="file" accept="image/*,audio/*">
+        </div>
+        <div id="mediaPreview" class="media-preview empty">未选择媒体</div>
+        <div class="demo-paths" aria-label="示例图片">
+          <button type="button" class="demo-image" data-path="config/curriculum/assets/visual/clean_cards/noun_apple_held_out_0.png">苹果</button>
+          <button type="button" class="demo-image" data-path="config/curriculum/assets/visual/clean_cards/noun_banana_held_out_0.png">香蕉</button>
+          <button type="button" class="demo-image" data-path="config/curriculum/assets/visual/clean_cards/noun_orange_held_out_0.png">橙子</button>
+        </div>
+        <textarea id="teachingReplyInput" rows="2" placeholder="不满意时,教它这样回"></textarea>
+        <div class="runtime-settings">
+          <label>最多提交 tick <input id="maxTicksInput" type="number" min="4" max="24" value="16"></label>
+          <label>提交后空 tick <input id="idleTicksInput" type="number" min="0" max="8" value="2"></label>
+        </div>
+        <div class="composer-row">
+          <button id="rewardBtn" type="button" class="icon success" title="奖励上一轮">+</button>
+          <button id="punishBtn" type="button" class="icon danger" title="惩罚上一轮">-</button>
+          <button id="teachBtn" type="button">教上一轮这样回</button>
+          <button id="phase20SendBtn" type="button">发送图文</button>
+          <button id="sendBtn" type="submit">发送文字</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="panel2Replay" class="replay-pane panel-shell" data-panel="2">
+      <div class="panel-head">
+        <h2>Tick 回放</h2>
+        <span id="tickLabel">tick 0</span>
+      </div>
+      <div id="panel3Charts" class="sub-panel-shell" data-panel="3">
+        <div class="panel-head compact-head">
+          <h2>能量折线</h2>
+          <span>Panel 3</span>
+        </div>
+        <canvas id="trendChart" width="680" height="210"></canvas>
+      </div>
+      <div class="playback-buttons">
+        <button id="tickPrevBtn" type="button">上一 tick</button>
+        <button id="tickPlayBtn" type="button">播放</button>
+        <button id="tickNextBtn" type="button">下一 tick</button>
+      </div>
+      <div class="playback-row">
+        <input id="tickSlider" type="range" min="0" max="0" value="0">
+        <span id="frameCount">0 / 0</span>
+      </div>
+      <div id="tickButtons" class="tick-buttons"></div>
+      <div class="metrics-grid">
+        <div><b id="metricPhrase">0</b><span>phrase</span></div>
+        <div><b id="metricAssoc">0</b><span>assoc</span></div>
+        <div><b id="metricFeeling">0</b><span>feeling</span></div>
+        <div><b id="metricFallback">0</b><span>fallback</span></div>
+      </div>
+      <div id="replayDetail" class="detail-box"></div>
+    </section>
+
+    <section id="panel456Inspect" class="inspect-pane panel-shell" data-panel="4-6">
+      <nav class="tabs">
+        <button class="tab active" data-tab="phrases">短语</button>
+        <button class="tab" data-tab="cloud">想法云</button>
+        <button class="tab" data-tab="audit">审计</button>
+        <button class="tab" data-tab="phase8">Phase8</button>
+        <button class="tab" data-tab="inner">内心</button>
+        <button class="tab" data-tab="memory">记忆</button>
+        <button class="tab" data-tab="packages">教学包</button>
+      </nav>
+      <div id="tab-phrases" class="tab-panel active">
+        <div id="topPhrases" class="list-panel"></div>
+      </div>
+      <div id="tab-cloud" class="tab-panel">
+        <div class="panel-note">Panel 5 · 想法云随当前 RuntimeTickEvent 切换。</div>
+        <div id="thoughtCloud" class="thought-cloud"></div>
+      </div>
+      <div id="tab-audit" class="tab-panel">
+        <div id="auditPanel" class="list-panel"></div>
+      </div>
+      <div id="tab-phase8" class="tab-panel">
+        <div class="phase8-grid">
+          <div>
+            <h3>Ledger 来源</h3>
+            <div id="ledgerPie" class="list-panel"></div>
+          </div>
+          <div>
+            <h3>Feeling 数值</h3>
+            <div id="feelingsDisplay" class="list-panel"></div>
+          </div>
+          <div>
+            <h3>内源链</h3>
+            <div id="endogenousChain" class="list-panel"></div>
+          </div>
+          <div>
+            <h3>视觉焦点</h3>
+            <div id="visualOverlay" class="list-panel"></div>
+          </div>
+        </div>
+      </div>
+      <div id="tab-inner" class="tab-panel">
+        <div class="panel-note">Panel 4 · 内心画面/音频只显示已启用的 AP 感受器；TTS 不会冒充 inner voice。</div>
+        <div class="inner-grid">
+          <div>
+            <h3>内心画面</h3>
+            <div id="innerVision" class="inner-stage"></div>
+          </div>
+          <div>
+            <h3>内心音频</h3>
+            <div id="innerAudio" class="inner-stage"></div>
+          </div>
+        </div>
+      </div>
+      <div id="tab-memory" class="tab-panel">
+        <div class="panel-note">Panel 6 · 快记忆来自当前 tick 状态池；慢记忆持久化留到 Phase 20.5b。</div>
+        <div class="memory-tools">
+          <input id="memoryQueryInput" type="text" placeholder="检索记忆/包内容">
+          <button id="memoryRefreshBtn" type="button">刷新</button>
+          <button id="memorySelectAllBtn" type="button">全选</button>
+          <button id="memoryInvertBtn" type="button">反选</button>
+          <button id="memoryDeleteBtn" type="button">删除</button>
+        </div>
+        <div class="memory-tools">
+          <input id="memoryPackageNameInput" type="text" placeholder="导出包名称">
+          <button id="memoryExportBtn" type="button">导出</button>
+          <button id="memoryImportBtn" type="button">导入</button>
+        </div>
+        <textarea id="memoryPackageText" rows="5" placeholder="导出的记忆包 JSON / 粘贴要导入的记忆包 JSON"></textarea>
+        <div id="memoryScopeLine" class="scope-line">显示全部本地记忆</div>
+        <h3>已导入记忆包</h3>
+        <div id="memoryPackages" class="list-panel"></div>
+        <h3>本地记忆</h3>
+        <div id="memoryList" class="list-panel"></div>
+      </div>
+      <div id="tab-packages" class="tab-panel">
+        <div class="panel-note">教学包生态放在记忆后面；导入、导出、查看、卸载继续走 AP-native 共现记忆包。</div>
+        <div id="packagePanelMirror" class="list-panel"></div>
+      </div>
+    </section>
+
+    <section id="panel7Packages" class="package-pane panel-shell" data-panel="7">
+      <div class="panel-head">
+        <h2>教学包生态</h2>
+        <span>Panel 7</span>
+      </div>
+      <div class="panel-note">Panel 7 已并入右侧“记忆/教学包”页签；这里保留为窄屏备用区域。</div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+  <script src="/app_phase20_5a3_final.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_22737be9425c84fb",
+  "concept": "rice",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_22737be9425c84fb.png",
+  "sha256": "22737be9425c84fbd41bdabb4ab175aa054aeb615014022b32db049c26cdf418",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/32123311@N00/502155430",
+  "download_url": "https://api.openverse.org/v1/images/0047c81c-3660-4764-8618-33a7590f0d47/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "jbloom",
+  "title": "plate scraping",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

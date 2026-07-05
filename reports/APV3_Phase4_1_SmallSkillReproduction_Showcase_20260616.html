@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase4.1 小批旧技能复现门</title>
+  <style>
+    :root {
+      --ink: #142033;
+      --muted: #667085;
+      --line: #d8dee8;
+      --soft: #f8fafc;
+      --accent: #0f766e;
+      --good: #166534;
+      --warn: #9a3412;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.65;
+    }
+    header {
+      padding: 34px 6vw 24px;
+      border-bottom: 1px solid var(--line);
+      background: #ecfdf5;
+    }
+    main { max-width: 1120px; margin: 0 auto; padding: 28px 24px 56px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 10px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    .meta { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      background: var(--soft);
+    }
+    .card strong { display: block; font-size: 20px; margin-bottom: 4px; }
+    .ok { color: var(--good); }
+    .warn { color: var(--warn); }
+    .band {
+      border-left: 4px solid var(--accent);
+      background: #f0fdfa;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    .warnband {
+      border-left: 4px solid var(--warn);
+      background: #fff7ed;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    code, pre {
+      font-family: Consolas, "Cascadia Mono", monospace;
+      background: #f2f4f7;
+      border-radius: 6px;
+    }
+    code { padding: 1px 5px; }
+    pre { padding: 14px; overflow: auto; border: 1px solid var(--line); }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0; }
+    th, td { border: 1px solid var(--line); padding: 9px 10px; text-align: left; }
+    th { background: #f8fafc; }
+    ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>APV3.0test Phase4.1 小批旧技能复现门</h1>
+    <p class="meta">问候 / 成语 / 数学过程 / 感知槽 / 打断恢复压力 | 2026-06-16</p>
+  </header>
+  <main>
+    <section class="grid">
+      <div class="card"><strong class="ok">6/6</strong>Phase4.1 专门测试通过</div>
+      <div class="card"><strong class="ok">82/82</strong>APV3.0test 全量测试通过</div>
+      <div class="card"><strong class="ok">无命中</strong>禁用通道与脚手架扫描</div>
+      <div class="card"><strong class="warn">边界清楚</strong>小批复现门, 不是旧 GL 全量复现</div>
+    </section>
+
+    <h2>阶段结论</h2>
+    <div class="band">
+      APV3.0test skeleton 已能复现一小批旧能力: 问候、成语后继、数学过程 token、感知槽填充, 以及打断恢复压力进入竞争。它们都走同一 AP-native 链路, 不是 GL harness 脚本。
+    </div>
+
+    <h2>复现项目</h2>
+    <table>
+      <thead>
+        <tr><th>能力</th><th>验证结果</th><th>边界</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>问候</td><td><code>你好 -> 我在。</code></td><td>最小后继复现</td></tr>
+        <tr><td>成语</td><td><code>三顾 -> 茅庐</code></td><td>后继 token 复现, 非全文知识库</td></tr>
+        <tr><td>数学过程</td><td><code>2+3 -> 列式:2+3=5</code></td><td>过程 trace 复现, 非 solver</td></tr>
+        <tr><td>感知槽</td><td><code>percept::yellow + percept::apple</code></td><td>输出 percept token, 非中文目标串</td></tr>
+        <tr><td>打断恢复压力</td><td><code>thought::resume_unfinished_task</code> 进入竞争</td><td>还不是完整任务恢复执行</td></tr>
+      </tbody>
+    </table>
+
+    <h2>复现链路</h2>
+    <pre><code>重复观测
+  -> 自发现范式
+  -> runtime 逐 token 写草稿
+  -> commit
+  -> 行动后果学习
+  -> SQLite restore</code></pre>
+
+    <h2>验收命令</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase4_1_small_skill_reproduction.py -q
+python -m pytest APV3.0test\tests -q
+
+rg -n --glob "*.py" "keyword|answer_table|student_side_llm|branch_alignment|math_process_tokens|regex|full_sentence_macro|黄色苹果" APV3.0test\apv3test
+
+rg -n "TODO|FIXME|hardcode|shortcut|route|magic" APV3.0test\tests\test_phase4_1_small_skill_reproduction.py</code></pre>
+
+    <h2>下一步</h2>
+    <div class="warnband">
+      Phase4.2 应扩展更多中文对话微技能, 加入更真实的数学过程范式和打断恢复后续执行链。每类都要继续要求 SQLite restore 后行为等价, 仍不能使用答案表、关键词路线或隐藏 solver。
+    </div>
+  </main>
+</body>
+</html>

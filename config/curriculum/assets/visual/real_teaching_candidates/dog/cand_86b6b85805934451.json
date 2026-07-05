@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_86b6b85805934451",
+  "concept": "dog",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_86b6b85805934451.png",
+  "sha256": "86b6b85805934451024808c165f5610e13b0e696124fc026259a2c5720d00e81",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/38623372@N06/4269788249",
+  "download_url": "https://api.openverse.org/v1/images/12d01f9e-55d3-401b-ae0e-7e352a836649/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Bering Land Bridge National Preserve",
+  "title": "Dog Nose",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

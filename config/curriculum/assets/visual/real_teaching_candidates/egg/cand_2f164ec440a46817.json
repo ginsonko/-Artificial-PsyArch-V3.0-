@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_2f164ec440a46817",
+  "concept": "egg",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_2f164ec440a46817.png",
+  "sha256": "2f164ec440a46817515f23e735fd5f3e79d433e5a55acf8c32c764db6e4f3c6c",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/44398680@N08/4265695870",
+  "download_url": "https://api.openverse.org/v1/images/6fa1e5ea-4189-460b-8903-dec95f223d06/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "AfghanistanMatters",
+  "title": "Child Street Worker (Egg Seller)",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

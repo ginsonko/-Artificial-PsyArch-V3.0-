@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phase20.9i 学习生命周期验收视图</title>
+  <style>
+    :root {
+      --ink: #20242a;
+      --muted: #68717d;
+      --line: #d8dee4;
+      --paper: #f5f6f7;
+      --panel: #ffffff;
+      --blue: #4e79a8;
+      --green: #5b9a73;
+      --amber: #bd863f;
+      --red: #c86b5f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    main {
+      width: min(1180px, calc(100vw - 40px));
+      margin: 0 auto;
+      padding: 34px 0 48px;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    h3 { margin: 0 0 8px; font-size: 17px; }
+    p { margin: 0 0 10px; }
+    .hero, .card, .step {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 12px 28px rgba(31, 37, 45, 0.07);
+    }
+    .muted { color: var(--muted); }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .badge {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: #fbfcfd;
+      font-size: 13px;
+      color: #4b5663;
+    }
+    .chain {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 18px 0;
+    }
+    .step {
+      min-height: 220px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 12px;
+    }
+    .number {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 800;
+    }
+    .step:nth-child(2) .number { background: var(--green); }
+    .step:nth-child(3) .number { background: var(--amber); }
+    .step:nth-child(4) .number { background: var(--red); }
+    .kv {
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    code {
+      background: #eef2f5;
+      padding: 2px 5px;
+      border-radius: 5px;
+      font-family: Consolas, monospace;
+    }
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      background: #20242a;
+      color: #f4f7fb;
+      border-radius: 8px;
+      padding: 16px;
+      overflow-x: auto;
+    }
+    @media (max-width: 960px) {
+      header, .chain { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <section class="hero">
+        <h1>学习生命周期可视化</h1>
+        <p class="muted">Phase20.9i 把“教学 -> 复盘 -> 自测 -> 反馈稳定”放进工作台。它只读取真实 RuntimeTickEvent, 不替 AP 生成认知。</p>
+        <div class="badges">
+          <span class="badge">只读 tick_trace</span>
+          <span class="badge">不新增认知实体</span>
+          <span class="badge">不伪造学习状态</span>
+          <span class="badge">可给小白验收</span>
+        </div>
+      </section>
+      <section class="card">
+        <h2>工作台入口</h2>
+        <p><code>http://127.0.0.1:8776/phase20_7</code></p>
+        <p class="muted">按步骤教学一次, 再连续点闲时 tick, 中栏会出现四段式“学习生命周期验收”。</p>
+      </section>
+    </header>
+
+    <section class="chain">
+      <article class="step">
+        <div><span class="number">1</span></div>
+        <div>
+          <h3>教学/反馈</h3>
+          <p class="muted">用户给出纠正, runtime 写入 experience_alignment。</p>
+        </div>
+        <div class="kv">字段: experience_alignment_written</div>
+      </article>
+      <article class="step">
+        <div><span class="number">2</span></div>
+        <div>
+          <h3>闲时复盘</h3>
+          <p class="muted">AP 在无输入时整理刚学到的 cue -> target。</p>
+        </div>
+        <div class="kv">字段: idle_learning_review</div>
+      </article>
+      <article class="step">
+        <div><span class="number">3</span></div>
+        <div>
+          <h3>私有自测</h3>
+          <p class="muted">AP 自己从短期结构流里回忆 expected_text。</p>
+        </div>
+        <div class="kv">字段: idle_self_test</div>
+      </article>
+      <article class="step">
+        <div><span class="number">4</span></div>
+        <div>
+          <h3>反馈稳定</h3>
+          <p class="muted">自测成功稳住退场, 失败抬高脚手架需求。</p>
+        </div>
+        <div class="kv">字段: self_test_feedback</div>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>建议测试脚本</h2>
+      <pre>1. 输入: phase20.9i lifecycle cue
+   教学纠正: phase20.9i lifecycle reply
+2. 再输入: phase20.9i lifecycle cue
+3. 点闲时 tick: 看到闲时复盘
+4. 点闲时 tick: 看到私有自测
+5. 点闲时 tick: 看到自测反馈稳定</pre>
+    </section>
+
+    <section class="card">
+      <h2>边界</h2>
+      <p class="muted">这一步可以证明学习闭环的跨 tick 可视化验收已经进入工作台。仍不能声明完整六阶段 runtime、L1/L2/L3 在线嵌入、完整范式自学习、数学列竖式、object-centric 视觉想象或 Phase21 视觉教学泛化闭环已经完成。</p>
+    </section>
+  </main>
+</body>
+</html>

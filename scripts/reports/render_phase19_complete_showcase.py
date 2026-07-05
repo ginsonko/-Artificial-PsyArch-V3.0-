@@ -1,0 +1,64 @@
+from __future__ import annotations
+
+from pathlib import Path
+
+
+REPORT = Path("reports/APV3_Phase19_MultimodalReceptorConfidence_Showcase_20260619.html")
+
+
+def main() -> None:
+    REPORT.parent.mkdir(parents=True, exist_ok=True)
+    REPORT.write_text(render(), encoding="utf-8")
+    print(REPORT.as_posix())
+
+
+def render() -> str:
+    return """<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 19：多模态感受器与拟人把握感</title>
+  <style>
+    body{margin:0;font-family:"Microsoft YaHei","Segoe UI",Arial,sans-serif;background:#f6f7f5;color:#17211d;line-height:1.7}
+    header,main{max-width:1120px;margin:0 auto;padding:24px}
+    h1{font-size:32px;margin:0 0 8px} h2{font-size:22px;margin:0 0 8px}
+    section{background:white;border:1px solid #dbe4df;border-radius:8px;padding:18px;margin:14px 0}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .card{border:1px solid #dbe4df;border-radius:8px;padding:12px;background:#fbfdfc}
+    code{background:#eef4f1;border:1px solid #d6e2dd;border-radius:5px;padding:1px 5px}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header>
+  <h1>APV3 Phase 19：多模态感受器与拟人把握感</h1>
+  <p>这一阶段证明的是“AP 怎么看、怎么听、怎么积累内心画面、怎么像人一样形成把握感”，不是靠文件名、答案表或外部模型直接给答案。</p>
+</header>
+<main>
+  <section>
+    <h2>小白版流程</h2>
+    <div class="grid">
+      <div class="card"><b>1. 看见/听见</b><br>图片走 V0..V12，声音走 A0..A8。焦点区域从原图直采，周边按清晰度渐变。</div>
+      <div class="card"><b>2. 逐 tick 累积</b><br>每个注视点只更新一部分 SensoryCanvas。看得越久，已注视区域越清楚。</div>
+      <div class="card"><b>3. 写入经验</b><br>感受器 trace 被写成 opaque 向量、部件原型、概念原型，packet_key 保留来源/基底/版本。</div>
+      <div class="card"><b>4. 拟人把握</b><br>少数强线索可以让 AP “有点像/比较像”地判断；竞争强时会犹豫。</div>
+      <div class="card"><b>5. 被纠正</b><br>用户纠错只削弱主贡献 source 路径，不污染真实/想象/听说等其它来源。</div>
+      <div class="card"><b>6. 主动再看</b><br>低清晰度、低信心、周边运动会驱动下一次注视。</div>
+    </div>
+  </section>
+  <section>
+    <h2>现在证明了什么</h2>
+    <p>证明了 Phase 19 的感受器和学习底座：<code>28686</code> 维视觉向量、<code>30501</code> 维听觉向量、三层向量写入、拟人把握公式、视觉/听觉 probe、source-aware feedback、temporal event binding 和 active perception 都有测试闭环。</p>
+  </section>
+  <section>
+    <h2>还不能宣称什么</h2>
+    <p>还不能宣称完整开放对话已经完成，也不能宣称真实世界所有照片/声音都能稳定识别。Phase 19 是开放对话底座中“感受与把握”的关键地基。</p>
+  </section>
+</main>
+</body>
+</html>"""
+
+
+if __name__ == "__main__":
+    main()

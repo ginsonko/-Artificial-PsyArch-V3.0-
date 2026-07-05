@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_802ec4a0f1fd7393",
+  "concept": "egg",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_802ec4a0f1fd7393.png",
+  "sha256": "802ec4a0f1fd7393d226bba3f72e26485bdded137bce7e31d0baa388281f40d7",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/144815448@N07/32491141117",
+  "download_url": "https://api.openverse.org/v1/images/06510c08-9037-4d54-adfb-cd9fd5c9bcfc/thumb/",
+  "license_id": "PDM-1.0",
+  "author": "FarmersGov",
+  "title": "Parker Farm in Cromwell, Oklahoma",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase0 最小试验场报告</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1d2433;
+      --muted: #647084;
+      --line: #d9dee8;
+      --panel: #f7f9fc;
+      --accent: #206a5d;
+      --warn: #8a5a00;
+      --good: #136f3f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #ffffff;
+      line-height: 1.65;
+    }
+    header {
+      padding: 36px 6vw 24px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #f6faf9, #ffffff);
+    }
+    main { max-width: 1120px; margin: 0 auto; padding: 28px 24px 56px; }
+    h1 { margin: 0 0 12px; font-size: clamp(28px, 4vw, 44px); letter-spacing: 0; }
+    h2 { margin: 32px 0 12px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    .meta { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: var(--panel);
+    }
+    .card strong { display: block; font-size: 18px; margin-bottom: 4px; }
+    .ok { color: var(--good); font-weight: 700; }
+    .warn { color: var(--warn); font-weight: 700; }
+    code, pre {
+      font-family: Consolas, "Cascadia Mono", monospace;
+      background: #f1f4f8;
+      border-radius: 6px;
+    }
+    code { padding: 1px 5px; }
+    pre {
+      padding: 14px;
+      overflow: auto;
+      border: 1px solid var(--line);
+    }
+    ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+    .band {
+      border-left: 4px solid var(--accent);
+      padding: 12px 14px;
+      background: #f3faf7;
+      margin: 16px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>APV3.0test Phase0 最小试验场报告</h1>
+    <p class="meta">日期: 2026-06-16 | 目标: 为持久化中文自由对话底座重构建立可验证地基</p>
+  </header>
+  <main>
+    <section class="grid">
+      <div class="card"><strong class="ok">12/12</strong>APV3.0test 单元测试通过</div>
+      <div class="card"><strong class="ok">通过</strong>Python 编译检查</div>
+      <div class="card"><strong class="ok">通过</strong>禁用硬编码通道扫描</div>
+      <div class="card"><strong class="warn">边界</strong>尚未进入 Fresh300 或旧技能复训</div>
+    </section>
+
+    <h2>本轮结论</h2>
+    <div class="band">
+      Phase0 最小地基已完成: APV3.0test 现在有独立包、接口契约、持久化契约、能量观察器、预测 ruler、runtime state codec、SQLite runtime/audit 分库包装与对应测试。
+    </div>
+
+    <h2>守住的 AP 边界</h2>
+    <ul>
+      <li>Bn 仍是“当前场像过去哪些经验”。</li>
+      <li>Cn 仍沿显式后继边读取“这个 B 之后通常发生什么”。</li>
+      <li>持久化不是新策略, 只是同一套 AP-native 运行本体的磁盘落地与等价恢复。</li>
+      <li>audit db 可删, runtime ontology db 是唯一运行依赖。</li>
+      <li>没有引入关键词路由、答案表、整句宏、学生侧 LLM 或数学字面答案加权。</li>
+    </ul>
+
+    <h2>本轮修复</h2>
+    <ul>
+      <li>修复 SQLite 连接未关闭导致 Windows 上 audit db 无法删除的问题。</li>
+      <li>修复显式关闭连接后缺少 commit 导致 runtime/audit 写入未落盘的问题。</li>
+      <li>新增测试锁定“删除 audit db 后 runtime 仍可恢复”。</li>
+    </ul>
+
+    <h2>验证命令</h2>
+    <pre><code>python -m pytest APV3.0test/tests -q
+
+$files = Get-ChildItem -Path APV3.0test\apv3test\config,APV3.0test\apv3test\runtime -Filter *.py | ForEach-Object { $_.FullName }; python -m py_compile @files
+
+rg -n "keyword|answer_table|student_side_llm|branch_alignment|math_process_tokens|learned_vector_candidate_weight|_label_overlap_rank_decay|regex|full_sentence_macro" APV3.0test\apv3test APV3.0test\tests</code></pre>
+
+    <h2>下一步</h2>
+    <ul>
+      <li>Phase0.1: 旧实现魔数配置收口, 初值保持旧值, 不改变行为。</li>
+      <li>Phase0.2: 单一 scorer golden-lock, 消除 runtime/audit 双 scorer 分叉。</li>
+      <li>Phase0.3+: 真实 runtime ontology schema, 保存 OnlineEmbeddingStore、transition、ActionOutcomeMemory、ParadigmSA、PerceptPrototype。</li>
+      <li>Phase1.0: 内存态 vs 持久化态 parity probe。</li>
+      <li>Phase2+: 范式通道 echo imitation、successor prediction、multi-reply aggregation。</li>
+    </ul>
+
+    <h2>冷保存文件</h2>
+    <ul>
+      <li><code>APV3.0test/docs/FinalReport_Phase0_MinScaffold_20260616.md</code></li>
+      <li><code>APV3.0test/reports/APV3_Phase0_MinScaffold_Showcase_20260616.html</code></li>
+    </ul>
+  </main>
+</body>
+</html>

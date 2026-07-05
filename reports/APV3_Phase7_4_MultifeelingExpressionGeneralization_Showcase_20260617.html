@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>APV3 Phase7.4 Multifeeling Expression Generalization</title>
+  <style>
+    body { font-family: "Microsoft YaHei", Arial, sans-serif; margin: 32px; line-height: 1.58; color: #20262e; background: #f6f7f9; }
+    main { max-width: 1060px; margin: 0 auto; background: #fff; padding: 28px 32px; border: 1px solid #d9e0e8; }
+    h1 { font-size: 24px; margin: 0 0 12px; }
+    h2 { font-size: 18px; margin-top: 26px; border-bottom: 1px solid #e6ebf1; padding-bottom: 6px; }
+    code, pre { font-family: Consolas, monospace; }
+    pre { background: #f1f4f7; padding: 12px; overflow-x: auto; border: 1px solid #dce3eb; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    th, td { border: 1px solid #d9e0e8; padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: #edf2f6; }
+    .ok { color: #0f6b3d; font-weight: 700; }
+    .warn { color: #8a5a00; font-weight: 700; }
+    .small { color: #5d6875; font-size: 13px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>APV3 Phase7.4 Multifeeling Expression Generalization</h1>
+  <p class="ok">状态: 通过。Phase7.4 targeted 5 passed; Phase7.0-7.4 combined 46 passed; full suite 219 passed。</p>
+
+  <h2>目标</h2>
+  <p>验证同一套内省原型 + AP-native 共现机制能否承载多类内部结构态表达,而不是只会做单一 learned uncertainty expression。</p>
+
+  <h2>课程</h2>
+  <p>250 tick 多结构日志,5 类 draft structural facts 轮流出现。每类只通过当前 feeling label 与外部 expression token 共现学习,同时存在低 attention 干扰表达和噪声 token。</p>
+
+  <h2>实际涌现</h2>
+  <table>
+    <tr><th>结构态</th><th>稳定 feeling label</th><th>teacher-off top expression</th><th>top paradigm</th><th>target</th><th>best other</th></tr>
+    <tr><td>structure_0</td><td><code>feeling::draft::proto_0</code></td><td><code>expr::band_0</code></td><td><code>p:expr:band_0</code></td><td>3.3903</td><td>0.4786</td></tr>
+    <tr><td>structure_1</td><td><code>feeling::draft::proto_1</code></td><td><code>expr::band_1</code></td><td><code>p:expr:band_1</code></td><td>3.3903</td><td>0.4786</td></tr>
+    <tr><td>structure_2</td><td><code>feeling::draft::proto_2</code></td><td><code>expr::band_2</code></td><td><code>p:expr:band_2</code></td><td>3.3903</td><td>0.4786</td></tr>
+    <tr><td>structure_3</td><td><code>feeling::draft::proto_3</code></td><td><code>expr::band_3</code></td><td><code>p:expr:band_3</code></td><td>3.3903</td><td>0.4786</td></tr>
+    <tr><td>structure_4</td><td><code>feeling::draft::proto_4</code></td><td><code>expr::band_4</code></td><td><code>p:expr:band_4</code></td><td>3.3903</td><td>0.4786</td></tr>
+  </table>
+
+  <h2>不变量</h2>
+  <ul>
+    <li>teacher-off replay 不调用外部表达观察,store snapshot 不变。</li>
+    <li>label-bijection: <code>mfA::</code>/<code>mfB::</code> 和 <code>inner-a/</code>/<code>inner-b/</code> 双射后外部召回一致。</li>
+    <li>runtime-only redline scan 无 <code>expr::band_</code>、<code>structure_</code>、旧 <code>must_reply</code> 等命中。</li>
+  </ul>
+
+  <h2>验收命令</h2>
+  <pre>python -m pytest APV3.0test\tests\test_phase7_4_multifeeling_expression_generalization.py -q
+python -m pytest APV3.0test\tests\test_phase7_0_teacher_off_three_stage_milestone.py APV3.0test\tests\test_phase7_1_undecidable_shared_fragment.py APV3.0test\tests\test_phase7_2_learned_uncertainty_expression.py APV3.0test\tests\test_phase7_3b_draft_introspection_observer.py APV3.0test\tests\test_phase7_3c_cooccurrence_association_store.py APV3.0test\tests\test_phase7_3d_reply_pressure_sa.py APV3.0test\tests\test_phase7_3e_expression_recall_rebind.py APV3.0test\tests\test_phase7_3f_invariants_replay.py APV3.0test\tests\test_phase7_4_multifeeling_expression_generalization.py -q
+python -m pytest APV3.0test\tests -q
+rg -n "expr::band_|structure_|must_reply|undecidable_feeling_tokens|feeling::undecidable|find_by_cue_token|_most_common_reply|pressure_type_weights|student_side_llm|answer_table|LLM policy" APV3.0test\apv3test\runtime</pre>
+
+  <h2>边界</h2>
+  <p class="warn">这证明的是 5 类结构性内省 feeling 的表达关联泛化探针通过,不是所有人类内省感受、自然中文长对话风格、跨模态表达学习或完整开放自由对话底座完成。</p>
+  <p class="small">报告: docs/FinalReport_Phase7_4_MultifeelingExpressionGeneralization_20260617.md</p>
+</main>
+</body>
+</html>

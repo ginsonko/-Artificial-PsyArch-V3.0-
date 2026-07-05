@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_3ec6682c5a35c626",
+  "concept": "rice",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_3ec6682c5a35c626.png",
+  "sha256": "3ec6682c5a35c626985ece4ae4f8673afb0d7d1557c983180bd37b5f1a7fa56a",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/43109416@N00/9715618000",
+  "download_url": "https://api.openverse.org/v1/images/f5dfc131-8fcd-4e45-8fe9-ebafccdd3764/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "nevil zaveri (thank you for 20+M views:)",
+  "title": "dough, maheshwar",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

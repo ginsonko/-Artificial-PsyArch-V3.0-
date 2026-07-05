@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase0.1-0.3 报告</title>
+  <style>
+    :root {
+      --ink: #1f2837;
+      --muted: #667085;
+      --line: #d8dee8;
+      --soft: #f7f9fb;
+      --accent: #0f766e;
+      --good: #166534;
+      --warn: #92400e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.65;
+    }
+    header {
+      padding: 34px 6vw 24px;
+      border-bottom: 1px solid var(--line);
+      background: #f5fbfa;
+    }
+    main { max-width: 1120px; margin: 0 auto; padding: 28px 24px 56px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 10px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    .meta { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      background: var(--soft);
+    }
+    .card strong { display: block; font-size: 20px; margin-bottom: 4px; }
+    .ok { color: var(--good); }
+    .warn { color: var(--warn); }
+    .band {
+      border-left: 4px solid var(--accent);
+      background: #f0fdfa;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    code, pre {
+      font-family: Consolas, "Cascadia Mono", monospace;
+      background: #f2f4f7;
+      border-radius: 6px;
+    }
+    code { padding: 1px 5px; }
+    pre { padding: 14px; overflow: auto; border: 1px solid var(--line); }
+    ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>APV3.0test Phase0.1-0.3 报告</h1>
+    <p class="meta">配置收口 | 单一 scorer | runtime ontology schema | 2026-06-16</p>
+  </header>
+  <main>
+    <section class="grid">
+      <div class="card"><strong class="ok">16/16</strong>单元测试通过</div>
+      <div class="card"><strong class="ok">通过</strong>Python 编译检查</div>
+      <div class="card"><strong class="ok">无命中</strong>禁用通道扫描</div>
+      <div class="card"><strong class="warn">边界</strong>尚未进行 parity/Fresh300</div>
+    </section>
+
+    <h2>本轮做了什么</h2>
+    <div class="band">
+      把旧 scorer 风险常数收口为具名配置, 用单一纯函数表达 runtime/audit/APV3 native 三种 preset, 并在 SQLite runtime db 中新增 AP runtime ontology projection 表。
+    </div>
+
+    <h2>守住的原则</h2>
+    <ul>
+      <li>legacy preset 只用于 golden-lock, 不是 APV3.0 最终策略。</li>
+      <li>APV3 native 下 learned-vector 只能 trace-only, 不能把候选直接顶成赢家。</li>
+      <li>runtime/audit 差异由 preset 表达, 不再 fork 第二套 scorer。</li>
+      <li>runtime projection 派生自同一个 authoritative state, 不制造第二套事实来源。</li>
+    </ul>
+
+    <h2>新增运行本体表</h2>
+    <ul>
+      <li><code>online_embedding_tokens</code></li>
+      <li><code>explicit_transitions</code></li>
+      <li><code>paradigm_sa</code></li>
+      <li><code>action_outcomes</code></li>
+      <li><code>percept_prototypes</code></li>
+    </ul>
+
+    <h2>验证命令</h2>
+    <pre><code>python -m pytest APV3.0test/tests -q
+
+$files = Get-ChildItem -Path APV3.0test\apv3test\config,APV3.0test\apv3test\runtime -Filter *.py | ForEach-Object { $_.FullName }; python -m py_compile @files
+
+rg -n "keyword|answer_table|student_side_llm|branch_alignment|math_process_tokens|regex|full_sentence_macro" APV3.0test\apv3test APV3.0test\tests</code></pre>
+
+    <h2>下一步</h2>
+    <ul>
+      <li>进入 Phase1.0 最小 parity probe。</li>
+      <li>用 你好->我在、三顾->茅庐、简单数学、黄色苹果、打断恢复压力构造 fixtures。</li>
+      <li>比较内存态与 SQLite 恢复态的 Bn/Cn、范式候选、行动后果、learned vectors。</li>
+      <li>parity 稳定后, 再逐步把旧主链调用点切到 APV3.0test 的单一 scorer/store。</li>
+    </ul>
+  </main>
+</body>
+</html>

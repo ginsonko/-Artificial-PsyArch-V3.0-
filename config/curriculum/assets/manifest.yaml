@@ -1,0 +1,3407 @@
+{
+  "schema_id": "apv3_asset_manifest/v1",
+  "manifest_id": "phase14_synthetic_first_curriculum_assets",
+  "asset_origin_policy": "synthetic_first_no_external_download",
+  "assets": [
+    {
+      "asset_id": "asset::color_red::train::0",
+      "path": "visual/synthetic/color_red_train_0.png",
+      "media_type": "image/png",
+      "sha256": "e51f570fd64e8cd73be3ca4bf58f942cc6e03ecd70b65d85f7d7140ee02afdfc",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_red::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_red"
+      ]
+    },
+    {
+      "asset_id": "asset::color_red::train::1",
+      "path": "visual/synthetic/color_red_train_1.png",
+      "media_type": "image/png",
+      "sha256": "950714adcbadbe6117d77cda52024dae391e47bf4738f89d3f2a5ff027f847f0",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_red::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_red"
+      ]
+    },
+    {
+      "asset_id": "asset::color_red::train::2",
+      "path": "visual/synthetic/color_red_train_2.png",
+      "media_type": "image/png",
+      "sha256": "534e4daa5fe1be99e0a17df9517239a14b39b36a9329c9b1b69b51b801e1d2cb",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_red::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_red"
+      ]
+    },
+    {
+      "asset_id": "asset::color_red::held_out::0",
+      "path": "visual/synthetic/color_red_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "57110b04bf107ca126d0b3480b2a6a9aa234ca73b211aa3059ec9d0d9c641529",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_red::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_red"
+      ]
+    },
+    {
+      "asset_id": "asset::color_red::contrast::0",
+      "path": "visual/synthetic/color_red_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "00faf047e2fc8f113f894f31731cddec76b9c08cbe266cd566c16a6718469f7a",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_red::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_red"
+      ]
+    },
+    {
+      "asset_id": "asset::color_yellow::train::0",
+      "path": "visual/synthetic/color_yellow_train_0.png",
+      "media_type": "image/png",
+      "sha256": "dc45f6d3f173a5038da7ed5027426437e973ed1cb2359b80efe297b93b445598",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_yellow::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_yellow"
+      ]
+    },
+    {
+      "asset_id": "asset::color_yellow::train::1",
+      "path": "visual/synthetic/color_yellow_train_1.png",
+      "media_type": "image/png",
+      "sha256": "6b3956067f791b90c574deeb7e8170ef6bb26787308760056c6594fc6ecd5042",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_yellow::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_yellow"
+      ]
+    },
+    {
+      "asset_id": "asset::color_yellow::train::2",
+      "path": "visual/synthetic/color_yellow_train_2.png",
+      "media_type": "image/png",
+      "sha256": "f29c7417531690b2dc785c00320cd4ca77df1201d7560c8beea0ee392338d4af",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_yellow::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_yellow"
+      ]
+    },
+    {
+      "asset_id": "asset::color_yellow::held_out::0",
+      "path": "visual/synthetic/color_yellow_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "92361f93bbcf1eaa53e5b2a652e46d9181b430b2830b3b1de8002634d199b5aa",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_yellow::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_yellow"
+      ]
+    },
+    {
+      "asset_id": "asset::color_yellow::contrast::0",
+      "path": "visual/synthetic/color_yellow_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "c2c0ea496d1e3e5ddf4d3799f90c94d3b647d7475fff13955dd755a6c88cda54",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_yellow::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_yellow"
+      ]
+    },
+    {
+      "asset_id": "asset::color_blue::train::0",
+      "path": "visual/synthetic/color_blue_train_0.png",
+      "media_type": "image/png",
+      "sha256": "f93b7a76cb27e4fc75ae51cf38ba73fc3c9a072b430296b995a2775ff9f057bb",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_blue::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_blue"
+      ]
+    },
+    {
+      "asset_id": "asset::color_blue::train::1",
+      "path": "visual/synthetic/color_blue_train_1.png",
+      "media_type": "image/png",
+      "sha256": "8a73e4c66556290c8cd9104d7814a4d2dee327765dc1f9e8225f6f9e5da73824",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_blue::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_blue"
+      ]
+    },
+    {
+      "asset_id": "asset::color_blue::train::2",
+      "path": "visual/synthetic/color_blue_train_2.png",
+      "media_type": "image/png",
+      "sha256": "e3def6462fd0b9dd0f760365d4ae22256b6d79907b2a621612d5c84c1eac0d1b",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_blue::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_blue"
+      ]
+    },
+    {
+      "asset_id": "asset::color_blue::held_out::0",
+      "path": "visual/synthetic/color_blue_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "f1692cbd2eb0d32b925f7a0a2227765c207d5399a6e252b82127bb16e88f24d8",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_blue::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_blue"
+      ]
+    },
+    {
+      "asset_id": "asset::color_blue::contrast::0",
+      "path": "visual/synthetic/color_blue_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "a0082c7ab0e8f4e9a8e1b08e49c59170d2de3b2f1996fa6d523d48bf8818149f",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_blue::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_blue"
+      ]
+    },
+    {
+      "asset_id": "asset::color_green::train::0",
+      "path": "visual/synthetic/color_green_train_0.png",
+      "media_type": "image/png",
+      "sha256": "f07b4fabe2c15214ebc26c03b2f9d8a11c4bdd1a662453b829760fa17a31d2df",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_green::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_green"
+      ]
+    },
+    {
+      "asset_id": "asset::color_green::train::1",
+      "path": "visual/synthetic/color_green_train_1.png",
+      "media_type": "image/png",
+      "sha256": "8aeebde63ec7ff2423309f7ae54acd2b590973f03cf4a6451e89bdf8c37323b1",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_green::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_green"
+      ]
+    },
+    {
+      "asset_id": "asset::color_green::train::2",
+      "path": "visual/synthetic/color_green_train_2.png",
+      "media_type": "image/png",
+      "sha256": "e28562f2168382bc75a4a5b36ab0e93808077b4dbb9a45facbdeab209f8a83d7",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_green::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_green"
+      ]
+    },
+    {
+      "asset_id": "asset::color_green::held_out::0",
+      "path": "visual/synthetic/color_green_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "8a8437b560608ab1e042416daaa37dc9133f2220c23f870ff5f8ca38229b7aeb",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_green::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_green"
+      ]
+    },
+    {
+      "asset_id": "asset::color_green::contrast::0",
+      "path": "visual/synthetic/color_green_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "5bf53d92d969afc65eb1a05db2690bdaa3b66cbdd5ca920032e1ce42d7fbcf8a",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_green::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_green"
+      ]
+    },
+    {
+      "asset_id": "asset::color_white::train::0",
+      "path": "visual/synthetic/color_white_train_0.png",
+      "media_type": "image/png",
+      "sha256": "9519bd7778ea7a710601610acb39d98dfab1e5373c69d57caa5bd063f919ff43",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_white::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_white"
+      ]
+    },
+    {
+      "asset_id": "asset::color_white::train::1",
+      "path": "visual/synthetic/color_white_train_1.png",
+      "media_type": "image/png",
+      "sha256": "5452c79aa7c624b69c5c8077a046bc85f4ed26d1712f5ef921ff157f4c972728",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_white::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_white"
+      ]
+    },
+    {
+      "asset_id": "asset::color_white::train::2",
+      "path": "visual/synthetic/color_white_train_2.png",
+      "media_type": "image/png",
+      "sha256": "ce17a9fb9fcc539ea5a34c7ef17b1b30bd3bc303cd39e686018b5401bfa31267",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_white::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_white"
+      ]
+    },
+    {
+      "asset_id": "asset::color_white::held_out::0",
+      "path": "visual/synthetic/color_white_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "8b6fbc5bfd287ef0254754ca777ac3d0536407b0f4fc6e5b6adc7803d8dc00e6",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_white::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_white"
+      ]
+    },
+    {
+      "asset_id": "asset::color_white::contrast::0",
+      "path": "visual/synthetic/color_white_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "5644ed53a79c9dc7e369d7b9d418e626465d2fffa450cb99e28206453013ecc0",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::color_white::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "color",
+        "color_white"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_circle::train::0",
+      "path": "visual/synthetic/shape_circle_train_0.png",
+      "media_type": "image/png",
+      "sha256": "8481f15461e0222cd3a18fa73b7965a7fd64d383877b4af3e1994b5dfe4aeb30",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_circle::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_circle"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_circle::train::1",
+      "path": "visual/synthetic/shape_circle_train_1.png",
+      "media_type": "image/png",
+      "sha256": "0f19b26d6c48b5f2522253dfa827b04423e010545ec7693cb34b2ffd6a3d456e",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_circle::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_circle"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_circle::train::2",
+      "path": "visual/synthetic/shape_circle_train_2.png",
+      "media_type": "image/png",
+      "sha256": "389551d79b49c0fa7c7a022d7739f36c79754be148c605cabe1baed0059db7c2",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_circle::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_circle"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_circle::held_out::0",
+      "path": "visual/synthetic/shape_circle_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "23e1f05d9b4f137f7cb490cb53b35e653f3cd389e2859144668c469f244ac642",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_circle::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_circle"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_circle::contrast::0",
+      "path": "visual/synthetic/shape_circle_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "d508c93f938dd1d05f52e58c1396e0bf287be81e544c7f4a6793025819c2c28c",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_circle::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_circle"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_square::train::0",
+      "path": "visual/synthetic/shape_square_train_0.png",
+      "media_type": "image/png",
+      "sha256": "cbe1ae503d6626e75e157dfdc4ec0aaf7f7fbab42aaa9d78bd5bc9c6193a85b3",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_square::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_square"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_square::train::1",
+      "path": "visual/synthetic/shape_square_train_1.png",
+      "media_type": "image/png",
+      "sha256": "330c4fb5ff7b0c9ccfe4f515b29ce0c1c0580b953578763b2af285af3ecf7c67",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_square::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_square"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_square::train::2",
+      "path": "visual/synthetic/shape_square_train_2.png",
+      "media_type": "image/png",
+      "sha256": "3b0a4bd678c2cccf4c79d86d4f5e03b8d18274e6ebbbe8343a2714c306ba94d5",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_square::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_square"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_square::held_out::0",
+      "path": "visual/synthetic/shape_square_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "e6f314d497786d66da5a6c3ae253db3a5a2acd5e563ebae2d80495d0b6658227",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_square::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_square"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_square::contrast::0",
+      "path": "visual/synthetic/shape_square_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "987d3713bfa977c543c57750e2dd830846667d7f45980b4c5d4c832571444f83",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_square::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_square"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_triangle::train::0",
+      "path": "visual/synthetic/shape_triangle_train_0.png",
+      "media_type": "image/png",
+      "sha256": "2ea69f071490a2fe711d535834e8a4921cd5bda8d2e4e6720b54b4977bfdf43e",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_triangle::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_triangle"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_triangle::train::1",
+      "path": "visual/synthetic/shape_triangle_train_1.png",
+      "media_type": "image/png",
+      "sha256": "6fde954055e8c551953e6dce597c707ebe7b5599ceb2897f6a6259a73bf97f2c",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_triangle::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_triangle"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_triangle::train::2",
+      "path": "visual/synthetic/shape_triangle_train_2.png",
+      "media_type": "image/png",
+      "sha256": "c26ba765d4f94dc25dc317fbc043c2ecc5301287125d125e060f060933c435c2",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_triangle::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_triangle"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_triangle::held_out::0",
+      "path": "visual/synthetic/shape_triangle_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "46f4b94b053e6e6662b2fca5d25b11812f7be93673f2ca1ad006e924aee9bc2f",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_triangle::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_triangle"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_triangle::contrast::0",
+      "path": "visual/synthetic/shape_triangle_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "7745366554281e3f033f103d0c01f0a3753276db4c22c4f3ec929b434bf428a2",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_triangle::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_triangle"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_diamond::train::0",
+      "path": "visual/synthetic/shape_diamond_train_0.png",
+      "media_type": "image/png",
+      "sha256": "55a3135a78bbaf9376fbf0ca2fe6cda0f640dfce9db3ab5931d7aa9b8de218db",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_diamond::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_diamond"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_diamond::train::1",
+      "path": "visual/synthetic/shape_diamond_train_1.png",
+      "media_type": "image/png",
+      "sha256": "1cd6346cb215725f42f5281e45cb92408cd21e82c2a6505ba6217b5630ce0cc7",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_diamond::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_diamond"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_diamond::train::2",
+      "path": "visual/synthetic/shape_diamond_train_2.png",
+      "media_type": "image/png",
+      "sha256": "d527721cf274a361c3ae9d538a5f324c60e9bf34a06a2f4cd128a4c3b0288d4a",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_diamond::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_diamond"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_diamond::held_out::0",
+      "path": "visual/synthetic/shape_diamond_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "3af2aafe77a902f9b192de67d01fa5483c86e7636d853e0182b53f6479aa9ae8",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_diamond::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_diamond"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_diamond::contrast::0",
+      "path": "visual/synthetic/shape_diamond_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "1ea21d58edcd4a48082b80fe255df602eb53fc93f96952d23f214fb75e877ecf",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_diamond::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_diamond"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_bar::train::0",
+      "path": "visual/synthetic/shape_bar_train_0.png",
+      "media_type": "image/png",
+      "sha256": "1a1655aaa5c52e04cbcdad86bc311fb038caf7c82658607bea7606c886d2e539",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_bar::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_bar"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_bar::train::1",
+      "path": "visual/synthetic/shape_bar_train_1.png",
+      "media_type": "image/png",
+      "sha256": "a2bc04a765fb4e38b76271180ccf63311edb94ee451c237e96d909861a3854b6",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_bar::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_bar"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_bar::train::2",
+      "path": "visual/synthetic/shape_bar_train_2.png",
+      "media_type": "image/png",
+      "sha256": "d014478114531dc62cac10cd2cecff957b482e2155fd096fa03cfdeea262f69e",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_bar::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_bar"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_bar::held_out::0",
+      "path": "visual/synthetic/shape_bar_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "27e5f4c86002fd84fbd7014e0b58c509893f09e388d65e3a79c7aac32b133691",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_bar::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_bar"
+      ]
+    },
+    {
+      "asset_id": "asset::shape_bar::contrast::0",
+      "path": "visual/synthetic/shape_bar_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "afe0024ef7d5fc11c5aaf41b77eff1a28615ef96ebd2cafc4639d7dc95006240",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::shape_bar::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "shape",
+        "shape_bar"
+      ]
+    },
+    {
+      "asset_id": "asset::number_0::train::0",
+      "path": "visual/synthetic/number_0_train_0.png",
+      "media_type": "image/png",
+      "sha256": "838a817808c7e1fafb2b19950201f10b744639e3f69dc4db478cfbeecff7dd40",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_0::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_0"
+      ]
+    },
+    {
+      "asset_id": "asset::number_0::train::1",
+      "path": "visual/synthetic/number_0_train_1.png",
+      "media_type": "image/png",
+      "sha256": "428ad83d09aaf4f73591af01ddc93ed1092e115d560d05048235c73622732d67",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_0::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_0"
+      ]
+    },
+    {
+      "asset_id": "asset::number_0::train::2",
+      "path": "visual/synthetic/number_0_train_2.png",
+      "media_type": "image/png",
+      "sha256": "d1d198691026676536417a4f3c45662a86babc70ac4b692f24f556f16a9113da",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_0::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_0"
+      ]
+    },
+    {
+      "asset_id": "asset::number_0::held_out::0",
+      "path": "visual/synthetic/number_0_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "f39d78c9d8eaa5e6cd51023b2a92c9a3884bb24f587c75f1352d981311218bc9",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_0::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_0"
+      ]
+    },
+    {
+      "asset_id": "asset::number_0::contrast::0",
+      "path": "visual/synthetic/number_0_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "418e096c1110e74e8d0010ec9b27b4aab58523984696c71abbc6be856500bb72",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_0::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_0"
+      ]
+    },
+    {
+      "asset_id": "asset::number_1::train::0",
+      "path": "visual/synthetic/number_1_train_0.png",
+      "media_type": "image/png",
+      "sha256": "a6ffbb3ebedbb41788b28f93d11b0d65b05d402c50a65494e1d38a934f4985a9",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_1::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_1"
+      ]
+    },
+    {
+      "asset_id": "asset::number_1::train::1",
+      "path": "visual/synthetic/number_1_train_1.png",
+      "media_type": "image/png",
+      "sha256": "90843f086e6043fc75a5277f809256c6bc1c36728cf533106b59dfbf614b8b15",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_1::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_1"
+      ]
+    },
+    {
+      "asset_id": "asset::number_1::train::2",
+      "path": "visual/synthetic/number_1_train_2.png",
+      "media_type": "image/png",
+      "sha256": "9d4fd2338b28cb95475423ef850da3399474ba4bc9cf636b42c8971249ae288a",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_1::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_1"
+      ]
+    },
+    {
+      "asset_id": "asset::number_1::held_out::0",
+      "path": "visual/synthetic/number_1_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "72e91f2472b48a64fdec9d41898d693f04f62688131726f49a89002307fa5e84",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_1::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_1"
+      ]
+    },
+    {
+      "asset_id": "asset::number_1::contrast::0",
+      "path": "visual/synthetic/number_1_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "eb87a00437f1c6a82c7a423963f80f467acf09e4a592a84df74cc40d93ba2e79",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_1::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_1"
+      ]
+    },
+    {
+      "asset_id": "asset::number_2::train::0",
+      "path": "visual/synthetic/number_2_train_0.png",
+      "media_type": "image/png",
+      "sha256": "3575d7af5c7fac7d1c459c320e76178b62dfab5998e29426979080719e387604",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_2::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_2"
+      ]
+    },
+    {
+      "asset_id": "asset::number_2::train::1",
+      "path": "visual/synthetic/number_2_train_1.png",
+      "media_type": "image/png",
+      "sha256": "eb5ffad7b2fa9874fa0f8f148b3d50f07f22942d163a5c8ef2a2c9dd92520671",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_2::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_2"
+      ]
+    },
+    {
+      "asset_id": "asset::number_2::train::2",
+      "path": "visual/synthetic/number_2_train_2.png",
+      "media_type": "image/png",
+      "sha256": "c67d05dfe7840032e35778e86f7aa34350372ce229f673b1b0b2ebe46eb428c8",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_2::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_2"
+      ]
+    },
+    {
+      "asset_id": "asset::number_2::held_out::0",
+      "path": "visual/synthetic/number_2_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "40794b43950c0df9b6c6e7fc11d912e5bb7d468f8780a46638741985e6269dee",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_2::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_2"
+      ]
+    },
+    {
+      "asset_id": "asset::number_2::contrast::0",
+      "path": "visual/synthetic/number_2_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "816135b9d12e5bbc2532e0e49b39783321a55c86f4c4e28f687b78b69d6570f7",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_2::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_2"
+      ]
+    },
+    {
+      "asset_id": "asset::number_3::train::0",
+      "path": "visual/synthetic/number_3_train_0.png",
+      "media_type": "image/png",
+      "sha256": "dd219b8438044476f275716939264e6388bd65427fc67df673566568f67d12e4",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_3::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_3"
+      ]
+    },
+    {
+      "asset_id": "asset::number_3::train::1",
+      "path": "visual/synthetic/number_3_train_1.png",
+      "media_type": "image/png",
+      "sha256": "a0e4443b2432a43154fe2090ba0f161c1c84eb824275b109d9fbfb8635154124",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_3::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_3"
+      ]
+    },
+    {
+      "asset_id": "asset::number_3::train::2",
+      "path": "visual/synthetic/number_3_train_2.png",
+      "media_type": "image/png",
+      "sha256": "3757d82b2a11d775252ea0b89f7551425cc6de6c6fafefe0e252d990a060a879",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_3::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_3"
+      ]
+    },
+    {
+      "asset_id": "asset::number_3::held_out::0",
+      "path": "visual/synthetic/number_3_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "7361767a441431a1a9fe6011251d683febf3ab94c554fda89839514a9213cd3f",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_3::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_3"
+      ]
+    },
+    {
+      "asset_id": "asset::number_3::contrast::0",
+      "path": "visual/synthetic/number_3_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "a0b37703de7e4b1644db37dd48c9c23f0466ad1b86acd19a4d53dc96156df02b",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_3::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_3"
+      ]
+    },
+    {
+      "asset_id": "asset::number_4::train::0",
+      "path": "visual/synthetic/number_4_train_0.png",
+      "media_type": "image/png",
+      "sha256": "641dc683195d2c5e2afee6a66c97cea522e3ac9efcf73dd47ca2e135c50464fb",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_4::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_4"
+      ]
+    },
+    {
+      "asset_id": "asset::number_4::train::1",
+      "path": "visual/synthetic/number_4_train_1.png",
+      "media_type": "image/png",
+      "sha256": "9cfe7a7bc8f28d72dbf919d97e45c25543821ad53a01f5f5aea9cc84d1a223fc",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_4::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_4"
+      ]
+    },
+    {
+      "asset_id": "asset::number_4::train::2",
+      "path": "visual/synthetic/number_4_train_2.png",
+      "media_type": "image/png",
+      "sha256": "1166dc70330fc1b6a07353fd6e0e8ff6ba76753a9db09f0d366c0d7ba8d7046a",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_4::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_4"
+      ]
+    },
+    {
+      "asset_id": "asset::number_4::held_out::0",
+      "path": "visual/synthetic/number_4_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "07f97e0db8330bee90fe6cf52ad5abd16edb032d8a3a2402eb02f3ee65fdb940",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_4::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_4"
+      ]
+    },
+    {
+      "asset_id": "asset::number_4::contrast::0",
+      "path": "visual/synthetic/number_4_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "cca528c407d52405843316b3be14bbe9aed32ff2d46e109ae71fa8ab83946bb4",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::number_4::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "number",
+        "number_4"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_up::train::0",
+      "path": "visual/synthetic/direction_up_train_0.png",
+      "media_type": "image/png",
+      "sha256": "4a81453085f732a5d9484f8c84a51e30215419ebb5296700c4cc11a1fe59bd98",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_up::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_up"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_up::train::1",
+      "path": "visual/synthetic/direction_up_train_1.png",
+      "media_type": "image/png",
+      "sha256": "79ce15a6e3ec127b8fbae70b59a5508e9858ab1a295b88d5839dcf78f84c2e2e",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_up::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_up"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_up::train::2",
+      "path": "visual/synthetic/direction_up_train_2.png",
+      "media_type": "image/png",
+      "sha256": "c6339dcec7fe95d2fd53f81f3a4cfb259965215be6cd5733a44afae0f6884b3c",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_up::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_up"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_up::held_out::0",
+      "path": "visual/synthetic/direction_up_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "630b30dd994a87fc80d5c9611bc87b440771463e957fea2118c98dc895aaeab5",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_up::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_up"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_up::contrast::0",
+      "path": "visual/synthetic/direction_up_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "78074d4fc8000e981534c100cd8508a2c2c8aa009e106c696e7d2c53afc0be39",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_up::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_up"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_down::train::0",
+      "path": "visual/synthetic/direction_down_train_0.png",
+      "media_type": "image/png",
+      "sha256": "cab918d64934eceaecc1efaad354865a6fa96242d50fc37ca922cfb2807b3aef",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_down::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_down"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_down::train::1",
+      "path": "visual/synthetic/direction_down_train_1.png",
+      "media_type": "image/png",
+      "sha256": "35828797cb76e6313a7b251d97a5041108b85fb57632d4407e08a8895cebf59a",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_down::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_down"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_down::train::2",
+      "path": "visual/synthetic/direction_down_train_2.png",
+      "media_type": "image/png",
+      "sha256": "8f3d8ec10e6effe126e1e0631badc95a5e891ebcf9a449ad0a8d6119015330a0",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_down::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_down"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_down::held_out::0",
+      "path": "visual/synthetic/direction_down_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "fa7eb73c8859e332b17c97462878ef4cd7fa59ece4fee7705735c546ce67cc8a",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_down::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_down"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_down::contrast::0",
+      "path": "visual/synthetic/direction_down_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "410bfbf8b35bce06b12a6c87fca4850f0eabfa2d7f9c26258e3498347eca5d89",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_down::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_down"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_left::train::0",
+      "path": "visual/synthetic/direction_left_train_0.png",
+      "media_type": "image/png",
+      "sha256": "96284d42b79462591afd796d9c1ec071bebb136521840a708206ffc4eac9b068",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_left::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_left"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_left::train::1",
+      "path": "visual/synthetic/direction_left_train_1.png",
+      "media_type": "image/png",
+      "sha256": "80f56f4fd6f2dddd95c259845410979d961b7d07116b1c15c4aed9146732e22f",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_left::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_left"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_left::train::2",
+      "path": "visual/synthetic/direction_left_train_2.png",
+      "media_type": "image/png",
+      "sha256": "02b04df109e81b8f73924fb0040429467bc78cd525adf651a1ffb1036d70fbc3",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_left::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_left"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_left::held_out::0",
+      "path": "visual/synthetic/direction_left_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "5d912674cf79e72ce3029cf058d1d0bb84c3f98942cc1762713f5d38faa03c27",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_left::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_left"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_left::contrast::0",
+      "path": "visual/synthetic/direction_left_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "02b7e92e0ad53452c5c979a8f39b6937250c33426bdb639c5936f0cdf200472a",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_left::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_left"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_right::train::0",
+      "path": "visual/synthetic/direction_right_train_0.png",
+      "media_type": "image/png",
+      "sha256": "128952482e9231ae4d7492473ba204a6b2b42a91824e63c77289c23466954e32",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_right::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_right"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_right::train::1",
+      "path": "visual/synthetic/direction_right_train_1.png",
+      "media_type": "image/png",
+      "sha256": "f35493681e4baf94acb6c2fad568a98a3a40a79a54528c37efcdde901dc9a26f",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_right::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_right"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_right::train::2",
+      "path": "visual/synthetic/direction_right_train_2.png",
+      "media_type": "image/png",
+      "sha256": "bf2f2e3e6d8aa2a9912ad1bba0066b62f84ac4ec8437452f3cffd754cb5c0f54",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_right::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_right"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_right::held_out::0",
+      "path": "visual/synthetic/direction_right_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "05ab0449ed4f68f85df6faf8a4558e5d4835a6e637c400af2ea0326cf6b8c2b2",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_right::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_right"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_right::contrast::0",
+      "path": "visual/synthetic/direction_right_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "16ffa65df09c2c71daf9c8ff2ebb056051c1e2ad74a251b2cc255c199ebe00a9",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_right::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_right"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_inside::train::0",
+      "path": "visual/synthetic/direction_inside_train_0.png",
+      "media_type": "image/png",
+      "sha256": "15270dd1eb833cf18c41f9eb530eaacea7b5319ab65960961873cfe6d07ed78d",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_inside::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_inside"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_inside::train::1",
+      "path": "visual/synthetic/direction_inside_train_1.png",
+      "media_type": "image/png",
+      "sha256": "1c13bb8baf8438e4c2748396f69c5f07311ba9be528bd610f40ed72c89f5303a",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_inside::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_inside"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_inside::train::2",
+      "path": "visual/synthetic/direction_inside_train_2.png",
+      "media_type": "image/png",
+      "sha256": "5cd34cdc7abdf23e4620365a6e569c022c662430b3fbd1bd6d6bdf58458b6921",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_inside::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_inside"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_inside::held_out::0",
+      "path": "visual/synthetic/direction_inside_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "1c496539c295949e1d2f6a9b0715a1f750b9af140a8609b0ad75781030434de2",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_inside::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_inside"
+      ]
+    },
+    {
+      "asset_id": "asset::direction_inside::contrast::0",
+      "path": "visual/synthetic/direction_inside_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "d19fa0ac103706e60968cac542f937026762b9e2e89320c409a1f16e3b73c80e",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::direction_inside::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "direction",
+        "direction_inside"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_apple::train::0",
+      "path": "visual/synthetic/noun_apple_train_0.png",
+      "media_type": "image/png",
+      "sha256": "19e65a018b8f3f387eb012dd49d07cf52099b612d38e153140262e61267fdc32",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_apple::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_apple"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_apple::train::1",
+      "path": "visual/synthetic/noun_apple_train_1.png",
+      "media_type": "image/png",
+      "sha256": "5f25835f66639643c41225e45bf5046d1d346c0a6f3db79b83d7864b553747e4",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_apple::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_apple"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_apple::train::2",
+      "path": "visual/synthetic/noun_apple_train_2.png",
+      "media_type": "image/png",
+      "sha256": "e87c7f281cd03c0596565ef2b04ac5a7ce094faadffc2ae70f312731d13e1c7b",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_apple::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_apple"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_apple::held_out::0",
+      "path": "visual/synthetic/noun_apple_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "e374fa71a16207c38830e8ea68c446a62303e73a9cc976606528e8056bf83755",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_apple::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_apple"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_apple::contrast::0",
+      "path": "visual/synthetic/noun_apple_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "395c7dfec089a8b773a00b29e05a283ab2634168d3a7d5d22d8ec40eeb3ac04b",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_apple::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_apple"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_cup::train::0",
+      "path": "visual/synthetic/noun_cup_train_0.png",
+      "media_type": "image/png",
+      "sha256": "38633b972ba3ca4d4100039aa3bd9f01a2c8a8f16e31dbfb779de946c7b4f838",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_cup::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_cup"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_cup::train::1",
+      "path": "visual/synthetic/noun_cup_train_1.png",
+      "media_type": "image/png",
+      "sha256": "8eb84a7f8c5eaabb0f87c7deca45e8a36c3be99afc6f0bc8ba83d3ed9d698fe8",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_cup::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_cup"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_cup::train::2",
+      "path": "visual/synthetic/noun_cup_train_2.png",
+      "media_type": "image/png",
+      "sha256": "8356d7708b084e34757283ca435e897b6df47e589c2f8f7fad2cbd1c42939f73",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_cup::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_cup"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_cup::held_out::0",
+      "path": "visual/synthetic/noun_cup_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "29fbddc3e2558a12d9d03d51f90792849fce30482b786dfd0e5cc96a70a1f53c",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_cup::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_cup"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_cup::contrast::0",
+      "path": "visual/synthetic/noun_cup_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "3da0a761107119f38e3283ce547897ac76bb1c783249ea532eed57bd18d76644",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_cup::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_cup"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_book::train::0",
+      "path": "visual/synthetic/noun_book_train_0.png",
+      "media_type": "image/png",
+      "sha256": "72d28adcd74beb06b3a16ed1f5d557f65e2601388055f0764525ac6f527b2be0",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_book::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_book"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_book::train::1",
+      "path": "visual/synthetic/noun_book_train_1.png",
+      "media_type": "image/png",
+      "sha256": "699da1c74200050b72e340090d5597c508b1e710e5a9cb8eba1eab151dc3f3ea",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_book::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_book"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_book::train::2",
+      "path": "visual/synthetic/noun_book_train_2.png",
+      "media_type": "image/png",
+      "sha256": "7a905dfaf1eed37b70752e53baf1abdc71c635cb85ff0cd4af90099b3a7a7788",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_book::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_book"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_book::held_out::0",
+      "path": "visual/synthetic/noun_book_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "bd1e966ee6343ad2fde582e52b469df449fec289de99c36e5cec22b706e10d9e",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_book::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_book"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_book::contrast::0",
+      "path": "visual/synthetic/noun_book_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "3caad476c4548aa65180212a6f11e0b3a783871f3f568e7cbc4a4ff79f51de4b",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_book::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_book"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_table::train::0",
+      "path": "visual/synthetic/noun_table_train_0.png",
+      "media_type": "image/png",
+      "sha256": "08cbbe49ddcb17df30bcbeae9d41ccdf80c72e72ad889364d45dfe0216bcc70f",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_table::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_table"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_table::train::1",
+      "path": "visual/synthetic/noun_table_train_1.png",
+      "media_type": "image/png",
+      "sha256": "1c06e00193d0de7533dc6edf11968d5f11076dc449d842d7cf63affb38c4eb08",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_table::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_table"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_table::train::2",
+      "path": "visual/synthetic/noun_table_train_2.png",
+      "media_type": "image/png",
+      "sha256": "304eb80ca3c520b35bb689dc5bf13c8708393512f61e9640e8e24592298ade2e",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_table::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_table"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_table::held_out::0",
+      "path": "visual/synthetic/noun_table_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "7aa0605d4380b263a7b65561be5f50fd0996780195f729b7b044c7c675fe56ef",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_table::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_table"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_table::contrast::0",
+      "path": "visual/synthetic/noun_table_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "362de234671acd773c7ee4c9e0a8c543cb4801df4741f464b98fbd798a41a82d",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_table::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_table"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_chair::train::0",
+      "path": "visual/synthetic/noun_chair_train_0.png",
+      "media_type": "image/png",
+      "sha256": "230a263a3494225e22cc90a1d24777efde5b5223d850d9b89bba17cf737fdcc6",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_chair::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_chair"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_chair::train::1",
+      "path": "visual/synthetic/noun_chair_train_1.png",
+      "media_type": "image/png",
+      "sha256": "9ab166e99ad69e0926c89e561b4cbc6b2d934d406454518a60a1023db142686f",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_chair::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_chair"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_chair::train::2",
+      "path": "visual/synthetic/noun_chair_train_2.png",
+      "media_type": "image/png",
+      "sha256": "3b1f85bbda9de90f523279fc49eb83ab68a28e480a27c210d2f2e4ddd4ef6398",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_chair::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_chair"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_chair::held_out::0",
+      "path": "visual/synthetic/noun_chair_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "5812d1556065eafdd98cfa2555c2476ef3447420127071dac9dd5d1e6464f8ab",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_chair::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_chair"
+      ]
+    },
+    {
+      "asset_id": "asset::noun_chair::contrast::0",
+      "path": "visual/synthetic/noun_chair_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "396ea2ecfa6537c8f1b5f06fa9800b75c2d587d1a04e37540d57da80892fe42d",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::noun_chair::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "daily_noun",
+        "noun_chair"
+      ]
+    },
+    {
+      "asset_id": "asset::action_walk::train::0",
+      "path": "visual/synthetic/action_walk_train_0.png",
+      "media_type": "image/png",
+      "sha256": "346cd6ac89fa351794e101e94573c9bdaccfc840df153bec40ca021ff7f51529",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_walk::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_walk"
+      ]
+    },
+    {
+      "asset_id": "asset::action_walk::train::1",
+      "path": "visual/synthetic/action_walk_train_1.png",
+      "media_type": "image/png",
+      "sha256": "4e3b9dc26fb74e80cf32368ce3c72f90494e4fd15ab5ffdf7871926a9d343fd0",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_walk::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_walk"
+      ]
+    },
+    {
+      "asset_id": "asset::action_walk::train::2",
+      "path": "visual/synthetic/action_walk_train_2.png",
+      "media_type": "image/png",
+      "sha256": "ef9a2c9e53a55ad5eab7ff450c632a1400099c6cfa8de0e37fc3d2cfd686bf31",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_walk::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_walk"
+      ]
+    },
+    {
+      "asset_id": "asset::action_walk::held_out::0",
+      "path": "visual/synthetic/action_walk_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "b370f923dbdf7638a0eb4e10c8fd7f1b4686ead18776ac31d3411259c981945f",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_walk::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_walk"
+      ]
+    },
+    {
+      "asset_id": "asset::action_walk::contrast::0",
+      "path": "visual/synthetic/action_walk_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "2d57a2f4be585d755c7669dc1aabf8d808f421a86115cb2293ef822a1fd6af40",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_walk::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_walk"
+      ]
+    },
+    {
+      "asset_id": "asset::action_run::train::0",
+      "path": "visual/synthetic/action_run_train_0.png",
+      "media_type": "image/png",
+      "sha256": "a9cdde7d37957b1118933133d368f56910dc77f1ee3c86001e87b6e64de56bf1",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_run::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_run"
+      ]
+    },
+    {
+      "asset_id": "asset::action_run::train::1",
+      "path": "visual/synthetic/action_run_train_1.png",
+      "media_type": "image/png",
+      "sha256": "b58416cdd0a3a24f96edc61b24f74a93b72769f8dd5a51ff3ebc0d236de03195",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_run::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_run"
+      ]
+    },
+    {
+      "asset_id": "asset::action_run::train::2",
+      "path": "visual/synthetic/action_run_train_2.png",
+      "media_type": "image/png",
+      "sha256": "3087a570005be7459ed924a66eef5f3309a76bd1088646a882b136d033e93ad2",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_run::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_run"
+      ]
+    },
+    {
+      "asset_id": "asset::action_run::held_out::0",
+      "path": "visual/synthetic/action_run_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "eef4d04ea28443b1c445e2885f674866f8d259a48c8f7d87db4b525e87c4f66e",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_run::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_run"
+      ]
+    },
+    {
+      "asset_id": "asset::action_run::contrast::0",
+      "path": "visual/synthetic/action_run_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "596b44164670c5ca4e19d214d059d250a45b4bdec306d0e9c1d14b74c1cee942",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_run::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_run"
+      ]
+    },
+    {
+      "asset_id": "asset::action_jump::train::0",
+      "path": "visual/synthetic/action_jump_train_0.png",
+      "media_type": "image/png",
+      "sha256": "f4820db3d70e48a32daf705aebe50631dda55b342835e8cb848a8a285150ebc8",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_jump::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_jump"
+      ]
+    },
+    {
+      "asset_id": "asset::action_jump::train::1",
+      "path": "visual/synthetic/action_jump_train_1.png",
+      "media_type": "image/png",
+      "sha256": "3c8b1c487086abab7eea420addcab6c8b2a49b0980c82a1c6f7defb297467e2f",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_jump::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_jump"
+      ]
+    },
+    {
+      "asset_id": "asset::action_jump::train::2",
+      "path": "visual/synthetic/action_jump_train_2.png",
+      "media_type": "image/png",
+      "sha256": "106f36e7d0b46fd3dce938ff68b62a0585a17ec1b0aa9f5f0bb3aaea13d04397",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_jump::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_jump"
+      ]
+    },
+    {
+      "asset_id": "asset::action_jump::held_out::0",
+      "path": "visual/synthetic/action_jump_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "0fe1a9f26bfc9931487d8466a417c8237ee365ea0dd8e3f6a2f113eae2aa0259",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_jump::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_jump"
+      ]
+    },
+    {
+      "asset_id": "asset::action_jump::contrast::0",
+      "path": "visual/synthetic/action_jump_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "dc383d48a50a6ec1bddb916749ce38e0511cbeefe74d6c0c4377db73da28fb4c",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_jump::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_jump"
+      ]
+    },
+    {
+      "asset_id": "asset::action_sit::train::0",
+      "path": "visual/synthetic/action_sit_train_0.png",
+      "media_type": "image/png",
+      "sha256": "62247482dd339888ff6a4c840d535024d6bf88fba17442ebc9d0a6a180708592",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_sit::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_sit"
+      ]
+    },
+    {
+      "asset_id": "asset::action_sit::train::1",
+      "path": "visual/synthetic/action_sit_train_1.png",
+      "media_type": "image/png",
+      "sha256": "0b112044f14db65f62928136bd50248b8b11af0d5803b18ba940d85acdeaa04b",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_sit::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_sit"
+      ]
+    },
+    {
+      "asset_id": "asset::action_sit::train::2",
+      "path": "visual/synthetic/action_sit_train_2.png",
+      "media_type": "image/png",
+      "sha256": "a8f42124ea49ce920d08f09fd630057b30b049a4639ec377d6b7ed577c696e27",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_sit::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_sit"
+      ]
+    },
+    {
+      "asset_id": "asset::action_sit::held_out::0",
+      "path": "visual/synthetic/action_sit_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "e37547cde72e16214d3ef3adb30f9dca1583916f78dec999f09220c49a6a2c15",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_sit::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_sit"
+      ]
+    },
+    {
+      "asset_id": "asset::action_sit::contrast::0",
+      "path": "visual/synthetic/action_sit_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "6acffb1ce73e493dc93508550e1b84aacd67e902ab43e839bed6a4de41fd70a1",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_sit::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_sit"
+      ]
+    },
+    {
+      "asset_id": "asset::action_pick::train::0",
+      "path": "visual/synthetic/action_pick_train_0.png",
+      "media_type": "image/png",
+      "sha256": "a534c46888c30d98befec2a8703266348f966098220e458cfb4331d4fca9622c",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_pick::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_pick"
+      ]
+    },
+    {
+      "asset_id": "asset::action_pick::train::1",
+      "path": "visual/synthetic/action_pick_train_1.png",
+      "media_type": "image/png",
+      "sha256": "63c5710edfc6d19cb145b5808fe2a37b19bf118a95d5c86a1928d187c0ab46a2",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_pick::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_pick"
+      ]
+    },
+    {
+      "asset_id": "asset::action_pick::train::2",
+      "path": "visual/synthetic/action_pick_train_2.png",
+      "media_type": "image/png",
+      "sha256": "6f48380a68964f9dad37b2fa67f1ae302670853c4adacd7bb74df9b33ee5a17d",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_pick::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_pick"
+      ]
+    },
+    {
+      "asset_id": "asset::action_pick::held_out::0",
+      "path": "visual/synthetic/action_pick_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "83e855b095b3c215fc333cb4eecc1272e5dc241184d520a211aac899bee4a849",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_pick::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_pick"
+      ]
+    },
+    {
+      "asset_id": "asset::action_pick::contrast::0",
+      "path": "visual/synthetic/action_pick_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "aa621b1705aa7719d847869a3f594b3e77d5d26d18f359500f2ebfa0d224d2e1",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::action_pick::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "action",
+        "action_pick"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_correct::train::0",
+      "path": "visual/synthetic/feedback_correct_train_0.png",
+      "media_type": "image/png",
+      "sha256": "3b2f2b4d8babf96de48b55dc40e0081ebf75647fc4bc6953497339e00a7a7388",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_correct::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_correct"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_correct::train::1",
+      "path": "visual/synthetic/feedback_correct_train_1.png",
+      "media_type": "image/png",
+      "sha256": "57a12e7373b6d02f47762e140be99e57cede3d483d5a2b7011dbcb7330b14ac7",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_correct::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_correct"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_correct::train::2",
+      "path": "visual/synthetic/feedback_correct_train_2.png",
+      "media_type": "image/png",
+      "sha256": "03ee7a4aed0e7792a518f4a2afea9abce7ded9111da96ab4e5d767a0de625ea1",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_correct::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_correct"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_correct::held_out::0",
+      "path": "visual/synthetic/feedback_correct_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "8a20105b7113ed9e8fcbb7b9439b3947234e616c064d2b37f515a4cd894d7291",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_correct::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_correct"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_correct::contrast::0",
+      "path": "visual/synthetic/feedback_correct_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "0c9eeb7dd8d12dc150391f102a7d7b39575d953b5e0253846eba2522fe2a511c",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_correct::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_correct"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_wrong::train::0",
+      "path": "visual/synthetic/feedback_wrong_train_0.png",
+      "media_type": "image/png",
+      "sha256": "d09d58980f5a39147463e5349c6643951a46f56e7e202e12c33f5b2d67371287",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_wrong::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_wrong"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_wrong::train::1",
+      "path": "visual/synthetic/feedback_wrong_train_1.png",
+      "media_type": "image/png",
+      "sha256": "059ca69103c8cc60cd5d2c4d21a47aed107112189660b53818ea41723fe7d30c",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_wrong::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_wrong"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_wrong::train::2",
+      "path": "visual/synthetic/feedback_wrong_train_2.png",
+      "media_type": "image/png",
+      "sha256": "e72d8de96c2d4b1451493ac8218612df3237bcfcf90742c98aa8d3eb26fb21de",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_wrong::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_wrong"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_wrong::held_out::0",
+      "path": "visual/synthetic/feedback_wrong_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "0a5fd4e0255fe901345a0dff755721b45a69bd3d5384bd0b84325e48c20f4280",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_wrong::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_wrong"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_wrong::contrast::0",
+      "path": "visual/synthetic/feedback_wrong_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "c53f15bdbd0d4ae8a7ba6749118766c42f11d6acd8e80274d98d2e350df560c6",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_wrong::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_wrong"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_again::train::0",
+      "path": "visual/synthetic/feedback_again_train_0.png",
+      "media_type": "image/png",
+      "sha256": "619e348327e9d37c546942525218139b0900f0de1802debacc82cd020994c949",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_again::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_again"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_again::train::1",
+      "path": "visual/synthetic/feedback_again_train_1.png",
+      "media_type": "image/png",
+      "sha256": "7c4728ecfa5a3007a3f3aeb280d9440414be5bfed83d20e8b4a49550c419f170",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_again::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_again"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_again::train::2",
+      "path": "visual/synthetic/feedback_again_train_2.png",
+      "media_type": "image/png",
+      "sha256": "439cdeaf43d86e9c2f1fdf3a633b76dfe84de0a2de79f57817ef1fcc4e0b912e",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_again::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_again"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_again::held_out::0",
+      "path": "visual/synthetic/feedback_again_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "595ae8f600da025a5cfbc35bb153b3e0923114fb2b8cbbeb299395c96b100b32",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_again::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_again"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_again::contrast::0",
+      "path": "visual/synthetic/feedback_again_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "cdd07412416d3508cc8dc06b3a6d31c95e0f2e53c2a44aa99ca618fa180e54dd",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_again::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_again"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_slow::train::0",
+      "path": "visual/synthetic/feedback_slow_train_0.png",
+      "media_type": "image/png",
+      "sha256": "f54cced0d620cbedb9c7d28ce3217c8cf5add6e13a2b8fab435bbca96e28060b",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_slow::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_slow"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_slow::train::1",
+      "path": "visual/synthetic/feedback_slow_train_1.png",
+      "media_type": "image/png",
+      "sha256": "692884456f8e625e2e27c264ff8087c8b15f13b7382f8a07da0ec35bb365bf88",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_slow::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_slow"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_slow::train::2",
+      "path": "visual/synthetic/feedback_slow_train_2.png",
+      "media_type": "image/png",
+      "sha256": "584c309575de1baf52cdad50e9ebc407a5a8c53ac4700ce4d945ab6f03c23f2a",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_slow::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_slow"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_slow::held_out::0",
+      "path": "visual/synthetic/feedback_slow_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "9c614bf07eaa1472249d1e3a70d440d6beaf56571500a9e75d5c560f6abc7731",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_slow::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_slow"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_slow::contrast::0",
+      "path": "visual/synthetic/feedback_slow_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "c8e2bc42b15ef9283af474b0dc31286cccda6fc337c24b490252f022381635f0",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_slow::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_slow"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_thanks::train::0",
+      "path": "visual/synthetic/feedback_thanks_train_0.png",
+      "media_type": "image/png",
+      "sha256": "7e41bb9574f794056d93d7b407c7187b3067cb070d231af57f0577dea5827905",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_thanks::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_thanks"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_thanks::train::1",
+      "path": "visual/synthetic/feedback_thanks_train_1.png",
+      "media_type": "image/png",
+      "sha256": "f0b085a615714f0a7f1b50c56ecc25ea2a30c75e29948dd613f216839ad0c1f3",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_thanks::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_thanks"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_thanks::train::2",
+      "path": "visual/synthetic/feedback_thanks_train_2.png",
+      "media_type": "image/png",
+      "sha256": "49c38a96a544650d51bff5d0cec9e8cc7eb5400dd3c4ca07aeac37c57b75f21a",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_thanks::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_thanks"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_thanks::held_out::0",
+      "path": "visual/synthetic/feedback_thanks_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "abfa9718faf8ce5173c09bcca994dd9a9a5236044b0099ea5c289777d0c9b43b",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_thanks::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_thanks"
+      ]
+    },
+    {
+      "asset_id": "asset::feedback_thanks::contrast::0",
+      "path": "visual/synthetic/feedback_thanks_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "8dca297f1c73bd09f8072ffcc6effec613ad54f877f2b5de87ee7612351ea3c6",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::feedback_thanks::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "feedback",
+        "feedback_thanks"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_soft_call::train::0",
+      "path": "audio/synthetic/audio_soft_call_train_0.wav",
+      "media_type": "audio/wav",
+      "sha256": "42d9e92394a80c9b2620107f85ff6f7db1033abb1a270f0e545c2ee224f3e315",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_soft_call::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_soft_call"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_soft_call::train::1",
+      "path": "audio/synthetic/audio_soft_call_train_1.wav",
+      "media_type": "audio/wav",
+      "sha256": "cee263bd4589ed70693b0cf2e14070f55c51ed76a401963e5caf734bad9827b9",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_soft_call::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_soft_call"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_soft_call::train::2",
+      "path": "audio/synthetic/audio_soft_call_train_2.wav",
+      "media_type": "audio/wav",
+      "sha256": "9a39a1ea02a8b16e3ec4d2b65d210c5a22227c439afc24e0e6029493828ac2d2",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_soft_call::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_soft_call"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_soft_call::held_out::0",
+      "path": "audio/synthetic/audio_soft_call_held_out_0.wav",
+      "media_type": "audio/wav",
+      "sha256": "2e6618e7918ea3b20f020325dbe8822e885a6a383d52b469007365a74620a67c",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_soft_call::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_soft_call"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_soft_call::contrast::0",
+      "path": "audio/synthetic/audio_soft_call_contrast_0.wav",
+      "media_type": "audio/wav",
+      "sha256": "acfe048aed4d99b04896c87af734ca77c4323d9a52591fab8364dc480dc8644c",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_soft_call::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_soft_call"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_confirm_tone::train::0",
+      "path": "audio/synthetic/audio_confirm_tone_train_0.wav",
+      "media_type": "audio/wav",
+      "sha256": "41c7b2e8415452902ddd18fd7935a7326d661a5a9fd70b92eaa1ab309d83b95a",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_confirm_tone::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_confirm_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_confirm_tone::train::1",
+      "path": "audio/synthetic/audio_confirm_tone_train_1.wav",
+      "media_type": "audio/wav",
+      "sha256": "060e4a1fef334b87964f4e35b1e2bfdd0537ad37ebc0fcc0e21eb879ff0ce683",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_confirm_tone::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_confirm_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_confirm_tone::train::2",
+      "path": "audio/synthetic/audio_confirm_tone_train_2.wav",
+      "media_type": "audio/wav",
+      "sha256": "001ba31283369f0f4ee715d163eef58315796121f5b29560a0b9f5f8462bee8d",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_confirm_tone::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_confirm_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_confirm_tone::held_out::0",
+      "path": "audio/synthetic/audio_confirm_tone_held_out_0.wav",
+      "media_type": "audio/wav",
+      "sha256": "83d8913748e0d67b62d4a1499228ce1844754c6c9535e11e9e462877ad921d8c",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_confirm_tone::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_confirm_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_confirm_tone::contrast::0",
+      "path": "audio/synthetic/audio_confirm_tone_contrast_0.wav",
+      "media_type": "audio/wav",
+      "sha256": "c8d0f8d40565d084a40c02006fc8c576b22f0395dc1892e44457ec162eec7f54",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_confirm_tone::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_confirm_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_correction_tone::train::0",
+      "path": "audio/synthetic/audio_correction_tone_train_0.wav",
+      "media_type": "audio/wav",
+      "sha256": "61614a7aedfb8a0f28040306d6ee02589194097707cce8497d671b3ee295f611",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_correction_tone::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_correction_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_correction_tone::train::1",
+      "path": "audio/synthetic/audio_correction_tone_train_1.wav",
+      "media_type": "audio/wav",
+      "sha256": "10a54684213068e497a6885f2ad23d2daf78df96ff509edb8308a85283058c8f",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_correction_tone::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_correction_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_correction_tone::train::2",
+      "path": "audio/synthetic/audio_correction_tone_train_2.wav",
+      "media_type": "audio/wav",
+      "sha256": "36fd21238e5ec932ba347778d1c29baeb6df86186f7a6d69b9c678171771c105",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_correction_tone::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_correction_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_correction_tone::held_out::0",
+      "path": "audio/synthetic/audio_correction_tone_held_out_0.wav",
+      "media_type": "audio/wav",
+      "sha256": "1ca844fb5d4752a4a27684e1ba02eab9a70c4f4ec955f2540a9ff002afa668e3",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_correction_tone::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_correction_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_correction_tone::contrast::0",
+      "path": "audio/synthetic/audio_correction_tone_contrast_0.wav",
+      "media_type": "audio/wav",
+      "sha256": "5d170bb55801b537139fac699023bfc01bed967a87c7912d0ed35b121fd05ead",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_correction_tone::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_correction_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_uncertain_tone::train::0",
+      "path": "audio/synthetic/audio_uncertain_tone_train_0.wav",
+      "media_type": "audio/wav",
+      "sha256": "af7078badbfd11f4c0f11e4de95784263ea5c0fda159d34c32cfeabb3a0212d9",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_uncertain_tone::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_uncertain_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_uncertain_tone::train::1",
+      "path": "audio/synthetic/audio_uncertain_tone_train_1.wav",
+      "media_type": "audio/wav",
+      "sha256": "2e4164ee1c44ed7109d4f4255af149230dbf9e068cdd9e8816bfd9edf660d9e6",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_uncertain_tone::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_uncertain_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_uncertain_tone::train::2",
+      "path": "audio/synthetic/audio_uncertain_tone_train_2.wav",
+      "media_type": "audio/wav",
+      "sha256": "2f49969a288104f582dda845f13ed38cf651dbda5e2410eea085d32bed706fed",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_uncertain_tone::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_uncertain_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_uncertain_tone::held_out::0",
+      "path": "audio/synthetic/audio_uncertain_tone_held_out_0.wav",
+      "media_type": "audio/wav",
+      "sha256": "0b3407f6e252c1b07c8dab6d3693fd954b0f99edfe24086ae7305ede43241a30",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_uncertain_tone::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_uncertain_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_uncertain_tone::contrast::0",
+      "path": "audio/synthetic/audio_uncertain_tone_contrast_0.wav",
+      "media_type": "audio/wav",
+      "sha256": "50f32aeca16f8d1f14d6d3466937e30bc4112a26db9cc85fce41b78e3107c8f7",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_uncertain_tone::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_uncertain_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_attention_tone::train::0",
+      "path": "audio/synthetic/audio_attention_tone_train_0.wav",
+      "media_type": "audio/wav",
+      "sha256": "5c2f4dd3afe2173d2b7b2dcf04cccca58e0137d4f781338a27ee3ee0e9450b49",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_attention_tone::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_attention_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_attention_tone::train::1",
+      "path": "audio/synthetic/audio_attention_tone_train_1.wav",
+      "media_type": "audio/wav",
+      "sha256": "aa08ae67c5950361a6631492672a0f882ab232ecd5b528629273d8454930cc53",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_attention_tone::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_attention_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_attention_tone::train::2",
+      "path": "audio/synthetic/audio_attention_tone_train_2.wav",
+      "media_type": "audio/wav",
+      "sha256": "ac8b0a7efa2c8d52ac7952bf0644c007ca4b28754077b25d2ebcc9692506a01d",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_attention_tone::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_attention_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_attention_tone::held_out::0",
+      "path": "audio/synthetic/audio_attention_tone_held_out_0.wav",
+      "media_type": "audio/wav",
+      "sha256": "d217af0b2bfe67179759e32b47b824aa8af82c9097e49454ed59e36c6ca32f56",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_attention_tone::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_attention_tone"
+      ]
+    },
+    {
+      "asset_id": "asset::audio_attention_tone::contrast::0",
+      "path": "audio/synthetic/audio_attention_tone_contrast_0.wav",
+      "media_type": "audio/wav",
+      "sha256": "e32155b6ac075bcb45e77916b07d7605ec103f34e6d50a604b76584fefa22681",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_synthetic_assets.py#asset::audio_attention_tone::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 synthetic curriculum generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "audio_pattern",
+        "audio_attention_tone"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_a87f26137355975c",
+  "concept": "table",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_a87f26137355975c.png",
+  "sha256": "a87f26137355975c70b8f85724f50416e6b9a21f02151e581a7c3aa6a2caaa1f",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/7147684@N03/3144438149",
+  "download_url": "https://api.openverse.org/v1/images/1ef76193-8e15-4f3e-be38-6f90d71e1fef/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "pellaea",
+  "title": "Pack Gong",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

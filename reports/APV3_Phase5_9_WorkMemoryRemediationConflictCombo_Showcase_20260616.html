@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase5.9 组合验收</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --paper: #ffffff;
+      --ink: #182230;
+      --muted: #667085;
+      --line: #d7e0ea;
+      --blue: #2458a6;
+      --green: #087443;
+      --amber: #a15c00;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 56px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(27px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 12px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    code { background: #eef3f8; border: 1px solid #dce5ef; border-radius: 5px; padding: 1px 5px; font-family: Consolas, "Cascadia Mono", monospace; }
+    pre { margin: 10px 0; overflow: auto; background: #111827; color: #edf4ff; border-radius: 8px; padding: 14px; font-size: 13px; }
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .subtitle { color: var(--muted); max-width: 980px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--green); }
+    .warn { color: var(--amber); }
+    .note { background: var(--paper); border-left: 4px solid var(--blue); padding: 12px 14px; margin: 14px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase5.9 组合验收</h1>
+    <p class="subtitle">本阶段组合验证工作记忆恢复、补习闭环、多技能冲突和奖惩细化。重点是让已有 AP-native 链路相互咬合，而不是新增运行时答案规则。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">阶段</div>
+      <div class="value ok">Phase5.9 通过</div>
+      <p>组合验收已落地。</p>
+    </div>
+    <div class="card">
+      <div class="label">目标测试</div>
+      <div class="value ok">12 passed</div>
+      <p>覆盖 Phase5.7-5.9 工作记忆组合链。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">133 passed</div>
+      <p>前序能力保持稳定。</p>
+    </div>
+    <div class="card">
+      <div class="label">下一步</div>
+      <div class="value warn">Phase6.0</div>
+      <p>主动学习 / 主动召唤教师最小门。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>恢复后多技能竞争</h2>
+    <pre><code>same cue = goal::resume
+ctx_math     -> continue::math
+ctx_dialogue -> continue::dialogue
+
+work_memory recalled = goal::resume
+context = ctx_math     -> emitted = continue::math
+context = ctx_dialogue -> emitted = continue::dialogue</code></pre>
+  </section>
+
+  <section>
+    <h2>失败后补习再召回</h2>
+    <pre><code>初始:
+work_memory recalled = goal::resume
+dialogue_result = &lt;none&gt;
+
+补习:
+diagnosis = bn_not_recalled
+remediation = AP-native teaching steps
+
+补习后:
+work_memory recalled = goal::resume
+emitted = continue::work</code></pre>
+    <div class="note">失败不是运行时补丁；补习写入 evidence 后，工作记忆恢复才继续成功。</div>
+  </section>
+
+  <section>
+    <h2>奖惩细化</h2>
+    <pre><code>skill_wrong_resume -> wrong::resume
+punish_delta = 12.0
+
+skill_right_resume -> right::resume
+reward_delta = 1.0
+
+result:
+skill_wrong_resume.exposed = false
+focus = skill_right_resume
+emitted = right::resume</code></pre>
+  </section>
+
+  <section>
+    <h2>未闭合任务竞争</h2>
+    <pre><code>goal::minor  pressure = 0.25
+goal::urgent pressure = 0.95
+
+idle recalled = goal::urgent
+emitted = do::urgent</code></pre>
+  </section>
+
+  <section>
+    <h2>验收记录</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase5_7_work_memory_recovery.py APV3.0test\tests\test_phase5_8_work_memory_attention_bridge.py APV3.0test\tests\test_phase5_9_work_memory_remediation_conflict_combo.py -q
+12 passed in 0.38s
+
+python -m pytest APV3.0test\tests -q
+133 passed in 2.96s
+
+红线扫描:
+命中均为测试名/断言和 draft_action.py 的 buffer 非空检查。</code></pre>
+  </section>
+
+  <section>
+    <h2>下一步</h2>
+    <ul>
+      <li>Phase6.0: 主动学习 / 主动召唤教师最小门。</li>
+      <li>反复 recall 失败或 cognitive pressure 持续高时生成 teacher_request SA。</li>
+      <li>教师响应仍必须写入 AP-native evidence。</li>
+      <li>技能熟练后 teacher_request 频率应自然下降。</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

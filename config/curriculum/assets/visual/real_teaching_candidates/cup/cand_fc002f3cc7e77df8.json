@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_fc002f3cc7e77df8",
+  "concept": "cup",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_fc002f3cc7e77df8.png",
+  "sha256": "fc002f3cc7e77df8dc1656d68ebd29cff77253df7c0a7807c8bf305d2fa1844e",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/10257668@N04/1268120844",
+  "download_url": "https://api.openverse.org/v1/images/4f9d7176-7118-4215-b4d8-82e5276aac3b/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "portableantiquities",
+  "title": "The Ringlemere Gold Cup",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

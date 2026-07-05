@@ -1,0 +1,140 @@
+{
+  "schema_id": "apv3_real_asset_sources/v1",
+  "sources": [
+    {
+      "asset_id": "asset::real::noun_apple::train::0",
+      "commons_title": "File:Apple Orchard Row with Fruit in Winter East Hampton New York.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Apple_Orchard_Row_with_Fruit_in_Winter_East_Hampton_New_York.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Apple_Orchard_Row_with_Fruit_in_Winter_East_Hampton_New_York.jpg/330px-Apple_Orchard_Row_with_Fruit_in_Winter_East_Hampton_New_York.jpg",
+      "license_id": "CC-BY-4.0",
+      "attribution": "Hayden Soloviev; File:Apple Orchard Row with Fruit in Winter East Hampton New York.jpg",
+      "source_concept": "noun_apple"
+    },
+    {
+      "asset_id": "asset::real::noun_apple::train::1",
+      "commons_title": "File:Apple Tree Branches with Fruit in Winter East Hampton New York.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Apple_Tree_Branches_with_Fruit_in_Winter_East_Hampton_New_York.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Apple_Tree_Branches_with_Fruit_in_Winter_East_Hampton_New_York.jpg/330px-Apple_Tree_Branches_with_Fruit_in_Winter_East_Hampton_New_York.jpg",
+      "license_id": "CC-BY-4.0",
+      "attribution": "Hayden Soloviev; File:Apple Tree Branches with Fruit in Winter East Hampton New York.jpg",
+      "source_concept": "noun_apple"
+    },
+    {
+      "asset_id": "asset::real::noun_apple::train::2",
+      "commons_title": "File:Apple Tree with Fruit in Winter East Hampton New York.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Apple_Tree_with_Fruit_in_Winter_East_Hampton_New_York.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Apple_Tree_with_Fruit_in_Winter_East_Hampton_New_York.jpg/330px-Apple_Tree_with_Fruit_in_Winter_East_Hampton_New_York.jpg",
+      "license_id": "CC-BY-4.0",
+      "attribution": "Hayden Soloviev; File:Apple Tree with Fruit in Winter East Hampton New York.jpg",
+      "source_concept": "noun_apple"
+    },
+    {
+      "asset_id": "asset::real::noun_apple::held_out::0",
+      "commons_title": "File:Apple Tree with Fruit in Winter East Hampton New York 2.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Apple_Tree_with_Fruit_in_Winter_East_Hampton_New_York_2.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Apple_Tree_with_Fruit_in_Winter_East_Hampton_New_York_2.jpg/330px-Apple_Tree_with_Fruit_in_Winter_East_Hampton_New_York_2.jpg",
+      "license_id": "CC-BY-4.0",
+      "attribution": "Hayden Soloviev; File:Apple Tree with Fruit in Winter East Hampton New York 2.jpg",
+      "source_concept": "noun_apple"
+    },
+    {
+      "asset_id": "asset::real::noun_apple::contrast::0",
+      "commons_title": "File:Banana (53235211900).jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Banana_(53235211900).jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Banana_%2853235211900%29.jpg/330px-Banana_%2853235211900%29.jpg",
+      "license_id": "CC-BY-2.0",
+      "attribution": "Michael Gaylard from Horsham, UK; File:Banana (53235211900).jpg",
+      "source_concept": "noun_banana"
+    },
+    {
+      "asset_id": "asset::real::noun_banana::train::0",
+      "commons_title": "File:Banana (53235211900).jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Banana_(53235211900).jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Banana_%2853235211900%29.jpg/330px-Banana_%2853235211900%29.jpg",
+      "license_id": "CC-BY-2.0",
+      "attribution": "Michael Gaylard from Horsham, UK; File:Banana (53235211900).jpg",
+      "source_concept": "noun_banana"
+    },
+    {
+      "asset_id": "asset::real::noun_banana::train::1",
+      "commons_title": "File:Banana Plantation (1), photograph by Brother Bertram.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Banana_Plantation_(1),_photograph_by_Brother_Bertram.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Banana_Plantation_%281%29%2C_photograph_by_Brother_Bertram.jpg/330px-Banana_Plantation_%281%29%2C_photograph_by_Brother_Bertram.jpg",
+      "license_id": "PDM-1.0",
+      "attribution": "Gabriel Bertram Bellinghausen; File:Banana Plantation (1), photograph by Brother Bertram.jpg",
+      "source_concept": "noun_banana"
+    },
+    {
+      "asset_id": "asset::real::noun_banana::train::2",
+      "commons_title": "File:Banana Plantation (2), photograph by Brother Bertram.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Banana_Plantation_(2),_photograph_by_Brother_Bertram.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Banana_Plantation_%282%29%2C_photograph_by_Brother_Bertram.jpg/330px-Banana_Plantation_%282%29%2C_photograph_by_Brother_Bertram.jpg",
+      "license_id": "PDM-1.0",
+      "attribution": "Gabriel Bertram Bellinghausen; File:Banana Plantation (2), photograph by Brother Bertram.jpg",
+      "source_concept": "noun_banana"
+    },
+    {
+      "asset_id": "asset::real::noun_banana::held_out::0",
+      "commons_title": "File:Banana Plantation (4), photograph by Brother Bertram.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Banana_Plantation_(4),_photograph_by_Brother_Bertram.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Banana_Plantation_%284%29%2C_photograph_by_Brother_Bertram.jpg/330px-Banana_Plantation_%284%29%2C_photograph_by_Brother_Bertram.jpg",
+      "license_id": "PDM-1.0",
+      "attribution": "Gabriel Bertram Bellinghausen; File:Banana Plantation (4), photograph by Brother Bertram.jpg",
+      "source_concept": "noun_banana"
+    },
+    {
+      "asset_id": "asset::real::noun_banana::contrast::0",
+      "commons_title": "File:Ambersweet oranges.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Ambersweet_oranges.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ambersweet_oranges.jpg/330px-Ambersweet_oranges.jpg",
+      "license_id": "PDM-1.0",
+      "attribution": "unknown; File:Ambersweet oranges.jpg",
+      "source_concept": "noun_orange"
+    },
+    {
+      "asset_id": "asset::real::noun_orange::train::0",
+      "commons_title": "File:Ambersweet oranges.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Ambersweet_oranges.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ambersweet_oranges.jpg/330px-Ambersweet_oranges.jpg",
+      "license_id": "PDM-1.0",
+      "attribution": "unknown; File:Ambersweet oranges.jpg",
+      "source_concept": "noun_orange"
+    },
+    {
+      "asset_id": "asset::real::noun_orange::train::1",
+      "commons_title": "File:Jaffa orange culture. Orange tree loaded with fruit LOC matpc.04985.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Jaffa_orange_culture._Orange_tree_loaded_with_fruit_LOC_matpc.04985.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Jaffa_orange_culture._Orange_tree_loaded_with_fruit_LOC_matpc.04985.jpg/330px-Jaffa_orange_culture._Orange_tree_loaded_with_fruit_LOC_matpc.04985.jpg",
+      "license_id": "PDM-1.0",
+      "attribution": "Matson Collection; File:Jaffa orange culture. Orange tree loaded with fruit LOC matpc.04985.jpg",
+      "source_concept": "noun_orange"
+    },
+    {
+      "asset_id": "asset::real::noun_orange::train::2",
+      "commons_title": "File:Orange citrus fruit pulp juicy 453452.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Orange_citrus_fruit_pulp_juicy_453452.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Orange_citrus_fruit_pulp_juicy_453452.jpg/330px-Orange_citrus_fruit_pulp_juicy_453452.jpg",
+      "license_id": "CC0-1.0",
+      "attribution": "Anja (cocoparisienne); File:Orange citrus fruit pulp juicy 453452.jpg",
+      "source_concept": "noun_orange"
+    },
+    {
+      "asset_id": "asset::real::noun_orange::held_out::0",
+      "commons_title": "File:Orange fruit.jpeg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Orange_fruit.jpeg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Orange_fruit.jpeg/330px-Orange_fruit.jpeg",
+      "license_id": "CC-BY-3.0",
+      "attribution": "Tshrinivasan; File:Orange fruit.jpeg",
+      "source_concept": "noun_orange"
+    },
+    {
+      "asset_id": "asset::real::noun_orange::contrast::0",
+      "commons_title": "File:Apple Orchard Row with Fruit in Winter East Hampton New York.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Apple_Orchard_Row_with_Fruit_in_Winter_East_Hampton_New_York.jpg",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Apple_Orchard_Row_with_Fruit_in_Winter_East_Hampton_New_York.jpg/330px-Apple_Orchard_Row_with_Fruit_in_Winter_East_Hampton_New_York.jpg",
+      "license_id": "CC-BY-4.0",
+      "attribution": "Hayden Soloviev; File:Apple Orchard Row with Fruit in Winter East Hampton New York.jpg",
+      "source_concept": "noun_apple"
+    }
+  ]
+}

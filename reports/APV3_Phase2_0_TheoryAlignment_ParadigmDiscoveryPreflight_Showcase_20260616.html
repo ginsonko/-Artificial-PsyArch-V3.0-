@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase2.0 理论核对与范式自发现预备门</title>
+  <style>
+    :root {
+      --ink: #1f2937;
+      --muted: #667085;
+      --line: #d8dee8;
+      --soft: #f8fafc;
+      --accent: #0f766e;
+      --good: #166534;
+      --warn: #92400e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.65;
+    }
+    header {
+      padding: 34px 6vw 24px;
+      border-bottom: 1px solid var(--line);
+      background: #f0fdfa;
+    }
+    main { max-width: 1120px; margin: 0 auto; padding: 28px 24px 56px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 10px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    .meta { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      background: var(--soft);
+    }
+    .card strong { display: block; font-size: 20px; margin-bottom: 4px; }
+    .ok { color: var(--good); }
+    .warn { color: var(--warn); }
+    .band {
+      border-left: 4px solid var(--accent);
+      background: #ecfdf5;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    code, pre {
+      font-family: Consolas, "Cascadia Mono", monospace;
+      background: #f2f4f7;
+      border-radius: 6px;
+    }
+    code { padding: 1px 5px; }
+    pre { padding: 14px; overflow: auto; border: 1px solid var(--line); }
+    ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>APV3.0test Phase2.0 理论核对与范式自发现预备门</h1>
+    <p class="meta">能量模型核对 | 范式通道边界 | 最小自发现 | 2026-06-16</p>
+  </header>
+  <main>
+    <section class="grid">
+      <div class="card"><strong class="ok">38/38</strong>单元测试通过</div>
+      <div class="card"><strong class="ok">通过</strong>Python 编译检查</div>
+      <div class="card"><strong class="ok">无命中</strong>禁用通道扫描</div>
+      <div class="card"><strong class="warn">边界</strong>完整 v2.1 DP 范式通道尚未完成</div>
+    </section>
+
+    <h2>准确结论</h2>
+    <div class="band">
+      Phase1.3 不能宣称已经完整自发发现范式。本轮新增后, APV3.0test 具备了最小序列观察范式自发现雏形: 可从重复观察中发现固定后继, 从多回复中发现共享片段和 slot, 并持久化恢复再召回。
+    </div>
+
+    <h2>已实现</h2>
+    <ul>
+      <li>固定后继发现: 重复 <code>你好 -> 我在。</code></li>
+      <li>多回复聚合: <code>三顾 -> 茅庐 / 臣于草庐</code> 发现共享 <code>庐</code> 与中间 slot。</li>
+      <li>发现结果可转换为 AP-native <code>LearningEpisode</code>。</li>
+      <li>保存 SQLite 后恢复, probe 结果一致。</li>
+    </ul>
+
+    <h2>未完成</h2>
+    <ul>
+      <li>锚相对 NW-style DP 对齐。</li>
+      <li>边界感受 SA 竞争与跨 tick 切分。</li>
+      <li>RelativeRelationStore 有向序票参与对齐。</li>
+      <li>跨模态感知原型 token。</li>
+      <li>Viterbi 角色联合解码与 prediction-error conf 门。</li>
+    </ul>
+
+    <h2>验证命令</h2>
+    <pre><code>python -m pytest APV3.0test/tests -q
+
+$files = Get-ChildItem -Path APV3.0test\apv3test\config,APV3.0test\apv3test\runtime -Filter *.py | ForEach-Object { $_.FullName }; python -m py_compile @files
+
+rg -n "keyword|answer_table|student_side_llm|branch_alignment|math_process_tokens|regex|full_sentence_macro" APV3.0test\apv3test APV3.0test\tests</code></pre>
+
+    <h2>下一步</h2>
+    <ul>
+      <li>继续 Phase2.0: 用最小自发现门复现问候、成语、颜色+对象三个旧技能。</li>
+      <li>随后补 Phase2.1: 锚相对 DP 对齐。</li>
+      <li>再补 Phase2.2/2.3: 边界感受与跨模态原型。</li>
+    </ul>
+  </main>
+</body>
+</html>

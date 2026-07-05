@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase7.10-7.11 稳定性与用户风格趋同</title>
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #647284;
+      --line: #d9e2ec;
+      --bg: #f4f7f8;
+      --panel: #fff;
+      --green: #0d7a4f;
+      --blue: #245a8f;
+      --gold: #8a6418;
+      --soft-green: #e8f6ef;
+      --soft-blue: #e8f1fb;
+      --soft-gold: #fff4d8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.68;
+    }
+    main {
+      width: min(1180px, calc(100% - 48px));
+      margin: 28px auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 45px rgba(30, 44, 64, 0.08);
+    }
+    header {
+      padding: 36px 42px 26px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbfc 100%);
+    }
+    h1 { margin: 0; font-size: 30px; line-height: 1.25; letter-spacing: 0; }
+    h2 { margin: 0 0 12px; font-size: 21px; }
+    h3 { margin: 18px 0 8px; color: var(--blue); font-size: 16px; }
+    p { margin: 8px 0; }
+    section { padding: 28px 42px; border-bottom: 1px solid var(--line); }
+    section:last-child { border-bottom: 0; }
+    .subtitle { max-width: 940px; color: var(--muted); font-size: 16px; margin-top: 12px; }
+    .status {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 7px 12px;
+      border-radius: 6px;
+      color: var(--green);
+      background: var(--soft-green);
+      border: 1px solid #bfe6d1;
+      font-weight: 700;
+    }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fbfdff;
+      min-height: 116px;
+    }
+    .card strong { display: block; color: var(--green); font-size: 28px; line-height: 1.1; margin-bottom: 8px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #edf3f8; }
+    code { font-family: Consolas, "Courier New", monospace; background: #f2f5f7; border: 1px solid #e1e7ee; border-radius: 4px; padding: 1px 5px; }
+    .bubble {
+      display: inline-block;
+      padding: 7px 11px;
+      border-radius: 8px;
+      background: var(--soft-blue);
+      color: #23466b;
+      border: 1px solid #c6dbf3;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+    .note { padding: 15px 17px; border-radius: 8px; background: var(--soft-gold); border: 1px solid #ead08d; color: #5d4512; }
+    ul { padding-left: 20px; margin: 8px 0 0; }
+    li { margin: 6px 0; }
+    @media (max-width: 880px) {
+      main { width: calc(100% - 24px); margin: 12px auto; }
+      header, section { padding: 22px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3 Phase7.10-7.11：稳定性与用户风格趋同</h1>
+    <p class="subtitle">
+      这两步把“极简中文对话伙伴”从机制演示推进到可用性验证：
+      长跑不漂、测试数据库不污染正式环境；同时系统能在固定词库内逐渐靠近不同用户的高频表达。
+    </p>
+    <div class="status">验收通过：5000 tick 长跑 + 用户 A/B 风格 mirroring + 全量 255 passed</div>
+  </header>
+
+  <section>
+    <h2>Phase7.10：长跑稳定性</h2>
+    <div class="grid">
+      <div class="card"><strong>5000</strong>主长跑 tick</div>
+      <div class="card"><strong>120</strong>固定 phrase 全部保留</div>
+      <div class="card"><strong>0.1675</strong>top5 支持占比抽样</div>
+      <div class="card"><strong>14/14</strong>共现 token/paradigm pair 抽样</div>
+    </div>
+    <p>
+      长跑第一轮发现了一个真实风险：固定 seed 词库被普通 compact 误淘汰。
+      已修复为 seed 模式不删除 phrase，本体固定，支持度仍可被学习调整。
+    </p>
+    <p class="note">
+      所有 SQLite 长跑验收都写入 pytest 临时目录，不写正式 runtime DB。
+      这是后续开放给用户前必须坚持的测试隔离原则。
+    </p>
+  </section>
+
+  <section>
+    <h2>Phase7.11：用户风格 mirroring</h2>
+    <p>
+      同一个结构态、同一个系统，只因为长期交流对象不同，输出偏好发生了不同方向的后天偏移。
+      这证明“越来越像和它交流的那个用户”可以先在固定安全词库内成立。
+    </p>
+    <table>
+      <tr><th>模拟用户</th><th>用户高频表达</th><th>训练后 top-3</th><th>teacher-off 输出</th></tr>
+      <tr>
+        <td>用户 A</td>
+        <td><span class="bubble">嗯</span><span class="bubble">哦</span><span class="bubble">试试</span></td>
+        <td><span class="bubble">哦</span><span class="bubble">嗯</span><span class="bubble">试试</span></td>
+        <td><span class="bubble">哦</span></td>
+      </tr>
+      <tr>
+        <td>用户 B</td>
+        <td><span class="bubble">好</span><span class="bubble">可以</span><span class="bubble">再说一次</span></td>
+        <td><span class="bubble">可以</span><span class="bubble">好</span><span class="bubble">再说一次</span></td>
+        <td><span class="bubble">可以</span></td>
+      </tr>
+    </table>
+    <p>两个用户训练出的 top-3 集合 Jaccard = <strong>0.0</strong>，差异明确。</p>
+  </section>
+
+  <section>
+    <h2>为什么这很关键</h2>
+    <ul>
+      <li>它不是新增关键词规则：runtime 里没有 USER_A / USER_B / user_style 分支。</li>
+      <li>它不是 LLM 模仿：外部长句不进入词库，输出仍来自固定 seed corpus。</li>
+      <li>它不是短期演示：长跑和多次 SQLite warm-load 都通过。</li>
+      <li>它能服务未来上线：测试 DB 与正式用户状态隔离，避免探针污染体验版本。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>验收</h2>
+    <ul>
+      <li>Phase7.10 targeted: <strong>4 passed</strong></li>
+      <li>Phase7.11 targeted: <strong>6 passed</strong></li>
+      <li>Phase7.10-7.11 combined: <strong>10 passed</strong></li>
+      <li>Phase7.0-7.11 combined regression: <strong>82 passed</strong></li>
+      <li>Full suite: <strong>255 passed</strong></li>
+      <li>Compileall 通过；runtime 红线扫描无命中。</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

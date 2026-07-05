@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_d978fa6d7acb4d09",
+  "concept": "cup",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_d978fa6d7acb4d09.png",
+  "sha256": "d978fa6d7acb4d09b8398db384b942236ae48403830d4e6d7490c60c54ecb16c",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/40595948@N00/3146613382",
+  "download_url": "https://api.openverse.org/v1/images/16b0549d-b6e2-4085-838f-58e785446193/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "A.Davey",
+  "title": "Carved Stone Object With Crescent Moon, Yeha, Ethiopia",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

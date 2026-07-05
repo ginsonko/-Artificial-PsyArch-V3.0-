@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phase20.9g 闲时自测展示</title>
+  <style>
+    :root {
+      --ink: #20242a;
+      --muted: #68717d;
+      --line: #d8dee4;
+      --paper: #f4f1ea;
+      --panel: #ffffff;
+      --blue: #4e79a8;
+      --green: #5b9a73;
+      --violet: #8a70b1;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    main {
+      width: min(1120px, calc(100vw - 40px));
+      margin: 0 auto;
+      padding: 34px 0 48px;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    h3 { margin: 0 0 8px; font-size: 18px; }
+    p { margin: 0 0 10px; }
+    .hero, .card, .case {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 12px 28px rgba(31, 37, 45, 0.07);
+    }
+    .muted { color: var(--muted); }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .badge {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: #fbfcfd;
+      font-size: 13px;
+      color: #4b5663;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 18px 0;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .step {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fbfcfd;
+      min-height: 100px;
+    }
+    .step strong { display: block; margin-bottom: 6px; }
+    .step span { color: var(--muted); font-size: 13px; }
+    .meter {
+      height: 10px;
+      border-radius: 999px;
+      background: #e8edf2;
+      overflow: hidden;
+      margin: 10px 0 12px;
+    }
+    .fill { height: 100%; width: var(--w); background: var(--c); }
+    dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 6px 12px;
+      margin: 0;
+      font-size: 14px;
+    }
+    dt { color: var(--muted); }
+    dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+    code {
+      background: #eef2f5;
+      padding: 2px 5px;
+      border-radius: 5px;
+      font-family: Consolas, monospace;
+    }
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      background: #20242a;
+      color: #f4f7fb;
+      border-radius: 8px;
+      padding: 16px;
+      overflow-x: auto;
+    }
+    @media (max-width: 900px) {
+      header, .grid, .flow { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <section class="hero">
+        <h1>闲时自测</h1>
+        <p class="muted">Phase20.9g 让 AP 在复盘之后的后继 tick 中, 私下测试自己还能不能想起来。它仍然是 private thought, 不会把结果发到聊天框。</p>
+        <div class="badges">
+          <span class="badge">跨 tick</span>
+          <span class="badge">短期结构流</span>
+          <span class="badge">teacher-off</span>
+          <span class="badge">cold-retest</span>
+        </div>
+      </section>
+      <section class="card">
+        <h2>工作台测试</h2>
+        <p><code>http://127.0.0.1:8776/phase20_7</code></p>
+        <p class="muted">教学一次, 让它自己召回一次, 然后连续点两次“闲时 tick”。第一次复盘, 第二次自测。</p>
+      </section>
+    </header>
+
+    <section class="card">
+      <h2>AP 内部路径</h2>
+      <div class="flow">
+        <div class="step"><strong>复盘 occurrence</strong><span>上一闲时 tick 写入 learning_review。</span></div>
+        <div class="step"><strong>经验对齐</strong><span>读取同一 alignment 的 source/target。</span></div>
+        <div class="step"><strong>压力门控</strong><span>teacher-off 或 cold-retest 足够才自测。</span></div>
+        <div class="step"><strong>私有自测</strong><span>形成 expected/recalled/grasp。</span></div>
+        <div class="step"><strong>结构流延续</strong><span>写入 self_test occurrence。</span></div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="case">
+        <h3>第一闲时: 复盘</h3>
+        <p class="muted">先整理, 不急着考试。</p>
+        <div class="meter"><div class="fill" style="--w: 88%; --c: var(--blue);"></div></div>
+        <dl>
+          <dt>tick</dt><dd>37</dd>
+          <dt>action</dt><dd>idle_think</dd>
+          <dt>review</dt><dd>true</dd>
+          <dt>self-test</dt><dd>false</dd>
+          <dt>tendency</dt><dd>teacher_off</dd>
+        </dl>
+      </article>
+      <article class="case">
+        <h3>第二闲时: 自测</h3>
+        <p class="muted">私下确认还能不能想起来。</p>
+        <div class="meter"><div class="fill" style="--w: 88.6%; --c: var(--violet);"></div></div>
+        <dl>
+          <dt>tick</dt><dd>38</dd>
+          <dt>kind</dt><dd>cold_retest</dd>
+          <dt>match</dt><dd>1.0</dd>
+          <dt>grasp</dt><dd>0.8864</dd>
+          <dt>reply</dt><dd>empty</dd>
+        </dl>
+      </article>
+      <article class="case">
+        <h3>刚被教完</h3>
+        <p class="muted">仍然先整理, 不强行自测。</p>
+        <div class="meter"><div class="fill" style="--w: 70%; --c: var(--green);"></div></div>
+        <dl>
+          <dt>action</dt><dd>idle_think</dd>
+          <dt>self-test</dt><dd>false</dd>
+          <dt>tendency</dt><dd>feedback_only</dd>
+        </dl>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>复现步骤</h2>
+      <pre>1. 输入: phase20.9g 测试问题
+2. 教学纠正: phase20.9g 测试答案
+3. 再次输入同一个问题, 让 AP 自己召回
+4. 点第一次“闲时 tick”
+   预期: learning_review
+5. 点第二次“闲时 tick”
+   预期: idle_self_test, 包含 expected/recalled/grasp/source trace</pre>
+    </section>
+
+    <section class="card">
+      <h2>边界</h2>
+      <p class="muted">这一步可以证明 teacher-off / cold-retest 已经能形成跨 tick 私有自测事件。但仍不能声明完整六阶段 runtime、L1/L2/L3 在线嵌入、完整范式自学习、数学列竖式、object-centric 视觉想象或 Phase21 视觉教学泛化闭环已经完成。</p>
+    </section>
+  </main>
+</body>
+</html>

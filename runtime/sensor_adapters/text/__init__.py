@@ -1,0 +1,2 @@
+"""Text sensor adapter primitives."""
+

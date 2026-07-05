@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_53d4a3a843febeec",
+  "concept": "cake",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_53d4a3a843febeec.png",
+  "sha256": "53d4a3a843febeecc816973c28c7158608cb0f184543db6de366726c9849b9e2",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/23088039@N08/3041512677",
+  "download_url": "https://api.openverse.org/v1/images/c020577a-1d9e-4c40-b734-49a7c1a282ee/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Rachel from Cupcakes Take the Cake",
+  "title": "Whole Foods Union Square turkey cupcake",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

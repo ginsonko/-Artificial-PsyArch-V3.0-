@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_17a8feaf450da7b4",
+  "concept": "fish",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_17a8feaf450da7b4.png",
+  "sha256": "17a8feaf450da7b405436e01c70bd9ee6bbdd433c8e49fdd721f1fdd65bf32ce",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/44124425616@N01/2496043647",
+  "download_url": "https://api.openverse.org/v1/images/b21934d3-79c5-4adb-9104-76a63901995e/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Hamed Saber",
+  "title": "Sea Anemone (چیز دریایی)",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

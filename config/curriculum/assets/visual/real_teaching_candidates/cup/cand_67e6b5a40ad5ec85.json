@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_67e6b5a40ad5ec85",
+  "concept": "cup",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_67e6b5a40ad5ec85.png",
+  "sha256": "67e6b5a40ad5ec858136713b4c23baa6aaeb9563de367a9954f6702fd6a01967",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/186116748@N05/49320596312",
+  "download_url": "https://api.openverse.org/v1/images/2d7ea809-824e-4149-8def-da3c8e605c4e/thumb/",
+  "license_id": "CC0-1.0",
+  "author": "goldiamondcorp",
+  "title": "Glass Vase",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

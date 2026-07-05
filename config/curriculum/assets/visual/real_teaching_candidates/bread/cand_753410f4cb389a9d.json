@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_753410f4cb389a9d",
+  "concept": "bread",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_753410f4cb389a9d.png",
+  "sha256": "753410f4cb389a9df31e5b45b6845a46a5084e95bc4741887fe345c3a03b7b6a",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/51035768826@N01/3158221",
+  "download_url": "https://api.openverse.org/v1/images/9a90bccb-7741-434b-b42c-a5ee74078ece/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Afroswede",
+  "title": "Challah Bread",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

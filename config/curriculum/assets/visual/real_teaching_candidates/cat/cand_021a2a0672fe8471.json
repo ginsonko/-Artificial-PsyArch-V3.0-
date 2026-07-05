@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_021a2a0672fe8471",
+  "concept": "cat",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_021a2a0672fe8471.png",
+  "sha256": "021a2a0672fe84716308b6119061b78a8b5c2c86c604a57a30f4ea4ddb8a732d",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/26782864@N00/11280137214",
+  "download_url": "https://api.openverse.org/v1/images/b49bc5cf-a97e-44ac-95d6-8451ac6aa73c/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "wwarby",
+  "title": "Jaguar",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

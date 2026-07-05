@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_17ef53b893ec1526",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_17ef53b893ec1526.png",
+  "sha256": "17ef53b893ec152622781f0c277a5a3bc59f9f676ae78dacf2228b4e06e6ad0c",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/48148847@N04/10811206266",
+  "download_url": "https://api.openverse.org/v1/images/91ad5682-b8cd-4c0e-9465-39182ffd0d13/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Scrubhiker (USCdyer)",
+  "title": "Near Ripe Banana Slug",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase7.2 后天不能决表达范式</title>
+  <style>
+    :root { --bg:#f6f8fb; --paper:#fff; --ink:#172033; --muted:#667085; --line:#d7e0ea; --green:#087443; --amber:#9a5b00; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Microsoft YaHei","Segoe UI",Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.65; }
+    main { max-width:1180px; margin:0 auto; padding:32px 20px 56px; }
+    header { border-bottom:1px solid var(--line); padding-bottom:20px; margin-bottom:22px; }
+    h1 { margin:0 0 10px; font-size:clamp(27px,4vw,42px); letter-spacing:0; }
+    h2 { margin:30px 0 12px; font-size:22px; letter-spacing:0; }
+    p { margin:8px 0; }
+    code { background:#eef3f8; border:1px solid #dce5ef; border-radius:5px; padding:1px 5px; font-family:Consolas,"Cascadia Mono",monospace; }
+    pre { margin:10px 0; overflow:auto; background:#111827; color:#edf4ff; border-radius:8px; padding:14px; font-size:13px; }
+    table { width:100%; border-collapse:collapse; margin:12px 0; background:var(--paper); }
+    th,td { border:1px solid var(--line); padding:10px 12px; text-align:left; vertical-align:top; }
+    th { background:#eef3f8; }
+    .subtitle { color:var(--muted); max-width:980px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(245px,1fr)); gap:14px; margin:18px 0; }
+    .card { background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:16px; }
+    .label { color:var(--muted); font-size:13px; margin-bottom:4px; }
+    .value { font-weight:700; font-size:18px; }
+    .ok { color:var(--green); }
+    .warn { color:var(--amber); }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase7.2 后天不能决表达范式</h1>
+    <p class="subtitle">本阶段把“不能决但必须回复”的拟人想法落成 AP-native 机制：不能决感受 SA 与表达范式后天共现学习，必须回复时再把高把握片段填入表达范式。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card"><div class="label">阶段状态</div><div class="value ok">Phase7.2 通过</div><p>learned uncertainty expression 已落地。</p></div>
+    <div class="card"><div class="label">目标测试</div><div class="value ok">2 passed</div><p>学过表达与未学表达双门。</p></div>
+    <div class="card"><div class="label">组合测试</div><div class="value ok">19 passed</div><p>Phase7/Recall/Slot-fill 回归通过。</p></div>
+    <div class="card"><div class="label">全量测试</div><div class="value ok">180 passed</div><p>前序能力未回归。</p></div>
+  </section>
+
+  <section>
+    <h2>数学语义</h2>
+    <pre><code>feeling::undecidable
+  + high-grasp fragment
+  + must_reply pressure
+  + learned expression ParadigmSA
+  -> concise uncertainty reply</code></pre>
+  </section>
+
+  <section>
+    <h2>后天学习</h2>
+    <pre><code>training:
+  feeling::undecidable -> expr::uncertain candidate::a
+  feeling::undecidable -> expr::uncertain candidate::b
+
+discovered paradigm:
+  fixed_anchor = expr::uncertain
+  slot = current fragment</code></pre>
+  </section>
+
+  <section>
+    <h2>必须回复样例</h2>
+    <pre><code>multi-reply Cn:
+  三顾 -> 庐
+
+must_reply = true
+learned expression exists
+
+result:
+  emitted = expr::uncertain 庐
+  committed_text = expr::uncertain庐</code></pre>
+  </section>
+
+  <section>
+    <h2>负例</h2>
+    <pre><code>must_reply = true
+learned expression missing
+
+result:
+  emitted = 庐
+  committed_text = ""
+  undecidable_fragment = true</code></pre>
+    <p>这证明系统不会凭空生成“我不确定”一类句式。</p>
+  </section>
+
+  <section>
+    <h2>验收</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase7_2_learned_uncertainty_expression.py -q
+# 2 passed in 0.70s
+
+python -m pytest APV3.0test\tests -q
+# 180 passed in 4.47s</code></pre>
+  </section>
+
+  <section>
+    <h2>边界</h2>
+    <p class="ok">可以宣称：APV3.0test 已具备最小“不能决 + 必须回复 + 后天表达范式”链路。</p>
+    <p class="warn">仍不能宣称：已能自然中文表达、多候选排序、主动澄清或任意开放对话不能决处理。</p>
+  </section>
+</main>
+</body>
+</html>

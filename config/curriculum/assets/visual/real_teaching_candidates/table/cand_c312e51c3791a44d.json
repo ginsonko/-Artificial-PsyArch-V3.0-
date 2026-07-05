@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_c312e51c3791a44d",
+  "concept": "table",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_c312e51c3791a44d.png",
+  "sha256": "c312e51c3791a44deb5801931591621a24ba5bb6b24a9edf7f67f9f5f6b9d41e",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/92090133@N04/8431307337",
+  "download_url": "https://api.openverse.org/v1/images/f29984a0-a008-4d73-97a6-46ca83f3deb7/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Brickset",
+  "title": "From German toy fair",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

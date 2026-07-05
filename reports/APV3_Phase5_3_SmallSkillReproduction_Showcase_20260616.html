@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase5.3 小批技能复现</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --paper: #ffffff;
+      --ink: #17202d;
+      --muted: #5f6d7c;
+      --line: #d9e1eb;
+      --accent: #255aa8;
+      --ok: #0f7b55;
+      --warn: #9b6000;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    main {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 32px 20px 52px;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 20px;
+      margin-bottom: 22px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 4vw, 42px);
+      letter-spacing: 0;
+    }
+    h2 { margin: 28px 0 12px; font-size: 22px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); max-width: 920px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--ok); }
+    .warn { color: var(--warn); }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .step {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 96px;
+    }
+    .step strong { color: var(--accent); }
+    code {
+      background: #eef3f8;
+      border: 1px solid #dbe4ee;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: Consolas, "Cascadia Mono", monospace;
+      font-size: 0.94em;
+    }
+    pre {
+      overflow: auto;
+      background: #111827;
+      color: #edf4ff;
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 13px;
+    }
+    ul { padding-left: 22px; margin: 8px 0; }
+    li { margin: 6px 0; }
+    .note {
+      border-left: 4px solid var(--accent);
+      background: var(--paper);
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase5.3 小批技能复现</h1>
+    <p class="subtitle">本阶段不复用旧 harness，而是按 APV3.0 当前新链路重新设计教学：observation、commit/feedback、ParadigmSA、Bn/Cn recall、attention focus、当前 focus token 填槽、逐 token 草稿行动。</p>
+  </header>
+
+  <section class="grid" aria-label="状态摘要">
+    <div class="card">
+      <div class="label">阶段</div>
+      <div class="value ok">Phase5.3 已通过</div>
+      <p>问候、成语、颜色对象、简单数学过程完成小批复现。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">107 passed</div>
+      <p>前序能力未被破坏。</p>
+    </div>
+    <div class="card">
+      <div class="label">教学等价</div>
+      <div class="value ok">自然 / LLM 等价</div>
+      <p>两种教学来源产生同一 recall 行为。</p>
+    </div>
+    <div class="card">
+      <div class="label">边界</div>
+      <div class="value warn">非完整 Fresh300</div>
+      <p>这仍是小批技能复现，不是完整开放底座验收。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>新教学协议</h2>
+    <div class="flow">
+      <div class="step"><strong>1. Successor</strong><br>问候、成语通过重复 cue → reply 学后继。</div>
+      <div class="step"><strong>2. Aggregation</strong><br>颜色对象通过多回复样例形成槽位。</div>
+      <div class="step"><strong>3. Process</strong><br>数学过程学习结构，不接隐藏计算器。</div>
+      <div class="step"><strong>4. Focus Fill</strong><br>当前 focus token 作为工作记忆积木填槽。</div>
+      <div class="step"><strong>5. Recall Only</strong><br>验收只给 cue，不给 teacher reply。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>失败归因与修正</h2>
+    <ul>
+      <li>数学槽位一开始被历史 relation 压过当前 focus，已修正为当前 focus token 优先作为工作记忆积木。</li>
+      <li>未知 cue 一开始能靠 context 召回问候，已修正为 Bn recall 必须有最小 cue grasp。</li>
+      <li>两处修正都是通用 AP 读数边界，不是技能关键词规则。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>验收结果</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase5_3_small_skill_reproduction.py APV3.0test\tests\test_phase5_2_recall_attention_runtime.py APV3.0test\tests\test_phase2_6_percept_slot_fill.py -q
+16 passed in 0.81s
+
+python -m pytest APV3.0test\tests -q
+107 passed in 2.62s</code></pre>
+    <div class="note">
+      禁用通道扫描仍只命中 <code>draft_action.py</code> 的 <code>if text:</code>，已审查为草稿 buffer 非空检查，不是文本模态特权分支。
+    </div>
+  </section>
+
+  <section>
+    <h2>通过的能力</h2>
+    <ul>
+      <li>自然教学可复现问候、成语、颜色对象、简单数学过程。</li>
+      <li>LLM 标准教学与自然教学 recall 行为等价。</li>
+      <li>颜色对象槽位范式可用当前 percept focus 填槽。</li>
+      <li>简单数学过程可按过程范式填槽，但不宣称任意计算。</li>
+      <li>SQLite restore 后仍可复现小批技能。</li>
+      <li>未训练 cue 不输出、不提交。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>下一步</h2>
+    <p>Phase5.4 应把本轮手写教学样例整理成 APV3 标准教学 episode / curriculum runner，并输出失败归因类型：Bn 未召回、Cn 后继弱、attention 选错、slot focus 被历史证据压过、commit/action outcome 未写入。</p>
+  </section>
+</main>
+</body>
+</html>

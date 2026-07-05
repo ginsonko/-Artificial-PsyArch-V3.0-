@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_59456f0e8a2d8040",
+  "concept": "cat",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_59456f0e8a2d8040.png",
+  "sha256": "59456f0e8a2d80404b5948d44b8a622402add806541905461f5cc2cdaf40382e",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/181765699@N08/49252660992",
+  "download_url": "https://api.openverse.org/v1/images/e8cdca1a-270d-47a3-a14b-b0280fb1a697/thumb/",
+  "license_id": "CC0-1.0",
+  "author": "iezalel7williams",
+  "title": "Cat copyright - StoOop shooting me or I'll scratchhhhh you... real Baaad IMG_3211",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

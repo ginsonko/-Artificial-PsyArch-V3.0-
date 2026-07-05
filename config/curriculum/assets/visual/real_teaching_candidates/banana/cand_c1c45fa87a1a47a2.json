@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_c1c45fa87a1a47a2",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_c1c45fa87a1a47a2.png",
+  "sha256": "c1c45fa87a1a47a2a55a28e17c5d490b83eca57c871f311acdf44236ecd0be7d",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/35034363287@N01/2913553187",
+  "download_url": "https://api.openverse.org/v1/images/743a88e0-7e88-4894-b761-a54748cc2cbd/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Robert Scoble",
+  "title": "Ripe bananas",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

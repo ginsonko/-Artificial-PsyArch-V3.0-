@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_28386f14268d4bc3",
+  "concept": "book",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_28386f14268d4bc3.png",
+  "sha256": "28386f14268d4bc35b5c60f0c40e7ad5e3d4cb5c82e609a9544a5041b15e0745",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/28752865@N08/7375574380",
+  "download_url": "https://api.openverse.org/v1/images/5b77e5b6-6eeb-4702-b6d1-12d6ae3b9b99/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Karen Roe",
+  "title": "The Making of Harry Potter 29-05-2012",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

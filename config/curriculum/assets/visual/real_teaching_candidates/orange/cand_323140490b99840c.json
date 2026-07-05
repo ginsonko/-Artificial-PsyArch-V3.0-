@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_323140490b99840c",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_323140490b99840c.png",
+  "sha256": "323140490b99840c0eb41e3d526c10c23fe98174e3c3b41fdba3ce6156c9894a",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/68397968@N07/14090408637",
+  "download_url": "https://api.openverse.org/v1/images/d90e1f8e-3cfd-4adf-ad65-01e533bfa66e/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "MattysFlicks",
+  "title": "Smoke art - Lemon lime",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

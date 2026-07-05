@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_d830f2e365dcfd0b",
+  "concept": "apple",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_d830f2e365dcfd0b.png",
+  "sha256": "d830f2e365dcfd0bfda373b05802ae2d9cc8fbcc5f704bf554af30c6ad35d6bf",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/94085795@N08/9561318210",
+  "download_url": "https://api.openverse.org/v1/images/13303ef2-8ed1-4b52-8c05-94d9ba7252a7/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Kirinohana",
+  "title": "Camera Test Apple",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

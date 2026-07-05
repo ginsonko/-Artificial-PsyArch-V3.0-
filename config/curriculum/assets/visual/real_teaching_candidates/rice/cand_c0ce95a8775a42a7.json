@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_c0ce95a8775a42a7",
+  "concept": "rice",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_c0ce95a8775a42a7.png",
+  "sha256": "c0ce95a8775a42a7bc0fcb6bfb0f08be76a323ef8428ed03a95df55e4fb13af0",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/70522326@N00/1160670493",
+  "download_url": "https://api.openverse.org/v1/images/64ed0cee-a863-4f6a-8cf4-95902b3077b7/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "rovingI",
+  "title": "Spicy rice",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

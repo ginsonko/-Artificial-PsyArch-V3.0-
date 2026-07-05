@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_318744c074b1a230",
+  "concept": "bread",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_318744c074b1a230.png",
+  "sha256": "318744c074b1a230fcbfe4f81a5b40dfd9fae73997fc34c76c1c94519e68e419",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/36281822@N08/4456983890",
+  "download_url": "https://api.openverse.org/v1/images/1b8cb6fc-e9c3-4f32-b3df-0d8ecf53cb37/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "US Army Africa",
+  "title": "35th U.S. Army Culinary Arts Competition",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

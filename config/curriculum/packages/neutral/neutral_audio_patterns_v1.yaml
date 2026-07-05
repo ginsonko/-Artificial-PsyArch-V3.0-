@@ -1,0 +1,140 @@
+{
+  "schema_id": "apv3_neutral_curriculum_pack/v1",
+  "package_id": "neutral_audio_patterns_v1",
+  "phase_id": "14.2",
+  "title": "Neutral audio patterns v1",
+  "governance": {
+    "trust_tier": "official",
+    "license_id": "LicenseRef-APV3-Synthetic-Generated",
+    "author_id": "apv3_synthetic_generator",
+    "source_policy": "generated_static_seed",
+    "review_status": "phase14_alpha_reviewed"
+  },
+  "entries": [
+    {
+      "entry_id": "audio_soft_call",
+      "content_kind": "audio_pattern",
+      "public_payload": {
+        "concept_kind": "audio_pattern",
+        "neutral_label": "轻声呼唤",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::audio_soft_call::train::0",
+        "asset::audio_soft_call::train::1",
+        "asset::audio_soft_call::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::audio_soft_call::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::audio_soft_call::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "audio_pattern"
+      ]
+    },
+    {
+      "entry_id": "audio_confirm_tone",
+      "content_kind": "audio_pattern",
+      "public_payload": {
+        "concept_kind": "audio_pattern",
+        "neutral_label": "确认音",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::audio_confirm_tone::train::0",
+        "asset::audio_confirm_tone::train::1",
+        "asset::audio_confirm_tone::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::audio_confirm_tone::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::audio_confirm_tone::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "audio_pattern"
+      ]
+    },
+    {
+      "entry_id": "audio_correction_tone",
+      "content_kind": "audio_pattern",
+      "public_payload": {
+        "concept_kind": "audio_pattern",
+        "neutral_label": "纠正音",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::audio_correction_tone::train::0",
+        "asset::audio_correction_tone::train::1",
+        "asset::audio_correction_tone::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::audio_correction_tone::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::audio_correction_tone::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "audio_pattern"
+      ]
+    },
+    {
+      "entry_id": "audio_uncertain_tone",
+      "content_kind": "audio_pattern",
+      "public_payload": {
+        "concept_kind": "audio_pattern",
+        "neutral_label": "不确定音",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::audio_uncertain_tone::train::0",
+        "asset::audio_uncertain_tone::train::1",
+        "asset::audio_uncertain_tone::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::audio_uncertain_tone::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::audio_uncertain_tone::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "audio_pattern"
+      ]
+    },
+    {
+      "entry_id": "audio_attention_tone",
+      "content_kind": "audio_pattern",
+      "public_payload": {
+        "concept_kind": "audio_pattern",
+        "neutral_label": "注意音",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::audio_attention_tone::train::0",
+        "asset::audio_attention_tone::train::1",
+        "asset::audio_attention_tone::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::audio_attention_tone::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::audio_attention_tone::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "audio_pattern"
+      ]
+    }
+  ]
+}

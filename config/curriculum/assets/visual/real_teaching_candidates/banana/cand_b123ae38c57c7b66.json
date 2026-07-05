@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_b123ae38c57c7b66",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_b123ae38c57c7b66.png",
+  "sha256": "b123ae38c57c7b669261f91133bf29b27cdf0669fff03a48d27b0835182d1cea",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/60057912@N00/5405160661",
+  "download_url": "https://api.openverse.org/v1/images/5fb35d16-be94-424f-b9e8-88fd50169872/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Patrick Hoesly",
+  "title": "iPhone Background - Sweet Banana",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

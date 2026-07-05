@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_199aad43e996f318",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_199aad43e996f318.png",
+  "sha256": "199aad43e996f31886ef005e0dd73c4e7256374d5d61bbe7f5c319e434c2919c",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/69214385@N04/8510621710",
+  "download_url": "https://api.openverse.org/v1/images/a38ba7b8-897a-4432-8b0a-fcc09edb80ae/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Don McCullough",
+  "title": "Orange Bokeh",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

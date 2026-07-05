@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_912cc31d200b3b28",
+  "concept": "cat",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_912cc31d200b3b28.png",
+  "sha256": "912cc31d200b3b28a6961945190e9f81132959dccb491be6957bac7200b4c194",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/38867588@N05/5339239144",
+  "download_url": "https://api.openverse.org/v1/images/64219297-4d25-43f6-b1dd-e9e37eedb181/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Magnus Bråth",
+  "title": "Grey Persian Cat - Chilerito",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

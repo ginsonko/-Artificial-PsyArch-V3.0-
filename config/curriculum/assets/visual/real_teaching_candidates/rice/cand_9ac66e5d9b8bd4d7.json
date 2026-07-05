@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_9ac66e5d9b8bd4d7",
+  "concept": "rice",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_9ac66e5d9b8bd4d7.png",
+  "sha256": "9ac66e5d9b8bd4d7773c01144aa200ab36a6b7c418ede68a9ce4c4b57de528a9",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/47626742@N07/8341686038",
+  "download_url": "https://api.openverse.org/v1/images/c6b5cca7-f09b-4764-8da0-24ece1fb610b/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "t-mizo",
+  "title": "SUSHI (Matsudo, Chiba, Japan)",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

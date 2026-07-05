@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_896cb3b25fd5f0bb",
+  "concept": "egg",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_896cb3b25fd5f0bb.png",
+  "sha256": "896cb3b25fd5f0bbd27ffa51b1ee74afac6322e86a08b28085d121504858a64d",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/28752865@N08/8603073490",
+  "download_url": "https://api.openverse.org/v1/images/d595b0a8-047e-4f2a-a180-e1524f4c6411/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Karen Roe",
+  "title": "Happy Easter in 66 Different Languages - EXPLORE",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

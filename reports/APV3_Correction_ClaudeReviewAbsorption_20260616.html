@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Claude 评估吸收纠偏</title>
+  <style>
+    :root {
+      --ink: #142033;
+      --muted: #667085;
+      --line: #d8dee8;
+      --soft: #f8fafc;
+      --accent: #0f766e;
+      --good: #166534;
+      --warn: #9a3412;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.65;
+    }
+    header {
+      padding: 34px 6vw 24px;
+      border-bottom: 1px solid var(--line);
+      background: #ecfdf5;
+    }
+    main { max-width: 1120px; margin: 0 auto; padding: 28px 24px 56px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 10px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    .meta { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      background: var(--soft);
+    }
+    .card strong { display: block; font-size: 20px; margin-bottom: 4px; }
+    .ok { color: var(--good); }
+    .warn { color: var(--warn); }
+    .band {
+      border-left: 4px solid var(--accent);
+      background: #f0fdfa;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    .warnband {
+      border-left: 4px solid var(--warn);
+      background: #fff7ed;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    code, pre {
+      font-family: Consolas, "Cascadia Mono", monospace;
+      background: #f2f4f7;
+      border-radius: 6px;
+    }
+    code { padding: 1px 5px; }
+    pre { padding: 14px; overflow: auto; border: 1px solid var(--line); }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0; }
+    th, td { border: 1px solid var(--line); padding: 9px 10px; text-align: left; }
+    th { background: #f8fafc; }
+    ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>APV3.0test Claude 评估吸收纠偏</h1>
+    <p class="meta">role emission 去形状先验 / all-slot cold-start 去地板 / 2026-06-16</p>
+  </header>
+  <main>
+    <section class="grid">
+      <div class="card"><strong class="ok">83/83</strong>APV3.0test 全量测试通过</div>
+      <div class="card"><strong class="ok">无命中</strong>禁用通道扫描</div>
+      <div class="card"><strong class="ok">无命中</strong>形状先验扫描</div>
+      <div class="card"><strong class="warn">边界清楚</strong>不宣称完整跨模态泛化</div>
+    </section>
+
+    <h2>吸收结论</h2>
+    <div class="band">
+      本轮吸收了外部评估中最关键的两点: role emission 不应读位置/前序结构, all-slot 冷启动不应靠 conf 地板参与竞争。修正后, 角色由列统计和 Viterbi 弱平滑得出; 证据不足的全槽范式不会暴露草稿。
+    </div>
+
+    <h2>改动对照</h2>
+    <table>
+      <thead>
+        <tr><th>问题</th><th>处理</th><th>AP 边界</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>_emission</code> 读 <code>prev_role/index</code></td>
+          <td>删除入参, emission 只读列统计</td>
+          <td>不把形状模板塞进角色证据</td>
+        </tr>
+        <tr>
+          <td><code>variable_seen</code> 预分类</td>
+          <td>初始列统一占位, 交给 Viterbi</td>
+          <td>角色由联合解码产生</td>
+        </tr>
+        <tr>
+          <td>all-slot conf 地板</td>
+          <td>删除地板, conf 为 0 时不暴露</td>
+          <td>教学证据不足不参与竞争</td>
+        </tr>
+        <tr>
+          <td>黄色苹果候选预填</td>
+          <td>改为结构锚 + percept token 槽</td>
+          <td>只证明下游槽填充, 不夸大感知到 focus</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>验收命令</h2>
+    <pre><code>python -m pytest APV3.0test\tests -q
+
+rg -n --glob "*.py" "keyword|answer_table|student_side_llm|branch_alignment|math_process_tokens|regex|full_sentence_macro|黄色苹果" APV3.0test\apv3test
+
+rg -n "all_slot_confidence_floor|def _emission\(.*prev_role|def _emission\(.*index|last_index|variable_seen" APV3.0test\apv3test APV3.0test\tests</code></pre>
+
+    <h2>当前边界</h2>
+    <div class="warnband">
+      这次纠偏让 APV3.0test 更接近“自发范式发现”的哲学, 但仍不能宣称完整感知到 focus 链路、完整跨模态泛化或完整自由中文开放对话底座完成。后续 Phase4.2/Phase5 继续按这个门槛扩展。
+    </div>
+  </main>
+</body>
+</html>

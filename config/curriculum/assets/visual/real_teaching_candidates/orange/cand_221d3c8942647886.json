@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_221d3c8942647886",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_221d3c8942647886.png",
+  "sha256": "221d3c8942647886179817303c54640911ae6171883d07a3732b8cf3456e6e90",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/25828087@N05/5237821133",
+  "download_url": "https://api.openverse.org/v1/images/665bdecf-5dd5-4f66-8e83-fc57491f3b57/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Mary Hutchison",
+  "title": "Last fruit",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_540b763099f6c478",
+  "concept": "table",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_540b763099f6c478.png",
+  "sha256": "540b763099f6c4780c7365b4b413d3402b2210cf0d9f72164fe80723bb0213d4",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/71365354@N00/173587829",
+  "download_url": "https://api.openverse.org/v1/images/bba4e569-83a8-4140-a98a-f88e86033c7c/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Gail Frederick",
+  "title": "P6190016-Our living room",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

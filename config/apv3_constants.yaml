@@ -1,0 +1,727 @@
+# apv3_constants.yaml — APV3 全部数值常量唯一来源
+#
+# v14 UNIFIED 配套。修改不需改代码。
+# 每常量必有 category 注释:@structural / @scenario_tuneable / @experimental
+# 红线扫描 NO_HARDCODED_NUMERIC_LITERALS 强制 runtime/cognitive/ 不许字面量数字
+# 治理协议 check_constant_governance.py 检查每常量必有分类
+
+version: "14.0"
+
+# === 能量动力学 ===
+energy:
+  R_decay_short: 0.95              # @experimental — Phase 8.10 验收
+  R_decay_long: 0.999              # @experimental
+  V_decay: 0.93                    # @experimental
+  A_decay: 0.88                    # @experimental
+  F_decay: 0.97                    # @experimental
+  Pi_decay_when_absent: 0.95       # @experimental — 关键(v12 §44.3)
+  eta_pi_max: 0.15                 # @experimental — 几何收敛上限
+  eta_pi_kappa: 1.0                # @experimental — 学习率残差比
+  baseline_floor: 0.0              # @structural — 必须真 0(v12 §44.3 blocker fix)
+  target_cap_uses_real_ruler: true # @structural
+
+# === State Pool ===
+state_pool:
+  snapshot_pressure_weight: 0.25   # @experimental — top snapshot salience weight for |P|
+  b_recall_attention_coupling: 0.20  # @experimental — attention gain per unit B-recall residual energy delta
+
+# === Marker SA(v14.1: cap 20 = documented 17 + reserved 3)===
+marker:
+  max_kinds: 20  # @structural — v14.1 §B1: documented 17 + reserved 3
+  decay_rates:
+    NOVELTY: 0.85                  # @experimental
+    TENTATIVE: 0.92                # @experimental
+    PAIN: 0.998                    # @experimental
+    MISMATCH: 0.90                 # @experimental
+    CORRECTION: 0.88               # @experimental
+    GAZE: 0.80                     # @experimental
+    JOINT_ATTENTION: 0.82          # @experimental
+    IMITATION: 0.92                # @experimental
+    KNOWLEDGE_GAP: 0.99            # @experimental
+    EMPATHY_RESONANCE: 0.90        # @experimental
+    TRUST_PROMOTED: 0.95           # @experimental
+    BOREDOM: 0.93                  # @experimental
+    # v14.1 §S1: IMAGINATION 合并入 IMAGINED(语义实质等价)
+    PERCEIVED: 0.97                # @experimental
+    IMAGINED: 0.88                 # @experimental — 合并 v12 IMAGINATION + v13 IMAGINED
+    HEARSAY: 0.93                  # @experimental
+    REMEMBERED: 0.96               # @experimental
+    INFERRED: 0.90                 # @experimental
+  max_marker_count_per_pool: 200   # @structural
+  initial_intensity: 0.5           # @structural — Bayesian uninformative
+
+# === Composed Vocab ===
+composed_vocab:
+  pairwise:
+    max_partners_per_sa: 32        # @structural
+    min_observations_promote: 5    # @experimental
+  chain:
+    base_min_obs: 5                # @experimental
+    chain_length_increment: 5      # @experimental
+    max_chain_length: 4            # @structural
+    anti_correlation_threshold: -0.5  # @experimental
+    min_obs_for_anticorr: 10  # @experimental
+  delta_p:
+    n_situations_per_eval: 8       # @structural — paired-t df=7
+    n_horizon_ticks: 5             # @experimental — v8 B-V9-3 防衰减归零
+    promote_dP_min: 0.05           # @experimental
+    positive_ratio_min: 0.625      # @experimental
+    min_components_for_candidate: 2 # @structural
+    significance_p_value: 0.05     # @structural
+    cold_start_skip_until_held_out: 50  # @experimental
+  target_cap_ratio: 0.9            # @experimental
+
+# === Slot 偏好 ===
+slot_preference:
+  min_distinct_fillers: 3          # @structural
+  jsd_smoothing_alpha: 0.5         # @structural — Laplace prior
+
+# === Attention ===
+attention:
+  type_budget:                     # @scenario_tuneable
+    PerceptSA: 0.35  # @experimental
+    VocabSA: 0.25  # @experimental
+    MarkerSA: 0.15  # @experimental
+    EntitySA: 0.20  # @experimental
+    ControlSignalSA: 0.05  # @experimental
+  s_attn_weights:
+    beta_P_external: 1.0           # @structural — v10 既有
+    beta_R: 0.35  # @experimental
+    beta_A: 0.55  # @experimental
+    beta_V: 0.12  # @experimental
+    beta_F: 0.60  # @experimental
+    beta_P_internal: 0.5           # @experimental — v12.1 internal 路径
+    beta_A_internal: 0.7           # @experimental
+    beta_F_internal: 0.4           # @experimental
+  external_dominance_safety_threshold: 0.5  # @experimental — v13.1 B2
+  surprise_P_threshold: 0.4        # @experimental
+
+# === Action Competition ===
+action_competition:
+  bootstrap_R_change_all_zero: true # @structural
+  initial_noise_unit_normal: true   # @structural
+  early_phase_n_actions: 50         # @experimental
+  derived_noise_scale_ratio: 0.5    # @experimental
+  min_samples_thompson: 5           # @structural
+
+# === Draft Action ===
+draft_action:
+  text_chars_per_tick_default: 1   # @scenario_tuneable
+
+# === Text Sensor ===
+text_sensor:
+  silence_threshold_anonymous_ticks: 20   # @experimental
+  silence_percentile_for_user: 0.95       # @structural
+  silence_percentile_min_samples: 10      # @experimental
+
+# === Vision Sensor(Phase 8.6)===
+vision_sensor:
+  x_left_threshold: 0.3333333333333333     # @structural
+  x_right_threshold: 0.6666666666666666    # @structural
+  y_top_threshold: 0.3333333333333333      # @structural
+  y_bottom_threshold: 0.6666666666666666   # @structural
+  default_real_energy: 1.0                 # @structural
+  feature_vector_dim: 8654                 # @structural - Phase 19.7h V0..V12 closed visual dimension
+  v0_foveated_dim: 24576                   # @structural - Phase 19.0a 6 RGB tiles + 6 edge tiles
+  v0_global_grid_px: 8                     # @structural - V0 low-res retinal grid side
+  v0_focus_patch_px: 32                    # @structural - V0 foveal focus patch side
+  v0_layer_tile_px: 32                     # @structural - Phase 19.0a fixed foveated tile side
+  foveal_layer_count: 6                    # @structural - Phase 19.0a dyadic foveated layers
+  foveal_radius_ratio_k: 0.025             # @experimental - foveal radius as viewport short-side ratio
+  foveal_radius_min_px: 16                 # @structural - minimum native foveal radius
+  foveal_radius_max_px: 96                 # @structural - maximum native foveal radius
+  clarity_focus_sigma_px: 24               # @experimental - Gaussian clarity sigma in native pixels
+  clarity_floor: 0.05                      # @structural - peripheral minimum clarity
+  clarity_coverage_threshold: 0.50         # @structural - high-clarity coverage floor
+  fusion_epsilon: 0.000001                 # @structural - canvas fusion denominator guard
+  sensory_memory_tau_ticks: 30             # @experimental - sensory canvas clarity decay time
+  epsilon_freshness: 0.06                  # @structural - freshness reset threshold
+  mult_tick_normalized_gain_min: 0.20      # @experimental - multi-tick similarity gain target
+  mult_tick_coverage_gain_min: 0.30        # @experimental - high-clarity coverage gain target
+  rgb_hist_bins: 8                         # @structural - V1 per-channel bins
+  hsv_h_bins: 8                            # @structural - V2 hue bins
+  hsv_s_bins: 4                            # @structural - V2 saturation bins
+  hsv_v_bins: 4                            # @structural - V2 value bins
+  lbp_bins: 10                             # @structural - V3 LBP-lite bins
+  hog_bins: 8                              # @structural - V4 edge orientation bins
+  v5_radial_bins: 16                       # @structural - V5 radial gradient bins
+  part_top_k: 64                           # @structural - V7 local diagnostic part code count
+  part_spatial_cells: 4                    # @structural - V7 per-part quadrant spatial distribution
+  part_profile_features: 6                 # @structural - V10 features per local part code
+  part_relation_slots: 8                   # @structural - V11 top part relation slots
+  part_relation_features: 8                # @structural - V11 features per relation slot
+  color_cluster_bins: 8                    # @structural - V12 hue cluster count
+  color_cluster_features: 6                # @structural - V12 spatial features per hue cluster
+  render_px: 64                            # @structural - R_sketch/R_proto audit image side
+  fast_resize_px: 32                       # @structural - bounded fast-path receptor side
+  audit_resize_px: 128                     # @scenario_tuneable - bounded audit extraction size
+  default_focus_x: 0.5                     # @structural - centered default fixation
+  default_focus_y: 0.5                     # @structural - centered default fixation
+  source_confidence_floor: 0.05            # @structural - inner picture source confidence never negative
+  prototype_source_confidence: 0.45        # @experimental - imagined prototype confidence is deliberately modest
+  fast_path_p95_ms: 5                      # @structural - per tick visual receptor budget
+  audit_path_max_concurrent: 4             # @structural - bounded audit queue size
+  audit_path_drop_oldest: true             # @structural - queue overflow degrades by dropping oldest audit job
+  alpha_part: 0.30                         # @experimental - v1b recall part support weight
+  alpha_shape: 0.20                        # @experimental - v1b recall shape support weight
+  alpha_cooccur: 0.15                      # @experimental - v1b recall cooccurrence support weight
+  alpha_conflict: 0.40                     # @experimental - v1b recall source conflict penalty
+  kappa_recall: 4.0                        # @experimental - sigmoid recall normalization slope
+  recall_midpoint: 0.5                     # @experimental - sigmoid recall normalization midpoint
+  mask_min_coverage: 0.03                  # @structural - subject mask lower coverage bound
+  mask_max_coverage: 0.55                  # @structural - subject mask upper coverage bound
+  mask_saturation_floor: 0.12              # @experimental - colored subject saturation floor
+  mask_white_value_ceiling: 0.985          # @experimental - bright background exclusion
+  mask_color_percentile: 70                # @experimental - color-distance candidate percentile
+  mask_saturation_percentile: 55           # @experimental - saturation candidate percentile
+  mask_edge_percentile: 72                 # @experimental - edge candidate percentile
+  mask_center_weight: 0.20                 # @experimental - subject hypothesis center prior weight
+  mask_edge_weight: 0.20                   # @experimental - subject hypothesis edge weight
+  mask_color_weight: 0.60                  # @experimental - subject hypothesis color weight
+  mask_conf_min_use: 0.40                  # @structural - below this V6/V7/V8/V9 should be treated cautiously
+  mask_conf_area_target: 0.18              # @experimental - typical single-object coverage target
+  mask_conf_area_span: 0.35                # @experimental - coverage tolerance span
+  mask_conf_area_weight: 0.30              # @experimental - segmentation confidence area term
+  mask_conf_edge_weight: 0.20              # @experimental - segmentation confidence edge term
+  mask_conf_center_weight: 0.20            # @experimental - segmentation confidence center term
+  mask_conf_contrast_weight: 0.30          # @experimental - segmentation confidence color contrast term
+
+# === Audio Sensor(Phase 8.13)===
+audio_sensor:
+  default_real_energy: 1.0                 # @structural
+  active_band_threshold: 0.05              # @experimental
+  feature_vector_dim: 20179                # @structural - Phase 19.1 A0..A8 planned audio dimension
+  fast_path_p95_ms: 8                      # @structural - per tick audio receptor budget
+  audit_path_max_concurrent: 2             # @structural - bounded audio audit queue size
+
+# === Visual Attention(Phase 8.7)===
+visual_attention:
+  focus_attention_gain: 0.2                # @experimental
+  release_fatigue_threshold: 0.8           # @experimental
+  overlay_top_k: 3                         # @structural
+
+# === Fast Mapping(Phase 8.12)===
+fast_mapping:
+  shape_bias_weight: 1.0                   # @structural
+  color_bias_weight: 0.5                   # @experimental
+  position_bias_weight: 0.25               # @experimental
+  epistemic_drive_gain: 0.2                # @experimental
+  reverse_imagination_min_support: 0.4     # @experimental
+
+# === Credit Assignment ===
+credit_assignment:
+  phase_2_timeout_ticks: 50              # @experimental
+  similarity_threshold_disagreement: 0.3 # @experimental
+  attention_share_partial_penalty: 0.5   # @structural
+
+# === Counterfactual(Phase 10.3)===
+counterfactual:
+  n_bootstraps: 25                       # @structural — Welch df 足够
+  intervention_levels: [1.0, 0.75, 0.5, 0.25, 0.0]  # @structural
+  max_horizon_ticks: 10                  # @experimental
+  causal_strength_min_relative: 0.10     # @experimental — v11 P4
+  use_t_test: false                      # @structural — v10 取消
+  monotonicity_tolerance: 0.005          # @structural
+  relative_baseline_epsilon: 0.01        # @structural
+
+# === Hierarchy(Phase 10)===
+hierarchy:
+  agglomerative_min_cluster_size: 3      # @structural
+  max_clusters_per_vocab: 3              # @experimental
+  common_pref_similarity_min: 0.7        # @experimental
+  silhouette_fallback_min_k: 2           # @structural
+  slot_similarity_weight: 0.70           # @experimental - anonymous cluster uses shared slot preferences
+  channel_similarity_weight: 0.30        # @experimental - channel signature is secondary support
+  name_binding_gain: 0.80                # @experimental - later naming binds anonymous cluster softly
+
+# === Deliberative(Phase 11.4)===
+deliberative:
+  max_virtual_steps_per_turn: 10         # @experimental
+  enter_threshold: 0.6                   # @experimental
+  conclusion_R_floor: 0.3                # @experimental — v11 P5
+  virtual_to_main_dilution: 0.5          # @experimental
+  conclusion_R_delta_threshold: 0.1      # @experimental
+
+# === Self Model(Phase 11.5)===
+self_model:
+  heartbeat_interval_ticks: 36000        # @experimental — 1h
+  attention_cap_percent: 0.05            # @experimental
+  decay_low_threshold: 0.05              # @structural
+  reactivation_target_R: 0.3             # @experimental — v11 P5
+  reactivation_pullback_rate: 0.05       # @structural
+
+# === Meta Cognition(Phase 11.1)===
+metacognition:
+  domain_min_items: 3                    # @structural - domain grasp needs several active anchors
+  low_grasp_threshold: 0.35              # @experimental - below this support feels not-grasped
+  high_uncertainty_threshold: 0.45        # @experimental - uncertainty/conflict can trigger knowledge gap
+  conflict_weight: 0.50                  # @structural - conflict and uncertainty share one pressure channel
+  attention_gain_scale: 0.16             # @experimental - knowledge gap attracts modest attention
+
+# === Abstract Vocab(Phase 11.2)===
+abstract_vocab:
+  min_source_clusters: 3                 # @structural - cross-cluster abstraction requires plural evidence
+  min_shared_relations: 2                # @structural - at least two shared relation slots
+  relation_similarity_min: 0.50          # @experimental - relation overlap gate
+  cluster_diversity_min: 3               # @structural - prevent one cluster family echo
+
+# === Goal Horizon(Phase 11.3)===
+goal:
+  long_horizon_ticks: 120                # @scenario_tuneable - minimal long horizon for demo runtime
+  progress_gain: 0.25                    # @experimental - observed progress updates goal slowly
+  completion_threshold: 0.90             # @experimental - near-complete goal lowers pressure
+  attention_gain_scale: 0.14             # @experimental - active long goal stays visible
+
+# === Phase 12 Demo Substrate ===
+demo_substrate:
+  audit_top_k: 5                         # @structural - bounded UI snapshot list
+  readiness_min_score: 0.60              # @experimental - scenario can be shown when enough substrate exists
+  scenario_min_supported: 3              # @structural - four-scenario demo should not depend on one mode
+  timeline_window_ticks: 160             # @scenario_tuneable - web replay window
+  profile_schema_version: 1              # @structural - demo profile compatibility marker
+
+# === Held Out(Phase 8.4)===
+held_out:
+  reservoir_capacity: 500                # @structural
+  k_fold_interval: 5                     # @structural
+
+# === Endogenous(v12-v12.1 持续内源)===
+endogenous:
+  delta_unfinished: 0.15                 # @experimental
+  delta_expectation: 0.12                # @experimental
+  delta_residual: 0.10                   # @experimental
+  idle_score_softness_k: 0.3             # @structural
+  idle_score_midpoint: 0.2               # @experimental
+  idle_boost_max: 2.0                    # @experimental
+  endogenous_continuity_check_ticks: 50  # @experimental
+
+# === Sleep Emergence(Phase 8.10)===
+sleep:
+  fatigue_sigmoid_slope: 4.0             # @experimental
+  fatigue_midpoint: 0.5                  # @structural
+  tick_dilation_max: 10.0                # @experimental
+
+# === Imagination(v14.1: 重命名 + IMAGINED 合并)===
+# v12.1 §46.4 既有,marker_decay_rate 已迁移到 marker.decay_rates.IMAGINED(v14.1 §S1)
+imagined_pathway:
+  marker_initial_intensity: 0.4          # @experimental
+  immediate_recall_threshold: 0.5        # @experimental
+
+# === Cognitive Feelings Trace Only ===
+cognitive_feelings_trace_only:
+  complexity_threshold_active_sa_count: 15   # @experimental
+  complexity_threshold_entropy: 0.6          # @experimental
+  simplicity_threshold_active_sa_count: 5    # @experimental
+  simplicity_threshold_entropy: 0.3          # @experimental
+
+# === Cognitive Feelings(Phase 8.5)===
+cognitive_feelings:
+  sigmoid_slope: 2.0                  # @structural
+  sigmoid_midpoint: 0.5               # @structural
+  absent_marker_signal: 0.0           # @structural
+
+# === SDPL(v13.1 packet_key 量化 + v14.1 §S2 backoff)===
+sdpl:
+  packet_key:
+    R_bucket_low_threshold: 0.3          # @structural — 3 等分
+    R_bucket_high_threshold: 0.7         # @structural
+    feeling_bucket_low_threshold: 0.3    # @structural
+    feeling_bucket_high_threshold: 0.7   # @structural
+  q_table:
+    max_active_packets: 5000             # @experimental
+    eviction_policy: "lru_by_packet_R_total"
+    # v14.1 §S2: 5 层 backoff 防稀疏爆炸
+    backoff_weights:
+      exact: 1.0                         # @structural
+      content_source: 0.7                # @experimental
+      source_feeling: 0.5                # @experimental
+      content_only: 0.3                  # @experimental
+      action_global: 0.1                 # @experimental
+    backoff_min_samples_for_layer:
+      exact: 1                           # @structural
+      content_source: 3                  # @experimental
+      source_feeling: 5                  # @experimental
+      content_only: 3                    # @experimental
+      action_global: 1                   # @structural
+
+# === Long Term Layer(v8 §55 + v13.1 §S2)===
+long_term:
+  cold_index_capacity: 50000             # @experimental
+  active_pool_max_from_long: 200         # @experimental
+  rehydration_similarity_threshold: 0.4  # @experimental
+  rehydration_top_k_per_tick: 5          # @experimental
+  rehydration_cache_drift_threshold: 0.15 # @experimental
+  memory_V_admit_ratio: 0.3              # @experimental — v13.1 S1
+
+# === Vocab Lifecycle(v11 P5)===
+vocab:
+  kinds: [tentative, promoted, retracted, awaiting_revalidation]
+  awaiting_revalidation_max_age_ticks: 1000  # @experimental
+
+# === Context Signature(v11 P2 + v13.1)===
+context_signature:
+  weight_continuous: 0.5                 # @structural
+  weight_jaccard: 0.5                    # @structural — 镜像对称
+  top_k: 20                              # @structural
+
+# === Drive Homeostasis(Phase 9.1)===
+drive:
+  initial_kinds: [hunger, curiosity, exploration, social, completion]
+  pressure_persistence: 0.82              # @experimental - Phase 9.1 idle drive carry-over
+  signal_gain: 1.0                        # @structural - weighted signal already normalized
+  attention_gain_scale: 0.22              # @experimental - small drive pressure attention injection
+  real_energy_scale: 0.75                 # @experimental - drive R mirrors current need but stays bounded
+  virtual_decay: 0.92                     # @experimental - unsatisfied expectation fades slowly
+  satisfaction_relief_scale: 0.65         # @experimental - feedback can lower only matching drive
+  proposal_threshold: 0.15                # @experimental - weak drive stays sub-actional
+  idle_ticks_full: 12                     # @scenario_tuneable - idle window for curiosity/exploration growth
+  social_absence_ticks_full: 30           # @scenario_tuneable - user absence window for social drive
+  input_weights:
+    hunger:
+      body_deficit: 1.0                   # @structural - body deficit is the hunger evidence channel
+      idle_norm: 0.03                     # @experimental - weak time passage contribution
+    curiosity:
+      novelty_gap: 0.85                   # @experimental - unknown content raises curiosity
+      idle_norm: 0.28                     # @experimental - quiet time raises curiosity
+    exploration:
+      unexplored_mass: 0.80               # @experimental - unseen state mass raises exploration
+      idle_norm: 0.24                     # @experimental - idle context invites exploration
+    social:
+      social_absence_norm: 0.72           # @experimental - absence raises social drive
+      idle_norm: 0.08                     # @experimental - quiet time weakly raises social drive
+    completion:
+      unfinished_pressure: 1.0            # @structural - completion drive comes from unfinished pressure
+      idle_norm: 0.02                     # @experimental - idle drift is weak without unfinished task
+
+# === Reward Prediction Error(Phase 9.2)===
+rpe:
+  positive_dopamine_gain: 0.40            # @experimental - positive RPE produces DA-like burst
+  negative_dopamine_gain: 0.30            # @experimental - negative RPE produces DA-like dip
+  learning_eligibility_base: 0.50         # @structural - ordinary SDPL update stays possible
+  learning_eligibility_rpe_gain: 0.75     # @experimental - surprise increases update weight
+  learning_eligibility_max: 2.00          # @structural - cap prevents one shock from dominating
+  attention_gain_scale: 0.18              # @experimental - RPE attracts audit/attention modestly
+
+# === Frustration And Learned Helplessness(Phase 9.3)===
+frustration:
+  high_pressure_threshold: 0.55           # @experimental - pressure must be meaningfully high
+  low_reward_threshold: 0.00              # @structural - non-positive outcome is failure evidence
+  negative_rpe_threshold: 0.10            # @experimental - small negative noise is ignored
+  persistence: 0.70                       # @experimental - frustration lingers across failures
+  pressure_gain: 0.35                     # @experimental - target P feeds frustration
+  failure_gain: 0.25                      # @experimental - failed outcome increases frustration
+  relief_gain: 0.20                       # @experimental - success cools frustration
+  attention_gain_scale: 0.18              # @experimental - frustration can enter attention
+  helplessness_streak_threshold: 3        # @scenario_tuneable - repeated failure count
+  abandon_threshold: 0.70                 # @experimental - high frustration proposes giving up
+  helplessness_drive_discount: 0.35       # @experimental - learned helplessness dampens drive output
+
+# === Attachment / Familiarity Preference(Phase 9.4)===
+attachment:
+  familiarity_persistence: 0.96           # @experimental - familiar user trace persists
+  interaction_gain: 0.08                  # @experimental - each interaction raises familiarity
+  oxy_persistence: 0.92                   # @experimental - affiliation tone decays slowly
+  positive_affect_gain: 0.20              # @experimental - positive affect raises OXY-like tone
+  familiarity_to_oxy_gain: 0.16           # @experimental - familiarity contributes warmth
+  attention_gain_scale: 0.16              # @experimental - familiar social cue attracts attention
+  oxy_preference_weight: 0.60             # @experimental - OXY tone affects preference score
+
+# === Joint Attention(Phase 9.5)===
+joint_attention:
+  min_alignment: 0.50                     # @structural - shared target requires majority confidence
+  marker_gain: 0.70                       # @experimental - shared focus marker strength
+  focus_attention_gain: 0.15              # @experimental - shared focus boosts target attention
+
+# === Empathy Resonance(Phase 9.6)===
+empathy:
+  resonant_marker_kinds: [PAIN, CORRECTION]
+  resonance_gain: 0.35                    # @experimental - weak resonance, not state copying
+  max_resonance: 0.60                     # @structural - prevents empathy overload
+  min_resonance: 0.05                     # @experimental - ignore tiny observed signals
+
+# === Pain Memory(Phase 9.7)===
+pain_memory:
+  avoidance_threshold: 0.35               # @experimental - persistent pain can bias avoidance
+
+# === Sleep Replay Consolidation(Phase 9.8)===
+sleep_replay:
+  top_k: 3                                # @structural - bounded replay per sleep tick
+  consolidation_gain: 0.04                # @experimental - slow long-term strengthening
+  long_term_r_cap: 1.00                   # @structural - replay cannot inflate R beyond cap
+
+# === Exploratory Play(Phase 9.9)===
+play:
+  low_pressure_threshold: 0.25            # @experimental - play appears when task pressure is low
+  boredom_threshold: 0.45                 # @experimental - boredom must be salient
+  attention_weight: 0.20                  # @experimental - attention slightly ranks play target
+
+# === Narrative Lag-PMI(Phase 10.1)===
+narrative:
+  max_lag: 3                              # @structural - bounded temporal edge search
+  min_chain_length: 3                     # @structural - narrative needs at least A->B->C
+  min_pair_count: 3                       # @experimental - repeated sequence before promotion
+  min_lag_pmi: 0.20                       # @experimental - positive temporal association
+  reverse_margin: 0.05                    # @experimental - forward edge must beat reverse
+  pmi_smoothing: 0.01                     # @structural - prevents division instability
+
+# === Theory Of Mind Belief Model(Phase 10.5)===
+theory_of_mind:
+  requires_counterfactual_context: true   # @structural - false belief depends on perspective fork
+
+# === Trust Prior(Phase 10.7)===
+trust:
+  attachment_weight: 0.45                 # @experimental - familiarity contributes but cannot dominate
+  accuracy_weight: 0.55                   # @experimental - teaching accuracy is primary trust evidence
+  promote_threshold: 0.60                 # @experimental - enough trust can mark evidence promoted
+  downgrade_delta_p_threshold: 0.05       # @experimental - counterevidence downgrades trust
+  downgrade_accuracy_decay: 0.50          # @experimental - one bad teaching episode weakens trust
+
+# === Reading Pipeline(Phase 10.8)===
+reading:
+  chars_per_tick: 1                       # @scenario_tuneable - unified char sensor pacing
+  allowed_sources: [streaming, reading]
+
+# === Cognitive Curriculum(Phase 13.0)===
+curriculum:
+  privacy:
+    pseudonymous_id_length_chars: 32      # @structural - stored HMAC prefix length
+    opaque_handle_bytes: 16               # @structural - evaluator-only held-out handle entropy
+  trust_gate:
+    effect_size_hard_min: 0.03            # @structural - trust cannot soften this floor
+    p_value_base_threshold: 0.05          # @structural - ordinary statistical gate
+    p_value_trusted_threshold: 0.10       # @experimental - trust only relaxes p threshold
+    min_observations_base: 8              # @structural - paired held-out gate
+    min_observations_trusted: 5           # @experimental - trust only lowers n modestly
+    trust_full_scale: 1.0                 # @structural - trust score normalization cap
+  substrate:
+    consistency_min_similarity: 0.50      # @structural - cross-course recall vectors must remain aligned
+    progress_backup_schema_version: 1     # @structural - backup envelope compatibility
+  content:
+    radical_similarity_min: 0.60          # @experimental - first batch radical prototype OOD gate
+    radical_margin_min: 0.05              # @experimental - close negative prototypes must not pass
+    visual_contrast_margin_min: 0.20      # @experimental - target visual pair must beat distractors
+    audio_pattern_margin_min: 0.15        # @experimental - target audio pattern must beat distractors
+    vocabulary_component_min: 2           # @structural - word vocab needs plural components
+  expression:
+    max_tokens_per_candidate: 3           # @structural - quiet minimalist style ceiling
+    long_reply_ratio_max: 0.05            # @experimental - persona sample should stay terse
+    candidate_count_min: 20               # @scenario_tuneable - alpha corpus floor
+  styled_corpus:
+    paradigm_count_min: 130               # @structural - phase 16 covers 130 paradigms baseline
+    candidates_per_paradigm_min: 90       # @structural - 5 affect x 3 intensity x 6 variants
+    total_candidates_min: 11000           # @structural - phase 16 alpha corpus floor
+    avg_char_count_max: 5.0               # @structural - quiet_girl average reply ceiling (meaningful chars)
+    char_count_hard_max: 15               # @structural - longest reply ever allowed (raw len)
+    long_reply_ratio_max: 0.05            # @structural - chars 8-15 share ceiling
+    contrast_min_per_paradigm: 1          # @structural - every paradigm needs an LLM-病 anti-example
+    held_out_min_per_paradigm: 1          # @structural - every paradigm needs a held-out variant
+    styled_package_count_min: 8           # @structural - phase 16 styled pack floor (we ship 20)
+  draft_grid:
+    default_rows: 10                      # @scenario_tuneable - small demo grid height
+    default_cols: 20                      # @scenario_tuneable - small demo grid width
+    cell_percept_base_R: 0.80             # @experimental - raw grid cell percept energy
+    cell_percept_emit_threshold: 0.04     # @experimental - peripheral cells below this are skipped
+    focus_min_modulation: 0.05            # @structural - periphery never becomes absolute zero
+    focus_sigma_multiplier: 2.00          # @experimental - Gaussian falloff width
+    percept_top_k: 24                     # @scenario_tuneable - per-tick grid scan budget
+    movement_similarity_min: 0.85         # @structural - origin-shift movement invariant gate
+  alpha:
+    min_ready_scenarios: 3                # @structural - four-scenario alpha threshold
+    min_supported_curriculum_phases: 8    # @structural - 13.1-13.8 coverage before 13.9
+  asset:
+    hash_hex_length: 64                   # @structural - sha256 hex digest length
+    min_manifest_assets: 90               # @scenario_tuneable - first synthetic curriculum asset floor
+    min_visual_asset_bytes: 120           # @structural - rejects empty placeholder PNG files
+    min_audio_asset_bytes: 800            # @structural - rejects empty placeholder WAV files
+    min_packages: 8                       # @scenario_tuneable - first neutral pack coverage floor
+    min_entries_per_package: 5            # @scenario_tuneable - alpha pack breadth per category
+    min_train_assets_per_entry: 3         # @structural - every entry needs multiple training views
+    min_held_out_assets_per_entry: 1      # @structural - every entry needs private validation material
+    min_contrast_assets_per_entry: 1      # @structural - every entry needs a distractor/anti-example
+
+  real_assets:
+    min_real_visual_assets: 15            # @structural - first external real-photo seed floor
+    min_real_concepts: 3                  # @scenario_tuneable - vetted real-photo seed breadth
+    train_assets_per_concept: 3           # @structural - each real concept needs multiple photos
+    held_out_assets_per_concept: 1        # @structural - each real concept needs unseen probe photo
+    contrast_assets_per_concept: 1        # @structural - each real concept needs other-class photo
+    thumbnail_max_px: 320                 # @scenario_tuneable - store compact audit-friendly PNGs
+    commons_search_limit: 40              # @scenario_tuneable - candidate pool per concept
+    teaching_candidate_target_per_concept: 30 # @scenario_tuneable - human curation candidate pool size
+    teaching_curated_min_per_concept: 8    # @scenario_tuneable - minimum accepted real photos before 19.8b
+    teaching_curated_max_per_concept: 12   # @scenario_tuneable - avoids overloading first teaching pass
+    teaching_train_ratio_percent: 70       # @scenario_tuneable - deterministic sha-sort train share
+    teaching_min_resolution_px: 320        # @scenario_tuneable - reject tiny external thumbnails
+    teaching_max_file_size_mb: 5           # @scenario_tuneable - avoids huge public-source downloads
+    teaching_retry_count: 3                # @scenario_tuneable - bounded public-source retry count
+    teaching_curation_thumb_px: 200        # @scenario_tuneable - curation grid thumbnail side
+    teaching_expected_correct_12: 10       # @experimental - 19.8b target, not claimed before curation
+    teaching_expected_soft_firm_12: 6      # @experimental - 19.8b target confidence count
+
+  clean_cards:
+    min_clean_card_assets: 15             # @structural - first clean concept-card seed floor
+    min_clean_card_concepts: 3            # @scenario_tuneable - first fruit card breadth
+    train_assets_per_concept: 3           # @structural - every clean concept needs plural views
+    held_out_assets_per_concept: 1        # @structural - every clean concept needs an unseen card
+    contrast_assets_per_concept: 1        # @structural - every clean concept needs another-class card
+    card_canvas_px: 192                   # @scenario_tuneable - public workbench card size
+    render_scale: 3                       # @scenario_tuneable - antialiasing scale for generated cards
+
+  replay:
+    demo_tick_count: 6                    # @scenario_tuneable - short public demo trace length
+    demo_count: 5                         # @scenario_tuneable - first course replay showcase count
+    trace_top_asset_count: 3              # @scenario_tuneable - visible training assets per entry
+    perceived_energy: 0.82                # @experimental - course asset percept strength
+    held_out_energy: 0.74                 # @experimental - held-out probe percept strength
+    contrast_energy: 0.36                 # @experimental - contrast probe percept strength
+    q_positive_outcome: 1.00              # @structural - positive curriculum alignment outcome
+    q_contrast_outcome: -0.35             # @experimental - weak negative contrast outcome
+    replay_db_schema_version: 1           # @structural - course replay JSON/SQLite envelope version
+
+# === Phase 19 Vector Substrate(Phase 19.0b0)===
+phase19:
+  vector:
+    visual_receptor_feature_dim: 28686    # @structural - V0 24576 + V1..V12 4110 after local diagnostic repair
+    audio_receptor_feature_dim: 30501     # @structural - A0..A8, canvas separate
+    canvas_state_dim: 4                   # @structural - clarity/confidence/freshness/fixation summary
+    render_audit_dim: 8                   # @structural - render metrics remain audit-only
+    layer1_signature_dim: 256             # @structural - uint8 retrieval signature width
+    signature_min_value: 0                # @structural - uint8 lower bound
+    signature_max_value: 255              # @structural - uint8 upper bound
+    initial_observation_count: 1          # @structural - tentative concept first observation
+    part_signature_dim: 16                # @structural - compact per-channel medoid signature
+    layer2_part_channels:                 # @structural - channels persisted as Layer-2 part prototypes
+      - V3
+      - V4
+      - V7
+      - V8
+      - V10
+      - V11
+      - V12
+    signature_epsilon: 0.000001           # @structural - flat-vector normalization guard
+    opaque_id_hash_chars: 24              # @structural - opaque runtime identifier hash prefix
+    visible_vocab_hash_chars: 12          # @structural - visible teacher vocab association hash prefix
+    schema_fixture_write_mode: schema_fixture
+    min_runtime_receptor_version: phase19_0a_foveated
+    tentative_lifecycle_status: tentative
+    forbidden_identifier_terms:
+      - tentative
+      - filename
+      - heldout
+      - label
+  confidence:
+    cue_support_floor: 0.20               # @experimental - weak cues below this do not drive confident naming
+    top_m_cues: 3                         # @structural - anthropomorphic small-strong-cue pooling
+    margin_midpoint: 0.05                 # @experimental - shifted nearest-negative margin center
+    margin_slope: 8.0                     # @experimental - shifted margin steepness
+    object_novelty_free_margin: 0.35      # @experimental - novel object tolerance before tier downgrade
+    object_novelty_penalty: 0.35          # @experimental - object novelty downgrades but does not force no-call
+    context_novelty_reinspect_floor: 0.65 # @experimental - new context triggers reinspection curiosity
+    firm_threshold: 0.60                  # @experimental - firm humanlike call threshold
+    soft_threshold: 0.36                  # @experimental - soft humanlike call threshold
+    ambig_threshold: 0.16                 # @experimental - ambiguity threshold
+    denominator_epsilon: 0.000001         # @structural - normalization guard
+    probe_positive_diagnosticity: 0.85    # @experimental - LOO nearest-positive cue diagnosticity
+    probe_gap_diagnosticity: 0.75         # @experimental - LOO nearest-negative gap cue diagnosticity
+    probe_gap_quality: 0.90               # @experimental - LOO gap cue quality
+    probe_source_reliability: 0.95        # @experimental - local curriculum asset source reliability
+    probe_context_novelty: 0.15           # @experimental - stable local context novelty
+  audio:
+    a0_dim: 26700                         # @structural - high-bandwidth cochlear sketch channel
+    a1_dim: 500                           # @structural - spectral skeleton
+    a2_dim: 500                           # @structural - spectral cumulative shape
+    a3_dim: 500                           # @structural - envelope texture
+    a4_dim: 500                           # @structural - onset channel
+    a5_dim: 500                           # @structural - temporal gradient
+    a6_dim: 500                           # @structural - pitch-like autocorrelation
+    a7_dim: 500                           # @structural - sorted timbre energy
+    a8_dim: 301                           # @structural - residual spectral delta, A1..A8 total 3801
+    fft_size: 2048                        # @structural - deterministic audit FFT width
+    min_samples: 512                      # @structural - silent/short audio padding floor
+    autocorr_sample_cap: 4096             # @structural - bounded autocorrelation window
+    uint8_center: 128.0                   # @structural - unsigned PCM center
+    uint8_scale: 128.0                    # @structural - unsigned PCM normalization scale
+    int16_scale: 32768.0                  # @structural - signed PCM normalization scale
+    channel_count: 9                      # @structural - A0..A8 channel count
+  feedback:
+    source_feedback_rate: 0.40            # @experimental - source-aware correction attenuation
+  binding:
+    initial_event_count: 1                # @structural - first temporal co-occurrence event
+    promote_cooccurrence_threshold: 4     # @experimental - promote shared multimodal event after repeated co-occurrence
+  active_perception:
+    clarity_weight: 0.55                  # @experimental - next fixation low-clarity drive
+    uncertainty_weight: 0.35              # @experimental - next fixation low-confidence drive
+    motion_weight: 0.45                   # @experimental - peripheral motion can pull gaze despite low detail clarity
+  recognition:
+    diagnostic_top_m: 4                   # @structural - Phase 19.7 top-m channel noisy-OR
+    min_candidate_concepts: 1             # @structural - empty recall spawns tentative
+    channel_similarity_floor: 0.50        # @experimental - below this, channel evidence is treated as weak
+    channel_similarity_span: 0.50         # @structural - normalizes channel evidence after floor
+    channel_margin_gain: 3.0              # @experimental - stretches nearest-negative channel margin
+    chi_square_half_factor: 0.50          # @structural - chi-square histogram distance coefficient
+    diagnostic_margin_soft_floor: 0.08    # @experimental - soft tier needs visible diagnostic gap
+    diagnostic_margin_firm_floor: 0.18    # @experimental - firm tier needs stronger diagnostic gap
+    wrong_firm_guard_margin: 0.25         # @experimental - audit guard: wrong calls cannot be firm below this gap
+    default_source_quality: 0.95          # @experimental - local visual curriculum source quality
+    subject_weight_high_conf: 0.85        # @experimental - subject evidence share under good segmentation
+    subject_weight_low_conf: 0.60         # @experimental - degrade gracefully under weak segmentation
+    segmentation_confidence_floor: 0.60   # @experimental - threshold for high subject confidence
+    channel_weights:
+      V0: 0.26                            # @experimental - high-bandwidth foveated sensory sketch evidence
+      V1: 0.00                            # @experimental - audit-only global RGB after v1h anti-diagnostic finding
+      V2: 0.00                            # @experimental - audit-only global HSV after v1h anti-diagnostic finding
+      V3: 0.00                            # @experimental - audit-only global texture after v1h anti-diagnostic finding
+      V4: 0.00                            # @experimental - audit-only global HOG after v1h anti-diagnostic finding
+      V5: 0.08                            # @experimental - radial gradient evidence
+      V6: 0.14                            # @experimental - shape geometry evidence
+      V7: 0.30                            # @experimental - local part coverage/spatial evidence
+      V8: 0.00                            # @experimental - audit-only layout after v1h anti-diagnostic finding
+      V9: 0.00                            # @experimental - audit-only fg/bg KL after v1h anti-diagnostic finding
+      V10: 0.25                           # @experimental - per-part local color/texture evidence
+      V11: 0.15                           # @experimental - part relational graph evidence
+      V12: 0.10                           # @experimental - color cluster spatial map evidence
+
+phase19_7:
+  fixations_in_subject: 6                 # @structural - diagnostic subject scan points
+  fixations_in_background: 1              # @structural - background contrast scan point
+  max_channel_contribution: 0.95          # @structural - noisy-OR contribution clamp
+  channel_validity_min_ratio: 0.85        # @experimental - weak-channel floor; nearest-negative margin controls strength
+  channel_validity_min_pairs: 3           # @structural - minimum within-label pairs before disabling a channel
+  fixation_saliency_decay: 0.10           # @experimental - audit fixation saliency schedule
+  background_fixation_ratio: 0.10         # @structural - deterministic background audit point
+  background_saliency: 0.20               # @experimental - background audit saliency
+  background_uncertainty: 0.50            # @experimental - background audit uncertainty
+
+phase21:
+  object_looking:
+    max_candidates_per_image: 6            # @structural - bounded class-agnostic visual candidates per image
+    max_objects_per_image: 6               # @structural - bounded object files per scan episode
+    tick_budget: 8                         # @structural - bounded active looking ticks
+    min_area_ratio: 0.005                  # @experimental - reject tiny saliency fragments
+    candidate_padding_ratio: 0.18          # @experimental - local crop context around candidate
+    color_saliency_weight: 0.72            # @experimental - class-agnostic foreground contrast
+    edge_saliency_weight: 0.28             # @experimental - class-agnostic boundary contrast
+    saliency_percentile: 82                # @experimental - saliency mask threshold
+    saliency_floor: 0.08                   # @experimental - prevents zero-background from becoming one component
+    candidate_id_hex_length: 24            # @structural - opaque visual candidate id prefix length
+    binary_neighbor_min: 4                 # @structural - binary mask cleanup neighborhood floor
+    nms_iou_threshold: 0.45                # @structural - merge overlapping candidate boxes
+    ior_iou_threshold: 0.45                # @structural - inhibition-of-return overlap floor
+    saliency_attention_gain: 0.5           # @experimental - visual candidate A from saliency
+    visited_fatigue_gain: 4.0              # @structural - suppress repeated fixation on same object
+    rgb_scale: 255.0                       # @structural - uint8 RGB normalization divisor
+    synthetic_canvas_px: 256               # @structural - local generated teaching asset size
+    synthetic_object_min_px: 72            # @structural - generated object minimum extent
+    synthetic_object_max_px: 140           # @structural - generated object maximum extent
+    synthetic_transform_count: 4           # @structural - small local variation count per concept
+    synthetic_multiobject_count: 4         # @structural - generated multi-object probe count
+    object_channel_difference_floor: 0.05  # @experimental - local V7/V10/V11/V12 must differ across regions
+    margin_improvement_floor: 0.01         # @experimental - object-centric margin should beat full-image margin
+
+phase19_9:
+  recall:
+    default_top_k: 10                       # @structural - bounded C recall candidate count
+    filter_oversample_factor: 4             # @structural - oversample before source/substrate/version filtering
+    topk_overlap_floor: 0.90                # @experimental - Zvec and brute-force topK overlap floor on small sets
+    synthetic_vector_count: 64              # @structural - recall substrate test population
+    perf_vector_count: 1000                 # @experimental - lightweight local performance sanity population

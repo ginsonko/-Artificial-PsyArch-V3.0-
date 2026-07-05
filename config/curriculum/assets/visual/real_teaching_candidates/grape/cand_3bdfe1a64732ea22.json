@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_3bdfe1a64732ea22",
+  "concept": "grape",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_3bdfe1a64732ea22.png",
+  "sha256": "3bdfe1a64732ea22a5f7c960a438136ae4462cd419d319e6e949431305769b46",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/51035768826@N01/4207726",
+  "download_url": "https://api.openverse.org/v1/images/a0fe24e7-36d5-422a-9878-648516f18c19/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Afroswede",
+  "title": "Conjoined Raisin",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

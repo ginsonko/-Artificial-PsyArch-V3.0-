@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_ef7060e835c360e4",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_ef7060e835c360e4.png",
+  "sha256": "ef7060e835c360e4835f051d6234b12dfa783047220a5529725114995e99ee62",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/50128414@N05/5263930034",
+  "download_url": "https://api.openverse.org/v1/images/8d06a64b-de62-416d-8751-8356d7e36a15/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Walmart Corporate",
+  "title": "Walmart Organic Produce",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phase20.9h 自测反馈展示</title>
+  <style>
+    :root {
+      --ink: #20242a;
+      --muted: #68717d;
+      --line: #d8dee4;
+      --paper: #f4f1ea;
+      --panel: #ffffff;
+      --green: #5b9a73;
+      --blue: #4e79a8;
+      --amber: #bd863f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    main {
+      width: min(1120px, calc(100vw - 40px));
+      margin: 0 auto;
+      padding: 34px 0 48px;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    h3 { margin: 0 0 8px; font-size: 18px; }
+    p { margin: 0 0 10px; }
+    .hero, .card, .case {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 12px 28px rgba(31, 37, 45, 0.07);
+    }
+    .muted { color: var(--muted); }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .badge {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: #fbfcfd;
+      font-size: 13px;
+      color: #4b5663;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 18px 0;
+    }
+    .meter {
+      height: 10px;
+      border-radius: 999px;
+      background: #e8edf2;
+      overflow: hidden;
+      margin: 10px 0 12px;
+    }
+    .fill { height: 100%; width: var(--w); background: var(--c); }
+    dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 6px 12px;
+      margin: 0;
+      font-size: 14px;
+    }
+    dt { color: var(--muted); }
+    dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+    code {
+      background: #eef2f5;
+      padding: 2px 5px;
+      border-radius: 5px;
+      font-family: Consolas, monospace;
+    }
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      background: #20242a;
+      color: #f4f7fb;
+      border-radius: 8px;
+      padding: 16px;
+      overflow-x: auto;
+    }
+    @media (max-width: 900px) {
+      header, .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <section class="hero">
+        <h1>自测反馈回灌</h1>
+        <p class="muted">Phase20.9h 让自测结果影响后继学习倾向。成功会稳住 teacher-off, 失败会把注意力拉回脚手架。</p>
+        <div class="badges">
+          <span class="badge">不新增成绩表</span>
+          <span class="badge">短期结构流读取</span>
+          <span class="badge">只调制倾向</span>
+          <span class="badge">不写聊天回复</span>
+        </div>
+      </section>
+      <section class="card">
+        <h2>工作台测试</h2>
+        <p><code>http://127.0.0.1:8776/phase20_7</code></p>
+        <p class="muted">教学、召回、连续点三次闲时 tick。第三次会看到 self_test_feedback。</p>
+      </section>
+    </header>
+
+    <section class="grid">
+      <article class="case">
+        <h3>自测前</h3>
+        <p class="muted">有把握, 但仍有冷重测压力。</p>
+        <div class="meter"><div class="fill" style="--w: 88%; --c: var(--blue);"></div></div>
+        <dl>
+          <dt>teacher-off</dt><dd>0.88</dd>
+          <dt>cold</dt><dd>0.856</dd>
+          <dt>scaffold</dt><dd>0.0</dd>
+        </dl>
+      </article>
+      <article class="case">
+        <h3>自测</h3>
+        <p class="muted">私有自测成功。</p>
+        <div class="meter"><div class="fill" style="--w: 88.6%; --c: var(--green);"></div></div>
+        <dl>
+          <dt>kind</dt><dd>cold_retest</dd>
+          <dt>grasp</dt><dd>0.8864</dd>
+          <dt>match</dt><dd>1.0</dd>
+        </dl>
+      </article>
+      <article class="case">
+        <h3>反馈后</h3>
+        <p class="muted">teacher-off 更稳, cold 压力下降。</p>
+        <div class="meter"><div class="fill" style="--w: 98.6%; --c: var(--amber);"></div></div>
+        <dl>
+          <dt>teacher-off</dt><dd>0.9864</dd>
+          <dt>cold</dt><dd>0.7551</dd>
+          <dt>feedback</dt><dd>success</dd>
+        </dl>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>复现步骤</h2>
+      <pre>1. 教 AP 一个问题
+2. 再问同一个问题, 让它自己召回
+3. 第一次闲时 tick: learning_review
+4. 第二次闲时 tick: idle_self_test
+5. 第三次闲时 tick: learning_review + self_test_feedback</pre>
+    </section>
+
+    <section class="card">
+      <h2>边界</h2>
+      <p class="muted">这一步可以证明自测反馈能调制后继学习倾向。但仍不能声明完整六阶段 runtime、L1/L2/L3 在线嵌入、完整范式自学习、数学列竖式、object-centric 视觉想象或 Phase21 视觉教学泛化闭环已经完成。</p>
+    </section>
+  </main>
+</body>
+</html>

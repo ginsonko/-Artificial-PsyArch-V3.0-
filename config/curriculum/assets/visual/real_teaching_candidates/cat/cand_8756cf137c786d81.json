@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_8756cf137c786d81",
+  "concept": "cat",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_8756cf137c786d81.png",
+  "sha256": "8756cf137c786d81cb3f25cdd84705c1f2abc20af00073f5b747e661ca9c99e0",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/87690240@N03/13083231443",
+  "download_url": "https://api.openverse.org/v1/images/21ec818b-6117-4405-8cf9-ff8fc4e60eb9/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Giuseppe Milo (www.pixael.com)",
+  "title": "Lira",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase6.0 主动召唤教师</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --paper: #ffffff;
+      --ink: #182230;
+      --muted: #667085;
+      --line: #d7e0ea;
+      --blue: #2458a6;
+      --green: #087443;
+      --amber: #a15c00;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 56px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(27px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 12px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    code { background: #eef3f8; border: 1px solid #dce5ef; border-radius: 5px; padding: 1px 5px; font-family: Consolas, "Cascadia Mono", monospace; }
+    pre { margin: 10px 0; overflow: auto; background: #111827; color: #edf4ff; border-radius: 8px; padding: 14px; font-size: 13px; }
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .subtitle { color: var(--muted); max-width: 980px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--green); }
+    .warn { color: var(--amber); }
+    .note { background: var(--paper); border-left: 4px solid var(--blue); padding: 12px 14px; margin: 14px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase6.0 主动召唤教师</h1>
+    <p class="subtitle">本阶段实现主动学习最小门：当认知压高、召回反复失败或补习需求明显时，系统生成 teacher_request SA。它只请求帮助，不直接生成答案。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">阶段</div>
+      <div class="value ok">Phase6.0 通过</div>
+      <p><code>APV3ActiveTeacherRequestRuntime</code> 已落地。</p>
+    </div>
+    <div class="card">
+      <div class="label">目标测试</div>
+      <div class="value ok">5 passed</div>
+      <p>覆盖请求生成、请求下降、cooldown 和低压不请求。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">138 passed</div>
+      <p>前序能力保持稳定。</p>
+    </div>
+    <div class="card">
+      <div class="label">边界</div>
+      <div class="value warn">非自动课程设计</div>
+      <p>这里只生成求教 SA，不规划完整课程。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>重复失败求教</h2>
+    <pre><code>cue = goal::ask
+context = ctx_work
+recall_failed = true
+
+第一次:
+request = &lt;none&gt;
+reason = below_request_threshold
+
+第二次:
+request.reason = repeated_recall_failure
+failure_count = 2
+state_field_items.sa_type = teacher_request</code></pre>
+  </section>
+
+  <section>
+    <h2>高认知压求教</h2>
+    <pre><code>cognitive_pressure = 0.9
+request.reason = high_cognitive_pressure</code></pre>
+  </section>
+
+  <section>
+    <h2>教师响应后请求下降</h2>
+    <pre><code>teacher_request generated
+llm_standard_teacher responds through CurriculumRemediationLoop
+skill_teacher_answer learned as AP-native evidence
+
+after mastery:
+request = &lt;none&gt;
+suppressed_reason = mastered_expected_pid
+state 中没有 llm_policy</code></pre>
+    <div class="note">LLM 仍然只是教师来源；学生侧没有特殊策略字段。</div>
+  </section>
+
+  <section>
+    <h2>cooldown 防刷屏</h2>
+    <pre><code>same cue/context high pressure again inside cooldown:
+request = &lt;none&gt;
+suppressed_reason = request_cooldown
+failure_count still recorded = 2</code></pre>
+  </section>
+
+  <section>
+    <h2>验收记录</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase6_0_active_teacher_request.py -q
+5 passed in 0.32s
+
+python -m pytest APV3.0test\tests -q
+138 passed in 2.96s
+
+红线扫描:
+命中均为测试断言/测试名，以及 draft_action.py 的 buffer 非空检查。</code></pre>
+  </section>
+
+  <section>
+    <h2>下一步</h2>
+    <ul>
+      <li>Phase6.1: teacher_request 与 work_memory / Bn/Cn 失败信号自动连接。</li>
+      <li>工作记忆 bridge 失败时自动生成 teacher_request。</li>
+      <li>Bn/Cn recall 失败时自动生成 teacher_request。</li>
+      <li>教师响应后，原工作记忆任务可继续恢复并验证请求减少。</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

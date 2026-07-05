@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_4b8ef7e16dffd9e0",
+  "concept": "strawberry",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_4b8ef7e16dffd9e0.png",
+  "sha256": "4b8ef7e16dffd9e0b39461aa67ef4f7e67c5ba314093ad5dfa40fd2b273f70ee",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/41284017@N08/8454756165",
+  "download_url": "https://api.openverse.org/v1/images/7379a77a-234e-4159-95fb-4f4cc31856aa/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "USDAgov",
+  "title": "k8983-1",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

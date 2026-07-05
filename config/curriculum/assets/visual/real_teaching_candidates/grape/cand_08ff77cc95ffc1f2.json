@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_08ff77cc95ffc1f2",
+  "concept": "grape",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_08ff77cc95ffc1f2.png",
+  "sha256": "08ff77cc95ffc1f2d511776c77991b2a33251626f583769629e7a33237854eb8",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/41284017@N08/8456926604",
+  "download_url": "https://api.openverse.org/v1/images/9e8ce67e-2c12-41c2-9c30-aef6aeea1c88/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "USDAgov",
+  "title": "k7248-56",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 课程回放工作台</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="course-page">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">AP</span>
+      <div>
+        <h1>APV3 课程回放工作台</h1>
+        <p id="courseStatus">选择课程后运行短回放</p>
+      </div>
+    </div>
+    <div class="toolbar">
+      <select id="demoSelect" title="选择课程"></select>
+      <button id="runCourseBtn" title="运行课程回放">运行</button>
+      <a class="link-button" href="/" title="回到对话工作台">对话</a>
+    </div>
+  </header>
+
+  <main class="course-workspace">
+    <section class="course-material-pane">
+      <div class="panel-head">
+        <h2>题目与材料</h2>
+        <span id="demoTitle">未运行</span>
+      </div>
+      <div id="questionBox" class="course-question">请选择一个课程 demo。</div>
+      <div id="assetStrip" class="asset-strip"></div>
+      <div class="course-controls">
+        <button id="prevTickBtn" title="上一 tick">上一 tick</button>
+        <button id="playTickBtn" title="播放/暂停">播放</button>
+        <button id="nextTickBtn" title="下一 tick">下一 tick</button>
+        <input id="courseTickSlider" type="range" min="1" max="1" value="1">
+        <span id="courseFrameCount">0 / 0</span>
+      </div>
+    </section>
+
+    <section class="course-mind-pane">
+      <div class="panel-head">
+        <h2>AP 内部 tick</h2>
+        <span id="courseTickLabel">tick 0</span>
+      </div>
+      <div id="tickTimeline" class="tick-timeline"></div>
+      <div id="tickDetail" class="detail-box"></div>
+    </section>
+
+    <section class="course-explain-pane">
+      <nav class="tabs">
+        <button class="tab active" data-course-tab="packet">学习包</button>
+        <button class="tab" data-course-tab="mind">内心</button>
+        <button class="tab" data-course-tab="summary">结论</button>
+      </nav>
+      <div id="course-tab-packet" class="tab-panel active">
+        <div id="packetPanel" class="list-panel"></div>
+      </div>
+      <div id="course-tab-mind" class="tab-panel">
+        <div id="mindPanel" class="list-panel"></div>
+      </div>
+      <div id="course-tab-summary" class="tab-panel">
+        <div id="summaryPanel" class="list-panel"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/course.js"></script>
+</body>
+</html>

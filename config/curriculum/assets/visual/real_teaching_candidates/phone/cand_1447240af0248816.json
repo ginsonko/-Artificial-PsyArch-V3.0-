@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_1447240af0248816",
+  "concept": "phone",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/phone/cand_1447240af0248816.png",
+  "sha256": "1447240af02488164f30c5759254a1c5ad22ee82289f1af8e7bab178f9218cab",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/30047476@N05/7782624260",
+  "download_url": "https://api.openverse.org/v1/images/b5b71bfa-57fb-47e5-b116-d0e1ef1bc595/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Krzysztof D.",
+  "title": "EN57-924",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

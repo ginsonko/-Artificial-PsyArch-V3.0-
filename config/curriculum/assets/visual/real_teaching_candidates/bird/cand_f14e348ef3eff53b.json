@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_f14e348ef3eff53b",
+  "concept": "bird",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/bird/cand_f14e348ef3eff53b.png",
+  "sha256": "f14e348ef3eff53b4a10a5af0145141ae49364dcbd6b9e10fd74911495fa1353",
+  "source": "openverse",
+  "source_url": "https://www.rawpixel.com/image/6026317/photo-image-public-domain-nature-black",
+  "download_url": "https://api.openverse.org/v1/images/b2893f17-e8f8-4b7d-9dba-57bfb945621f/thumb/",
+  "license_id": "CC0-1.0",
+  "author": "",
+  "title": "Raven bird, animal photo",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

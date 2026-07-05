@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_bab1c69d53684a9d",
+  "concept": "computer",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_bab1c69d53684a9d.png",
+  "sha256": "bab1c69d53684a9d1a806ec9ac6dc7eb05784844f5f9798eb780ff006ddaecbb",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/26782864@N00/11496253143",
+  "download_url": "https://api.openverse.org/v1/images/b0f017c1-ee95-4c50-9076-ec3d69a0958b/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "wwarby",
+  "title": "Macbook Pro",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

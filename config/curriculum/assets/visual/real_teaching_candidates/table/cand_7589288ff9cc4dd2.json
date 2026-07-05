@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_7589288ff9cc4dd2",
+  "concept": "table",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_7589288ff9cc4dd2.png",
+  "sha256": "7589288ff9cc4dd2320db5b914faaeceab39a4a61fc4fe49afde985cdd27c31c",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/51035768826@N01/368362",
+  "download_url": "https://api.openverse.org/v1/images/3d743d7d-a2e6-4972-a77e-5e2b977ecaf6/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Afroswede",
+  "title": "m'office",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

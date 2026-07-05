@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_d9691a3e157983ca",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_d9691a3e157983ca.png",
+  "sha256": "d9691a3e157983caa2e135a9d0b463c2a85b483b27dc6b46004a7b46b30b556b",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/83346641@N00/4687393054",
+  "download_url": "https://api.openverse.org/v1/images/f818ea8e-36a5-4db8-b92c-324aa2680b87/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "JD Hancock",
+  "title": "Banana Extract",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

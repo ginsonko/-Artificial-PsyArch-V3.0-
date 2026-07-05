@@ -1,0 +1,87 @@
+# cognitive_feeling_features.yaml — 18 features 一行算子定义
+# v13.1 §S3. 全部输出域 [0, 1].
+
+features:
+  external_R_recent_high:
+    formula: "mean(R_external, last_5_ticks) / R_max_observed_window"
+    window_ticks: 5
+    notes: "近 5 tick 外感 R 占当前观察最大 R 比例"
+
+  endogenous_share_high:
+    formula: "sa.gain_ledger.endogenous_share()"
+    notes: "v13.1 §52 ledger,无新算"
+
+  IMAGINED_marker_present:
+    formula: "sigmoid(sum(m.real_energy for m in sa.markers if m.kind == IMAGINED) * 2)"
+    notes: "连续(non-binary),反映 marker 总能量"
+
+  multimodal_consistency_high:
+    formula: |
+      let vision_R = max(R for sa in state_pool if sa.channel_signature.has('vision'))
+      let audio_R = max(R for sa in state_pool if sa.channel_signature.has('audio'))
+      let text_R = max(R for sa in state_pool if sa.channel_signature.has('text'))
+      return geometric_mean([vision_R, audio_R, text_R]) / arithmetic_mean([vision_R, audio_R, text_R])
+    notes: "几何/算术平均比,模态都强时接近 1"
+
+  temporal_continuity_high:
+    formula: "1.0 - var(R, last_K_ticks=10) / mean(R, last_K_ticks=10)"
+    notes: "R 时序变异系数倒数 (1 - CV)"
+
+  action_verifiability_high:
+    formula: "sum(action.has_outcome_feedback and action.outcome_aligned, last_M=20) / 20"
+    notes: "近 20 次行动有明确后果反馈且符合预期的比例"
+
+  prediction_mismatch_ratio_high:
+    formula: "sa.prediction_trace.mismatch_ratio"
+    notes: "继承 v2.1 cognitive_feelings 既有"
+
+  cognitive_pressure_high:
+    formula: "sigmoid(sa.P * 2)"
+    notes: "sigmoid 映射 P → [0, 1]"
+
+  reality_sense_high_but_unexpected:
+    formula: "feeling::reality_sense.value * feeling::prediction_mismatch.value"
+    notes: "真实感高 + 预测误差大 = 违和"
+
+  V_A_inertia_high:
+    formula: "(sa.V * sa.A) / (sa.V_max_observed * sa.A_max_observed)"
+    notes: "V * A 内源惯性指标"
+
+  no_live_external_R:
+    formula: "1.0 - external_R_recent_high"
+    notes: "外感 R 低 → 内源主导"
+
+  low_grasp_score:
+    formula: "1.0 - g_i(t)"
+    notes: "把握度低 = 猜测感高,g 已在 v8 §12.2"
+
+  candidate_entropy_high:
+    formula: "candidate_entropy(state_pool.recall_candidates) / log(K_candidates_max)"
+    notes: "召回候选熵归一化"
+
+  HEARSAY_marker_present:
+    formula: "sigmoid(sum(m.real_energy for m in sa.markers if m.kind == HEARSAY) * 2)"
+
+  source_entity_speaker_present:
+    # v14.1 §S3: 改 sigmoid(marker.R) 替代 1.0 if ... else 0.0 二值
+    formula: |
+      let speaker_marker = state_pool.most_recent_marker_with_kind(HEARSAY)
+      if speaker_marker is None:
+          return 0.0
+      return sigmoid(speaker_marker.real_energy * 2.0 - 1.0)
+    notes: "连续值替代二值,sigmoid 中心在 marker.R=0.5"
+
+  text_input_recent_high:
+    formula: "mean(text_char_R, last_5_ticks) / R_max_observed_window"
+
+  INFERRED_marker_present:
+    formula: "sigmoid(sum(m.real_energy for m in sa.markers if m.kind == INFERRED) * 2)"
+    phase_8_value: 0.0
+
+  counterfactual_conflict:
+    formula: "run_counterfactual_check(sa).causal_conflict_score"
+    phase_8_value: 0.0
+    notes: "Phase 10+ 完整启用"
+
+  others_feedback_consistent:
+    formula: "state_pool.recent_feedback_aligned_with_sa(sa, last_K=20).alignment_ratio"

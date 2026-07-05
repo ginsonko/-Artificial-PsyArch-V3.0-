@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase5.2 Bn/Cn Recall 与 Attention Focus</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --paper: #ffffff;
+      --ink: #17202d;
+      --muted: #5f6d7c;
+      --line: #d9e1eb;
+      --accent: #255aa8;
+      --ok: #0f7b55;
+      --warn: #9b6000;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    main {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 32px 20px 52px;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 20px;
+      margin-bottom: 22px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 4vw, 42px);
+      letter-spacing: 0;
+    }
+    h2 { margin: 28px 0 12px; font-size: 22px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); max-width: 920px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--ok); }
+    .warn { color: var(--warn); }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .step {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 96px;
+    }
+    .step strong { color: var(--accent); }
+    code {
+      background: #eef3f8;
+      border: 1px solid #dbe4ee;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: Consolas, "Cascadia Mono", monospace;
+      font-size: 0.94em;
+    }
+    pre {
+      overflow: auto;
+      background: #111827;
+      color: #edf4ff;
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 13px;
+    }
+    ul { padding-left: 22px; margin: 8px 0; }
+    li { margin: 6px 0; }
+    .note {
+      border-left: 4px solid var(--accent);
+      background: var(--paper);
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase5.2 Bn/Cn Recall 与 Attention Focus</h1>
+    <p class="subtitle">本阶段把当前输入接入 Bn/Cn 召回和注意力焦点选择。训练后，recall tick 不再需要 teacher reply tokens，而是通过已学 ParadigmSA 召回后继并逐 token 输出。</p>
+  </header>
+
+  <section class="grid" aria-label="状态摘要">
+    <div class="card">
+      <div class="label">阶段</div>
+      <div class="value ok">Phase5.2 已通过</div>
+      <p><code>ParadigmRecallAttention</code> 已接入 tick runtime。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">102 passed</div>
+      <p>Phase0 到 Phase5.2 测试全部通过。</p>
+    </div>
+    <div class="card">
+      <div class="label">关键能力</div>
+      <div class="value ok">无 teacher reply 召回</div>
+      <p>只给 cue 也能沿 Bn/Cn 找到后继。</p>
+    </div>
+    <div class="card">
+      <div class="label">边界</div>
+      <div class="value warn">仍非完整开放底座</div>
+      <p>大规模旧技能复现与 Fresh 测试尚未完成。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>召回链路</h2>
+    <div class="flow">
+      <div class="step"><strong>1. 当前输入</strong><br>例如只输入 <code>你 好</code>，不提供目标回复。</div>
+      <div class="step"><strong>2. Bn Recall</strong><br>从暴露的 <code>ParadigmSA</code> 中找“当前场像什么”。</div>
+      <div class="step"><strong>3. Cn Successor</strong><br>沿 observation 或显式 transition 读取后继。</div>
+      <div class="step"><strong>4. Attention Focus</strong><br>按 Bn、Cn 和能量读数选择当前范式。</div>
+      <div class="step"><strong>5. Draft Action</strong><br>复用低粒度逐 token 草稿行动。</div>
+      <div class="step"><strong>6. Commit</strong><br>可提交并写入行动后果。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>验收结果</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase5_2_recall_attention_runtime.py APV3.0test\tests\test_phase5_1_incremental_tick_runtime.py APV3.0test\tests\test_phase5_0_incremental_paradigm.py -q
+19 passed in 0.64s
+
+python -m pytest APV3.0test\tests -q
+102 passed in 2.39s</code></pre>
+    <div class="note">
+      禁用通道扫描仍只命中 <code>draft_action.py</code> 的 <code>if text:</code>，已审查为草稿 buffer 非空检查，不是文本模态特权分支。
+    </div>
+  </section>
+
+  <section>
+    <h2>通过的能力</h2>
+    <ul>
+      <li>训练后，recall tick 不给 teacher reply tokens 也能输出已学后继。</li>
+      <li>多个技能共存时，attention focus 能选择 cue/context 最匹配的范式。</li>
+      <li>Cn 能读取显式 successor edge 作为后继支持来源。</li>
+      <li>未学范式不会输出，也不会提交。</li>
+      <li>自然教学和 LLM 标准教学在 recall 行为上等价。</li>
+      <li>SQLite 保存恢复后仍可召回并输出。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>仍不宣称</h2>
+    <ul>
+      <li>不宣称完整 APV3.0 中文开放自由对话底座完成。</li>
+      <li>不宣称完整 Fresh300 或旧 GL 全技能复现完成。</li>
+      <li>不宣称注意力已经具备完整跨任务、跨模态、快慢系统竞争能力。</li>
+      <li>不宣称 Bn/Cn recall 已覆盖大规模长期记忆和复杂上下文。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>下一步</h2>
+    <p>Phase5.3 应扩展小批技能复现与失败归因：问候、成语、颜色对象、简单数学过程分别用自然教学和 LLM 标准教学训练，然后只给 cue，通过 Bn/Cn/attention 自动召回后继。失败时只通过奖惩、support、promoted vector 和教学样本补习，不新增关键词规则。</p>
+  </section>
+</main>
+</body>
+</html>

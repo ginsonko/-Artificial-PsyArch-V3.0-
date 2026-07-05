@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase20.6 真实运行工作台</title>
+  <link rel="stylesheet" href="/phase20_6_workbench.css?v=20260621a">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">AP</span>
+      <div>
+        <h1>APV3 Phase20.6 真实运行工作台</h1>
+        <p id="statusLine">连接中</p>
+      </div>
+    </div>
+    <nav class="top-actions" aria-label="工作台操作">
+      <button id="refreshBtn" type="button" title="从后端重新读取本地状态">刷新</button>
+      <a class="link-button" href="/index.html" title="打开旧版工作台">旧版</a>
+    </nav>
+  </header>
+
+  <main class="workbench">
+    <section class="panel chat-panel" aria-label="对话与教学">
+      <div class="panel-head">
+        <h2>对话</h2>
+        <span id="turnBadge">0 回合</span>
+      </div>
+      <div class="history-bar">
+        <div class="history-head">
+          <b>历史回合</b>
+          <button id="refreshHistoryBtn" type="button">刷新历史</button>
+        </div>
+        <div id="historyList" class="history-list">暂无历史回合</div>
+      </div>
+      <div id="chatLog" class="chat-log"></div>
+      <form id="turnForm" class="composer">
+        <label>
+          <span>用户输入</span>
+          <textarea id="textInput" rows="4" placeholder="输入要对 AP 说的话"></textarea>
+        </label>
+        <div class="media-row">
+          <label>
+            <span>图片/音频路径</span>
+            <input id="mediaPathInput" type="text" placeholder="可填本地图片路径，也可用右侧上传">
+          </label>
+          <label class="file-picker">
+            <input id="fileInput" type="file" accept="image/*,audio/*">
+            <span>选择文件</span>
+          </label>
+        </div>
+        <div id="mediaPreview" class="media-preview">未选择媒体</div>
+        <div class="settings-row">
+          <label>最大 tick <input id="maxTicksInput" type="number" min="4" max="32" value="16"></label>
+          <label>提交后观察 tick <input id="idleTicksInput" type="number" min="0" max="8" value="2"></label>
+          <label class="check-line"><input id="ttsEnabledInput" type="checkbox"> 本地朗读回复</label>
+        </div>
+        <details class="toolbox">
+          <summary>AP-native 感受器 / 执行器输入</summary>
+          <div class="focus-tool">
+            <b>教师辅助视焦点</b>
+            <small>只提高 saliency，不绑定标签。</small>
+            <div class="quad-inputs">
+              <label>x <input id="focusXInput" type="number" min="0" max="100" value="25"></label>
+              <label>y <input id="focusYInput" type="number" min="0" max="100" value="25"></label>
+              <label>w <input id="focusWInput" type="number" min="1" max="100" value="45"></label>
+              <label>h <input id="focusHInput" type="number" min="1" max="100" value="45"></label>
+            </div>
+            <div class="button-row">
+              <button id="addFocusBoxBtn" type="button">加入焦点框</button>
+              <button id="clearFocusBoxesBtn" type="button">清空焦点框</button>
+            </div>
+            <div id="focusBoxList" class="tag-list">无教师焦点框</div>
+          </div>
+          <div class="canvas-tool">
+            <b>画布输入</b>
+            <small>手绘会作为图片感受器输入，不做 OCR。</small>
+            <canvas id="sketchCanvas" width="320" height="180" aria-label="画布输入"></canvas>
+            <div class="button-row">
+              <button id="useCanvasBtn" type="button">使用画布作为图片</button>
+              <button id="clearCanvasBtn" type="button">清空画布</button>
+            </div>
+          </div>
+          <div class="audio-tool">
+            <b>录音输入</b>
+            <small>当前模式: audio_audit_only，只作为听觉审计信号送入真实 tick，不做声音识别。</small>
+            <div class="button-row">
+              <button id="recordBtn" type="button">开始录音</button>
+              <span id="audioStatus" class="inline-status">未录音</span>
+            </div>
+          </div>
+        </details>
+        <div class="button-row">
+          <button id="sendBtn" type="submit">发送</button>
+          <button id="clearBtn" type="button">清空输入</button>
+        </div>
+        <label>
+          <span>教学纠正</span>
+          <textarea id="teachInput" rows="2" placeholder="对上一轮不满意时，输入希望 AP 学到的回应方式"></textarea>
+        </label>
+        <div class="button-row">
+          <button id="teachBtn" type="button">教上一轮</button>
+          <span id="teachStatus" class="inline-status"></span>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel replay-panel" aria-label="逐 tick 回放">
+      <div class="panel-head">
+        <h2>Tick 回放</h2>
+        <span id="runtimeBadge">等待运行</span>
+      </div>
+      <div class="playback">
+        <button id="prevTickBtn" type="button" title="上一 tick">上一 tick</button>
+        <button id="playTickBtn" type="button" title="播放或暂停 tick 回放">播放</button>
+        <button id="nextTickBtn" type="button" title="下一 tick">下一 tick</button>
+        <input id="tickSlider" type="range" min="0" max="0" value="0">
+        <span id="tickCounter">0 / 0</span>
+      </div>
+      <div id="tickStrip" class="tick-strip"></div>
+      <div class="tick-layout">
+        <article class="runtime-card">
+          <h3>本 tick 动作</h3>
+          <dl id="tickSummary" class="kv"></dl>
+        </article>
+        <article class="runtime-card">
+          <h3>草稿格</h3>
+          <pre id="draftGrid" class="draft-grid"></pre>
+        </article>
+      </div>
+      <div class="tick-layout">
+        <article class="runtime-card">
+          <h3>召回候选</h3>
+          <div id="recallList" class="list"></div>
+        </article>
+        <article class="runtime-card">
+          <h3>动作竞争</h3>
+          <div id="actionList" class="list"></div>
+        </article>
+      </div>
+      <div class="tick-layout">
+        <article class="runtime-card">
+          <h3>状态池 top12</h3>
+          <div id="statePoolList" class="list"></div>
+        </article>
+        <article class="runtime-card">
+          <h3>审计曲线</h3>
+          <div id="auditCharts" class="chart-grid"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel mind-panel" aria-label="内心与记忆">
+      <div class="panel-head">
+        <h2>内心与记忆</h2>
+        <span id="memoryBadge">0 / 0</span>
+      </div>
+      <article class="runtime-card">
+        <h3>内心画面</h3>
+        <div id="innerPicture" class="inner-picture"></div>
+      </article>
+      <article class="runtime-card">
+        <h3>想法云</h3>
+        <div id="thoughtCloud" class="thought-cloud"></div>
+      </article>
+      <article class="runtime-card">
+        <h3>快记忆</h3>
+        <div id="fastMemory" class="list"></div>
+      </article>
+      <article class="runtime-card">
+        <h3>慢记忆</h3>
+        <div id="slowMemory" class="list"></div>
+      </article>
+      <article class="runtime-card">
+        <h3>未闭合任务</h3>
+        <div id="carryMemory" class="list"></div>
+      </article>
+      <article class="runtime-card memory-package-card">
+        <h3>本地记忆 / 记忆包</h3>
+        <div class="memory-controls">
+          <input id="memorySearchInput" type="text" placeholder="搜索记忆内容">
+          <button id="refreshMemoryBtn" type="button">刷新记忆</button>
+        </div>
+        <div class="memory-kind-filters" aria-label="记忆类型筛选">
+          <label><input class="memoryKindInput" type="checkbox" value="expression_phrase"> 表达短句</label>
+          <label><input class="memoryKindInput" type="checkbox" value="cooccurrence_pair"> 共现边</label>
+          <label><input class="memoryKindInput" type="checkbox" value="paradigm_pair"> 范式共现</label>
+          <label><input class="memoryKindInput" type="checkbox" value="fast_tick_memory"> tick 快记忆</label>
+          <label><input class="memoryKindInput" type="checkbox" value="slow_tick_memory"> tick 慢记忆</label>
+        </div>
+        <div class="memory-controls">
+          <button id="selectVisibleMemoryBtn" type="button">全选当前</button>
+          <button id="invertVisibleMemoryBtn" type="button">反选当前</button>
+          <button id="clearSelectedMemoryBtn" type="button">清空勾选</button>
+          <span id="selectedMemoryCount" class="inline-status">已选 0</span>
+        </div>
+        <div id="memoryList" class="list memory-list"></div>
+        <div class="memory-controls">
+          <input id="packageNameInput" type="text" placeholder="导出包名称" value="APV3 教学记忆包">
+          <button id="exportMemoryBtn" type="button">导出勾选</button>
+          <label class="check-line"><input id="excludeSelectedInput" type="checkbox"> 勾选项作为排除</label>
+          <button id="deleteMemoriesBtn" type="button">删除勾选</button>
+        </div>
+        <textarea id="packageImportText" rows="4" placeholder="粘贴记忆包 JSON 后导入"></textarea>
+        <div class="memory-controls">
+          <button id="importPackageBtn" type="button">导入记忆包</button>
+          <button id="previewPackageBtn" type="button">查看选中包</button>
+          <button id="uninstallPackageBtn" type="button">卸载选中包</button>
+        </div>
+        <div id="packageList" class="list package-list"></div>
+        <div id="packagePreview" class="list package-preview"></div>
+        <pre id="packageOutput" class="package-output"></pre>
+      </article>
+    </section>
+  </main>
+
+  <script src="/phase20_6_workbench.js?v=20260621b"></script>
+</body>
+</html>

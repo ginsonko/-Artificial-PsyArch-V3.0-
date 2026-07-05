@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_13a4215a5f2b9afe",
+  "concept": "apple",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_13a4215a5f2b9afe.png",
+  "sha256": "13a4215a5f2b9afe102a4d7eb2e10b62b86a9eae313f316d4f866f3d831190a4",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/25128194@N02/4488669900",
+  "download_url": "https://api.openverse.org/v1/images/20403710-c9e1-4e7b-a62a-2f4d22b400dd/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Vegan Feast Catering",
+  "title": "Asian or Brown Pear",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_5b9b1b69cb6bbbb1",
+  "concept": "apple",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_5b9b1b69cb6bbbb1.png",
+  "sha256": "5b9b1b69cb6bbbb1e7c533507f380a07c96b779289062d0098a65e6da3947dd5",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/53611153@N00/292626608",
+  "download_url": "https://api.openverse.org/v1/images/19139101-571b-4b0e-93dd-50ace11eb9e0/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Darwin Bell",
+  "title": "want a tangerine?",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

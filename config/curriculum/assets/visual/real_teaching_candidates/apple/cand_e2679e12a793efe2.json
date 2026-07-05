@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_e2679e12a793efe2",
+  "concept": "apple",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_e2679e12a793efe2.png",
+  "sha256": "e2679e12a793efe271c9dc28b86eb6e6cb807da7905af22f0c3302cd8da15c71",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/36291048@N06/3389124067",
+  "download_url": "https://api.openverse.org/v1/images/1c8e6a9b-1a45-4131-be0d-f06585de81c3/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "roger.karlsson",
+  "title": "red apple core",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_fbba20b8ceaceed1",
+  "concept": "key",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_fbba20b8ceaceed1.png",
+  "sha256": "fbba20b8ceaceed1dca59a606a83c491d5a89f475645d8cdbe76a923d927b142",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/24662369@N07/8705202502",
+  "download_url": "https://api.openverse.org/v1/images/1416467b-9ea8-43e8-be32-479b75c04537/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "NASA Goddard Photo and Video",
+  "title": "Key Science Instrument Installed into Webb Structure",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

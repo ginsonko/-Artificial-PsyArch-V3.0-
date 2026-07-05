@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_7653b39b95c9be0b",
+  "concept": "rice",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_7653b39b95c9be0b.png",
+  "sha256": "7653b39b95c9be0b80bb575df54659ce07d4477db1079b5c794e5e7b478f7edf",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/28650594@N03/3678936475",
+  "download_url": "https://api.openverse.org/v1/images/3be03b2a-ca0d-496d-b3dd-c5167d1db1a1/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "DVIDSHUB",
+  "title": "Iraqi Soldiers Distribute 5,000 Lbs. of Food and Supplies",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

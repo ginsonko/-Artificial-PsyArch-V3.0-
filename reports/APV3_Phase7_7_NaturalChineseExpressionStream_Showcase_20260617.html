@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase7.7 自然中文表达流</title>
+  <style>
+    :root {
+      --ink: #1d2630;
+      --muted: #647284;
+      --line: #d9e2ec;
+      --panel: #ffffff;
+      --bg: #f3f6f8;
+      --green: #0d7a4f;
+      --blue: #235a92;
+      --gold: #8a6418;
+      --soft-green: #e8f6ef;
+      --soft-blue: #e8f1fb;
+      --soft-gold: #fff4d8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+    main {
+      width: min(1160px, calc(100% - 48px));
+      margin: 28px auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 45px rgba(30, 44, 64, 0.08);
+    }
+    header {
+      padding: 34px 40px 24px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #f7fafc 100%);
+    }
+    h1 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+    .subtitle {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 900px;
+    }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 7px 12px;
+      border-radius: 6px;
+      color: var(--green);
+      background: var(--soft-green);
+      font-weight: 700;
+      border: 1px solid #bfe6d1;
+    }
+    section { padding: 26px 40px; border-bottom: 1px solid var(--line); }
+    section:last-child { border-bottom: 0; }
+    h2 { margin: 0 0 12px; font-size: 21px; }
+    h3 { margin: 18px 0 8px; font-size: 16px; color: var(--blue); }
+    p { margin: 8px 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fbfdff;
+      min-height: 110px;
+    }
+    .metric strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1.1;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin: 16px 0 4px;
+    }
+    .step {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+    .step b { color: var(--blue); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #edf3f8; color: #28394c; }
+    .phrase {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--green);
+      white-space: nowrap;
+    }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      background: #f2f5f7;
+      border: 1px solid #e1e7ee;
+      border-radius: 4px;
+      padding: 1px 5px;
+    }
+    .note {
+      padding: 14px 16px;
+      border-radius: 8px;
+      background: var(--soft-blue);
+      border: 1px solid #c6dbf3;
+      color: #23466b;
+    }
+    .value {
+      padding: 16px 18px;
+      border-radius: 8px;
+      background: var(--soft-gold);
+      border: 1px solid #ead08d;
+      color: #5e4513;
+    }
+    ul { margin: 8px 0 0; padding-left: 20px; }
+    li { margin: 6px 0; }
+    @media (max-width: 820px) {
+      main { width: calc(100% - 24px); margin: 12px auto; }
+      header, section { padding: 22px; }
+      .grid, .flow { grid-template-columns: 1fr; }
+      .phrase { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3 Phase7.7：从“内在状态”学会自然中文表达</h1>
+    <p class="subtitle">
+      这一阶段把前面已经跑通的结构性内省 feeling，推进到真实中文短句 token 流。
+      系统先经历一种内部结构态，再观察到周围人或教师在同一时刻说出的中文表达；
+      经过多次共现后，teacher-off 时只给内部结构态，它能自己召回对应短句。
+    </p>
+    <div class="status">验收通过：5 类结构态全部召回对应中文短句</div>
+  </header>
+
+  <section>
+    <h2>这一步为什么重要</h2>
+    <p>
+      APV3 的目标不是预先写一张“遇到问题就回答什么”的表，而是让系统像孩子一样，
+      在自己的内部状态和外界表达之间建立后天关联。Phase7.7 证明了这条链路已经能接上自然中文：
+      “我还不确定”“我先记着”“我想请教一下”这类短句，不是内置规则，而是被当作普通 token 流学习到的表达材料。
+    </p>
+    <div class="flow">
+      <div class="step"><b>1. 内部结构态出现</b><br>例如草稿不能决、工作记忆未完成、主动求教压力、惩罚痕迹、顺畅奖励。</div>
+      <div class="step"><b>2. 同时观察中文表达</b><br>教师或环境给出真实短句 token 流，例如“我还不确定”。</div>
+      <div class="step"><b>3. teacher-off 自主召回</b><br>之后不再提供短句，只由结构态触发学到的表达序列。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>直观结果</h2>
+    <table>
+      <tr>
+        <th>内部结构态</th>
+        <th>teacher-off 召回的中文表达</th>
+        <th>目标分数</th>
+        <th>最高干扰</th>
+        <th>结果含义</th>
+      </tr>
+      <tr>
+        <td>对话草稿只能确定共享片段，不能完整决定</td>
+        <td class="phrase">我还不确定</td>
+        <td>2.9967</td>
+        <td>0.3996</td>
+        <td>系统学会在“不能决”的结构态下召回简洁的不确定表达。</td>
+      </tr>
+      <tr>
+        <td>工作记忆里有未完成事项</td>
+        <td class="phrase">我先记着</td>
+        <td>2.9967</td>
+        <td>0.3330</td>
+        <td>系统能把未完成压力和“先记着”的表达联系起来。</td>
+      </tr>
+      <tr>
+        <td>主动求教压力升高</td>
+        <td class="phrase">我想请教一下</td>
+        <td>4.4951</td>
+        <td>0.3330</td>
+        <td>系统能把求教状态和求助式中文表达联系起来。</td>
+      </tr>
+      <tr>
+        <td>最近行动带来惩罚痕迹</td>
+        <td class="phrase">这里不太对</td>
+        <td>3.7459</td>
+        <td>0.2664</td>
+        <td>系统能把负反馈痕迹和纠错式表达联系起来。</td>
+      </tr>
+      <tr>
+        <td>行动提交顺畅并得到奖励</td>
+        <td class="phrase">这样就顺了</td>
+        <td>3.7459</td>
+        <td>0.2664</td>
+        <td>系统能把顺畅完成感和正向确认表达联系起来。</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>验证强度</h2>
+    <div class="grid">
+      <div class="metric">
+        <strong>5/5</strong>
+        五类结构性 feeling 都召回了各自中文短句。
+      </div>
+      <div class="metric">
+        <strong>7x+</strong>
+        最弱一组目标分数也明显高于最高干扰项。
+      </div>
+      <div class="metric">
+        <strong>0</strong>
+        teacher-off replay 中没有外部表达 token 输入。
+      </div>
+    </div>
+    <h3>干扰项也一起进入学习环境</h3>
+    <p>
+      测试中不只喂目标短句，还同时放入低权重干扰短句，以及同一目标短句的倒序版本。
+      最终胜出的是目标 phrase id 与它保存下来的正确顺序，说明系统学到的不是“某几个字出现过”，
+      而是“这个内部结构态更常和这个表达短句整体一起出现”。
+    </p>
+    <h3>保存恢复后仍然一致</h3>
+    <p>
+      共现表与中文短句记忆都写入 runtime state，经 SQLite warm-load 后重新召回，
+      输出的 phrase id 与中文 token 序列保持一致。
+    </p>
+  </section>
+
+  <section>
+    <h2>它和常见误解的区别</h2>
+    <div class="note">
+      <p>
+        这个结果的关键价值在于：中文短句不是学生侧 policy，也不是“看到不确定三个字就回答某句话”。
+        学生侧只拥有结构态、共现关联、短句支持度和 teacher-off 召回链路。
+        中文内容本身没有特殊地位，换成听觉 token、视觉符号、手势 token，同一机制也可以学习。
+      </p>
+    </div>
+    <ul>
+      <li>runtime 红线扫描没有 Phase7.7 中文短句。</li>
+      <li>runtime 没有答案表、关键词路由、旧 <code>must_reply</code> 通道或 student-side LLM。</li>
+      <li>表达是后天观察得到的 AP-native evidence，教师可以加速，但学生侧不依赖教师策略在线作答。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>验收命令</h2>
+    <p><code>python -m pytest APV3.0test\tests\test_phase7_7_natural_chinese_expression_stream.py -q</code></p>
+    <p>结果：<strong>5 passed</strong></p>
+    <p>Phase7.0-7.7 组合回归：<strong>57 passed</strong>；全量测试：<strong>230 passed</strong>；编译检查通过；runtime 红线扫描无命中。</p>
+    <p class="value">
+      Phase7.7 的正向意义：APV3.0test 已经不只是抽象 token 的机制探针；
+      它开始证明“内部状态 -> 后天中文表达”的自然语言可用性路径。
+      这为后续开放中文对话底座提供了一个清晰、可验收、可扩展的支点。
+    </p>
+  </section>
+</main>
+</body>
+</html>

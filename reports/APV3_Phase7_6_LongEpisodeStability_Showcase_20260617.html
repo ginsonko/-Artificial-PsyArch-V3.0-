@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase7.6 长 episode 稳定性</title>
+  <style>
+    body { margin: 0; font-family: "Microsoft YaHei", Arial, sans-serif; line-height: 1.65; color: #20262e; background: #f4f6f8; }
+    main { width: min(1060px, calc(100% - 48px)); margin: 28px auto; background: #fff; border: 1px solid #d9e0e8; padding: 30px 36px; }
+    h1 { margin: 0 0 10px; font-size: 28px; }
+    h2 { margin: 26px 0 10px; font-size: 20px; border-bottom: 1px solid #e5ebf1; padding-bottom: 6px; }
+    p { margin: 8px 0; }
+    table { border-collapse: collapse; width: 100%; margin-top: 12px; font-size: 14px; }
+    th, td { border: 1px solid #d9e0e8; padding: 9px 11px; text-align: left; }
+    th { background: #edf2f6; }
+    code { font-family: Consolas, monospace; background: #f2f5f7; padding: 1px 5px; border-radius: 4px; }
+    .ok { color: #0f6b3d; font-weight: 700; background: #e8f6ef; border: 1px solid #bee2ce; display: inline-block; padding: 7px 12px; border-radius: 6px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+    .card { border: 1px solid #d9e0e8; border-radius: 8px; padding: 14px; background: #fbfdff; }
+    .card strong { display: block; font-size: 25px; color: #0f6b3d; }
+    @media (max-width: 760px) { main { width: calc(100% - 24px); padding: 22px; } .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>APV3 Phase7.6：1200 tick 长 episode 稳定性</h1>
+  <p class="ok">通过：长跑、稀疏类别保留、SQLite warm-load parity、teacher-off 末尾召回全部成立。</p>
+
+  <h2>这一步证明了什么</h2>
+  <p>
+    Phase7.6 把 5 类内省表达关联放进 1200 tick 混合序列里运行。
+    它验证这些 feeling 与表达关联不是短期偶然，而是在长时间交错、稀疏出现、保存恢复之后仍然能保持稳定。
+  </p>
+
+  <div class="grid">
+    <div class="card"><strong>1200</strong>总 tick 数</div>
+    <div class="card"><strong>147</strong>最稀疏类别最大间隔</div>
+    <div class="card"><strong>5/5</strong>末尾 teacher-off 全部召回正确表达</div>
+  </div>
+
+  <h2>长跑结果</h2>
+  <table>
+    <tr><th>事件</th><th>feeling</th><th>最终表达</th><th>target</th><th>best other</th></tr>
+    <tr><td>对话不能决</td><td><code>proto_0</code></td><td><code>expr::long_dialogue</code></td><td>0.7851</td><td>0.0960</td></tr>
+    <tr><td>工作记忆未完成</td><td><code>proto_1</code></td><td><code>expr::long_work_memory</code></td><td>0.7493</td><td>0.0916</td></tr>
+    <tr><td>主动求教压力</td><td><code>proto_2</code></td><td><code>expr::long_teacher_request</code></td><td>0.7521</td><td>0.0919</td></tr>
+    <tr><td>惩罚痕迹</td><td><code>proto_3</code></td><td><code>expr::long_punishment</code></td><td>0.9392</td><td>0.1148</td></tr>
+    <tr><td>顺畅奖励</td><td><code>proto_4</code></td><td><code>expr::long_flow</code></td><td>1.0916</td><td>0.1334</td></tr>
+  </table>
+
+  <h2>验收</h2>
+  <p>Phase7.6 targeted: <strong>3 passed</strong></p>
+  <p>Phase7.0-7.6 combined: <strong>52 passed</strong></p>
+  <p>Phase7.0-7.7 combined after Phase7.7: <strong>57 passed</strong></p>
+  <p>Full suite after Phase7.7: <strong>230 passed</strong></p>
+  <p>Compileall 通过，runtime 红线扫描无命中。</p>
+</main>
+</body>
+</html>

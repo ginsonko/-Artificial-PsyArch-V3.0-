@@ -1,0 +1,116 @@
+/* APV3 理论读本样式 */
+:root {
+  --primary: #2d4f9e;
+  --text: #1c2838;
+  --text-light: #6a7d8a;
+  --border: #e3e8ef;
+  --bg: #fdfdfb;
+  --code-bg: #f4f6fa;
+  --accent: #b8821f;
+  --card-bg: #ffffff;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.78;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Hero ===== */
+.theory-hero {
+  position: sticky; top: 0; z-index: 10;
+  background: linear-gradient(90deg, #2d4f9e 0%, #3454a8 60%, #88a6d4 100%);
+  color: #fff;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 28px;
+  box-shadow: 0 2px 12px rgba(28,40,56,.12);
+}
+.theory-hero-inner { display: flex; align-items: center; gap: 14px; }
+.theory-hero .brand-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 8px;
+  background: rgba(255,255,255,.2); font-weight: 700; font-size: 17px;
+}
+.theory-hero h1 { margin: 0; font-size: 22px; line-height: 1.2; }
+.theory-hero .subtitle { margin: 4px 0 0; font-size: 13px; color: rgba(255,255,255,.78); }
+.theory-back { color: rgba(255,255,255,.92); text-decoration: none; font-size: 13px; padding: 6px 12px; border: 1px solid rgba(255,255,255,.4); border-radius: 6px; transition: background .15s; }
+.theory-back:hover { background: rgba(255,255,255,.12); }
+
+/* ===== Layout ===== */
+.theory-layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 28px; max-width: 1200px; margin: 28px auto; padding: 0 28px; }
+
+/* ===== TOC ===== */
+.theory-toc {
+  position: sticky; top: 88px; align-self: start;
+  max-height: calc(100vh - 110px); overflow-y: auto;
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 16px 14px;
+}
+.theory-toc-title { font-size: 13px; font-weight: 600; margin-bottom: 10px; color: var(--primary); letter-spacing: .5px; }
+.theory-toc nav a {
+  display: block; padding: 6px 8px; margin: 1px 0;
+  color: var(--text); text-decoration: none; font-size: 13px;
+  border-radius: 6px; line-height: 1.45; border-left: 2px solid transparent;
+}
+.theory-toc nav a:hover { background: #f4f6fa; color: var(--primary); }
+.theory-toc nav a.active { background: #eef3ff; color: var(--primary); font-weight: 500; border-left-color: var(--primary); }
+.theory-toc nav a.sub { padding-left: 20px; font-size: 12px; color: var(--text-light); }
+
+/* ===== Article ===== */
+.theory-article { min-width: 0; padding: 0; }
+.theory-article > * { max-width: 760px; }
+.theory-loading { color: var(--text-light); padding: 40px 0; text-align: center; }
+.theory-error { color: #b53b3b; padding: 20px; background: #fff4f4; border: 1px solid #f4cccc; border-radius: 8px; }
+
+.theory-article h1 { font-size: 30px; margin: 0 0 16px; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 10px; }
+.theory-article h2 { font-size: 23px; margin: 36px 0 14px; color: var(--primary); padding-left: 12px; border-left: 5px solid var(--primary); line-height: 1.3; }
+.theory-article h3 { font-size: 18px; margin: 24px 0 10px; color: #3a5896; }
+.theory-article h4 { font-size: 16px; margin: 18px 0 8px; }
+.theory-article p { margin: 0 0 14px; font-size: 15.5px; }
+.theory-article ul, .theory-article ol { margin: 0 0 14px; padding-left: 26px; }
+.theory-article li { margin: 6px 0; font-size: 15.5px; }
+.theory-article strong { color: var(--primary); font-weight: 600; }
+.theory-article em { color: var(--accent); font-style: normal; font-weight: 500; padding: 0 2px; }
+.theory-article a { color: var(--primary); text-decoration: underline; text-underline-offset: 2px; }
+.theory-article code { background: var(--code-bg); padding: 2px 7px; border-radius: 4px; font-size: 13.5px; font-family: "JetBrains Mono", Consolas, Menlo, monospace; color: #2d3f60; }
+.theory-article pre {
+  background: var(--code-bg); padding: 14px 18px; border-radius: 8px; overflow-x: auto;
+  border: 1px solid var(--border); margin: 14px 0 20px;
+  font-size: 13.5px; line-height: 1.62; font-family: "JetBrains Mono", Consolas, Menlo, monospace;
+}
+.theory-article pre code { background: transparent; padding: 0; }
+.theory-article blockquote { margin: 14px 0; padding: 10px 16px; background: #f9fbff; border-left: 4px solid var(--accent); border-radius: 6px; color: var(--text-light); font-size: 14px; }
+.theory-article blockquote p { margin: 0 0 6px; }
+.theory-article blockquote p:last-child { margin-bottom: 0; }
+
+.theory-article table { border-collapse: collapse; margin: 14px 0 22px; width: 100%; font-size: 14px; box-shadow: 0 1px 0 var(--border); }
+.theory-article table th, .theory-article table td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; vertical-align: top; }
+.theory-article table th { background: #f0f3fa; color: var(--primary); font-weight: 600; }
+.theory-article table tr:nth-child(even) td { background: #fafbfd; }
+
+.theory-article hr { border: none; border-top: 1px dashed var(--border); margin: 32px 0; }
+
+/* Plain-text fallback (CDN unavailable): show pre without monospaced colors */
+.preview-plain { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 18px 22px; font-family: "JetBrains Mono", Consolas, monospace; font-size: 13.5px; line-height: 1.55; white-space: pre-wrap; word-break: break-word; color: var(--text); }
+
+/* Highlight located quote at top */
+.theory-callout {
+  background: linear-gradient(135deg, #fffef9 0%, #fff8e8 100%);
+  border: 1px dashed #e2c478; border-radius: 10px;
+  padding: 16px 20px; margin: 0 0 22px;
+}
+.theory-callout p { margin: 0 0 8px; }
+.theory-callout p:last-child { margin-bottom: 0; }
+.theory-callout strong { color: var(--accent); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .theory-layout { grid-template-columns: 1fr; gap: 18px; padding: 0 18px; }
+  .theory-toc { position: static; max-height: 240px; }
+  .theory-hero { padding: 14px 18px; }
+  .theory-hero h1 { font-size: 19px; }
+  .theory-article { font-size: 15px; }
+}

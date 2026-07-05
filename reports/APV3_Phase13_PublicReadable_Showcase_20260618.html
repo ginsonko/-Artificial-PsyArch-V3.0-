@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>APV3 Phase 13 认知课程展示页</title>
+  <style>
+    :root {
+      --ink:#17242a;
+      --muted:#64727a;
+      --paper:#f7faf9;
+      --white:#ffffff;
+      --line:#d8e3df;
+      --teal:#0f766e;
+      --blue:#265f94;
+      --amber:#9a6a16;
+      --coral:#a64b3f;
+      --violet:#6655a2;
+      --dark:#132126;
+      --soft-teal:#e5f3f0;
+      --soft-blue:#e7f0f8;
+      --soft-amber:#f7efd9;
+      --soft-coral:#f8e8e3;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      font-family:"Microsoft YaHei","PingFang SC","Segoe UI",Arial,sans-serif;
+      color:var(--ink);
+      background:var(--paper);
+      line-height:1.7;
+    }
+    .wrap { width:min(1160px, calc(100% - 40px)); margin:0 auto; }
+    .topbar {
+      border-bottom:1px solid var(--line);
+      background:var(--white);
+    }
+    .topbar .wrap {
+      min-height:56px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      font-size:14px;
+      color:var(--muted);
+    }
+    .brand { color:var(--teal); font-weight:700; }
+    header {
+      padding:54px 0 46px;
+      border-bottom:1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(247,250,249,.92), rgba(247,250,249,.74)),
+        repeating-linear-gradient(135deg, rgba(15,118,110,.055) 0, rgba(15,118,110,.055) 1px, transparent 1px, transparent 18px),
+        linear-gradient(135deg, #f8fbfa 0%, #edf6f3 48%, #f8f3e8 100%);
+    }
+    h1 {
+      max-width:880px;
+      margin:0 0 18px;
+      font-size:46px;
+      line-height:1.16;
+      letter-spacing:0;
+    }
+    .lead {
+      max-width:940px;
+      margin:0;
+      color:#2d3b41;
+      font-size:19px;
+    }
+    .hero-grid {
+      display:grid;
+      grid-template-columns:1.16fr .84fr;
+      gap:24px;
+      align-items:stretch;
+      margin-top:34px;
+    }
+    .hero-panel {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:rgba(255,255,255,.9);
+      padding:20px;
+    }
+    .metric-row {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+    }
+    .metric {
+      border:1px solid var(--line);
+      border-radius:8px;
+      padding:14px;
+      background:var(--white);
+      min-height:96px;
+    }
+    .metric strong {
+      display:block;
+      color:var(--teal);
+      font-size:30px;
+      line-height:1.15;
+    }
+    .metric span { display:block; margin-top:6px; color:var(--muted); font-size:14px; }
+    .process-map {
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:8px;
+    }
+    .map-node {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:var(--white);
+      padding:12px;
+      min-height:92px;
+      position:relative;
+    }
+    .map-node b { display:block; color:var(--blue); margin-bottom:4px; }
+    .map-node span { color:var(--muted); font-size:13px; }
+    section { padding:44px 0; border-bottom:1px solid var(--line); }
+    h2 { margin:0 0 16px; font-size:28px; line-height:1.25; letter-spacing:0; }
+    h3 { margin:0 0 10px; font-size:20px; line-height:1.35; letter-spacing:0; }
+    p { margin:0 0 12px; }
+    .intro {
+      max-width:940px;
+      color:#2f3f46;
+      font-size:17px;
+    }
+    .three {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+      margin-top:20px;
+    }
+    .card {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:var(--white);
+      padding:18px;
+    }
+    .card p { color:var(--muted); }
+    .case {
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:var(--white);
+      margin-top:18px;
+      overflow:hidden;
+    }
+    .case-head {
+      display:grid;
+      grid-template-columns:180px 1fr;
+      gap:18px;
+      padding:18px;
+      border-bottom:1px solid var(--line);
+      background:#fbfdfc;
+    }
+    .case-index {
+      border-radius:8px;
+      padding:14px;
+      color:var(--white);
+      background:var(--teal);
+      min-height:112px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .case-index b { font-size:30px; line-height:1; }
+    .case-index span { font-size:14px; opacity:.95; }
+    .case-body {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      padding:18px;
+    }
+    .case-body.single { grid-template-columns:1fr; }
+    .label {
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      padding:3px 9px;
+      border-radius:6px;
+      color:#fff;
+      font-size:13px;
+      font-weight:700;
+      background:var(--blue);
+      margin-bottom:10px;
+    }
+    .label.amber { background:var(--amber); }
+    .label.coral { background:var(--coral); }
+    .label.violet { background:var(--violet); }
+    .mini-list { margin:0; padding:0; list-style:none; }
+    .mini-list li {
+      border-top:1px solid var(--line);
+      padding:9px 0;
+      color:#3c4b52;
+    }
+    .mini-list li:first-child { border-top:0; padding-top:0; }
+    .trace {
+      margin:0;
+      white-space:pre-wrap;
+      overflow:auto;
+      border-radius:8px;
+      background:var(--dark);
+      color:#edf7f4;
+      padding:15px;
+      font-family:"Cascadia Mono","Consolas",monospace;
+      font-size:14px;
+      line-height:1.55;
+    }
+    .flow {
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:10px;
+      margin-top:12px;
+    }
+    .flow-step {
+      border:1px solid var(--line);
+      border-radius:8px;
+      padding:12px;
+      background:#fbfdfc;
+      min-height:106px;
+    }
+    .flow-step b { color:var(--teal); display:block; margin-bottom:4px; }
+    .flow-step span { color:var(--muted); font-size:13px; }
+    .barset { display:grid; gap:10px; margin-top:10px; }
+    .bar-row { display:grid; grid-template-columns:150px 1fr 58px; gap:10px; align-items:center; }
+    .bar-label { color:#3a4a51; font-size:14px; }
+    .bar-track { height:12px; border-radius:8px; background:#edf2f0; overflow:hidden; }
+    .bar-fill { height:100%; border-radius:8px; background:var(--teal); }
+    .bar-fill.blue { background:var(--blue); }
+    .bar-fill.amber { background:var(--amber); }
+    .bar-fill.coral { background:var(--coral); }
+    .grid-board {
+      display:inline-grid;
+      grid-template-columns:repeat(5,36px);
+      gap:4px;
+      padding:12px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#f6faf8;
+      margin:6px 0 12px;
+    }
+    .cell {
+      width:36px;
+      height:36px;
+      border:1px solid #cbd9d4;
+      border-radius:6px;
+      background:var(--white);
+      display:grid;
+      place-items:center;
+      font-weight:700;
+      color:var(--ink);
+    }
+    .cell.focus { border-color:var(--blue); background:var(--soft-blue); }
+    .cell.answer { border-color:var(--teal); background:var(--soft-teal); }
+    .quote-row {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:8px;
+    }
+    .chip {
+      border:1px solid var(--line);
+      border-radius:6px;
+      background:var(--white);
+      padding:6px 10px;
+      min-height:34px;
+      display:inline-flex;
+      align-items:center;
+      color:#2f3e44;
+    }
+    .proof {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-top:18px;
+    }
+    .proof .card { background:#fbfdfc; }
+    .pass { color:var(--teal); font-weight:700; }
+    .note { color:var(--muted); font-size:14px; }
+    footer {
+      padding:28px 0 36px;
+      color:var(--muted);
+      background:var(--white);
+    }
+    @media (max-width:960px) {
+      h1 { font-size:36px; }
+      .hero-grid,
+      .case-head,
+      .case-body,
+      .proof,
+      .three,
+      .metric-row,
+      .process-map,
+      .flow {
+        grid-template-columns:1fr;
+      }
+      .case-index { min-height:auto; }
+      .bar-row { grid-template-columns:120px 1fr 48px; }
+    }
+    @media (max-width:560px) {
+      .wrap { width:min(100% - 26px, 1160px); }
+      header { padding:38px 0 32px; }
+      h1 { font-size:31px; }
+      .lead { font-size:17px; }
+      .grid-board { grid-template-columns:repeat(5,30px); }
+      .cell { width:30px; height:30px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div><span class="brand">APV3.0test</span> Phase 13 认知课程 Alpha</div>
+      <div>公开分享解释版 · 2026-06-18</div>
+    </div>
+  </div>
+
+  <header>
+    <div class="wrap">
+      <h1>AP 现在不只是会被动回答，而是开始有“课程学习”的底座了</h1>
+      <p class="lead">Phase 13 做的是一件很关键的事：把前面已经验证过的注意、记忆、来源感受、行动竞争、表达风格，接成一个可以被课程喂养、可以被审计、可以做小规模正向演示的学习系统。它不靠运行时大模型替它回答，也不把答案表塞进去，而是让知识通过感知原型、共现支持、held-out 验收、SDPL 学习包和行动竞争进入。</p>
+
+      <div class="hero-grid">
+        <div class="hero-panel">
+          <h3>一句话说明</h3>
+          <p>这轮证明了：APV3 已经能用同一套 AP-native 机制接收文字、视觉、音频、表达、行动、社交和草稿数学课程，并在小规模题目上给出可审计的正向结果。</p>
+          <div class="metric-row">
+            <div class="metric"><strong>40</strong><span>Phase 13 专项测试全部通过</span></div>
+            <div class="metric"><strong>449</strong><span>全套回归测试通过</span></div>
+            <div class="metric"><strong>275</strong><span>数值常量纳入治理</span></div>
+            <div class="metric"><strong>0</strong><span>数学捷径红线命中</span></div>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <h3>AP 的输出不是“直接吐答案”</h3>
+          <div class="process-map">
+            <div class="map-node"><b>输入</b><span>题目、图像、声音、反馈或课程示例进入。</span></div>
+            <div class="map-node"><b>感知</b><span>变成字符、视觉、音频、草稿格等 SA。</span></div>
+            <div class="map-node"><b>来源</b><span>标记为看到的、自己写的、记起的等来源。</span></div>
+            <div class="map-node"><b>学习包</b><span>形成 SDPL packet，进入 Q 回退学习。</span></div>
+            <div class="map-node"><b>输出</b><span>表达、行动或草稿提交由竞争胜出。</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <h2>普通人可以怎么理解这次结果</h2>
+      <p class="intro">可以把 AP 想成一个刚开始系统上课的小孩。老师不应该把答案表塞进脑子里，而是提供例子、对比、纠错和奖励。AP 需要自己形成“这个看起来像水旁”“黄色和苹果形状一起出现”“我在草稿纸上写过 7”“收到纠正时应该接纳反馈”这样的内部关联。Phase 13 证明的是：这张课桌已经搭起来，并且第一批小题能跑通。</p>
+
+      <div class="three">
+        <div class="card">
+          <h3>证明 1：课程可以干净进入</h3>
+          <p>课程包必须有 schema、作者、许可、trust tier 和 review status；公开 payload 不能带私有答案、私有 event_id 或泄漏字段。</p>
+        </div>
+        <div class="card">
+          <h3>证明 2：知识靠对比和泛化</h3>
+          <p>字、词、视觉、音频都要通过原型相似、组件数量、干扰项边际等方式进入，不靠中文关键词或固定标签路线。</p>
+        </div>
+        <div class="card">
+          <h3>证明 3：输出过程可以被审计</h3>
+          <p>尤其是数学，AP 先在 DraftGrid 草稿框里写、移动字焦点、召回已教事实，再提交输出。过程能回放，不是隐藏计算器。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>案例一：视觉题目，AP 学会区分“黄苹果”而不是只背一个词</h2>
+      <div class="case">
+        <div class="case-head">
+          <div class="case-index"><b>01</b><span>视觉组合课程</span></div>
+          <div>
+            <h3>题目内容</h3>
+            <p>课程里给 AP 一个目标组合：颜色是黄色，形状是苹果。同时给干扰项：黄色香蕉、红色苹果。只有当“黄色 + 苹果形状”的组合支持明显高于干扰项，课程才算通过。</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <span class="label">真实测试分数</span>
+            <div class="barset">
+              <div class="bar-row"><div class="bar-label">黄苹果</div><div class="bar-track"><div class="bar-fill" style="width:82%"></div></div><div>0.82</div></div>
+              <div class="bar-row"><div class="bar-label">黄色香蕉</div><div class="bar-track"><div class="bar-fill amber" style="width:38%"></div></div><div>0.38</div></div>
+              <div class="bar-row"><div class="bar-label">红色苹果</div><div class="bar-track"><div class="bar-fill coral" style="width:41%"></div></div><div>0.41</div></div>
+            </div>
+          </div>
+          <div>
+            <span class="label amber">AP 输出过程</span>
+            <ul class="mini-list">
+              <li>颜色感受器和形状感受器分别形成状态，不把“黄苹果”当作一整句答案。</li>
+              <li>课程 gate 比较目标组合和干扰组合的支持差距。</li>
+              <li>最强干扰项是红色苹果 0.41，目标是 0.82，边际为 0.41。</li>
+              <li><span class="pass">输出：接受这个视觉组合课程。</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>案例二：字符题目，AP 用视觉原型泛化偏旁</h2>
+      <div class="case">
+        <div class="case-head">
+          <div class="case-index" style="background:var(--blue)"><b>02</b><span>偏旁与字形课程</span></div>
+          <div>
+            <h3>题目内容</h3>
+            <p>课程给 AP 一个“像水旁”的视觉原型。测试时不让它靠字符串名字判断，而是看未见样本的向量是否真的更接近这个原型。另一个故意很接近的模糊样本会被拒绝，用来防止过度自信。</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <span class="label">正向样本</span>
+            <pre class="trace">target: radical::water_like
+positive similarity: 0.998
+negative similarity: 0.333
+result: accepted</pre>
+          </div>
+          <div>
+            <span class="label coral">模糊样本</span>
+            <pre class="trace">target: radical::ambiguous
+positive similarity: 0.9998
+negative similarity: 0.9992
+result: rejected</pre>
+          </div>
+        </div>
+        <div class="case-body single">
+          <ul class="mini-list">
+            <li>这代表 AP 可以接受“很像水旁”的结构泛化。</li>
+            <li>但当正反样本太接近时，它不会强行说自己学会了。</li>
+            <li>这对未来汉字课程很重要：它需要像孩子一样从形状经验里学，而不是读偏旁标签表。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>案例三：音频题目，AP 能把“轻声呼唤”从噪声里分出来</h2>
+      <div class="case">
+        <div class="case-head">
+          <div class="case-index" style="background:var(--amber)"><b>03</b><span>听觉课程</span></div>
+          <div>
+            <h3>题目内容</h3>
+            <p>课程给出一个软呼唤的音频签名，再给几个正样本和噪声干扰样本。AP 不需要知道“软呼唤”四个字是什么意思，只需要在听觉向量上形成稳定区分。</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <span class="label">测试结果</span>
+            <div class="barset">
+              <div class="bar-row"><div class="bar-label">正向音频</div><div class="bar-track"><div class="bar-fill blue" style="width:99%"></div></div><div>0.999</div></div>
+              <div class="bar-row"><div class="bar-label">最强噪声</div><div class="bar-track"><div class="bar-fill coral" style="width:55%"></div></div><div>0.551</div></div>
+              <div class="bar-row"><div class="bar-label">区分边际</div><div class="bar-track"><div class="bar-fill" style="width:45%"></div></div><div>0.448</div></div>
+            </div>
+          </div>
+          <div>
+            <span class="label violet">AP 输出过程</span>
+            <ul class="mini-list">
+              <li>音频进入后被表示成连续签名向量。</li>
+              <li>正样本与目标签名高度接近，噪声样本明显较远。</li>
+              <li><span class="pass">输出：接受该音频模式课程。</span></li>
+              <li>这为以后“听到你叫它”“听到提醒音”“听到环境声”打底。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>案例四：数学题目，AP 在草稿框里做最小竖式</h2>
+      <div class="case">
+        <div class="case-head">
+          <div class="case-index" style="background:var(--coral)"><b>04</b><span>DraftGrid 数学课程</span></div>
+          <div>
+            <h3>题目内容：23 + 47</h3>
+            <p>这里不是让 AP 调用计算器，也不是给它固定坐标答案表。课程先教两个事实：3 和 7 的结果是 10，2、4、进位 1 的结果是 7。AP 然后在草稿框里写题、移动字焦点、召回事实、提交答案。</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <span class="label">草稿框可见结果</span>
+            <div class="grid-board" aria-label="23 plus 47 draft grid">
+              <div class="cell"></div><div class="cell"></div><div class="cell">2</div><div class="cell focus">3</div><div class="cell"></div>
+              <div class="cell"></div><div class="cell"></div><div class="cell">4</div><div class="cell focus">7</div><div class="cell"></div>
+              <div class="cell"></div><div class="cell"></div><div class="cell answer">7</div><div class="cell answer">0</div><div class="cell"></div>
+            </div>
+            <pre class="trace">输入题目:
+  23
++ 47
+
+AP 提交:
+  70</pre>
+          </div>
+          <div>
+            <span class="label amber">逐步输出过程</span>
+            <div class="flow">
+              <div class="flow-step"><b>1 写入草稿</b><span>把 23 和 47 放进 DraftGrid。</span></div>
+              <div class="flow-step"><b>2 右列聚焦</b><span>字焦点对准 3 和 7 所在列。</span></div>
+              <div class="flow-step"><b>3 召回事实</b><span>使用已教 opaque fact，得到 10。</span></div>
+              <div class="flow-step"><b>4 左列聚焦</b><span>相对移动轨迹是向左一列。</span></div>
+              <div class="flow-step"><b>5 提交</b><span>写出 70，答案成立。</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <span class="label">不是背固定坐标</span>
+            <pre class="trace">origin A: row 0, col 2 -> answer 70
+origin B: row 4, col 5 -> answer 70
+movement similarity: 1.0
+focus movement: (0, -1)</pre>
+          </div>
+          <div>
+            <span class="label coral">不是隐藏计算器</span>
+            <ul class="mini-list">
+              <li>禁止项扫描通过：没有 column_sum、compute_addition、solve_equation。</li>
+              <li>禁止直接读格捷径：没有 read_grid_cell。</li>
+              <li>事实 id 是哈希形式，例如 fact::c3ed2915f9620f2b，不把 3+7 写进 id。</li>
+              <li><span class="pass">输出：两个不同起点都得到 70。</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>案例五：表达题目，AP 保持“短、轻、像小孩”的回复风格</h2>
+      <div class="case">
+        <div class="case-head">
+          <div class="case-index" style="background:var(--violet)"><b>05</b><span>表达范式课程</span></div>
+          <div>
+            <h3>题目内容</h3>
+            <p>我们希望 AP 后续像一个沉默寡言、惜字如金但可爱的初级中文对话伙伴，所以表达课程不鼓励长篇宏句，而是鼓励短表达在不同认知状态下自然竞争出来。</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <span class="label">被接受的短表达候选</span>
+            <div class="quote-row">
+              <span class="chip">嗯</span><span class="chip">好</span><span class="chip">可以</span><span class="chip">试试</span>
+              <span class="chip">不确定</span><span class="chip">我看看</span><span class="chip">慢点</span><span class="chip">学一下</span>
+              <span class="chip">没懂</span><span class="chip">这样吗</span>
+            </div>
+          </div>
+          <div>
+            <span class="label coral">被拒绝的长宏句</span>
+            <pre class="trace">候选:
+我 / 现在 / 完全 / 理解 / 你的 / 意思
+
+result:
+rejected as expr::long</pre>
+          </div>
+        </div>
+        <div class="case-body single">
+          <p class="note">测试结果：20 个短表达候选通过，long_reply_ratio = 0.0。重点不是让 AP 背一批完整回复，而是让短表达作为行动候选，在不确定、想学、记起、被纠正等内部状态下自然胜出。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>案例六：收到反馈时，AP 学会选择“接纳反馈”这个行动</h2>
+      <div class="case">
+        <div class="case-head">
+          <div class="case-index"><b>06</b><span>行动与社交课程</span></div>
+          <div>
+            <h3>题目内容</h3>
+            <p>当外部反馈进入时，AP 不能靠“如果文本里有某个关键词就执行动作”。它要把反馈变成学习包，通过 Q 表更新行动价值，让接纳反馈这个行动在竞争中胜出。</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <span class="label">行动竞争</span>
+            <pre class="trace">packet: feedback control state
+action::accept_feedback -> positive outcome
+action::ignore_feedback -> negative outcome
+
+AP selected:
+action::accept_feedback</pre>
+          </div>
+          <div>
+            <span class="label amber">社交常识</span>
+            <ul class="mini-list">
+              <li>soft_correction 同时来自 teacher_demo 和 user_feedback 时通过。</li>
+              <li>single_story 只有 one_example 时被拒绝。</li>
+              <li>这让“社交模式”必须来自多来源经验，而不是听一个故事就立刻固化。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>这和普通“套壳聊天机器人”有什么不同</h2>
+      <div class="proof">
+        <div class="card">
+          <h3>它有来源感</h3>
+          <p>同一个字符 7，如果来自老师展示和来自自己草稿框，packet key 会不同；但内容层可以通过 backoff 迁移一点经验。这类似人知道“我看到老师写的”和“我自己写的”不是同一件事。</p>
+        </div>
+        <div class="card">
+          <h3>它有草稿空间</h3>
+          <p>DraftGrid 让 AP 可以把中间内容写出来、移动焦点、回读自身草稿。数学和未来推理不再只是一次性吐结果。</p>
+        </div>
+        <div class="card">
+          <h3>它有验收边界</h3>
+          <p>课程不是写进去就算会了，需要 held-out、干扰项、边际、红线扫描和回归测试一起通过。</p>
+        </div>
+        <div class="card">
+          <h3>它有表达人格</h3>
+          <p>表达不是无限长文本生成，而是一组短表达候选与内部状态竞争。这样更接近我们想要的安静、可爱、会学的小 AP。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>完整验收结果</h2>
+      <div class="case">
+        <div class="case-body">
+          <div>
+            <span class="label">Phase 13 专项</span>
+            <pre class="trace">python -m pytest tests/test_phase13_*.py -q
+
+Result:
+40 passed in 31.84s</pre>
+          </div>
+          <div>
+            <span class="label">全套回归</span>
+            <pre class="trace">python -m pytest -q
+
+Result:
+449 passed in 292.47s</pre>
+          </div>
+        </div>
+        <div class="case-body">
+          <div>
+            <span class="label amber">红线与交付门</span>
+            <pre class="trace">scripts/red_line_check_v14.py
+OK: All red line checks pass
+
+Phase 13.1-13.9 deliverable gates:
+all passed</pre>
+          </div>
+          <div>
+            <span class="label violet">常量治理</span>
+            <pre class="trace">scripts/check_constant_governance.py
+
+OK: Governance check passed
+numeric constants: 275</pre>
+          </div>
+        </div>
+      </div>
+      <p class="note">这页是给外部分享看的解释版；技术细节、边界和命令记录保留在 Phase 13 总报告中。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>现在可以诚实说什么</h2>
+      <p class="intro">可以说：APV3 已经完成认知课程 alpha 地基，能用统一的 AP-native 路径接收多类课程，并在小规模视觉、听觉、文字、表达、行动、社交和草稿数学任务上给出可审计正向结果。它已经从“机制成立”推进到“可以开始被系统教学和展示”。</p>
+      <div class="three">
+        <div class="card">
+          <h3>正面结论</h3>
+          <p>课程系统、内容 gate、草稿框、移动字焦点、表达风格和行动课程都已经跑通。</p>
+        </div>
+        <div class="card">
+          <h3>下一步价值</h3>
+          <p>Phase 14 可以扩展真实内容规模、打磨 Web 工作台，让团队和外部用户直接体验 AP 的学习过程。</p>
+        </div>
+        <div class="card">
+          <h3>分享重点</h3>
+          <p>别人最应该看到的是：AP 的能力来自持续学习与过程审计，而不是一次性生成一个看起来正确的回答。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      APV3 Phase 13 Public Readable Showcase · 本页根据 2026-06-18 Phase 13 测试与报告生成。
+    </div>
+  </footer>
+</body>
+</html>

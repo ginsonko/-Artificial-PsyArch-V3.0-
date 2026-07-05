@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_5ebcd23dd3d2c0bf",
+  "concept": "computer",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_5ebcd23dd3d2c0bf.png",
+  "sha256": "5ebcd23dd3d2c0bf5734a630259fc0190bec896eebff7049c1a72d9681026d58",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/26782864@N00/16179497694",
+  "download_url": "https://api.openverse.org/v1/images/020c833b-d808-4529-ba24-fa19e228b3f5/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "wwarby",
+  "title": "Commadore 64",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

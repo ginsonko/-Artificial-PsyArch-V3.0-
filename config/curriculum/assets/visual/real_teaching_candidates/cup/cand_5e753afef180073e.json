@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_5e753afef180073e",
+  "concept": "cup",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_5e753afef180073e.png",
+  "sha256": "5e753afef180073e9c040afaacaea9c84a9162df5f3ba85706c4c6b65cd3bc76",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/28958738@N06/4817475710",
+  "download_url": "https://api.openverse.org/v1/images/dae6bc80-100c-4427-9646-c83ed9cc8f30/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Public Domain Photos",
+  "title": "Packaging-Tape-Brown-Parcel-Tape_286011-480x360",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

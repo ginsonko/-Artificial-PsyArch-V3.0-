@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_b40857fa1deaf944",
+  "concept": "table",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_b40857fa1deaf944.png",
+  "sha256": "b40857fa1deaf944ee28e518c9525ea540db996f3ba51ca0e17432521afaf977",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/37996646802@N01/327260700",
+  "download_url": "https://api.openverse.org/v1/images/9ac9dd36-c8e2-4c2e-957d-ff8ef3bf35f1/thumb/",
+  "license_id": "CC0-1.0",
+  "author": "cogdogblog",
+  "title": "Home Office Toys",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

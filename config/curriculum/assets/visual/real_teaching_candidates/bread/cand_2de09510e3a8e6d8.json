@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_2de09510e3a8e6d8",
+  "concept": "bread",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_2de09510e3a8e6d8.png",
+  "sha256": "2de09510e3a8e6d8c45cf28b716f0c863fdee81cc5de592e51cc1b41ed95aa23",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/16287002@N00/6165602895",
+  "download_url": "https://api.openverse.org/v1/images/cd4ddcee-445a-4303-a635-b60292104620/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Richard Allaway",
+  "title": "Today, when we produce more food ...",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

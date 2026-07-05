@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_131e54cdaba000cc",
+  "concept": "cake",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_131e54cdaba000cc.png",
+  "sha256": "131e54cdaba000ccfdfaf5ed8f797c6d4a6694985202b72fe49f26ad65aa4415",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/90692748@N04/31790620371",
+  "download_url": "https://api.openverse.org/v1/images/f6e8e727-3d6b-43f7-9c7c-09bf299baeed/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "docoverachiever",
+  "title": "Don't eat the decorations!",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

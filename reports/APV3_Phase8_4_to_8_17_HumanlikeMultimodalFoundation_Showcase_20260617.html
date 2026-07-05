@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 8 多模态拟人地基验收</title>
+  <style>
+    :root {
+      --bg: #f4f7f8;
+      --panel: #ffffff;
+      --ink: #172126;
+      --muted: #5f707a;
+      --line: #d8e2e7;
+      --green: #0f766e;
+      --blue: #245a8f;
+      --gold: #8a6418;
+      --soft-green: #e8f6ef;
+      --soft-blue: #e8f1fb;
+      --soft-gold: #fff4d8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0;
+    }
+    main {
+      width: min(1220px, calc(100% - 44px));
+      margin: 24px auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 45px rgba(30, 44, 64, 0.08);
+    }
+    header {
+      padding: 36px 44px 28px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fff 0%, #f8fbfc 100%);
+    }
+    section { padding: 28px 44px; border-bottom: 1px solid var(--line); }
+    section:last-child { border-bottom: 0; }
+    h1 { margin: 0; font-size: 31px; line-height: 1.24; }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    h3 { margin: 0 0 8px; font-size: 16px; color: var(--blue); }
+    p { margin: 8px 0; }
+    .subtitle { max-width: 960px; color: var(--muted); font-size: 16px; margin-top: 12px; }
+    .status {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 7px 12px;
+      color: var(--green);
+      background: var(--soft-green);
+      border: 1px solid #bfe6d1;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fbfdff;
+      min-height: 126px;
+    }
+    .card strong { display: block; color: var(--green); font-size: 28px; line-height: 1.1; margin-bottom: 8px; }
+    .flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+    .step {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: var(--soft-blue);
+      min-height: 112px;
+    }
+    .step b { color: var(--blue); display: block; margin-bottom: 5px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #edf3f8; }
+    code { font-family: Consolas, "Courier New", monospace; background: #f2f5f7; border: 1px solid #e1e7ee; border-radius: 4px; padding: 1px 5px; }
+    .callout { border-left: 4px solid var(--green); background: var(--soft-green); padding: 13px 15px; margin-top: 12px; }
+    .gold { border-left-color: var(--gold); background: var(--soft-gold); }
+    .pill { display: inline-block; padding: 5px 9px; border-radius: 999px; background: var(--soft-blue); border: 1px solid #c6dbf3; color: #23466b; margin: 3px 4px 3px 0; font-weight: 700; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    ul { margin: 8px 0 0; padding-left: 20px; }
+    li { margin: 5px 0; }
+    @media (max-width: 900px) {
+      main { width: calc(100% - 22px); margin: 12px auto; }
+      header, section { padding: 22px; }
+      .grid, .flow, .two { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3 Phase 8：拟人多模态中文底座进入可验收闭环</h1>
+    <p class="subtitle">
+      这一轮把 APV3 从“能对话、能学用户口味”推进到更底层的地基：它现在可以区分真实、想象、听闻、记忆和纠错来源；
+      视觉、音频、文本都能进入统一 SA 状态池；想象既能帮助学习，也能在犯错后被纠正；外界 surprise 可以把注意力从内源链拉回现实。
+    </p>
+    <div class="status">验收通过：Phase 8.2-8.17 审计链条对齐，全量 321 passed，红线 PASS</div>
+  </header>
+
+  <section>
+    <h2>一句话价值</h2>
+    <p>
+      Phase 8 证明的是：APV3 的“像小孩子一样学习”的核心路线已经不仅是文本对话技巧，而是有了统一的来源感、感受器输入、想象、纠错、注意力安全门和长期记忆地基。
+    </p>
+    <div class="grid">
+      <div class="card"><strong>5 类来源</strong>真实、想象、听闻、记忆、纠错都可进入学习 packet。</div>
+      <div class="card"><strong>3 类感受器</strong>文本、视觉、音频都先变成一等 SA，再统一学习。</div>
+      <div class="card"><strong>4 个拟人 gate</strong>想象助学、想象误判可纠正、不沉迷幻想、来源感受分化。</div>
+      <div class="card"><strong>321 passed</strong>全量回归通过，旧阶段能力没有被新内核破坏。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>它和普通聊天脚本的区别</h2>
+    <div class="flow">
+      <div class="step"><b>不是关键词回复</b>测试断言用 action_id、SA id、packet key，不靠中文答案表。</div>
+      <div class="step"><b>不是只会文本</b>视觉颜色、形状、位置和音频频带都能成为同等 SA。</div>
+      <div class="step"><b>不是禁止想象</b>想象可以参与学习，符合拟人直觉。</div>
+      <div class="step"><b>不是放任幻想</b>想象导致错误行动后，packet Q 会下降；外界 surprise 会拉回注意力。</div>
+      <div class="step"><b>不是 UI 伪装</b>Web 工作台只渲染审计，不参与认知决策。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>核心证明链</h2>
+    <table>
+      <tr><th>阶段</th><th>证明内容</th><th>直观含义</th></tr>
+      <tr><td>8.4</td><td>SDPL packet + 五层 Q backoff + Delta-P gate</td><td>同一个内容在“真实/想象/听闻”等不同来源下，可以学出不同后果。</td></tr>
+      <tr><td>8.5</td><td>五类来源感受 + CFS 四通道</td><td>系统有数值化的“现实感、想象感、听闻感、猜测感、违和感”。</td></tr>
+      <tr><td>8.6-8.8</td><td>视觉感受、视觉焦点、组合泛化与 ablation</td><td>“黄色 + 苹果形状”这种组合可以通过共现和 held-out gate 学出来，单槽伪泛化会失败。</td></tr>
+      <tr><td>8.9-8.10</td><td>自然纠错、持续内源、安全门</td><td>想错、做错后会被后果纠正；外界强刺激会把系统从内部想象中拉回来。</td></tr>
+      <tr><td>8.11</td><td>Web 工作台 Phase8 审计</td><td>可以直观看到 ledger、feeling、内源链和视觉焦点 overlay。</td></tr>
+      <tr><td>8.12-8.13</td><td>fast mapping、反向想象、音频 filterbank</td><td>新标签可以先偏向形状候选；学到的映射可以反向生成内心视觉候选；声音也进入统一地基。</td></tr>
+      <tr><td>8.14-8.17</td><td>拟人四 gate、长时双层、跨 session 意图、自传式回忆</td><td>它开始具备“我记得、我想起、我上次学过这个行动”的最小结构。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>几个正面例子</h2>
+    <div class="two">
+      <div class="card">
+        <h3>想象会犯错，也会学会收敛</h3>
+        <p>同一个 <code>sa::shared_content</code>，真实来源 packet 的行动 Q 保持正值；想象来源 packet 因纠错 marker 被扣分，Q 变成负值。</p>
+        <span class="pill">PERCEIVED packet 仍可行动</span>
+        <span class="pill">IMAGINED packet 学会谨慎</span>
+      </div>
+      <div class="card">
+        <h3>黄苹果不是靠答案表</h3>
+        <p>测试用的是不带中文含义的 <code>vision::color::c_target</code> 和 <code>vision::shape::s_target</code>。联合候选通过，单槽 ablation 被拒绝。</p>
+        <span class="pill">组合共现</span>
+        <span class="pill">held-out Delta-P</span>
+      </div>
+      <div class="card">
+        <h3>外部刺激能打断内部想象</h3>
+        <p>当外部来源占比和认知压力足够高时，attention safety gate 选择外部 attention score，而不是继续跟随内源混合分数。</p>
+        <span class="pill">不沉迷幻想</span>
+        <span class="pill">ledger-driven</span>
+      </div>
+      <div class="card">
+        <h3>记忆带实体锚点</h3>
+        <p>自传式 episode 需要 cue 和 entity anchor 同时匹配才召回，不同用户锚点不会串台。</p>
+        <span class="pill">REMEMBERED marker</span>
+        <span class="pill">entity anchor</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>验收结果</h2>
+    <div class="grid">
+      <div class="card"><strong>41</strong>Phase 8.4-8.17 targeted tests passed</div>
+      <div class="card"><strong>321</strong>full suite passed</div>
+      <div class="card"><strong>PASS</strong>v14 red-line check</div>
+      <div class="card"><strong>157</strong>numeric constants under governance</div>
+    </div>
+    <div class="callout">
+      已执行并通过：<code>pytest -q</code>、<code>python scripts/red_line_check_v14.py</code>、
+      <code>python scripts/check_constant_governance.py</code>、<code>python -m compileall apv3test runtime tests -q</code>。
+    </div>
+    <div class="callout gold">
+      审计链条已补齐：Phase 8.2 到 8.17 现在都有对应 Final Report 和 phase 行为测试；
+      <code>--phase X.Y</code> 红线只作为交付物 gate，不再被当成 phase 完成的唯一证据。
+    </div>
+  </section>
+
+  <section>
+    <h2>下一步产品化意义</h2>
+    <p>
+      Phase 8 之后，我们可以更有底气地做真实试玩和前端体验打磨：不是因为它已经像成年人一样会聊天，
+      而是因为它已经具备“孩子式学习”的关键地基：看见、听见、想象、犯错、被纠正、记住、隔天再想起。
+    </p>
+    <p class="callout gold">
+      后续最值得推进的是把 Web 工作台变成真实体验入口：接入更多基础短语、真实视觉/音频输入、逐 tick 回放，以及更长时间用户试玩日志。
+    </p>
+  </section>
+</main>
+</body>
+</html>

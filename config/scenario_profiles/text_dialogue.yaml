@@ -1,0 +1,22 @@
+# text_dialogue.yaml — 纯文本对话场景常量覆盖
+# 参考 v14 §1.6 + apv3_constants.yaml @scenario_tuneable 字段
+
+scenario_id: "text_dialogue"
+base_tick_ms: 200
+
+# 覆盖 attention.type_budget 默认值
+attention:
+  type_budget:
+    PerceptSA: 0.30           # 文本场景视觉不主导
+    VocabSA: 0.35             # 词汇/概念占比高
+    MarkerSA: 0.15
+    EntitySA: 0.15
+    ControlSignalSA: 0.05
+
+draft_action:
+  text_chars_per_tick: 1      # 标准阅读节奏
+
+# 文本场景可主动 sleep(用户输入间隔)
+sleep_emerge:
+  enabled: true
+  idle_sleep_after_ticks: 600  # 1 分钟无输入 → 降频

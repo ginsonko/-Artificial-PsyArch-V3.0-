@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_311549f41bbf17bc",
+  "concept": "apple",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_311549f41bbf17bc.png",
+  "sha256": "311549f41bbf17bc6fd56314096689c5e6946ed22a676cce73e03dc24835552c",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/40632439@N00/24429206599",
+  "download_url": "https://api.openverse.org/v1/images/20e90297-78d8-4c81-8088-602de07a867a/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Thad Zajdowicz",
+  "title": "Apples",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

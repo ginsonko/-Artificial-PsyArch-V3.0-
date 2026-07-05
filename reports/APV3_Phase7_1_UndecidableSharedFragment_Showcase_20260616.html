@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase7.1 不能决共享片段</title>
+  <style>
+    :root { --bg:#f6f8fb; --paper:#fff; --ink:#172033; --muted:#667085; --line:#d7e0ea; --green:#087443; --amber:#9a5b00; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Microsoft YaHei","Segoe UI",Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.65; }
+    main { max-width:1180px; margin:0 auto; padding:32px 20px 56px; }
+    header { border-bottom:1px solid var(--line); padding-bottom:20px; margin-bottom:22px; }
+    h1 { margin:0 0 10px; font-size:clamp(27px,4vw,42px); letter-spacing:0; }
+    h2 { margin:30px 0 12px; font-size:22px; letter-spacing:0; }
+    p { margin:8px 0; }
+    code { background:#eef3f8; border:1px solid #dce5ef; border-radius:5px; padding:1px 5px; font-family:Consolas,"Cascadia Mono",monospace; }
+    pre { margin:10px 0; overflow:auto; background:#111827; color:#edf4ff; border-radius:8px; padding:14px; font-size:13px; }
+    table { width:100%; border-collapse:collapse; margin:12px 0; background:var(--paper); }
+    th,td { border:1px solid var(--line); padding:10px 12px; text-align:left; vertical-align:top; }
+    th { background:#eef3f8; }
+    .subtitle { color:var(--muted); max-width:980px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(245px,1fr)); gap:14px; margin:18px 0; }
+    .card { background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:16px; }
+    .label { color:var(--muted); font-size:13px; margin-bottom:4px; }
+    .value { font-weight:700; font-size:18px; }
+    .ok { color:var(--green); }
+    .warn { color:var(--amber); }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase7.1 不能决共享片段</h1>
+    <p class="subtitle">本阶段修复 multi-reply 共享 Cn 被机械填入多个槽的问题：共享片段可以进入草稿/想法，但不能自动提交成确定回答。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card"><div class="label">阶段状态</div><div class="value ok">Phase7.1 通过</div><p>最小不能决片段语义落地。</p></div>
+    <div class="card"><div class="label">目标测试</div><div class="value ok">2 passed</div><p>不能决片段与已决定 successor 双门。</p></div>
+    <div class="card"><div class="label">组合测试</div><div class="value ok">17 passed</div><p>Phase7/Recall/Slot-fill 回归通过。</p></div>
+    <div class="card"><div class="label">全量测试</div><div class="value ok">178 passed</div><p>前序能力未回归。</p></div>
+  </section>
+
+  <section>
+    <h2>设计语义</h2>
+    <pre><code>only shared fragment recalled
+  -> may enter draft/thought
+  -> must not fill all unresolved slots
+  -> must not auto-commit as decided reply</code></pre>
+  </section>
+
+  <section>
+    <h2>落地变化</h2>
+    <table>
+      <tr><th>模块</th><th>变化</th></tr>
+      <tr><td>ParadigmSlotFiller</td><td>记录未解决槽；后续锚点/共享片段标记 <code>undecidable_fragment</code>。</td></tr>
+      <tr><td>MinimalDialogueRuntime</td><td>含不能决片段时不自动 commit。</td></tr>
+      <tr><td>IncrementalTickRuntime</td><td>teacher-off Cn successor 不再被伪装成普通槽候选。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>样例</h2>
+    <pre><code>train:
+  三 顾 -> 茅 庐
+  三 顾 -> 草 庐 之 中
+
+teacher-off:
+  cue = 三 顾
+
+result:
+  Cn successor = 庐
+  emitted = 庐
+  committed_text = ""
+  undecidable_fragment = true</code></pre>
+  </section>
+
+  <section>
+    <h2>保护门</h2>
+    <pre><code>train:
+  你 好 -> 我 在
+
+teacher-off:
+  cue = 你 好
+
+result:
+  emitted = 我 在
+  committed_text = 我在
+  undecidable_fragment = false</code></pre>
+  </section>
+
+  <section>
+    <h2>边界</h2>
+    <p class="ok">可以宣称：最小“不能决片段”处理能力成立，多义共享片段不再重复填槽或自动提交。</p>
+    <p class="warn">仍不能宣称：系统已经能自然表达“茅庐还是草庐之中?”，也还不能主动澄清。</p>
+  </section>
+</main>
+</body>
+</html>

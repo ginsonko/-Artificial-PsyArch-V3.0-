@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_24e080cf4ff30340",
+  "concept": "bread",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_24e080cf4ff30340.png",
+  "sha256": "24e080cf4ff30340f12ec09daf56add1a61ad5ff5e650d0b1f325409f00a7b38",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/48973657@N00/8520765973",
+  "download_url": "https://api.openverse.org/v1/images/68f9e190-39a3-49e1-9b7c-948c04590d9f/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "See-ming Lee (SML)",
+  "title": "“黑胡椒蝦片 Prawn Cracker with Black Pepper” / 中國飲食文化 中国饮食文化 Chinese Food Culture / SML.20130211.EOSM.01866",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

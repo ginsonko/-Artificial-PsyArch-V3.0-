@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_3d8bb6f582e83529",
+  "concept": "grape",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_3d8bb6f582e83529.png",
+  "sha256": "3d8bb6f582e83529ac0f9e2a84b893ed9623e3bcfb60fc9d28efa7670b52bf6a",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/135371437@N04/20763400363",
+  "download_url": "https://api.openverse.org/v1/images/ab25f541-4574-405b-9212-08c01fd0416e/thumb/",
+  "license_id": "CC0-1.0",
+  "author": "StockyPics",
+  "title": "Healthy Grapes",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

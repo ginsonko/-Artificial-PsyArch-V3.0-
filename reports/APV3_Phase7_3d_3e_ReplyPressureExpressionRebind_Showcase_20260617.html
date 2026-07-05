@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>APV3 Phase7.3d/e Reply Pressure + Expression Rebind</title>
+  <style>
+    body { font-family: "Microsoft YaHei", Arial, sans-serif; margin: 32px; line-height: 1.58; color: #1f2933; background: #f7f8fa; }
+    main { max-width: 980px; margin: 0 auto; background: #fff; padding: 28px 32px; border: 1px solid #d8dee8; }
+    h1 { font-size: 24px; margin: 0 0 12px; }
+    h2 { font-size: 18px; margin-top: 26px; border-bottom: 1px solid #e5e9f0; padding-bottom: 6px; }
+    code, pre { font-family: Consolas, monospace; }
+    pre { background: #f2f5f8; padding: 12px; overflow-x: auto; border: 1px solid #dde3ea; }
+    .ok { color: #0f6b3d; font-weight: 700; }
+    .warn { color: #8a5a00; font-weight: 700; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    th, td { border: 1px solid #d8dee8; padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: #eef2f6; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>APV3 Phase7.3d/e Reply Pressure + Expression Recall/Rebind</h1>
+  <p class="ok">状态: 通过。Phase7.0-7.3e 组合 35 passed, 全量 208 passed。</p>
+
+  <h2>闭环</h2>
+  <p><code>draft structure -> introspection feeling -> cooccurrence association -> reply pressure -> expression paradigm recall/rebind</code></p>
+
+  <h2>成功样例</h2>
+  <table>
+    <tr><th>样例</th><th>结果</th></tr>
+    <tr><td>external query</td><td>铸造 external_query SA,reply_pressure 达阈值</td></tr>
+    <tr><td>sa_kind</td><td>pressure 只读结构 kind,不读开放式 sa_type 策略表</td></tr>
+    <tr><td>silence</td><td>沉默上升,饱和后衰减,commit 后 reset</td></tr>
+    <tr><td>learned expression</td><td>不能决 draft + query + association 输出 <code>expr::uncertain + 庐</code></td></tr>
+    <tr><td>无 association</td><td>不凭空表达,保留不能决 draft 且不 commit</td></tr>
+    <tr><td>无 reply pressure</td><td>即使有 association 也不强行表达</td></tr>
+  </table>
+
+  <h2>验收命令</h2>
+  <pre>python -m pytest APV3.0test\tests\test_phase7_2_learned_uncertainty_expression.py APV3.0test\tests\test_phase7_3d_reply_pressure_sa.py APV3.0test\tests\test_phase7_3e_expression_recall_rebind.py -q
+python -m pytest APV3.0test\tests\test_phase7_0_teacher_off_three_stage_milestone.py APV3.0test\tests\test_phase7_1_undecidable_shared_fragment.py APV3.0test\tests\test_phase7_2_learned_uncertainty_expression.py APV3.0test\tests\test_phase7_3b_draft_introspection_observer.py APV3.0test\tests\test_phase7_3c_cooccurrence_association_store.py APV3.0test\tests\test_phase7_3d_reply_pressure_sa.py APV3.0test\tests\test_phase7_3e_expression_recall_rebind.py -q
+python -m pytest APV3.0test\tests -q</pre>
+
+  <h2>边界</h2>
+  <p class="warn">这是最小 learned uncertainty expression 闭环,不是完整自由中文开放对话底座,也不是跨模态泛化完成。</p>
+
+  <h2>下一步</h2>
+  <p>Phase7.3f:property-based label-bijection、不变量红线、端到端 replay 黑盒回归。完成后适合交 Claude 做端到端审阅。</p>
+</main>
+</body>
+</html>
+

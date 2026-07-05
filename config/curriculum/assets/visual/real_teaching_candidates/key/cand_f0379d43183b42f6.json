@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_f0379d43183b42f6",
+  "concept": "key",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_f0379d43183b42f6.png",
+  "sha256": "f0379d43183b42f60a69c2410a9556bcd028a8b134d19771923cd9454f0374a0",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/26782864@N00/16801827055",
+  "download_url": "https://api.openverse.org/v1/images/a4c0f432-7fde-4e7e-af77-f32354808b4d/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "wwarby",
+  "title": "Apple Macintosh SE",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

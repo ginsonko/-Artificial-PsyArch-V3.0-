@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_19a3dce0cfa34a96",
+  "concept": "cake",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_19a3dce0cfa34a96.png",
+  "sha256": "19a3dce0cfa34a96af559ef16a9f3e7ecacc1e93c31003e41e3752d5e7f189e0",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/39057810@N00/3546246044",
+  "download_url": "https://api.openverse.org/v1/images/69e3ce2c-c9fc-436c-b26f-0152f114006f/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Better Than Bacon",
+  "title": "Rainbow cake",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

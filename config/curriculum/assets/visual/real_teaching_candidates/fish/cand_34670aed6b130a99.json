@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_34670aed6b130a99",
+  "concept": "fish",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_34670aed6b130a99.png",
+  "sha256": "34670aed6b130a99f1d43faa851bd40ac9f3cb4ed61f473fadcc87f280062f2a",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/31856336@N03/11442780273",
+  "download_url": "https://api.openverse.org/v1/images/582767f0-c3f1-42ee-93f1-b036b0a2df6a/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "subarcticmike",
+  "title": "paleozoic dating game",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

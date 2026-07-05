@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phase20.9e 学习闭环回灌展示</title>
+  <style>
+    :root {
+      --ink: #20242a;
+      --muted: #68717d;
+      --line: #d7dde4;
+      --paper: #f7f4ee;
+      --panel: #ffffff;
+      --green: #5d9d72;
+      --blue: #4b76a8;
+      --amber: #bc853d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+    main {
+      width: min(1120px, calc(100vw - 40px));
+      margin: 0 auto;
+      padding: 36px 0 48px;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      align-items: stretch;
+      margin-bottom: 22px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: 0;
+      line-height: 1.15;
+    }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    h3 { margin: 0 0 8px; font-size: 18px; }
+    p { margin: 0 0 10px; }
+    .hero, .card, .scenario {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 12px 28px rgba(31, 37, 45, 0.07);
+    }
+    .hero p, .note { color: var(--muted); }
+    .note { font-size: 14px; }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .badge {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: #fbfcfd;
+      font-size: 13px;
+      color: #4b5663;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .step {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+      padding: 14px;
+      min-height: 98px;
+    }
+    .step strong { display: block; margin-bottom: 6px; }
+    .step span { color: var(--muted); font-size: 13px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 18px 0;
+    }
+    .meter {
+      height: 10px;
+      border-radius: 999px;
+      background: #e8edf2;
+      overflow: hidden;
+      margin: 8px 0 12px;
+    }
+    .fill { height: 100%; width: var(--w); background: var(--c); }
+    dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 6px 12px;
+      margin: 0;
+      font-size: 14px;
+    }
+    dt { color: var(--muted); }
+    dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+    code {
+      background: #eef2f5;
+      padding: 2px 5px;
+      border-radius: 5px;
+      font-family: Consolas, monospace;
+      font-size: 0.95em;
+    }
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      background: #20242a;
+      color: #f4f7fb;
+      border-radius: 8px;
+      padding: 16px;
+      overflow-x: auto;
+    }
+    @media (max-width: 900px) {
+      header, .grid, .flow { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <section class="hero">
+        <h1>Phase20.9e 学习闭环回灌</h1>
+        <p>这一步证明学习闭环不只是面板数字, 它已经能通过 AP 行动竞争影响后继 tick。不会时更想请教, 被教时先整合, 学过后更愿意自己试。</p>
+        <div class="badge-row">
+          <span class="badge">不写死答案</span>
+          <span class="badge">不新增课程脚本</span>
+          <span class="badge">不新增数据库表</span>
+          <span class="badge">只调制行动竞争</span>
+        </div>
+      </section>
+      <section class="card">
+        <h2>在底座中查看</h2>
+        <p>打开工作台:</p>
+        <p><code>http://127.0.0.1:8776/phase20_7</code></p>
+        <p class="note">发送新问题, 再教学, 再重复同一个问题。观察“学习闭环”和“本 tick 为什么这样做”两块区域。</p>
+      </section>
+    </header>
+
+    <section class="card">
+      <h2>信息怎样流动</h2>
+      <div class="flow">
+        <div class="step"><strong>真实 tick</strong><span>外部输入、B/C/C*、行动竞争进入 RuntimeTickEvent。</span></div>
+        <div class="step"><strong>闭环指标</strong><span>计算反馈、教师退场、冷重测、脚手架四种倾向。</span></div>
+        <div class="step"><strong>carryover</strong><span>最近 tick 的倾向成为后继 tick 的轻量压力。</span></div>
+        <div class="step"><strong>行动竞争</strong><span>只改变 drive, 不直接写答案。</span></div>
+        <div class="step"><strong>后继动作</strong><span>请教、写入、提交、闲时思考自然更容易或更不容易发生。</span></div>
+      </div>
+      <p class="note">核心公式: <code>drive_after = clamp01(drive_before + delta(action_type))</code></p>
+    </section>
+
+    <section class="grid">
+      <article class="scenario">
+        <h3>1. 不会时更想请教</h3>
+        <p class="note">上一 tick 偏向回到脚手架, 下一 tick 的请教动作得到轻微增益。</p>
+        <div class="meter"><div class="fill" style="--w: 15.1%; --c: var(--amber);"></div></div>
+        <dl>
+          <dt>tick</dt><dd>2</dd>
+          <dt>动作</dt><dd>request_teacher</dd>
+          <dt>倾向</dt><dd>return_to_scaffold</dd>
+          <dt>context drive</dt><dd>0.6200</dd>
+          <dt>learning delta</dt><dd>+0.0151</dd>
+          <dt>final drive</dt><dd>0.7499</dd>
+        </dl>
+      </article>
+      <article class="scenario">
+        <h3>2. 被教时先整合</h3>
+        <p class="note">教师反馈刚进入, 写入和整合动作更容易赢, 避免继续乱问。</p>
+        <div class="meter"><div class="fill" style="--w: 19.3%; --c: var(--green);"></div></div>
+        <dl>
+          <dt>tick</dt><dd>3</dd>
+          <dt>动作</dt><dd>write_cell</dd>
+          <dt>倾向</dt><dd>feedback_only</dd>
+          <dt>before</dt><dd>0.4500</dd>
+          <dt>learning delta</dt><dd>+0.0193</dd>
+          <dt>final drive</dt><dd>0.4978</dd>
+        </dl>
+      </article>
+      <article class="scenario">
+        <h3>3. 学过后试着自己来</h3>
+        <p class="note">有 exact B0 召回支持时, 写入动作获得 teacher-off 倾向增益。</p>
+        <div class="meter"><div class="fill" style="--w: 67.4%; --c: var(--blue);"></div></div>
+        <dl>
+          <dt>tick</dt><dd>11</dd>
+          <dt>动作</dt><dd>write_cell</dd>
+          <dt>倾向</dt><dd>teacher_off_probe</dd>
+          <dt>before</dt><dd>0.8200</dd>
+          <dt>learning delta</dt><dd>+0.0674</dd>
+          <dt>final drive</dt><dd>0.9048</dd>
+        </dl>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>你可以怎样验收</h2>
+      <pre>1. 发送一个 AP 没学过的问题
+   看学习闭环是否偏向“回到脚手架”
+
+2. 在教学纠正里输入一个答案并发送
+   看学习闭环是否偏向“先听反馈”
+
+3. 再次发送同一个问题
+   看学习闭环是否偏向“尝试自己来”
+
+4. 点开 tick 回放
+   查看行动竞争里 request_teacher 或 write_cell 的 drive 是否被 carryover 轻微抬高</pre>
+    </section>
+
+    <section class="card">
+      <h2>边界</h2>
+      <p>这一步可以证明学习闭环已经影响后继 tick 行为。但仍不能声明完整六阶段 runtime、L1/L2/L3 在线嵌入、完整范式自学习、数学列竖式、object-centric 视觉想象或 Phase21 视觉教学泛化闭环已经完成。</p>
+    </section>
+  </main>
+</body>
+</html>

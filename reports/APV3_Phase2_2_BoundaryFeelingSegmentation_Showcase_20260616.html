@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase2.2 边界感受 SA 与跨 tick 切分</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d8dee8;
+      --soft: #f8fafc;
+      --accent: #0f766e;
+      --good: #166534;
+      --warn: #9a3412;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.65;
+    }
+    header {
+      padding: 34px 6vw 24px;
+      border-bottom: 1px solid var(--line);
+      background: #ecfdf5;
+    }
+    main { max-width: 1120px; margin: 0 auto; padding: 28px 24px 56px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 10px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    .meta { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      background: var(--soft);
+    }
+    .card strong { display: block; font-size: 20px; margin-bottom: 4px; }
+    .ok { color: var(--good); }
+    .warn { color: var(--warn); }
+    .band {
+      border-left: 4px solid var(--accent);
+      background: #f0fdfa;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    code, pre {
+      font-family: Consolas, "Cascadia Mono", monospace;
+      background: #f2f4f7;
+      border-radius: 6px;
+    }
+    code { padding: 1px 5px; }
+    pre { padding: 14px; overflow: auto; border: 1px solid var(--line); }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0; }
+    th, td { border: 1px solid var(--line); padding: 9px 10px; text-align: left; }
+    th { background: #f8fafc; }
+    ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>APV3.0test Phase2.2 边界感受 SA 与跨 tick 切分</h1>
+    <p class="meta">跨 tick 范式学习入口 | 任意模态一等 SA bundle | 2026-06-16</p>
+  </header>
+  <main>
+    <section class="grid">
+      <div class="card"><strong class="ok">45/45</strong>全量测试通过</div>
+      <div class="card"><strong class="ok">通过</strong>Python 编译检查</div>
+      <div class="card"><strong class="ok">无命中</strong>禁用通道扫描</div>
+      <div class="card"><strong class="warn">边界清楚</strong>仍不是完整自由对话底座</div>
+    </section>
+
+    <h2>阶段结论</h2>
+    <div class="band">
+      APV3.0test 现在具备了跨 tick 范式学习的最小入口: 连续 SA 流可以通过边界感受切成可学习单元, 同 tick 多模态 bundle 会保留为整体, 切分后的 unit 能继续进入范式发现和锚相对 DP 对齐。
+    </div>
+
+    <h2>本轮新增</h2>
+    <ul>
+      <li><code>FocusTick</code>: 表示一个 tick 内的一等 SA bundle。</li>
+      <li><code>BoundaryFeelingSA</code>: 表示边界感受, 带来源分数与切分位置。</li>
+      <li><code>BoundarySegment</code>: 表示切好的跨 tick 学习单元。</li>
+      <li><code>BoundaryFeelingSegmenter</code>: 从连续 tick 流中产生边界与分段。</li>
+    </ul>
+
+    <h2>审查修正</h2>
+    <table>
+      <thead>
+        <tr><th>问题</th><th>风险</th><th>修正</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>标签不重合就强切</td>
+          <td>中文逐字流和跨模态流会被每 tick 切碎</td>
+          <td>连续性掉落暂作弱证据, 由闭合/节奏/压力等边界感受主导</td>
+        </tr>
+        <tr>
+          <td>不区分边界在当前 tick 前还是后</td>
+          <td>cue 与 reply 可能被错误切开</td>
+          <td>闭合类边界切在当前 tick 后, 重置/突变类边界切在当前 tick 前</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>验收覆盖</h2>
+    <ul>
+      <li>无外部 turn flag 的跨 tick 分段。</li>
+      <li>文本、视觉、听觉、行动、感受 SA 混合。</li>
+      <li>同信号不同标签时边界模式一致, 不靠文本内容。</li>
+      <li>分段结果能继续喂给 <code>ParadigmDiscoveryEngine</code>。</li>
+    </ul>
+
+    <h2>验收命令</h2>
+    <pre><code>python -m pytest APV3.0test\tests -q
+
+$files = Get-ChildItem -Path APV3.0test\apv3test\config,APV3.0test\apv3test\runtime -Filter *.py | ForEach-Object { $_.FullName }; python -m py_compile @files
+
+rg -n "keyword|answer_table|student_side_llm|branch_alignment|math_process_tokens|regex|full_sentence_macro" APV3.0test\apv3test APV3.0test\tests</code></pre>
+
+    <h2>通往最终目标的路径</h2>
+    <ul>
+      <li>Phase2.3: 关系重叠 coherence 与列质量评估。</li>
+      <li>Phase2.4: Viterbi 角色联合解码。</li>
+      <li>Phase2.5: 跨模态感知原型 token, 支持黄色苹果类泛化。</li>
+      <li>Phase3: 快系统 habit action / habit thought, 用行动后果记忆形成熟练快速复刻。</li>
+      <li>Phase4: 小型自由中文开放对话 runtime, 串起边界、DP、范式发现、草稿行动、持久化学习。</li>
+    </ul>
+
+    <h2>诚实边界</h2>
+    <p>
+      当前可以说 APV3.0test 已有跨 tick 分段与范式学习入口, 不能说完整 APV3.0 能量系统、完整跨模态原型、完整自由中文开放对话底座已经完成。
+    </p>
+  </main>
+</body>
+</html>

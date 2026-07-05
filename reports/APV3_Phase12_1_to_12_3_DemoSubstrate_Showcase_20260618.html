@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 12 Demo Substrate 展示</title>
+  <style>
+    :root { --bg:#f5f7f4; --panel:#fff; --ink:#17211d; --muted:#607168; --line:#d9e3dd; --green:#0f766e; --blue:#245a8f; --gold:#8a6418; --soft-green:#e8f6ef; --soft-blue:#e8f1fb; --soft-gold:#fff4d8; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif; line-height:1.72; letter-spacing:0; }
+    main { width:min(1180px, calc(100% - 44px)); margin:24px auto; background:var(--panel); border:1px solid var(--line); box-shadow:0 18px 45px rgba(30,44,64,.08); }
+    header { padding:36px 44px 28px; border-bottom:1px solid var(--line); background:linear-gradient(180deg,#fff 0%,#f8fbfa 100%); }
+    section { padding:28px 44px; border-bottom:1px solid var(--line); }
+    section:last-child { border-bottom:0; }
+    h1 { margin:0; font-size:31px; line-height:1.24; }
+    h2 { margin:0 0 12px; font-size:22px; }
+    h3 { margin:0 0 8px; color:var(--blue); font-size:16px; }
+    p { margin:8px 0; }
+    code { font-family:Consolas,"Courier New",monospace; background:#f2f5f7; border:1px solid #e1e7ee; border-radius:4px; padding:1px 5px; }
+    .subtitle { max-width:960px; color:var(--muted); margin-top:12px; font-size:16px; }
+    .status { display:inline-block; margin-top:18px; padding:7px 12px; color:var(--green); background:var(--soft-green); border:1px solid #bfe6d1; border-radius:6px; font-weight:700; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:14px; }
+    .card { border:1px solid var(--line); border-radius:8px; padding:16px; background:#fbfdfc; min-height:158px; }
+    .card strong { display:block; color:var(--green); font-size:22px; margin-bottom:8px; }
+    .scenario { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:14px; }
+    .scenario div { border:1px solid var(--line); border-radius:8px; background:var(--soft-blue); padding:12px; min-height:112px; }
+    .scenario b { display:block; color:var(--blue); margin-bottom:5px; }
+    .callout { border-left:4px solid var(--gold); background:var(--soft-gold); padding:13px 15px; margin-top:12px; }
+    table { width:100%; border-collapse:collapse; margin-top:14px; font-size:14px; }
+    th,td { border:1px solid var(--line); padding:10px 12px; text-align:left; vertical-align:top; }
+    th { background:#edf3f1; }
+    @media (max-width:900px){ main{width:calc(100% - 22px); margin:12px auto;} header,section{padding:22px;} .grid,.scenario{grid-template-columns:1fr;} h1{font-size:26px;} }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3 Phase 12：把机制推进到“可以被看见、可以被试玩”的展示底座</h1>
+    <p class="subtitle">Phase 12 不抢跑 Phase13 课程内容，也不提前做真实硬件。它把 Web 工作台需要的审计 payload、demo profile 和四场景 readiness 先搭好，让后续开源展示不是只靠口头描述，而是可以真实看见内部状态。</p>
+    <div class="status">验收通过：Phase 11/12 targeted 24 passed，全量回归 409 passed，红线 PASS</div>
+  </header>
+
+  <section>
+    <h2>三个底座能力</h2>
+    <div class="grid">
+      <div class="card"><strong>12.1 审计视图</strong>把 chat trace、runtime trace、feelings、ledger、tick replay 整理成 <code>phase12_demo</code>，前端可以直接渲染。</div>
+      <div class="card"><strong>12.2 Demo Profile</strong>定义四个展示场景，并保留 <code>quiet_girl</code> 风格口味：沉默寡言、惜字如金、可爱但不夸张。</div>
+      <div class="card"><strong>12.3 Readiness Gate</strong>用 capability tags 判断场景是否足够可展示，缺能力就列出 missing tags，保持诚实产品化。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>四个场景先排好队</h2>
+    <div class="scenario">
+      <div><b>文本对话</b>chat / reward / memory / audit，先让用户能玩、能教、能看到学习。</div>
+      <div><b>桌宠多模态</b>vision / audio / chat / audit，承接你想要的拟人陪伴方向。</div>
+      <div><b>Agent 协作</b>goal / deliberative / trust / audit，让 AP 的心智机制服务工作流。</div>
+      <div><b>具身预演</b>vision / action / joint attention / audit，为后续硬件留接口。</div>
+    </div>
+    <div class="callout">Phase 12 的目的不是把 demo 包装得很会演，而是确保它能把真实 AP 状态展示出来。后续 Phase13 课程喂进去以后，用户看到的是“它真的在学”的过程。</div>
+  </section>
+
+  <section>
+    <h2>验收矩阵</h2>
+    <table>
+      <tr><th>项目</th><th>证据</th><th>意义</th></tr>
+      <tr><td>Phase12 targeted</td><td>24 passed 中覆盖 3 个 Phase12 文件</td><td>三个 demo substrate 能力均有行为测试。</td></tr>
+      <tr><td>Web snapshot</td><td><code>phase12_demo</code></td><td>前端可以直接读取渲染，不反向进入 cognitive。</td></tr>
+      <tr><td>四场景 readiness</td><td>PASS</td><td>为开源前 demo 打磨提供诚实门。</td></tr>
+    </table>
+  </section>
+</main>
+</body>
+</html>

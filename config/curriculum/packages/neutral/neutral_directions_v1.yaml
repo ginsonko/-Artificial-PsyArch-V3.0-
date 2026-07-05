@@ -1,0 +1,140 @@
+{
+  "schema_id": "apv3_neutral_curriculum_pack/v1",
+  "package_id": "neutral_directions_v1",
+  "phase_id": "14.2",
+  "title": "Neutral directions v1",
+  "governance": {
+    "trust_tier": "official",
+    "license_id": "LicenseRef-APV3-Synthetic-Generated",
+    "author_id": "apv3_synthetic_generator",
+    "source_policy": "generated_static_seed",
+    "review_status": "phase14_alpha_reviewed"
+  },
+  "entries": [
+    {
+      "entry_id": "direction_up",
+      "content_kind": "vocabulary_visual",
+      "public_payload": {
+        "concept_kind": "direction",
+        "neutral_label": "上",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::direction_up::train::0",
+        "asset::direction_up::train::1",
+        "asset::direction_up::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::direction_up::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::direction_up::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "direction"
+      ]
+    },
+    {
+      "entry_id": "direction_down",
+      "content_kind": "vocabulary_visual",
+      "public_payload": {
+        "concept_kind": "direction",
+        "neutral_label": "下",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::direction_down::train::0",
+        "asset::direction_down::train::1",
+        "asset::direction_down::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::direction_down::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::direction_down::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "direction"
+      ]
+    },
+    {
+      "entry_id": "direction_left",
+      "content_kind": "vocabulary_visual",
+      "public_payload": {
+        "concept_kind": "direction",
+        "neutral_label": "左",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::direction_left::train::0",
+        "asset::direction_left::train::1",
+        "asset::direction_left::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::direction_left::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::direction_left::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "direction"
+      ]
+    },
+    {
+      "entry_id": "direction_right",
+      "content_kind": "vocabulary_visual",
+      "public_payload": {
+        "concept_kind": "direction",
+        "neutral_label": "右",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::direction_right::train::0",
+        "asset::direction_right::train::1",
+        "asset::direction_right::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::direction_right::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::direction_right::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "direction"
+      ]
+    },
+    {
+      "entry_id": "direction_inside",
+      "content_kind": "vocabulary_visual",
+      "public_payload": {
+        "concept_kind": "direction",
+        "neutral_label": "里",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::direction_inside::train::0",
+        "asset::direction_inside::train::1",
+        "asset::direction_inside::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::direction_inside::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::direction_inside::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "direction"
+      ]
+    }
+  ]
+}

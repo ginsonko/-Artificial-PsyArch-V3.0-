@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_57b594fb0a305068",
+  "concept": "grape",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_57b594fb0a305068.png",
+  "sha256": "57b594fb0a305068c1127f666ce9d731d681b0fb30baf2eceae84c1f7f540ced",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/58990192@N03/5998383118",
+  "download_url": "https://api.openverse.org/v1/images/3927f488-ca16-495e-bb11-2cf27996d578/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "time_anchor",
+  "title": "food_breakfast_oatmeal_ingredients_1",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

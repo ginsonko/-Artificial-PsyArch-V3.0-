@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_bbfa0f3dd0b08c14",
+  "concept": "rice",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_bbfa0f3dd0b08c14.png",
+  "sha256": "bbfa0f3dd0b08c14e50ca7b6b7db24fb1bc147505dea411cf6d2a5c9f7d25256",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/26176646@N04/2917262898",
+  "download_url": "https://api.openverse.org/v1/images/66e4c9fd-171e-49ba-a956-362ffbd6c444/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "TheBusyBrain",
+  "title": "Lemon Pepper Mahi Mahi with Pineapple Salsa",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

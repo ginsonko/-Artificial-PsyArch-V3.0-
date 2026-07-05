@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_882da8502ef27e28",
+  "concept": "key",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_882da8502ef27e28.png",
+  "sha256": "882da8502ef27e2866cbaeb69820aaa5155e9c522d066f252896490161e67934",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/26782864@N00/16801824525",
+  "download_url": "https://api.openverse.org/v1/images/4f330995-d7c1-4551-87c3-ceac42a4ac97/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "wwarby",
+  "title": "Sinclair ZX Spectrum",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

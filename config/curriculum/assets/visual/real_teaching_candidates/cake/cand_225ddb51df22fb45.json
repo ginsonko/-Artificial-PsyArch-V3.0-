@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_225ddb51df22fb45",
+  "concept": "cake",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_225ddb51df22fb45.png",
+  "sha256": "225ddb51df22fb459e5892f373881d92992fe22d482947f97bb3578823ec3487",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/47626742@N07/6789364857",
+  "download_url": "https://api.openverse.org/v1/images/b18215e3-275c-4d08-a7ab-a0f15146bb96/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "t-mizo",
+  "title": "Sweet orchestra: Triple taste rare cheese cake! (Tokyo, Japan)",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

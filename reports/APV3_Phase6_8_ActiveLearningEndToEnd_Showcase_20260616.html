@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase6.8 主动求教端到端 episode</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --paper: #ffffff;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d7e0ea;
+      --blue: #2458a6;
+      --green: #087443;
+      --amber: #9a5b00;
+      --red: #9f1d1d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 56px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(27px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 12px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    code { background: #eef3f8; border: 1px solid #dce5ef; border-radius: 5px; padding: 1px 5px; font-family: Consolas, "Cascadia Mono", monospace; }
+    pre { margin: 10px 0; overflow: auto; background: #111827; color: #edf4ff; border-radius: 8px; padding: 14px; font-size: 13px; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; background: var(--paper); }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #eef3f8; }
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .subtitle { color: var(--muted); max-width: 980px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--green); }
+    .warn { color: var(--amber); }
+    .bad { color: var(--red); }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase6.8 主动求教端到端 episode</h1>
+    <p class="subtitle">本阶段把失败、求教、外部教师响应、教学迭代、召回成功、后续停止求教串成完整验收。它验证的是主动求教最小闭环，不是完整自由中文开放对话底座完成宣称。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">阶段状态</div>
+      <div class="value ok">Phase6.8 通过</div>
+      <p>新增主动求教端到端 probe。</p>
+    </div>
+    <div class="card">
+      <div class="label">目标测试</div>
+      <div class="value ok">4 passed</div>
+      <p>覆盖直接 Bn/Cn 与工作记忆两条失败入口。</p>
+    </div>
+    <div class="card">
+      <div class="label">Phase6 组合</div>
+      <div class="value ok">38 passed</div>
+      <p>Phase6.0-6.8 保持一致。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">171 passed</div>
+      <p>前序能力未回归。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>设计闭环</h2>
+    <pre><code>Bn/Cn or work_memory failure
+  -> teacher_request SA
+  -> external teacher reply_tokens
+  -> bridge teaching iteration
+  -> AP-native evidence
+  -> same cue recall succeeds
+  -> later same cue no new teacher_request</code></pre>
+  </section>
+
+  <section>
+    <h2>审查完善</h2>
+    <table>
+      <tr><th>审查点</th><th>结论</th></tr>
+      <tr><td>端到端真实性</td><td>先真实 recall 失败，再产生 teacher_request，不从已学会状态起跑。</td></tr>
+      <tr><td>外部教师边界</td><td>外部教师只提供 reply_tokens；学生侧不读 LLM 策略。</td></tr>
+      <tr><td>工作记忆时间窗</td><td>恢复验证放在压力仍有效的短时窗口内，不放宽 runtime。</td></tr>
+      <tr><td>持续失败</td><td>达到 max_teaching_iteration_depth 后停止，不无限教学。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>落地文件</h2>
+    <pre><code>APV3.0test/tests/test_phase6_8_active_learning_end_to_end.py</code></pre>
+    <ul>
+      <li>直接 Bn/Cn 失败 -> 求教 -> 教师 evidence -> 学会 -> 停止求教。</li>
+      <li>工作记忆恢复失败 -> 求教 -> 教师 evidence -> 空闲恢复成功 -> 停止求教。</li>
+      <li>无教师 evidence -> 等待且不写入。</li>
+      <li>持续失败 -> 最大深度停止。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>验收命令</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase6_8_active_learning_end_to_end.py -q
+# 4 passed in 0.35s
+
+python -m pytest APV3.0test\tests\test_phase6_0_active_teacher_request.py APV3.0test\tests\test_phase6_1_active_learning_bridge.py APV3.0test\tests\test_phase6_2_active_learning_trend.py APV3.0test\tests\test_phase6_3_teaching_protocol_selector.py APV3.0test\tests\test_phase6_4_diagnostic_teaching_plan.py APV3.0test\tests\test_phase6_5_multiround_teacher_course.py APV3.0test\tests\test_phase6_6_teaching_iteration_loop.py APV3.0test\tests\test_phase6_7_active_learning_teaching_bridge.py APV3.0test\tests\test_phase6_8_active_learning_end_to_end.py -q
+# 38 passed in 0.73s
+
+python -m pytest APV3.0test\tests -q
+# 171 passed in 3.09s</code></pre>
+  </section>
+
+  <section>
+    <h2>成功样例</h2>
+    <pre><code>cue = goal::ask
+context = ctx_work
+initial recall = failed
+teacher reply_tokens = teacher::answer
+
+teacher_request.reason = remediation_needed
+teaching stopped_reason = validation_success
+later recall emitted = teacher::answer
+later teacher_request = None</code></pre>
+  </section>
+
+  <section>
+    <h2>工作记忆样例</h2>
+    <pre><code>work_memory focus = goal::resume
+pressure = 0.92
+idle recall before teaching = failed
+teacher reply_tokens = continue::resume
+
+idle resume recall emitted = continue::resume
+new teacher_request = None</code></pre>
+  </section>
+
+  <section>
+    <h2>失败边界样例</h2>
+    <pre><code>reply_tokens = ()
+-> stopped_reason = awaiting_teacher_evidence
+-> state unchanged
+
+case_name = skill_wrong_pid
+expected_pid = p:discovered:skill_teacher_answer
+max_teaching_iteration_depth = 2
+-> stopped_reason = max_iteration_depth</code></pre>
+  </section>
+
+  <section>
+    <h2>红线扫描</h2>
+    <pre><code>rg -n --glob "*.py" "keyword|answer_table|student_side_llm|branch_alignment|math_process_tokens|regex|full_sentence_macro|llm_policy|if vision|if text|黄色苹果" APV3.0test\apv3test
+
+APV3.0test\apv3test\runtime\draft_action.py:126:        if text:</code></pre>
+    <p>该命中是 draft buffer 非空检查，不是文本模态特权分支。额外扫描未发现旧 Cn 字面 fallback、旧多轮命名、学生侧答案表或 LLM 策略。</p>
+  </section>
+
+  <section>
+    <h2>最终汇总</h2>
+    <p class="ok">可以宣称：主动求教端到端最小闭环已经通过。失败会求教，教师 evidence 会回灌，学会后同 cue 会召回成功并停止重复求教。</p>
+    <p class="warn">仍不能宣称：AP 能自己生成教师答案、完整主动课程规划完成、完整自由中文开放对话底座完成、任意跨模态泛化或 Fresh300 完成。</p>
+    <p>下一步建议 Phase6.9：做 teacher_request 与持久化恢复 parity，验证 failure/request/teacher evidence/learned paradigm/work_memory item 经 SQLite save/warm-load 后仍能召回且不重复求教。</p>
+  </section>
+</main>
+</body>
+</html>

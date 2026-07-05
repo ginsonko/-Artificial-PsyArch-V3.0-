@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_167afedc268900bf",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_167afedc268900bf.png",
+  "sha256": "167afedc268900bf81f7ee28877d292e4a12be39fe7bf72188cddd9d42a7843c",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/34413757@N02/3333040124",
+  "download_url": "https://api.openverse.org/v1/images/e9841ab0-6e25-4ac7-8e9c-5698dce7b17e/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Nasos3",
+  "title": "banana",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

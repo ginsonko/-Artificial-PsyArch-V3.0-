@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_f46db447ebc46339",
+  "concept": "apple",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_f46db447ebc46339.png",
+  "sha256": "f46db447ebc46339dd04963bcca51ea96ec7ff167481c1bccba9d0e0ae5be4ea",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/113312228@N06/12197659796",
+  "download_url": "https://api.openverse.org/v1/images/2904de06-6c5c-4216-be5e-6261a585ee3a/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Apple and Pear Australia Ltd",
+  "title": "Red Delicious",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

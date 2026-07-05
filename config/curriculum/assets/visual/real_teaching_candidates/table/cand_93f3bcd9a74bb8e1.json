@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_93f3bcd9a74bb8e1",
+  "concept": "table",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_93f3bcd9a74bb8e1.png",
+  "sha256": "93f3bcd9a74bb8e1ba2449bcddadbe3bc2822823219ef95b19d8558fa8e4361f",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/78403198@N08/15662213216",
+  "download_url": "https://api.openverse.org/v1/images/602917a4-f9da-4ab5-8e6c-adae9daf851c/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Trang Angels",
+  "title": "Beautiful smile",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase5.7 工作记忆与打断恢复</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --paper: #ffffff;
+      --ink: #182230;
+      --muted: #667085;
+      --line: #d7e0ea;
+      --blue: #2458a6;
+      --green: #087443;
+      --amber: #a15c00;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 56px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(27px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 12px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    code { background: #eef3f8; border: 1px solid #dce5ef; border-radius: 5px; padding: 1px 5px; font-family: Consolas, "Cascadia Mono", monospace; }
+    pre { margin: 10px 0; overflow: auto; background: #111827; color: #edf4ff; border-radius: 8px; padding: 14px; font-size: 13px; }
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .subtitle { color: var(--muted); max-width: 980px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--green); }
+    .warn { color: var(--amber); }
+    .note { background: var(--paper); border-left: 4px solid var(--blue); padding: 12px 14px; margin: 14px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase5.7 工作记忆与打断恢复</h1>
+    <p class="subtitle">本阶段最小复刻跨 tick 工作记忆: 连续相关 SA 可合并成整体，惊扰输入只打断不擦除，空闲时未闭合压力可把内容重新拉回焦点。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">阶段</div>
+      <div class="value ok">Phase5.7 通过</div>
+      <p><code>APV3WorkMemoryRuntime</code> 已落地。</p>
+    </div>
+    <div class="card">
+      <div class="label">目标测试</div>
+      <div class="value ok">4 passed</div>
+      <p>覆盖跨 tick 合并、打断恢复、闭合不污染、模态平权。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">125 passed</div>
+      <p>前序能力保持稳定。</p>
+    </div>
+    <div class="card">
+      <div class="label">边界</div>
+      <div class="value warn">非任务队列</div>
+      <p>模块只管理压力和焦点候选，不直接生成答案。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>跨 tick 合并</h2>
+    <pre><code>tick1 = goal::draw object::apple
+tick2 = goal::draw color::yellow
+idle recall = goal::draw object::apple color::yellow</code></pre>
+    <div class="note">第一次测试失败提醒我们: 工作记忆不是最近条目列表，而是能把短时间内相关焦点整合成整体。</div>
+  </section>
+
+  <section>
+    <h2>打断后恢复</h2>
+    <pre><code>tick1 focus = goal::solve item::math, pressure = 0.95
+tick2 focus = interrupt::noise, surprise = 1.0
+tick3 idle = true
+
+interrupted_item = goal::solve item::math
+recalled_item = goal::solve item::math
+interrupted_by = interrupt::noise</code></pre>
+  </section>
+
+  <section>
+    <h2>闭合后不污染</h2>
+    <pre><code>tick1 focus = goal::reply topic::done, closure = 1.0
+tick5 idle = true
+
+recalled_item = &lt;none&gt;
+closed = true</code></pre>
+  </section>
+
+  <section>
+    <h2>模态平权</h2>
+    <pre><code>focus = percept::yellow audio::tone_high action::point
+recalled = percept::yellow audio::tone_high action::point</code></pre>
+  </section>
+
+  <section>
+    <h2>验收记录</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase5_7_work_memory_recovery.py -q
+4 passed in 0.32s
+
+python -m pytest APV3.0test\tests -q
+125 passed in 2.96s
+
+红线扫描:
+仅命中 draft_action.py:126 if text:
+审查为草稿 buffer 非空检查，不是文本模态特权。</code></pre>
+  </section>
+
+  <section>
+    <h2>下一步</h2>
+    <ul>
+      <li>Phase5.8: 工作记忆与 Bn/Cn/attention 对接。</li>
+      <li>idle recall 的 SA bundle 进入当前 focus。</li>
+      <li>通过 Bn/Cn 召回范式，再由 action competition 决定是否继续行动。</li>
+      <li>工作记忆只供能/供焦点，不直接生成答案。</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

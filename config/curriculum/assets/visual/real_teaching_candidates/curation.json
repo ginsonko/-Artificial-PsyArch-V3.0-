@@ -1,0 +1,2021 @@
+{
+  "schema_id": "apv3_real_teaching_curation/v1",
+  "records": [
+    {
+      "candidate_id": "cand_0f20404b29addf61",
+      "concept": "apple",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_0f20404b29addf61.json"
+    },
+    {
+      "candidate_id": "cand_13a4215a5f2b9afe",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_13a4215a5f2b9afe.json"
+    },
+    {
+      "candidate_id": "cand_1cbf319a0673adb0",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_1cbf319a0673adb0.json"
+    },
+    {
+      "candidate_id": "cand_261b746df71550e3",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_261b746df71550e3.json"
+    },
+    {
+      "candidate_id": "cand_311549f41bbf17bc",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_311549f41bbf17bc.json"
+    },
+    {
+      "candidate_id": "cand_319e50640bd9dcb5",
+      "concept": "apple",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_319e50640bd9dcb5.json"
+    },
+    {
+      "candidate_id": "cand_329a6251cb52e56f",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_329a6251cb52e56f.json"
+    },
+    {
+      "candidate_id": "cand_38224bafbe5c1b29",
+      "concept": "apple",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_38224bafbe5c1b29.json"
+    },
+    {
+      "candidate_id": "cand_47173576d15cb8be",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_47173576d15cb8be.json"
+    },
+    {
+      "candidate_id": "cand_4b7f0d49afeb0f73",
+      "concept": "apple",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_4b7f0d49afeb0f73.json"
+    },
+    {
+      "candidate_id": "cand_574f7606763a6d52",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_574f7606763a6d52.json"
+    },
+    {
+      "candidate_id": "cand_5b9b1b69cb6bbbb1",
+      "concept": "apple",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_5b9b1b69cb6bbbb1.json"
+    },
+    {
+      "candidate_id": "cand_5d185208ab57eae1",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_5d185208ab57eae1.json"
+    },
+    {
+      "candidate_id": "cand_64fe5739d1ddb242",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_64fe5739d1ddb242.json"
+    },
+    {
+      "candidate_id": "cand_688b949138a0252d",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_688b949138a0252d.json"
+    },
+    {
+      "candidate_id": "cand_6c6504dcca7f2f06",
+      "concept": "apple",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_6c6504dcca7f2f06.json"
+    },
+    {
+      "candidate_id": "cand_75f969a37abb08c5",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_75f969a37abb08c5.json"
+    },
+    {
+      "candidate_id": "cand_8eb91a02e1a0a5bd",
+      "concept": "apple",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_8eb91a02e1a0a5bd.json"
+    },
+    {
+      "candidate_id": "cand_94b73ddef474239b",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_94b73ddef474239b.json"
+    },
+    {
+      "candidate_id": "cand_a338d3fbc53016b5",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_a338d3fbc53016b5.json"
+    },
+    {
+      "candidate_id": "cand_aacc79f3bf6826dc",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_aacc79f3bf6826dc.json"
+    },
+    {
+      "candidate_id": "cand_b08b0c05611aa884",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_b08b0c05611aa884.json"
+    },
+    {
+      "candidate_id": "cand_b6f8ea5382023104",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_b6f8ea5382023104.json"
+    },
+    {
+      "candidate_id": "cand_ce5eaedb0aa00d52",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_ce5eaedb0aa00d52.json"
+    },
+    {
+      "candidate_id": "cand_d830f2e365dcfd0b",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_d830f2e365dcfd0b.json"
+    },
+    {
+      "candidate_id": "cand_e2679e12a793efe2",
+      "concept": "apple",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_e2679e12a793efe2.json"
+    },
+    {
+      "candidate_id": "cand_e4c5b2529cdb2a73",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_e4c5b2529cdb2a73.json"
+    },
+    {
+      "candidate_id": "cand_e885cfcf6e03965a",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_e885cfcf6e03965a.json"
+    },
+    {
+      "candidate_id": "cand_f05ea50a92380a75",
+      "concept": "apple",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_f05ea50a92380a75.json"
+    },
+    {
+      "candidate_id": "cand_f46db447ebc46339",
+      "concept": "apple",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_f46db447ebc46339.json"
+    },
+    {
+      "candidate_id": "cand_0174bc7380c0eb7a",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_0174bc7380c0eb7a.json"
+    },
+    {
+      "candidate_id": "cand_05dc2ed4be197efd",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_05dc2ed4be197efd.json"
+    },
+    {
+      "candidate_id": "cand_05f1df2ea22aa661",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_05f1df2ea22aa661.json"
+    },
+    {
+      "candidate_id": "cand_167afedc268900bf",
+      "concept": "banana",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_167afedc268900bf.json"
+    },
+    {
+      "candidate_id": "cand_17ef53b893ec1526",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_17ef53b893ec1526.json"
+    },
+    {
+      "candidate_id": "cand_317a665b36d24191",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_317a665b36d24191.json"
+    },
+    {
+      "candidate_id": "cand_319e50640bd9dcb5",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_319e50640bd9dcb5.json"
+    },
+    {
+      "candidate_id": "cand_6d2237714373cbd8",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_6d2237714373cbd8.json"
+    },
+    {
+      "candidate_id": "cand_6daed54de331e543",
+      "concept": "banana",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_6daed54de331e543.json"
+    },
+    {
+      "candidate_id": "cand_72925529805f1017",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_72925529805f1017.json"
+    },
+    {
+      "candidate_id": "cand_7381a068f43dd39b",
+      "concept": "banana",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_7381a068f43dd39b.json"
+    },
+    {
+      "candidate_id": "cand_7c300317ffeedd4f",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_7c300317ffeedd4f.json"
+    },
+    {
+      "candidate_id": "cand_837b5380e272a624",
+      "concept": "banana",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_837b5380e272a624.json"
+    },
+    {
+      "candidate_id": "cand_83b2ad07a82a2e39",
+      "concept": "banana",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_83b2ad07a82a2e39.json"
+    },
+    {
+      "candidate_id": "cand_882e8d32939f74c1",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_882e8d32939f74c1.json"
+    },
+    {
+      "candidate_id": "cand_b123ae38c57c7b66",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_b123ae38c57c7b66.json"
+    },
+    {
+      "candidate_id": "cand_b68ff9bb69b614d3",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_b68ff9bb69b614d3.json"
+    },
+    {
+      "candidate_id": "cand_c1c45fa87a1a47a2",
+      "concept": "banana",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_c1c45fa87a1a47a2.json"
+    },
+    {
+      "candidate_id": "cand_c706b921b1c2210d",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_c706b921b1c2210d.json"
+    },
+    {
+      "candidate_id": "cand_c823e156a799c6d1",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_c823e156a799c6d1.json"
+    },
+    {
+      "candidate_id": "cand_d0887948d7cc3b07",
+      "concept": "banana",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_d0887948d7cc3b07.json"
+    },
+    {
+      "candidate_id": "cand_d25390fdee92c7c2",
+      "concept": "banana",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_d25390fdee92c7c2.json"
+    },
+    {
+      "candidate_id": "cand_d4d00bd6d410eed0",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_d4d00bd6d410eed0.json"
+    },
+    {
+      "candidate_id": "cand_d5df4ac1b3fab3b5",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_d5df4ac1b3fab3b5.json"
+    },
+    {
+      "candidate_id": "cand_d9691a3e157983ca",
+      "concept": "banana",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_d9691a3e157983ca.json"
+    },
+    {
+      "candidate_id": "cand_df6e9cb6febeef79",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_df6e9cb6febeef79.json"
+    },
+    {
+      "candidate_id": "cand_e9b76fd549e6221d",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_e9b76fd549e6221d.json"
+    },
+    {
+      "candidate_id": "cand_f5e67219aebe9394",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_f5e67219aebe9394.json"
+    },
+    {
+      "candidate_id": "cand_faa5367f36b9b2f8",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_faa5367f36b9b2f8.json"
+    },
+    {
+      "candidate_id": "cand_fc9a2640582b8e77",
+      "concept": "banana",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_fc9a2640582b8e77.json"
+    },
+    {
+      "candidate_id": "cand_03b88282abeb75ab",
+      "concept": "bird",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bird/cand_03b88282abeb75ab.json"
+    },
+    {
+      "candidate_id": "cand_04b4e3f315d2eeed",
+      "concept": "bird",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bird/cand_04b4e3f315d2eeed.json"
+    },
+    {
+      "candidate_id": "cand_1567152a86353c34",
+      "concept": "bird",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bird/cand_1567152a86353c34.json"
+    },
+    {
+      "candidate_id": "cand_1d64d35f98d81a62",
+      "concept": "bird",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bird/cand_1d64d35f98d81a62.json"
+    },
+    {
+      "candidate_id": "cand_576db867f4eb1688",
+      "concept": "bird",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bird/cand_576db867f4eb1688.json"
+    },
+    {
+      "candidate_id": "cand_64a43940861d40c9",
+      "concept": "bird",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bird/cand_64a43940861d40c9.json"
+    },
+    {
+      "candidate_id": "cand_841f0d2dc7da41c4",
+      "concept": "bird",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bird/cand_841f0d2dc7da41c4.json"
+    },
+    {
+      "candidate_id": "cand_aa1937258e1f7f30",
+      "concept": "bird",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bird/cand_aa1937258e1f7f30.json"
+    },
+    {
+      "candidate_id": "cand_bd9c1b17caae3fed",
+      "concept": "bird",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bird/cand_bd9c1b17caae3fed.json"
+    },
+    {
+      "candidate_id": "cand_defa64c6ce0b5e10",
+      "concept": "bird",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bird/cand_defa64c6ce0b5e10.json"
+    },
+    {
+      "candidate_id": "cand_e5fdffe7fa333523",
+      "concept": "bird",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bird/cand_e5fdffe7fa333523.json"
+    },
+    {
+      "candidate_id": "cand_f14e348ef3eff53b",
+      "concept": "bird",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bird/cand_f14e348ef3eff53b.json"
+    },
+    {
+      "candidate_id": "cand_1a6860d379430da6",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_1a6860d379430da6.json"
+    },
+    {
+      "candidate_id": "cand_22af781523a71743",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_22af781523a71743.json"
+    },
+    {
+      "candidate_id": "cand_28386f14268d4bc3",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_28386f14268d4bc3.json"
+    },
+    {
+      "candidate_id": "cand_3f94ba18987de869",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_3f94ba18987de869.json"
+    },
+    {
+      "candidate_id": "cand_48435c3395d76f31",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_48435c3395d76f31.json"
+    },
+    {
+      "candidate_id": "cand_4edeaf89393596ba",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_4edeaf89393596ba.json"
+    },
+    {
+      "candidate_id": "cand_5c0876fa4813e100",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_5c0876fa4813e100.json"
+    },
+    {
+      "candidate_id": "cand_6d0ab52b2c81fe76",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_6d0ab52b2c81fe76.json"
+    },
+    {
+      "candidate_id": "cand_705bc423c4afb6a8",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_705bc423c4afb6a8.json"
+    },
+    {
+      "candidate_id": "cand_71ea3fc31f113eee",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_71ea3fc31f113eee.json"
+    },
+    {
+      "candidate_id": "cand_7f382337b3512965",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_7f382337b3512965.json"
+    },
+    {
+      "candidate_id": "cand_836c5794fa9796f9",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_836c5794fa9796f9.json"
+    },
+    {
+      "candidate_id": "cand_86f72e5c1e134de9",
+      "concept": "book",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_86f72e5c1e134de9.json"
+    },
+    {
+      "candidate_id": "cand_8dbbd7ce9fa544c8",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_8dbbd7ce9fa544c8.json"
+    },
+    {
+      "candidate_id": "cand_9796af92c38d08ee",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_9796af92c38d08ee.json"
+    },
+    {
+      "candidate_id": "cand_a497e7c259baf8c9",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_a497e7c259baf8c9.json"
+    },
+    {
+      "candidate_id": "cand_ba2c9c80a6aacc47",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_ba2c9c80a6aacc47.json"
+    },
+    {
+      "candidate_id": "cand_bccf5d8b3d8f1e7b",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_bccf5d8b3d8f1e7b.json"
+    },
+    {
+      "candidate_id": "cand_e0bb207e4f387460",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_e0bb207e4f387460.json"
+    },
+    {
+      "candidate_id": "cand_fb7ff29ae6a2caab",
+      "concept": "book",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_fb7ff29ae6a2caab.json"
+    },
+    {
+      "candidate_id": "cand_24e080cf4ff30340",
+      "concept": "bread",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_24e080cf4ff30340.json"
+    },
+    {
+      "candidate_id": "cand_2de09510e3a8e6d8",
+      "concept": "bread",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_2de09510e3a8e6d8.json"
+    },
+    {
+      "candidate_id": "cand_318744c074b1a230",
+      "concept": "bread",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_318744c074b1a230.json"
+    },
+    {
+      "candidate_id": "cand_31d5a20df354ffa6",
+      "concept": "bread",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_31d5a20df354ffa6.json"
+    },
+    {
+      "candidate_id": "cand_38eaeba16b3e327a",
+      "concept": "bread",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_38eaeba16b3e327a.json"
+    },
+    {
+      "candidate_id": "cand_4cd65c2339c52913",
+      "concept": "bread",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_4cd65c2339c52913.json"
+    },
+    {
+      "candidate_id": "cand_753410f4cb389a9d",
+      "concept": "bread",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_753410f4cb389a9d.json"
+    },
+    {
+      "candidate_id": "cand_8e73fe1a0daee5bc",
+      "concept": "bread",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_8e73fe1a0daee5bc.json"
+    },
+    {
+      "candidate_id": "cand_970fb6541685b272",
+      "concept": "bread",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_970fb6541685b272.json"
+    },
+    {
+      "candidate_id": "cand_9831e65b42f10338",
+      "concept": "bread",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_9831e65b42f10338.json"
+    },
+    {
+      "candidate_id": "cand_b5aae2bf58b56cd2",
+      "concept": "bread",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_b5aae2bf58b56cd2.json"
+    },
+    {
+      "candidate_id": "cand_d56fd626dcd5e02b",
+      "concept": "bread",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_d56fd626dcd5e02b.json"
+    },
+    {
+      "candidate_id": "cand_0c45014cdfcca92b",
+      "concept": "cake",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_0c45014cdfcca92b.json"
+    },
+    {
+      "candidate_id": "cand_131e54cdaba000cc",
+      "concept": "cake",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_131e54cdaba000cc.json"
+    },
+    {
+      "candidate_id": "cand_19a3dce0cfa34a96",
+      "concept": "cake",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_19a3dce0cfa34a96.json"
+    },
+    {
+      "candidate_id": "cand_225ddb51df22fb45",
+      "concept": "cake",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_225ddb51df22fb45.json"
+    },
+    {
+      "candidate_id": "cand_2b8621d81848586b",
+      "concept": "cake",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_2b8621d81848586b.json"
+    },
+    {
+      "candidate_id": "cand_3b76fb1c5605719d",
+      "concept": "cake",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_3b76fb1c5605719d.json"
+    },
+    {
+      "candidate_id": "cand_53d4a3a843febeec",
+      "concept": "cake",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_53d4a3a843febeec.json"
+    },
+    {
+      "candidate_id": "cand_7230d9102ca97c0f",
+      "concept": "cake",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_7230d9102ca97c0f.json"
+    },
+    {
+      "candidate_id": "cand_8573ee5ff8cd9ffc",
+      "concept": "cake",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_8573ee5ff8cd9ffc.json"
+    },
+    {
+      "candidate_id": "cand_882e8d32939f74c1",
+      "concept": "cake",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_882e8d32939f74c1.json"
+    },
+    {
+      "candidate_id": "cand_ac9c89e8c1a095dc",
+      "concept": "cake",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_ac9c89e8c1a095dc.json"
+    },
+    {
+      "candidate_id": "cand_d2bc9a52b8073d86",
+      "concept": "cake",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_d2bc9a52b8073d86.json"
+    },
+    {
+      "candidate_id": "cand_021a2a0672fe8471",
+      "concept": "cat",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_021a2a0672fe8471.json"
+    },
+    {
+      "candidate_id": "cand_1d2f697841441dfd",
+      "concept": "cat",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_1d2f697841441dfd.json"
+    },
+    {
+      "candidate_id": "cand_59456f0e8a2d8040",
+      "concept": "cat",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_59456f0e8a2d8040.json"
+    },
+    {
+      "candidate_id": "cand_617d7a8e6a374f8c",
+      "concept": "cat",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_617d7a8e6a374f8c.json"
+    },
+    {
+      "candidate_id": "cand_8756cf137c786d81",
+      "concept": "cat",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_8756cf137c786d81.json"
+    },
+    {
+      "candidate_id": "cand_8de0d15e6fc3f9d0",
+      "concept": "cat",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_8de0d15e6fc3f9d0.json"
+    },
+    {
+      "candidate_id": "cand_912cc31d200b3b28",
+      "concept": "cat",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_912cc31d200b3b28.json"
+    },
+    {
+      "candidate_id": "cand_e94e84bfa3ca6aa1",
+      "concept": "cat",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_e94e84bfa3ca6aa1.json"
+    },
+    {
+      "candidate_id": "cand_ed78cb51b8522f33",
+      "concept": "cat",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_ed78cb51b8522f33.json"
+    },
+    {
+      "candidate_id": "cand_f1f62529bb882f7a",
+      "concept": "cat",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_f1f62529bb882f7a.json"
+    },
+    {
+      "candidate_id": "cand_08311108985a9b2e",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_08311108985a9b2e.json"
+    },
+    {
+      "candidate_id": "cand_13359cb96dc925e7",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_13359cb96dc925e7.json"
+    },
+    {
+      "candidate_id": "cand_1a97ed34554f14b6",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_1a97ed34554f14b6.json"
+    },
+    {
+      "candidate_id": "cand_1da1a60fc93ab669",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_1da1a60fc93ab669.json"
+    },
+    {
+      "candidate_id": "cand_22909e32bb3f41f4",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_22909e32bb3f41f4.json"
+    },
+    {
+      "candidate_id": "cand_2c3c43b00df66239",
+      "concept": "chair",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_2c3c43b00df66239.json"
+    },
+    {
+      "candidate_id": "cand_535f8365bc09bb76",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_535f8365bc09bb76.json"
+    },
+    {
+      "candidate_id": "cand_5cb3e487abd192af",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_5cb3e487abd192af.json"
+    },
+    {
+      "candidate_id": "cand_5e62a47bf874f61c",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_5e62a47bf874f61c.json"
+    },
+    {
+      "candidate_id": "cand_707e59bf29a79f88",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_707e59bf29a79f88.json"
+    },
+    {
+      "candidate_id": "cand_796faebfe747b695",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_796faebfe747b695.json"
+    },
+    {
+      "candidate_id": "cand_7d8478e1957ff807",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_7d8478e1957ff807.json"
+    },
+    {
+      "candidate_id": "cand_894ca79678782208",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_894ca79678782208.json"
+    },
+    {
+      "candidate_id": "cand_b79984cfc26858eb",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_b79984cfc26858eb.json"
+    },
+    {
+      "candidate_id": "cand_b7fe47efa0a7c42f",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_b7fe47efa0a7c42f.json"
+    },
+    {
+      "candidate_id": "cand_bfc52d1bfc6de6ed",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_bfc52d1bfc6de6ed.json"
+    },
+    {
+      "candidate_id": "cand_c63ff48600af377a",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_c63ff48600af377a.json"
+    },
+    {
+      "candidate_id": "cand_cf37a17554a8a829",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_cf37a17554a8a829.json"
+    },
+    {
+      "candidate_id": "cand_f10f1ced53219186",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_f10f1ced53219186.json"
+    },
+    {
+      "candidate_id": "cand_fe110e6f09c9e939",
+      "concept": "chair",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_fe110e6f09c9e939.json"
+    },
+    {
+      "candidate_id": "cand_000c3ed93966c0bf",
+      "concept": "computer",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_000c3ed93966c0bf.json"
+    },
+    {
+      "candidate_id": "cand_3a240d519a144fda",
+      "concept": "computer",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_3a240d519a144fda.json"
+    },
+    {
+      "candidate_id": "cand_3e1d4ffa5a9f547b",
+      "concept": "computer",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_3e1d4ffa5a9f547b.json"
+    },
+    {
+      "candidate_id": "cand_5ebcd23dd3d2c0bf",
+      "concept": "computer",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_5ebcd23dd3d2c0bf.json"
+    },
+    {
+      "candidate_id": "cand_614428f9586435a1",
+      "concept": "computer",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_614428f9586435a1.json"
+    },
+    {
+      "candidate_id": "cand_80c181863bd136d3",
+      "concept": "computer",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_80c181863bd136d3.json"
+    },
+    {
+      "candidate_id": "cand_9e2e674a2ab40945",
+      "concept": "computer",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_9e2e674a2ab40945.json"
+    },
+    {
+      "candidate_id": "cand_bab1c69d53684a9d",
+      "concept": "computer",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_bab1c69d53684a9d.json"
+    },
+    {
+      "candidate_id": "cand_cae84b15ed56d00f",
+      "concept": "computer",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_cae84b15ed56d00f.json"
+    },
+    {
+      "candidate_id": "cand_d18869b27e97c9ed",
+      "concept": "computer",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_d18869b27e97c9ed.json"
+    },
+    {
+      "candidate_id": "cand_d8021dbebb478672",
+      "concept": "computer",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_d8021dbebb478672.json"
+    },
+    {
+      "candidate_id": "cand_f0069cce32c9cd82",
+      "concept": "computer",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_f0069cce32c9cd82.json"
+    },
+    {
+      "candidate_id": "cand_02dd0e3f5a193736",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_02dd0e3f5a193736.json"
+    },
+    {
+      "candidate_id": "cand_3bc5f2acc4c30f08",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_3bc5f2acc4c30f08.json"
+    },
+    {
+      "candidate_id": "cand_3bf97c3f58b4bd8c",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_3bf97c3f58b4bd8c.json"
+    },
+    {
+      "candidate_id": "cand_4f080f86e83a44f0",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_4f080f86e83a44f0.json"
+    },
+    {
+      "candidate_id": "cand_5c612743667c6071",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_5c612743667c6071.json"
+    },
+    {
+      "candidate_id": "cand_5e753afef180073e",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_5e753afef180073e.json"
+    },
+    {
+      "candidate_id": "cand_635cfb7c09e4f2cf",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_635cfb7c09e4f2cf.json"
+    },
+    {
+      "candidate_id": "cand_64a3f691d8a554c3",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_64a3f691d8a554c3.json"
+    },
+    {
+      "candidate_id": "cand_67e6b5a40ad5ec85",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_67e6b5a40ad5ec85.json"
+    },
+    {
+      "candidate_id": "cand_7349a1e0f507dc0b",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_7349a1e0f507dc0b.json"
+    },
+    {
+      "candidate_id": "cand_7dd5fa3a2eb28a40",
+      "concept": "cup",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_7dd5fa3a2eb28a40.json"
+    },
+    {
+      "candidate_id": "cand_848e173ca68ec06d",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_848e173ca68ec06d.json"
+    },
+    {
+      "candidate_id": "cand_ace81a0f3b029135",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_ace81a0f3b029135.json"
+    },
+    {
+      "candidate_id": "cand_c3639a4ca4843aca",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_c3639a4ca4843aca.json"
+    },
+    {
+      "candidate_id": "cand_c5d5b12f60fb79c6",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_c5d5b12f60fb79c6.json"
+    },
+    {
+      "candidate_id": "cand_c86e03b7e510b08d",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_c86e03b7e510b08d.json"
+    },
+    {
+      "candidate_id": "cand_cafc8da286231560",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_cafc8da286231560.json"
+    },
+    {
+      "candidate_id": "cand_d978fa6d7acb4d09",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_d978fa6d7acb4d09.json"
+    },
+    {
+      "candidate_id": "cand_e4d9cc9275aa9f9d",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_e4d9cc9275aa9f9d.json"
+    },
+    {
+      "candidate_id": "cand_fc002f3cc7e77df8",
+      "concept": "cup",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_fc002f3cc7e77df8.json"
+    },
+    {
+      "candidate_id": "cand_49091907b1b27f08",
+      "concept": "dog",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_49091907b1b27f08.json"
+    },
+    {
+      "candidate_id": "cand_4b508c600ea48388",
+      "concept": "dog",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_4b508c600ea48388.json"
+    },
+    {
+      "candidate_id": "cand_4b65e655cba27059",
+      "concept": "dog",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_4b65e655cba27059.json"
+    },
+    {
+      "candidate_id": "cand_7da1c4982e07b329",
+      "concept": "dog",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_7da1c4982e07b329.json"
+    },
+    {
+      "candidate_id": "cand_86b6b85805934451",
+      "concept": "dog",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_86b6b85805934451.json"
+    },
+    {
+      "candidate_id": "cand_9b9c883796f4bdc7",
+      "concept": "dog",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_9b9c883796f4bdc7.json"
+    },
+    {
+      "candidate_id": "cand_a6c43a42e22094af",
+      "concept": "dog",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_a6c43a42e22094af.json"
+    },
+    {
+      "candidate_id": "cand_b26c980f43079c40",
+      "concept": "dog",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_b26c980f43079c40.json"
+    },
+    {
+      "candidate_id": "cand_dc4c41b74b928aed",
+      "concept": "dog",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_dc4c41b74b928aed.json"
+    },
+    {
+      "candidate_id": "cand_f3e04175907c13c9",
+      "concept": "dog",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_f3e04175907c13c9.json"
+    },
+    {
+      "candidate_id": "cand_17a59b642cca2f41",
+      "concept": "egg",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_17a59b642cca2f41.json"
+    },
+    {
+      "candidate_id": "cand_2f164ec440a46817",
+      "concept": "egg",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_2f164ec440a46817.json"
+    },
+    {
+      "candidate_id": "cand_5dafda28911bcef6",
+      "concept": "egg",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_5dafda28911bcef6.json"
+    },
+    {
+      "candidate_id": "cand_612586c5141145d1",
+      "concept": "egg",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_612586c5141145d1.json"
+    },
+    {
+      "candidate_id": "cand_657a7171d6e5f66a",
+      "concept": "egg",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_657a7171d6e5f66a.json"
+    },
+    {
+      "candidate_id": "cand_704715492c77d2ba",
+      "concept": "egg",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_704715492c77d2ba.json"
+    },
+    {
+      "candidate_id": "cand_74af1cb7c798e890",
+      "concept": "egg",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_74af1cb7c798e890.json"
+    },
+    {
+      "candidate_id": "cand_7a45880da9aeaaad",
+      "concept": "egg",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_7a45880da9aeaaad.json"
+    },
+    {
+      "candidate_id": "cand_802ec4a0f1fd7393",
+      "concept": "egg",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_802ec4a0f1fd7393.json"
+    },
+    {
+      "candidate_id": "cand_896cb3b25fd5f0bb",
+      "concept": "egg",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_896cb3b25fd5f0bb.json"
+    },
+    {
+      "candidate_id": "cand_8f3f202649d8a22a",
+      "concept": "egg",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_8f3f202649d8a22a.json"
+    },
+    {
+      "candidate_id": "cand_9c4ee5e5a599052a",
+      "concept": "egg",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_9c4ee5e5a599052a.json"
+    },
+    {
+      "candidate_id": "cand_0a70db18029e91e3",
+      "concept": "fish",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_0a70db18029e91e3.json"
+    },
+    {
+      "candidate_id": "cand_0d9ca0c5e8ccad83",
+      "concept": "fish",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_0d9ca0c5e8ccad83.json"
+    },
+    {
+      "candidate_id": "cand_17a8feaf450da7b4",
+      "concept": "fish",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_17a8feaf450da7b4.json"
+    },
+    {
+      "candidate_id": "cand_34670aed6b130a99",
+      "concept": "fish",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_34670aed6b130a99.json"
+    },
+    {
+      "candidate_id": "cand_5cd85f0f0bbc0680",
+      "concept": "fish",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_5cd85f0f0bbc0680.json"
+    },
+    {
+      "candidate_id": "cand_7d690970575dd4bc",
+      "concept": "fish",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_7d690970575dd4bc.json"
+    },
+    {
+      "candidate_id": "cand_9ced1cadfc2a9974",
+      "concept": "fish",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_9ced1cadfc2a9974.json"
+    },
+    {
+      "candidate_id": "cand_b2e16876e08e028b",
+      "concept": "fish",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_b2e16876e08e028b.json"
+    },
+    {
+      "candidate_id": "cand_bbf2ee329c86f9d0",
+      "concept": "fish",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_bbf2ee329c86f9d0.json"
+    },
+    {
+      "candidate_id": "cand_d002871d3d29e2e6",
+      "concept": "fish",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_d002871d3d29e2e6.json"
+    },
+    {
+      "candidate_id": "cand_d997aaa7f858b8b7",
+      "concept": "fish",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_d997aaa7f858b8b7.json"
+    },
+    {
+      "candidate_id": "cand_da49e9d9a1982f6a",
+      "concept": "fish",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_da49e9d9a1982f6a.json"
+    },
+    {
+      "candidate_id": "cand_05f1df2ea22aa661",
+      "concept": "grape",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_05f1df2ea22aa661.json"
+    },
+    {
+      "candidate_id": "cand_08ff77cc95ffc1f2",
+      "concept": "grape",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_08ff77cc95ffc1f2.json"
+    },
+    {
+      "candidate_id": "cand_1ce5181a8b56b749",
+      "concept": "grape",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_1ce5181a8b56b749.json"
+    },
+    {
+      "candidate_id": "cand_2f2b09c614c41fd9",
+      "concept": "grape",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_2f2b09c614c41fd9.json"
+    },
+    {
+      "candidate_id": "cand_3bdfe1a64732ea22",
+      "concept": "grape",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_3bdfe1a64732ea22.json"
+    },
+    {
+      "candidate_id": "cand_3d8bb6f582e83529",
+      "concept": "grape",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_3d8bb6f582e83529.json"
+    },
+    {
+      "candidate_id": "cand_4d49adc95bafddab",
+      "concept": "grape",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_4d49adc95bafddab.json"
+    },
+    {
+      "candidate_id": "cand_57b594fb0a305068",
+      "concept": "grape",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_57b594fb0a305068.json"
+    },
+    {
+      "candidate_id": "cand_5c6f0ebce02d70c5",
+      "concept": "grape",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_5c6f0ebce02d70c5.json"
+    },
+    {
+      "candidate_id": "cand_717d4451cfaaf4d1",
+      "concept": "grape",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_717d4451cfaaf4d1.json"
+    },
+    {
+      "candidate_id": "cand_902e9078dfbf3f72",
+      "concept": "grape",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_902e9078dfbf3f72.json"
+    },
+    {
+      "candidate_id": "cand_9b6002157af5a8bf",
+      "concept": "grape",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_9b6002157af5a8bf.json"
+    },
+    {
+      "candidate_id": "cand_b59f25c938e8f079",
+      "concept": "grape",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_b59f25c938e8f079.json"
+    },
+    {
+      "candidate_id": "cand_ba5421f21431998e",
+      "concept": "grape",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_ba5421f21431998e.json"
+    },
+    {
+      "candidate_id": "cand_c706b921b1c2210d",
+      "concept": "grape",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_c706b921b1c2210d.json"
+    },
+    {
+      "candidate_id": "cand_d3f1558945f2e873",
+      "concept": "grape",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_d3f1558945f2e873.json"
+    },
+    {
+      "candidate_id": "cand_d7129ca9084a41f5",
+      "concept": "grape",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_d7129ca9084a41f5.json"
+    },
+    {
+      "candidate_id": "cand_dccc327ea6f221ad",
+      "concept": "grape",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_dccc327ea6f221ad.json"
+    },
+    {
+      "candidate_id": "cand_f5e67219aebe9394",
+      "concept": "grape",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_f5e67219aebe9394.json"
+    },
+    {
+      "candidate_id": "cand_fbf562889cde30da",
+      "concept": "grape",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_fbf562889cde30da.json"
+    },
+    {
+      "candidate_id": "cand_1bdd4848fcf1e609",
+      "concept": "key",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_1bdd4848fcf1e609.json"
+    },
+    {
+      "candidate_id": "cand_2c40b9431a1147c2",
+      "concept": "key",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_2c40b9431a1147c2.json"
+    },
+    {
+      "candidate_id": "cand_3bc5f2acc4c30f08",
+      "concept": "key",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_3bc5f2acc4c30f08.json"
+    },
+    {
+      "candidate_id": "cand_3bef9fb2a346a776",
+      "concept": "key",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_3bef9fb2a346a776.json"
+    },
+    {
+      "candidate_id": "cand_4a735cfbfc532279",
+      "concept": "key",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_4a735cfbfc532279.json"
+    },
+    {
+      "candidate_id": "cand_4c8b436184bf7382",
+      "concept": "key",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_4c8b436184bf7382.json"
+    },
+    {
+      "candidate_id": "cand_5a923f83167ec260",
+      "concept": "key",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_5a923f83167ec260.json"
+    },
+    {
+      "candidate_id": "cand_5ebcd23dd3d2c0bf",
+      "concept": "key",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_5ebcd23dd3d2c0bf.json"
+    },
+    {
+      "candidate_id": "cand_66e5befbe5863a4e",
+      "concept": "key",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_66e5befbe5863a4e.json"
+    },
+    {
+      "candidate_id": "cand_7feadba732d00c72",
+      "concept": "key",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_7feadba732d00c72.json"
+    },
+    {
+      "candidate_id": "cand_80c181863bd136d3",
+      "concept": "key",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_80c181863bd136d3.json"
+    },
+    {
+      "candidate_id": "cand_882da8502ef27e28",
+      "concept": "key",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_882da8502ef27e28.json"
+    },
+    {
+      "candidate_id": "cand_b1acb72b2d702b74",
+      "concept": "key",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_b1acb72b2d702b74.json"
+    },
+    {
+      "candidate_id": "cand_cafc8da286231560",
+      "concept": "key",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_cafc8da286231560.json"
+    },
+    {
+      "candidate_id": "cand_d18869b27e97c9ed",
+      "concept": "key",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_d18869b27e97c9ed.json"
+    },
+    {
+      "candidate_id": "cand_f0379d43183b42f6",
+      "concept": "key",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_f0379d43183b42f6.json"
+    },
+    {
+      "candidate_id": "cand_fbba20b8ceaceed1",
+      "concept": "key",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_fbba20b8ceaceed1.json"
+    },
+    {
+      "candidate_id": "cand_065bc97b6db1d402",
+      "concept": "orange",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_065bc97b6db1d402.json"
+    },
+    {
+      "candidate_id": "cand_077a0798040a618f",
+      "concept": "orange",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_077a0798040a618f.json"
+    },
+    {
+      "candidate_id": "cand_080d4a7b120f9e07",
+      "concept": "orange",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_080d4a7b120f9e07.json"
+    },
+    {
+      "candidate_id": "cand_199aad43e996f318",
+      "concept": "orange",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_199aad43e996f318.json"
+    },
+    {
+      "candidate_id": "cand_221d3c8942647886",
+      "concept": "orange",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_221d3c8942647886.json"
+    },
+    {
+      "candidate_id": "cand_27444393c094b564",
+      "concept": "orange",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_27444393c094b564.json"
+    },
+    {
+      "candidate_id": "cand_2d864c9ff9d35a31",
+      "concept": "orange",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_2d864c9ff9d35a31.json"
+    },
+    {
+      "candidate_id": "cand_323140490b99840c",
+      "concept": "orange",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_323140490b99840c.json"
+    },
+    {
+      "candidate_id": "cand_333570e3e4d7d821",
+      "concept": "orange",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_333570e3e4d7d821.json"
+    },
+    {
+      "candidate_id": "cand_38224bafbe5c1b29",
+      "concept": "orange",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_38224bafbe5c1b29.json"
+    },
+    {
+      "candidate_id": "cand_4a8e9a04bd6181ad",
+      "concept": "orange",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_4a8e9a04bd6181ad.json"
+    },
+    {
+      "candidate_id": "cand_4b7f0d49afeb0f73",
+      "concept": "orange",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_4b7f0d49afeb0f73.json"
+    },
+    {
+      "candidate_id": "cand_5765d9f933b2ee28",
+      "concept": "orange",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_5765d9f933b2ee28.json"
+    },
+    {
+      "candidate_id": "cand_5b9b1b69cb6bbbb1",
+      "concept": "orange",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_5b9b1b69cb6bbbb1.json"
+    },
+    {
+      "candidate_id": "cand_6c6504dcca7f2f06",
+      "concept": "orange",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_6c6504dcca7f2f06.json"
+    },
+    {
+      "candidate_id": "cand_72925529805f1017",
+      "concept": "orange",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_72925529805f1017.json"
+    },
+    {
+      "candidate_id": "cand_77fe1c893ef7622f",
+      "concept": "orange",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_77fe1c893ef7622f.json"
+    },
+    {
+      "candidate_id": "cand_792c6568bd7a6d97",
+      "concept": "orange",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_792c6568bd7a6d97.json"
+    },
+    {
+      "candidate_id": "cand_90a06c52ed6eaac2",
+      "concept": "orange",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_90a06c52ed6eaac2.json"
+    },
+    {
+      "candidate_id": "cand_ab3fac3eceab9dd7",
+      "concept": "orange",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_ab3fac3eceab9dd7.json"
+    },
+    {
+      "candidate_id": "cand_bb7ba0a7f8b32d4c",
+      "concept": "orange",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_bb7ba0a7f8b32d4c.json"
+    },
+    {
+      "candidate_id": "cand_bbc197058125d97a",
+      "concept": "orange",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_bbc197058125d97a.json"
+    },
+    {
+      "candidate_id": "cand_c2c6ae030d2e70e2",
+      "concept": "orange",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_c2c6ae030d2e70e2.json"
+    },
+    {
+      "candidate_id": "cand_c69af5d5aa14d412",
+      "concept": "orange",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_c69af5d5aa14d412.json"
+    },
+    {
+      "candidate_id": "cand_cd68fe2238246c68",
+      "concept": "orange",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_cd68fe2238246c68.json"
+    },
+    {
+      "candidate_id": "cand_e5059e275e47ec18",
+      "concept": "orange",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_e5059e275e47ec18.json"
+    },
+    {
+      "candidate_id": "cand_ef7060e835c360e4",
+      "concept": "orange",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_ef7060e835c360e4.json"
+    },
+    {
+      "candidate_id": "cand_f80f5ce1db4cbad8",
+      "concept": "orange",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_f80f5ce1db4cbad8.json"
+    },
+    {
+      "candidate_id": "cand_fb3d68cbb58fa9c2",
+      "concept": "orange",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_fb3d68cbb58fa9c2.json"
+    },
+    {
+      "candidate_id": "cand_fd56c0ba9d498928",
+      "concept": "orange",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_fd56c0ba9d498928.json"
+    },
+    {
+      "candidate_id": "cand_1447240af0248816",
+      "concept": "phone",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/phone/cand_1447240af0248816.json"
+    },
+    {
+      "candidate_id": "cand_411ba4954ba5e2cc",
+      "concept": "phone",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/phone/cand_411ba4954ba5e2cc.json"
+    },
+    {
+      "candidate_id": "cand_6882351c5edc6a45",
+      "concept": "phone",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/phone/cand_6882351c5edc6a45.json"
+    },
+    {
+      "candidate_id": "cand_86e99c5d28351d58",
+      "concept": "phone",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/phone/cand_86e99c5d28351d58.json"
+    },
+    {
+      "candidate_id": "cand_b96db93b040109ae",
+      "concept": "phone",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/phone/cand_b96db93b040109ae.json"
+    },
+    {
+      "candidate_id": "cand_cf11beeae11e6be2",
+      "concept": "phone",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/phone/cand_cf11beeae11e6be2.json"
+    },
+    {
+      "candidate_id": "cand_22737be9425c84fb",
+      "concept": "rice",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_22737be9425c84fb.json"
+    },
+    {
+      "candidate_id": "cand_2b3b9137d38b9ce0",
+      "concept": "rice",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_2b3b9137d38b9ce0.json"
+    },
+    {
+      "candidate_id": "cand_3ec6682c5a35c626",
+      "concept": "rice",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_3ec6682c5a35c626.json"
+    },
+    {
+      "candidate_id": "cand_5681206c2ccb9916",
+      "concept": "rice",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_5681206c2ccb9916.json"
+    },
+    {
+      "candidate_id": "cand_715cc783b29f0b69",
+      "concept": "rice",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_715cc783b29f0b69.json"
+    },
+    {
+      "candidate_id": "cand_7653b39b95c9be0b",
+      "concept": "rice",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_7653b39b95c9be0b.json"
+    },
+    {
+      "candidate_id": "cand_7e5b92ed1dfc3a6f",
+      "concept": "rice",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_7e5b92ed1dfc3a6f.json"
+    },
+    {
+      "candidate_id": "cand_9ac66e5d9b8bd4d7",
+      "concept": "rice",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_9ac66e5d9b8bd4d7.json"
+    },
+    {
+      "candidate_id": "cand_bbfa0f3dd0b08c14",
+      "concept": "rice",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_bbfa0f3dd0b08c14.json"
+    },
+    {
+      "candidate_id": "cand_c0ce95a8775a42a7",
+      "concept": "rice",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_c0ce95a8775a42a7.json"
+    },
+    {
+      "candidate_id": "cand_e49d728c5ea381da",
+      "concept": "rice",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_e49d728c5ea381da.json"
+    },
+    {
+      "candidate_id": "cand_04f7acc9fded13d6",
+      "concept": "strawberry",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_04f7acc9fded13d6.json"
+    },
+    {
+      "candidate_id": "cand_0565e881372bca7b",
+      "concept": "strawberry",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_0565e881372bca7b.json"
+    },
+    {
+      "candidate_id": "cand_0b296ea5d170e399",
+      "concept": "strawberry",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_0b296ea5d170e399.json"
+    },
+    {
+      "candidate_id": "cand_48486c4463dd4565",
+      "concept": "strawberry",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_48486c4463dd4565.json"
+    },
+    {
+      "candidate_id": "cand_4955e0a6f86d9efd",
+      "concept": "strawberry",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_4955e0a6f86d9efd.json"
+    },
+    {
+      "candidate_id": "cand_4b8ef7e16dffd9e0",
+      "concept": "strawberry",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_4b8ef7e16dffd9e0.json"
+    },
+    {
+      "candidate_id": "cand_506abaca518f16a3",
+      "concept": "strawberry",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_506abaca518f16a3.json"
+    },
+    {
+      "candidate_id": "cand_56bbf5b60eeaca5a",
+      "concept": "strawberry",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_56bbf5b60eeaca5a.json"
+    },
+    {
+      "candidate_id": "cand_6a70013a72daaced",
+      "concept": "strawberry",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_6a70013a72daaced.json"
+    },
+    {
+      "candidate_id": "cand_6d832aad0fa70d82",
+      "concept": "strawberry",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_6d832aad0fa70d82.json"
+    },
+    {
+      "candidate_id": "cand_72925529805f1017",
+      "concept": "strawberry",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_72925529805f1017.json"
+    },
+    {
+      "candidate_id": "cand_76ceb2abf3cf3187",
+      "concept": "strawberry",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_76ceb2abf3cf3187.json"
+    },
+    {
+      "candidate_id": "cand_7aa9af4c74eaec8e",
+      "concept": "strawberry",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_7aa9af4c74eaec8e.json"
+    },
+    {
+      "candidate_id": "cand_88bda242faf0aec8",
+      "concept": "strawberry",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_88bda242faf0aec8.json"
+    },
+    {
+      "candidate_id": "cand_a5e0c3134e3a27c5",
+      "concept": "strawberry",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_a5e0c3134e3a27c5.json"
+    },
+    {
+      "candidate_id": "cand_a92448ccaf4e39f0",
+      "concept": "strawberry",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_a92448ccaf4e39f0.json"
+    },
+    {
+      "candidate_id": "cand_c9a4215fdd5eadf0",
+      "concept": "strawberry",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_c9a4215fdd5eadf0.json"
+    },
+    {
+      "candidate_id": "cand_dd0c341a49d0d575",
+      "concept": "strawberry",
+      "status": "keep",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_dd0c341a49d0d575.json"
+    },
+    {
+      "candidate_id": "cand_efd81bf5d2679768",
+      "concept": "strawberry",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_efd81bf5d2679768.json"
+    },
+    {
+      "candidate_id": "cand_f5e67219aebe9394",
+      "concept": "strawberry",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_f5e67219aebe9394.json"
+    },
+    {
+      "candidate_id": "cand_1ee5c7bf3d892db1",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_1ee5c7bf3d892db1.json"
+    },
+    {
+      "candidate_id": "cand_25e789625ee0f379",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_25e789625ee0f379.json"
+    },
+    {
+      "candidate_id": "cand_3b9b273d1536ee00",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_3b9b273d1536ee00.json"
+    },
+    {
+      "candidate_id": "cand_540b763099f6c478",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_540b763099f6c478.json"
+    },
+    {
+      "candidate_id": "cand_629b6a798f7fedec",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_629b6a798f7fedec.json"
+    },
+    {
+      "candidate_id": "cand_6d0ab52b2c81fe76",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_6d0ab52b2c81fe76.json"
+    },
+    {
+      "candidate_id": "cand_6f51ec8eab7f2b25",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_6f51ec8eab7f2b25.json"
+    },
+    {
+      "candidate_id": "cand_7263981f5d3140d6",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_7263981f5d3140d6.json"
+    },
+    {
+      "candidate_id": "cand_7589288ff9cc4dd2",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_7589288ff9cc4dd2.json"
+    },
+    {
+      "candidate_id": "cand_93f3bcd9a74bb8e1",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_93f3bcd9a74bb8e1.json"
+    },
+    {
+      "candidate_id": "cand_9d25181c551db00b",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_9d25181c551db00b.json"
+    },
+    {
+      "candidate_id": "cand_a75f891d656ea3b2",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_a75f891d656ea3b2.json"
+    },
+    {
+      "candidate_id": "cand_a87f26137355975c",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_a87f26137355975c.json"
+    },
+    {
+      "candidate_id": "cand_b40857fa1deaf944",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_b40857fa1deaf944.json"
+    },
+    {
+      "candidate_id": "cand_b71fdde9db4fa4c0",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_b71fdde9db4fa4c0.json"
+    },
+    {
+      "candidate_id": "cand_c312e51c3791a44d",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_c312e51c3791a44d.json"
+    },
+    {
+      "candidate_id": "cand_d0e095b17186bf5b",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_d0e095b17186bf5b.json"
+    },
+    {
+      "candidate_id": "cand_d8d99649a6fdd847",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_d8d99649a6fdd847.json"
+    },
+    {
+      "candidate_id": "cand_ed6cc299c9271070",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_ed6cc299c9271070.json"
+    },
+    {
+      "candidate_id": "cand_fc81fcf78f5bf7f7",
+      "concept": "table",
+      "status": "drop",
+      "sidecar_path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_fc81fcf78f5bf7f7.json"
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase3.0 快系统习惯候选门</title>
+  <style>
+    :root {
+      --ink: #152238;
+      --muted: #667085;
+      --line: #d8dee8;
+      --soft: #f8fafc;
+      --accent: #2563eb;
+      --good: #166534;
+      --warn: #9a3412;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.65;
+    }
+    header {
+      padding: 34px 6vw 24px;
+      border-bottom: 1px solid var(--line);
+      background: #eff6ff;
+    }
+    main { max-width: 1120px; margin: 0 auto; padding: 28px 24px 56px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 10px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    .meta { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      background: var(--soft);
+    }
+    .card strong { display: block; font-size: 20px; margin-bottom: 4px; }
+    .ok { color: var(--good); }
+    .warn { color: var(--warn); }
+    .band {
+      border-left: 4px solid var(--accent);
+      background: #eff6ff;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    .warnband {
+      border-left: 4px solid var(--warn);
+      background: #fff7ed;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    code, pre {
+      font-family: Consolas, "Cascadia Mono", monospace;
+      background: #f2f4f7;
+      border-radius: 6px;
+    }
+    code { padding: 1px 5px; }
+    pre { padding: 14px; overflow: auto; border: 1px solid var(--line); }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0; }
+    th, td { border: 1px solid var(--line); padding: 9px 10px; text-align: left; }
+    th { background: #f8fafc; }
+    ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>APV3.0test Phase3.0 快系统习惯候选门</h1>
+    <p class="meta">habit action / habit thought | 行动后果记忆 | 2026-06-16</p>
+  </header>
+  <main>
+    <section class="grid">
+      <div class="card"><strong class="ok">5/5</strong>Phase3 专门测试通过</div>
+      <div class="card"><strong class="ok">67/67</strong>APV3.0test 全量测试通过</div>
+      <div class="card"><strong class="ok">无命中</strong>禁用通道与脚手架扫描</div>
+      <div class="card"><strong class="warn">边界清楚</strong>候选门, 不是完整 tick loop</div>
+    </section>
+
+    <h2>阶段结论</h2>
+    <div class="band">
+      APV3.0test 现在有了最小快系统习惯候选门。奖励、惩罚、支持量、近因和上下文匹配会共同影响 habit strength, 并通过 APV3.0 的 lambda_fast 形成快系统倾向。它只提出行动/想法候选, 不绕过行动竞争。
+    </div>
+
+    <h2>AP 原理对齐</h2>
+    <table>
+      <thead>
+        <tr><th>设计点</th><th>落地方式</th><th>边界</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>习惯来自行动后果</td>
+          <td>读取 <code>action_outcomes</code> 的 reward / punish / support / drive_bias</td>
+          <td>不是回复表</td>
+        </tr>
+        <tr>
+          <td>快系统不必赢慢焦点</td>
+          <td><code>lambda_fast</code> 给出快系统倾向</td>
+          <td>仍需后续接竞争层</td>
+        </tr>
+        <tr>
+          <td>惩罚细化场景</td>
+          <td>punish support 降低 habit drive</td>
+          <td>不删词, 不写黑名单</td>
+        </tr>
+        <tr>
+          <td>同 tick 多行动</td>
+          <td>每个 actuator 只保留一个赢家, 不同行动器可并存</td>
+          <td>执行仍由行动器层决定</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>新增组件</h2>
+    <ul>
+      <li><code>APV3HabitConfig</code>: 具名 tuner-owned habit 参数。</li>
+      <li><code>HabitCandidate</code>: 快系统行动/想法候选及证据读出。</li>
+      <li><code>FastHabitSystem</code>: 从行动后果记忆提出候选, 并按行动器冲突域筛选兼容集合。</li>
+    </ul>
+
+    <h2>验收命令</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase3_0_fast_habit_system.py -q
+python -m pytest APV3.0test\tests -q
+
+rg -n --glob "*.py" "keyword|answer_table|student_side_llm|branch_alignment|math_process_tokens|regex|full_sentence_macro|黄色苹果" APV3.0test\apv3test
+
+rg -n "TODO|FIXME|hardcode|shortcut|route|magic" APV3.0test\apv3test\runtime\habit_system.py APV3.0test\apv3test\config\habit_config.py APV3.0test\tests\test_phase3_0_fast_habit_system.py</code></pre>
+
+    <h2>已验证现象</h2>
+    <ul>
+      <li>高奖励、高支持、低慢系统需求时, 快系统候选强。</li>
+      <li>惩罚会压低相似场景下的 habit drive。</li>
+      <li>上下文不匹配会降权, 但证据仍保留。</li>
+      <li>同一行动器同 tick 只保留一个候选赢家。</li>
+      <li>不同行动器的行动/想法候选可以兼容并存。</li>
+      <li>SQLite 恢复后 habit evidence 仍可读出。</li>
+    </ul>
+
+    <h2>下一步</h2>
+    <div class="warnband">
+      Phase3.1 应把 habit candidate 接到行动竞争前 trace, 验证快系统候选、草稿行动器、注意力行动器和慢系统需求能在同一个 tick 流程里闭合。通过后再进入 Phase4 小型自由中文开放对话 runtime。
+    </div>
+  </main>
+</body>
+</html>

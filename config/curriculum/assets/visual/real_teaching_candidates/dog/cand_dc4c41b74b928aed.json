@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_dc4c41b74b928aed",
+  "concept": "dog",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_dc4c41b74b928aed.png",
+  "sha256": "dc4c41b74b928aed7581ac157b98a78686336ab6a65c270ba4eb7f935a587929",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/29487672@N07/16892038449",
+  "download_url": "https://api.openverse.org/v1/images/7e281091-bba6-4111-a6e6-40a19e151817/thumb/",
+  "license_id": "PDM-1.0",
+  "author": "Scott 97006",
+  "title": "Dog Head PNG File",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

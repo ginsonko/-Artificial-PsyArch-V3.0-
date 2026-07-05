@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_629b6a798f7fedec",
+  "concept": "table",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_629b6a798f7fedec.png",
+  "sha256": "629b6a798f7fedec1120181b1a7a9d402f4a910e3811544b25b40c60701d831f",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/56155476@N08/6660151267",
+  "download_url": "https://api.openverse.org/v1/images/48d2d323-c1b8-4192-8e34-6560deaae98b/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "flickingerbrad",
+  "title": "student_ipad_school - 246",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

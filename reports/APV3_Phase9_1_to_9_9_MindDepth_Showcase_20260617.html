@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 9 主动心智深度验收</title>
+  <style>
+    :root {
+      --bg: #f4f7f6;
+      --panel: #ffffff;
+      --ink: #17211d;
+      --muted: #607168;
+      --line: #d9e3dd;
+      --green: #0f766e;
+      --blue: #245a8f;
+      --gold: #8a6418;
+      --soft-green: #e8f6ef;
+      --soft-blue: #e8f1fb;
+      --soft-gold: #fff4d8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0;
+    }
+    main {
+      width: min(1220px, calc(100% - 44px));
+      margin: 24px auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 45px rgba(30, 44, 64, 0.08);
+    }
+    header { padding: 36px 44px 28px; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, #fff 0%, #f9fbfa 100%); }
+    section { padding: 28px 44px; border-bottom: 1px solid var(--line); }
+    section:last-child { border-bottom: 0; }
+    h1 { margin: 0; font-size: 31px; line-height: 1.24; }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    h3 { margin: 0 0 8px; font-size: 16px; color: var(--blue); }
+    p { margin: 8px 0; }
+    .subtitle { max-width: 980px; color: var(--muted); font-size: 16px; margin-top: 12px; }
+    .status {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 7px 12px;
+      color: var(--green);
+      background: var(--soft-green);
+      border: 1px solid #bfe6d1;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+    .cards9 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      background: #fbfdfc;
+      min-height: 126px;
+    }
+    .card strong { display: block; color: var(--green); font-size: 24px; line-height: 1.1; margin-bottom: 8px; }
+    .card small { display: block; color: var(--muted); margin-top: 6px; }
+    .flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+    .step {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: var(--soft-blue);
+      min-height: 112px;
+    }
+    .step b { color: var(--blue); display: block; margin-bottom: 5px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #edf3f1; }
+    code { font-family: Consolas, "Courier New", monospace; background: #f2f5f7; border: 1px solid #e1e7ee; border-radius: 4px; padding: 1px 5px; }
+    .callout { border-left: 4px solid var(--green); background: var(--soft-green); padding: 13px 15px; margin-top: 12px; }
+    .gold { border-left-color: var(--gold); background: var(--soft-gold); }
+    @media (max-width: 900px) {
+      main { width: calc(100% - 22px); margin: 12px auto; }
+      header, section { padding: 22px; }
+      .grid, .cards9, .flow { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3 Phase 9：从“会反应”走向“有主动心智深度”</h1>
+    <p class="subtitle">
+      Phase 8 证明了多模态、来源感、想象纠错和长期记忆的地基。Phase 9 进一步让 APV3 具备最小主动心智:
+      有驱力、有奖励预测误差、会受挫、会熟悉某个用户、会共同注意、会弱共情、会记住痛、会睡眠式回放、会在低压力时探索玩乐。
+    </p>
+    <div class="status">验收通过：Phase 9.1-9.9 targeted 36 passed，全量 357 passed，红线 PASS</div>
+  </header>
+
+  <section>
+    <h2>一句话价值</h2>
+    <p>
+      这一步不是让系统“装得更会说话”，而是让更多拟人心理学结构进入同一个 AP-native 能量场。
+      它仍然不靠关键词、答案表、隐藏求解器或学生侧 LLM；每个机制都能在状态池、marker、ledger、SDPL 或 long-term 层看到证据。
+    </p>
+    <div class="grid">
+      <div class="card"><strong>主动性</strong>drive、RPE、frustration、play 让系统开始有“想做什么”和“结果好不好”的内部闭环。</div>
+      <div class="card"><strong>社会性</strong>attachment、joint attention、empathy 让同一用户、同一焦点和他人感受成为状态池的一等信号。</div>
+      <div class="card"><strong>持续性</strong>pain memory 与 sleep replay 让重要经验不只停留在当下 tick。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>九个子阶段</h2>
+    <div class="cards9">
+      <div class="card"><strong>9.1 驱力</strong>drive SA 一等公民，无输入时也能产生内源 proposal。<small>EntitySA::drive::*</small></div>
+      <div class="card"><strong>9.2 RPE</strong>实际奖励减预测奖励，调制 SDPL eligibility 与 dopamine-like delta。<small>rpe_signal ledger</small></div>
+      <div class="card"><strong>9.3 受挫</strong>持续高 P + 失败后果形成 frustration 与放弃候选。<small>learned helplessness gate</small></div>
+      <div class="card"><strong>9.4 依恋</strong>重复互动让 entity_user 形成熟悉性和 OXY-like tone。<small>EntitySA::user::*</small></div>
+      <div class="card"><strong>9.5 共同注意</strong>用户和 AP 关注同一对象时 spawn JOINT_ATTENTION。<small>shared focus marker</small></div>
+      <div class="card"><strong>9.6 共情</strong>观察 PAIN/CORRECTION 产生弱 EMPATHY_RESONANCE。<small>weak resonance, not copy</small></div>
+      <div class="card"><strong>9.7 痛记忆</strong>PAIN marker 长衰减，形成最小回避门。<small>persistent PAIN</small></div>
+      <div class="card"><strong>9.8 重放</strong>sleep-like idle 期从 cold pool 回放并巩固。<small>REMEMBERED replay</small></div>
+      <div class="card"><strong>9.9 玩乐</strong>低压力 + 高 boredom 时产生探索玩乐 proposal。<small>play_action::explore_variant</small></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>和普通脚本的区别</h2>
+    <div class="flow">
+      <div class="step"><b>不是关键词触发</b>测试使用 SA、marker、packet 和数值压力，不靠中文字符串。</div>
+      <div class="step"><b>不是中央状态机</b>各机制保持局部，通过状态池和 ledger 自然竞争。</div>
+      <div class="step"><b>不是直接回复宏</b>drive/play/frustration 只产生 proposal，不直接提交中文。</div>
+      <div class="step"><b>不是幻想放任</b>RPE、痛记忆、安全门和反馈会约束内部倾向。</div>
+      <div class="step"><b>不是 UI 伪装</b>所有证明都有 runtime 行为测试与 phase gate。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>验收结果</h2>
+    <table>
+      <tr><th>项目</th><th>结果</th></tr>
+      <tr><td>Phase 9.1-9.9 targeted tests</td><td><strong>36 passed</strong></td></tr>
+      <tr><td>Phase 9 deliverable gates</td><td><strong>PASS</strong>，9.1 到 9.9 都有 runtime、测试和报告交付物</td></tr>
+      <tr><td>v14 red-line</td><td><strong>PASS</strong>，runtime/cognitive 没有触发硬编码、ledger、marker 分支或 audit 边界红线</td></tr>
+      <tr><td>constant governance</td><td><strong>PASS</strong>，213 个数值常量进入治理</td></tr>
+      <tr><td>full suite</td><td><strong>357 passed</strong>，Phase8 与更早能力未被主动心智层破坏</td></tr>
+    </table>
+    <div class="callout">
+      已执行并通过：Phase9 目标测试、9 个 phase deliverable gate、v14 红线、常量治理、compileall 和全量回归。
+      这说明主动心智深度层已经形成最小可验闭环。
+    </div>
+  </section>
+
+  <section>
+    <h2>下一步意义</h2>
+    <p class="callout gold">
+      Phase 9 完成后，项目可以进入 Phase 10：5-8 岁层级心智，包括更稳定的叙事、因果、层级概念、假信念前体和更复杂的社会理解。
+      这会建立在 Phase 8 的多模态地基和 Phase 9 的主动心智深度之上。
+    </p>
+  </section>
+</main>
+</body>
+</html>

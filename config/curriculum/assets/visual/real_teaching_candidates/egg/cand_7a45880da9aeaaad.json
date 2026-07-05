@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_7a45880da9aeaaad",
+  "concept": "egg",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_7a45880da9aeaaad.png",
+  "sha256": "7a45880da9aeaaad9a4aaa82a2636f41e55c9b032e3fc9593ea502f3d1e78fb8",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/26782864@N00/3295081957",
+  "download_url": "https://api.openverse.org/v1/images/3a397605-91a8-4285-878a-45f9b7901d1a/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "wwarby",
+  "title": "Mini Eggs",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

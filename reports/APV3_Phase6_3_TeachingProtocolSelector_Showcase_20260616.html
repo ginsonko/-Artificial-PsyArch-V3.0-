@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase6.3 主动求教到标准教学协议选择器</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --paper: #ffffff;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d7e0ea;
+      --blue: #2458a6;
+      --green: #087443;
+      --amber: #9a5b00;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 56px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(27px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 12px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    code { background: #eef3f8; border: 1px solid #dce5ef; border-radius: 5px; padding: 1px 5px; font-family: Consolas, "Cascadia Mono", monospace; }
+    pre { margin: 10px 0; overflow: auto; background: #111827; color: #edf4ff; border-radius: 8px; padding: 14px; font-size: 13px; }
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; background: var(--paper); }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #eef3f8; }
+    .subtitle { color: var(--muted); max-width: 980px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--green); }
+    .warn { color: var(--amber); }
+    .note { background: var(--paper); border-left: 4px solid var(--blue); padding: 12px 14px; margin: 14px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase6.3 主动求教到标准教学协议选择器</h1>
+    <p class="subtitle">本阶段把 <code>teacher_request</code> SA 转成教师侧 episode proposal。选择器只组织教师给出的证据，不替学生生成答案，也不把 LLM 策略写入学生运行态。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">阶段状态</div>
+      <div class="value ok">Phase6.3 通过</div>
+      <p><code>APV3TeachingProtocolSelector</code> 已落地。</p>
+    </div>
+    <div class="card">
+      <div class="label">目标测试</div>
+      <div class="value ok">4 passed</div>
+      <p>覆盖等待教师证据、episode 运行、教师等价和弱补强。</p>
+    </div>
+    <div class="card">
+      <div class="label">Phase6 组合</div>
+      <div class="value ok">17 passed</div>
+      <p>主动求教、桥接、趋势和选择器保持一致。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">150 passed</div>
+      <p>前序能力未回归。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>设计循环</h2>
+    <table>
+      <tr><th>环节</th><th>本阶段内容</th></tr>
+      <tr><td>设计</td><td>把求教 SA 翻译成标准教学 episode proposal。</td></tr>
+      <tr><td>审查完善</td><td>没有教师 tokens 时只等待，不生成答案或验证目标。</td></tr>
+      <tr><td>通过落地</td><td>新增 <code>teaching_protocol_selector.py</code> 和 Phase6.3 测试。</td></tr>
+      <tr><td>严谨验收测试</td><td>目标、组合、全量测试和红线扫描全部通过。</td></tr>
+      <tr><td>最终汇总报告</td><td>明确教师侧边界、学生侧边界和下一步。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>链路</h2>
+    <pre><code>teacher_request SA
+  -> cue/context/失败诊断/压力来源
+  -> APV3TeachingProtocolSelector
+  -> TeacherEpisodeProposal
+  -> CurriculumEpisode
+  -> AP-native teaching steps
+  -> recall-only validation</code></pre>
+  </section>
+
+  <section>
+    <h2>样例一：没有教师证据就等待</h2>
+    <pre><code>request:
+  cue = goal::ask
+  context = ctx_work
+  reason = remediation_needed
+
+reply_tokens = ()
+
+proposal.status = awaiting_teacher_evidence
+teaching_steps = ()
+validation_cases = ()</code></pre>
+    <p>含义：求教不是答案，选择器不能替教师编答案。</p>
+  </section>
+
+  <section>
+    <h2>样例二：教师证据转成 AP-native episode</h2>
+    <pre><code>reply_tokens = teacher::answer
+case_name = skill_teacher_answer
+expected_pid = p:discovered:skill_teacher_answer
+
+proposal.status = ready
+teaching_steps = 2
+validation success = true
+emitted = teacher::answer
+focus_pid = p:discovered:skill_teacher_answer</code></pre>
+    <p>含义：教师证据通过普通课程 runner 写入，不走答案表。</p>
+  </section>
+
+  <section>
+    <h2>样例三：自然教师和 LLM 标准教师等价</h2>
+    <pre><code>source_kind = natural_teacher
+source_kind = llm_standard_teacher
+
+emitted_tokens 相同
+focus_pid 相同
+student state 中没有 llm_policy</code></pre>
+    <p>含义：LLM 只是教师来源之一，学生侧只看 AP-native evidence。</p>
+  </section>
+
+  <section>
+    <h2>样例四：已学会后弱补强</h2>
+    <table>
+      <tr><th>状态</th><th>evidence_repeats</th><th>含义</th></tr>
+      <tr><td>第一次教学</td><td>2</td><td>冷启动需要足够证据。</td></tr>
+      <tr><td>目标范式暴露后</td><td>1</td><td>已学技能只做轻量补强。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>验收命令</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase6_3_teaching_protocol_selector.py -q
+4 passed in 0.31s
+
+python -m pytest APV3.0test\tests\test_phase6_0_active_teacher_request.py APV3.0test\tests\test_phase6_1_active_learning_bridge.py APV3.0test\tests\test_phase6_2_active_learning_trend.py APV3.0test\tests\test_phase6_3_teaching_protocol_selector.py -q
+17 passed in 0.48s
+
+python -m pytest APV3.0test\tests -q
+150 passed in 3.25s</code></pre>
+  </section>
+
+  <section>
+    <h2>边界</h2>
+    <ul>
+      <li>仍不能宣称 AP 已经能自己决定问哪位教师。</li>
+      <li>仍不能宣称 AP 能自己生成教师答案。</li>
+      <li>仍不能宣称完整主动课程规划系统完成。</li>
+      <li>本阶段证明的是 teacher_request 到标准教学 episode proposal 的最小闭环。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>下一步</h2>
+    <p>建议进入 Phase6.4：把 proposal 与失败诊断、工作记忆、多技能冲突组合起来，验证不同失败类型能生成不同 AP-native 教学计划轮廓，同时仍不在学生侧写入硬编码路由。</p>
+  </section>
+</main>
+</body>
+</html>

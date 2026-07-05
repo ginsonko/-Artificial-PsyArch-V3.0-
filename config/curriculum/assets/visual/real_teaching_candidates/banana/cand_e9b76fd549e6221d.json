@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_e9b76fd549e6221d",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_e9b76fd549e6221d.png",
+  "sha256": "e9b76fd549e6221ddbd4e3851cf123bf0d9ee2d88dbc04442e345deb7ba4003a",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/25652278@N03/3603240087",
+  "download_url": "https://api.openverse.org/v1/images/0e8c3074-ee8f-44ba-9322-b52cbe671c9f/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "David Masters",
+  "title": "365 x8 The Fruit Bowl",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

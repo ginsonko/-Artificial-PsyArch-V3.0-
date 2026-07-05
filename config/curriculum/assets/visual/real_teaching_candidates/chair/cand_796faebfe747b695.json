@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_796faebfe747b695",
+  "concept": "chair",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_796faebfe747b695.png",
+  "sha256": "796faebfe747b695dc31a495c07a3ed4eb6008e5bb17d382a07e6415fa472c8f",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/52634191@N08/4846774997",
+  "download_url": "https://api.openverse.org/v1/images/4a48b0c0-8377-4826-927f-d087511ea02b/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "HALDANE MARTIN",
+  "title": "Haldane Martin & Zulu Mama (landscape)- photo Jan Verboom",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

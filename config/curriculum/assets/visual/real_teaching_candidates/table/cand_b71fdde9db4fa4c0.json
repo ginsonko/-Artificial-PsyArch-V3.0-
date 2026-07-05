@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_b71fdde9db4fa4c0",
+  "concept": "table",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_b71fdde9db4fa4c0.png",
+  "sha256": "b71fdde9db4fa4c077bb2f8bd1e5fbc5fe4d9a6dd604163ef650f09b4f5508be",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/62213282@N00/4687240350",
+  "download_url": "https://api.openverse.org/v1/images/8b9acc49-689d-473d-ad8f-946d27cd521f/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Crunchy Footsteps",
+  "title": "Tabletop darkroom fully assembled",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

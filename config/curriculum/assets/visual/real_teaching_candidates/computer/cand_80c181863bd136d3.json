@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_80c181863bd136d3",
+  "concept": "computer",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_80c181863bd136d3.png",
+  "sha256": "80c181863bd136d3efdd39a9f24e54c04d23592270248896490ad331f9138c30",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/26782864@N00/16614254568",
+  "download_url": "https://api.openverse.org/v1/images/b96b6fcb-0980-458a-ba58-25a90fdea6c8/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "wwarby",
+  "title": "Apple IIe",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

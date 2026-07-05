@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_4a735cfbfc532279",
+  "concept": "key",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_4a735cfbfc532279.png",
+  "sha256": "4a735cfbfc532279c6426e369360bbb962b8f357c052ebd5a2781110246c132c",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/36390568@N07/4995468309",
+  "download_url": "https://api.openverse.org/v1/images/af0a968d-c561-4baa-9ffc-bcbcac0c7f46/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "The Swedish History Museum, Stockholm",
+  "title": "The lost tool chest",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

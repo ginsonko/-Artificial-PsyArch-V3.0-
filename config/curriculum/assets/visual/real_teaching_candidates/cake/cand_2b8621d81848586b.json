@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_2b8621d81848586b",
+  "concept": "cake",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_2b8621d81848586b.png",
+  "sha256": "2b8621d81848586b046e2ea40f634ab77d5ac9d217251b1c83f457f9020bd3cf",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/12803689@N02/3985603967",
+  "download_url": "https://api.openverse.org/v1/images/0e0eeee8-604f-43fd-a441-d7a4be0c5fc5/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "clevercupcakes",
+  "title": "QR Code Cupcake",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

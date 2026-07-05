@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_d56fd626dcd5e02b",
+  "concept": "bread",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_d56fd626dcd5e02b.png",
+  "sha256": "d56fd626dcd5e02b618122f92804aa6d4ef03a8783bcdab306b4961a1374c0aa",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/36281822@N08/4457242974",
+  "download_url": "https://api.openverse.org/v1/images/e6037e5d-e211-4314-8e7b-72b65765d129/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "US Army Africa",
+  "title": "100305-A-5449R-224",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

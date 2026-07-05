@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>APV3 Phase7.5 Runtime Context Multifeeling Integration</title>
+  <style>
+    body { font-family: "Microsoft YaHei", Arial, sans-serif; margin: 32px; line-height: 1.58; color: #20262e; background: #f6f7f9; }
+    main { max-width: 1080px; margin: 0 auto; background: #fff; padding: 28px 32px; border: 1px solid #d9e0e8; }
+    h1 { font-size: 24px; margin: 0 0 12px; }
+    h2 { font-size: 18px; margin-top: 26px; border-bottom: 1px solid #e6ebf1; padding-bottom: 6px; }
+    code, pre { font-family: Consolas, monospace; }
+    pre { background: #f1f4f7; padding: 12px; overflow-x: auto; border: 1px solid #dce3eb; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    th, td { border: 1px solid #d9e0e8; padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: #edf2f6; }
+    .ok { color: #0f6b3d; font-weight: 700; }
+    .warn { color: #8a5a00; font-weight: 700; }
+    .small { color: #5d6875; font-size: 13px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>APV3 Phase7.5 Runtime Context Multifeeling Integration</h1>
+  <p class="ok">状态: 通过。Phase7.5 targeted 3 passed; Phase7.0-7.5 combined 49 passed; full suite 222 passed。</p>
+
+  <h2>目标</h2>
+  <p>把 Phase7.4 的多类内省表达从纯结构日志推进到最小 runtime 组合场景: 工作记忆、奖惩、主动求教、对话不能决和顺畅奖励共同作为结构事实来源。</p>
+
+  <h2>组合链路</h2>
+  <p><code>runtime event -> structural draft-introspection feeling -> cooccurrence association -> teacher-off expression recall</code></p>
+
+  <h2>实际 trace</h2>
+  <table>
+    <tr><th>runtime 场景</th><th>AP-native 证据</th><th>feeling label</th><th>teacher-off expression</th><th>paradigm</th><th>target</th><th>best other</th></tr>
+    <tr><td>dialogue_uncertain</td><td>dialogue_undecidable_draft</td><td><code>feeling::draft::proto_0</code></td><td><code>expr::runtime_dialogue</code></td><td><code>p:expr:runtime_dialogue</code></td><td>0.4075</td><td>0.0589</td></tr>
+    <tr><td>work_memory_unfinished</td><td>work_memory_unfinished_pool_entry</td><td><code>feeling::draft::proto_1</code></td><td><code>expr::runtime_work_memory</code></td><td><code>p:expr:runtime_work_memory</code></td><td>0.4075</td><td>0.0589</td></tr>
+    <tr><td>teacher_request_pressure</td><td>teacher_request_sa</td><td><code>feeling::draft::proto_2</code></td><td><code>expr::runtime_teacher_request</code></td><td><code>p:expr:runtime_teacher_request</code></td><td>0.4075</td><td>0.0589</td></tr>
+    <tr><td>recent_punishment</td><td>punished_action_outcome</td><td><code>feeling::draft::proto_3</code></td><td><code>expr::runtime_punishment</code></td><td><code>p:expr:runtime_punishment</code></td><td>0.4075</td><td>0.0589</td></tr>
+    <tr><td>rewarded_flow</td><td>rewarded_smooth_commit</td><td><code>feeling::draft::proto_4</code></td><td><code>expr::runtime_flow</code></td><td><code>p:expr:runtime_flow</code></td><td>0.4075</td><td>0.0589</td></tr>
+  </table>
+
+  <h2>红线</h2>
+  <ul>
+    <li>测试表达 <code>expr::runtime_*</code> 不进入 runtime。</li>
+    <li>旧字段 <code>must_reply</code>、<code>undecidable_feeling_tokens</code>、<code>feeling::undecidable</code> 不回流。</li>
+    <li>不使用 <code>find_by_cue_token</code>、<code>_most_common_reply</code>、<code>answer_table</code> 或 student-side LLM。</li>
+    <li>teacher-off replay 不更新 association store。</li>
+  </ul>
+
+  <h2>验收命令</h2>
+  <pre>python -m pytest APV3.0test\tests\test_phase7_5_runtime_context_multifeeling_integration.py -q
+python -m pytest APV3.0test\tests\test_phase7_0_teacher_off_three_stage_milestone.py APV3.0test\tests\test_phase7_1_undecidable_shared_fragment.py APV3.0test\tests\test_phase7_2_learned_uncertainty_expression.py APV3.0test\tests\test_phase7_3b_draft_introspection_observer.py APV3.0test\tests\test_phase7_3c_cooccurrence_association_store.py APV3.0test\tests\test_phase7_3d_reply_pressure_sa.py APV3.0test\tests\test_phase7_3e_expression_recall_rebind.py APV3.0test\tests\test_phase7_3f_invariants_replay.py APV3.0test\tests\test_phase7_4_multifeeling_expression_generalization.py APV3.0test\tests\test_phase7_5_runtime_context_multifeeling_integration.py -q
+python -m pytest APV3.0test\tests -q
+rg -n "expr::runtime_|dialogue_uncertain|teacher_request_pressure|rewarded_flow|must_reply|undecidable_feeling_tokens|feeling::undecidable|find_by_cue_token|_most_common_reply|pressure_type_weights|student_side_llm|answer_table|LLM policy" APV3.0test\apv3test\runtime</pre>
+
+  <h2>边界</h2>
+  <p class="warn">这证明的是最小 runtime 组合场景可以进入同一内省 feeling + 共现表达学习通道,不是完整开放中文自由对话底座、自然长对话风格、跨模态表达学习或长期遗忘机制完成。</p>
+  <p class="small">报告: docs/FinalReport_Phase7_5_RuntimeContextMultifeelingIntegration_20260617.md</p>
+</main>
+</body>
+</html>

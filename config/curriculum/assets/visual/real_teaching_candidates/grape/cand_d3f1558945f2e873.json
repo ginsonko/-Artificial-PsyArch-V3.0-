@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_d3f1558945f2e873",
+  "concept": "grape",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_d3f1558945f2e873.png",
+  "sha256": "d3f1558945f2e87358bd2905c7233a24805e0b4a2e2a77b121a7e3ae2bf06ecb",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/45273580@N04/4199796850",
+  "download_url": "https://api.openverse.org/v1/images/f4ec1973-dcc6-4a0e-8a29-7ab0467cdac0/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Tomas Sobek",
+  "title": "Red grape",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

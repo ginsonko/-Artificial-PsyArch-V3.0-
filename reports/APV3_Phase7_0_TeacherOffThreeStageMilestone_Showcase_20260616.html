@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase7.0 teacher-off 三阶里程碑</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --paper: #ffffff;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d7e0ea;
+      --green: #087443;
+      --amber: #9a5b00;
+      --blue: #2458a6;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 56px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(27px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 12px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    code { background: #eef3f8; border: 1px solid #dce5ef; border-radius: 5px; padding: 1px 5px; font-family: Consolas, "Cascadia Mono", monospace; }
+    pre { margin: 10px 0; overflow: auto; background: #111827; color: #edf4ff; border-radius: 8px; padding: 14px; font-size: 13px; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; background: var(--paper); }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #eef3f8; }
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .subtitle { color: var(--muted); max-width: 980px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--green); }
+    .warn { color: var(--amber); }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase7.0 teacher-off 三阶里程碑</h1>
+    <p class="subtitle">本阶段吸收 Claude 的战略提醒：不继续精装修教师协议，而是回到学生侧 teacher-off 核心能力。验证 tick 严禁预填 reply、focus 和 candidate pool。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">阶段状态</div>
+      <div class="value ok">Phase7.0 通过</div>
+      <p>正式建立 teacher-off 三阶里程碑门。</p>
+    </div>
+    <div class="card">
+      <div class="label">目标测试</div>
+      <div class="value ok">3 passed</div>
+      <p>echo、successor、multi-reply boundary。</p>
+    </div>
+    <div class="card">
+      <div class="label">Recall 回归</div>
+      <div class="value ok">10 passed</div>
+      <p>Phase5.2 与 Phase7.0 一致。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">176 passed</div>
+      <p>前序能力未回归。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>战略吸收</h2>
+    <table>
+      <tr><th>意见</th><th>处理</th></tr>
+      <tr><td>Phase6 教师协议推进过久</td><td>同意，Phase7 转向学生侧 teacher-off 验收。</td></tr>
+      <tr><td>不能用教师 evidence 顺畅替代独立召回</td><td>同意，验证 tick 严禁 reply/focus/candidate 预填。</td></tr>
+      <tr><td>当前完全没有 teacher-off 测试</td><td>需校正：Phase5.2 已有，但不是正式三阶里程碑门。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>验证硬门</h2>
+    <pre><code>assert recall.reply_tokens == ()
+assert recall.focus_tokens == ()
+assert recall.candidate_pool == ()</code></pre>
+  </section>
+
+  <section>
+    <h2>三阶结果</h2>
+    <table>
+      <tr><th>阶段</th><th>训练</th><th>teacher-off 验证结果</th><th>结论</th></tr>
+      <tr><td>echo</td><td>你好 -> 你好, 50 次</td><td>Cn = 你好, emitted = 你好</td><td class="ok">通过</td></tr>
+      <tr><td>successor</td><td>你好 -> 我在, 50 次</td><td>Cn = 我在, emitted = 我在</td><td class="ok">通过</td></tr>
+      <tr><td>multi-reply</td><td>三顾 -> 茅庐 30 次; 三顾 -> 草庐之中 30 次</td><td>Cn = 庐, emitted = 庐 庐 庐 庐</td><td class="warn">Cn 抽象通过，生成边界暴露</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>落地文件</h2>
+    <pre><code>APV3.0test/tests/test_phase7_0_teacher_off_three_stage_milestone.py</code></pre>
+  </section>
+
+  <section>
+    <h2>验收命令</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase7_0_teacher_off_three_stage_milestone.py -q
+# 3 passed in 0.64s
+
+python -m pytest APV3.0test\tests\test_phase5_2_recall_attention_runtime.py APV3.0test\tests\test_phase7_0_teacher_off_three_stage_milestone.py -q
+# 10 passed in 1.01s
+
+python -m pytest APV3.0test\tests -q
+# 176 passed in 3.81s</code></pre>
+  </section>
+
+  <section>
+    <h2>红线扫描</h2>
+    <pre><code>rg -n --glob "*.py" "keyword|answer_table|student_side_llm|branch_alignment|math_process_tokens|regex|full_sentence_macro|llm_policy|if vision|if text|黄色苹果" APV3.0test\apv3test
+
+APV3.0test\apv3test\runtime\draft_action.py:126:        if text:</code></pre>
+    <p>该命中是 draft buffer 非空检查，不是文本模态特权分支。额外扫描未发现旧 fallback、答案表、学生侧 LLM 或预填候选池路径。</p>
+  </section>
+
+  <section>
+    <h2>最终汇总</h2>
+    <p class="ok">可以宣称：APV3.0test 当前具备最小 teacher-off echo/successor 自答能力，并能在多 reply 场景下抽出共享 token-level Cn。</p>
+    <p class="warn">仍不能宣称：完整 multi-reply 语言生成完成。当前多义聚合会把共享 token 重复填槽，这是 Phase7.1 应处理的生成边界。</p>
+    <p>下一步建议 Phase7.1：修复 multi-reply 生成边界，区分 shared successor fragment 与 slot fill candidate，避免同一个共享后继被机械填入多个槽。</p>
+  </section>
+</main>
+</body>
+</html>

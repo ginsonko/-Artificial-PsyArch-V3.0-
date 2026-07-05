@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_2b3b9137d38b9ce0",
+  "concept": "rice",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_2b3b9137d38b9ce0.png",
+  "sha256": "2b3b9137d38b9ce0ce83e511937322e446f2f8c3b2c73e641c46301d3bf6c9d3",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/43109416@N00/9717804866",
+  "download_url": "https://api.openverse.org/v1/images/978b36b5-d7b5-4d61-a5e5-e5f6decf9621/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "nevil zaveri (thank you for 20+M views:)",
+  "title": "shiva lingum, maheshwar",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

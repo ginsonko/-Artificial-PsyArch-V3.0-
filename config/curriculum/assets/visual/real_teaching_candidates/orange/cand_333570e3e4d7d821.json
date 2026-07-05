@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_333570e3e4d7d821",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_333570e3e4d7d821.png",
+  "sha256": "333570e3e4d7d821eb9c4c73d885d627989f1c6f28760459c5bea776b355b147",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/44345361@N06/8532854239",
+  "download_url": "https://api.openverse.org/v1/images/74ca9b92-471d-4220-ab63-c0c4c16cd665/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "VinothChandar",
+  "title": "Color Thirst???",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

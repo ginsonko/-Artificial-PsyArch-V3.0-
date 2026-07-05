@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_b68ff9bb69b614d3",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_b68ff9bb69b614d3.png",
+  "sha256": "b68ff9bb69b614d3475a2ef6c48d74dda170b745efa02e69af8dce232b5a7949",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/32756097@N08/6011976194",
+  "download_url": "https://api.openverse.org/v1/images/c983d61e-6fca-441e-b2db-4d38e61ab506/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Suus Wansink",
+  "title": "Anna Banana (34/52)",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_000c3ed93966c0bf",
+  "concept": "computer",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_000c3ed93966c0bf.png",
+  "sha256": "000c3ed93966c0bfff7d64413e2e209bc80031bdb451e4d95f8d4675ee9de39a",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/44124348109@N01/8393817306",
+  "download_url": "https://api.openverse.org/v1/images/42d7eb89-77d0-4e96-8941-30b918ccd1ac/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "jurvetson",
+  "title": "Google Glass",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

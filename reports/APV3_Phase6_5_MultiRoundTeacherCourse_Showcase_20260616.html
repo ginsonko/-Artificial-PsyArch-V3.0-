@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase6.5 多轮教师课程草案</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --paper: #ffffff;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d7e0ea;
+      --blue: #2458a6;
+      --green: #087443;
+      --amber: #9a5b00;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 56px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(27px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 12px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    code { background: #eef3f8; border: 1px solid #dce5ef; border-radius: 5px; padding: 1px 5px; font-family: Consolas, "Cascadia Mono", monospace; }
+    pre { margin: 10px 0; overflow: auto; background: #111827; color: #edf4ff; border-radius: 8px; padding: 14px; font-size: 13px; }
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; background: var(--paper); }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #eef3f8; }
+    .subtitle { color: var(--muted); max-width: 980px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--green); }
+    .warn { color: var(--amber); }
+    .note { background: var(--paper); border-left: 4px solid var(--blue); padding: 12px 14px; margin: 14px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase6.5 多轮教师课程草案</h1>
+    <p class="subtitle">本阶段把教师侧 plan outline 扩展为多轮课程 proposal 草案。课程轮次帮助教师组织教学，但学生侧仍只接收普通 AP-native evidence。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">阶段状态</div>
+      <div class="value ok">Phase6.5 通过</div>
+      <p><code>propose_multiround()</code> 已落地。</p>
+    </div>
+    <div class="card">
+      <div class="label">目标测试</div>
+      <div class="value ok">5 passed</div>
+      <p>覆盖等待、运行、失败补习、泄漏扫描和弱补强。</p>
+    </div>
+    <div class="card">
+      <div class="label">Phase6 组合</div>
+      <div class="value ok">26 passed</div>
+      <p>Phase6.0-6.5 保持一致。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">159 passed</div>
+      <p>前序能力未回归。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>设计循环</h2>
+    <table>
+      <tr><th>环节</th><th>本阶段内容</th></tr>
+      <tr><td>设计</td><td>把 plan outline 扩成 cue/context support、successor evidence、recall validation、failure remediation 四轮草案。</td></tr>
+      <tr><td>审查完善</td><td>课程轮次只留在教师侧 trace，不作为学生侧 runtime 路由。</td></tr>
+      <tr><td>通过落地</td><td>新增 <code>TeacherCourseRound</code>、<code>MultiRoundTeacherCourseProposal</code> 和 <code>propose_multiround()</code>。</td></tr>
+      <tr><td>严谨验收测试</td><td>目标、组合、全量测试和红线扫描全部通过。</td></tr>
+      <tr><td>最终汇总报告</td><td>明确成功样例、失败样例、边界和下一步。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>多轮草案</h2>
+    <table>
+      <tr><th>轮次</th><th>教师侧意图</th><th>学生侧实际接收</th></tr>
+      <tr><td><code>cue_context_support</code></td><td>先补 cue/context/target 支持</td><td>普通 committed teaching step</td></tr>
+      <tr><td><code>successor_evidence</code></td><td>再补后继分布证据</td><td>普通 committed teaching step</td></tr>
+      <tr><td><code>recall_only_validation</code></td><td>只给 cue/context 验证</td><td>普通 validation case</td></tr>
+      <tr><td><code>remediate_on_failure</code></td><td>失败后追加补习</td><td>普通 committed teaching step</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>样例一：无教师证据仍等待</h2>
+    <pre><code>reply_tokens = ()
+failure_kind = bn_not_recalled
+
+status = awaiting_teacher_evidence
+course_rounds = await_teacher_evidence
+teaching_steps = ()
+validation_cases = ()</code></pre>
+    <p>没有教师答案时，多轮草案不会自己生成教学内容。</p>
+  </section>
+
+  <section>
+    <h2>样例二：冷启动多轮课程可运行</h2>
+    <pre><code>reply_tokens = teacher::answer
+failure_kind = cn_successor_weak
+
+cue_context_support.teaching_step_count = 2
+successor_evidence.teaching_step_count = 1
+recall_only_validation.validation_case_count = 1
+remediate_on_failure.teaching_step_count = 0
+
+total teaching_steps = 3
+validation success = true
+emitted = teacher::answer</code></pre>
+  </section>
+
+  <section>
+    <h2>样例三：失败后追加补习</h2>
+    <pre><code>previous_failure_kind = cn_successor_weak
+
+remediate_on_failure.trigger = cn_successor_weak
+remediate_on_failure.teaching_step_count = 1
+total teaching_steps = 4</code></pre>
+    <p>失败后的补习仍然只是 AP-native evidence。</p>
+  </section>
+
+  <section>
+    <h2>样例四：课程轮次不泄漏</h2>
+    <pre><code>student state:
+  no cue_context_support
+  no successor_evidence
+  no recall_only_validation
+  no remediate_on_failure
+  no llm_policy
+  no answer_table</code></pre>
+  </section>
+
+  <section>
+    <h2>样例五：已学会后弱补强</h2>
+    <pre><code>第一次:
+  cue_context_support.teaching_step_count = 2
+
+目标范式暴露后:
+  cue_context_support.teaching_step_count = 1
+  total teaching_steps = 2</code></pre>
+  </section>
+
+  <section>
+    <h2>验收命令</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase6_5_multiround_teacher_course.py -q
+5 passed in 0.36s
+
+python -m pytest APV3.0test\tests\test_phase6_0_active_teacher_request.py APV3.0test\tests\test_phase6_1_active_learning_bridge.py APV3.0test\tests\test_phase6_2_active_learning_trend.py APV3.0test\tests\test_phase6_3_teaching_protocol_selector.py APV3.0test\tests\test_phase6_4_diagnostic_teaching_plan.py APV3.0test\tests\test_phase6_5_multiround_teacher_course.py -q
+26 passed in 0.57s
+
+python -m pytest APV3.0test\tests -q
+159 passed in 3.11s</code></pre>
+  </section>
+
+  <section>
+    <h2>边界</h2>
+    <ul>
+      <li>仍不能宣称完整主动课程规划系统完成。</li>
+      <li>仍不能宣称 AP 能自己生成教师答案。</li>
+      <li>仍不能宣称 AP 能自己选择教师。</li>
+      <li>本阶段证明的是教师侧多轮课程草案到 AP-native evidence 的最小闭环。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>下一步</h2>
+    <p>建议进入 Phase6.6：把多轮课程 proposal 与实际 train -> validate -> diagnose -> remediate 连续迭代整合起来，让失败结果生成下一轮 <code>TeachingPlanContext</code>，再产出下一轮 course proposal。</p>
+  </section>
+</main>
+</body>
+</html>

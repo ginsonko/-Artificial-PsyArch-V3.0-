@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_7230d9102ca97c0f",
+  "concept": "cake",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_7230d9102ca97c0f.png",
+  "sha256": "7230d9102ca97c0f2d2ef603616b5a9e5532575f33605d605155e99c200fa1f6",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/21983794@N06/2408704174",
+  "download_url": "https://api.openverse.org/v1/images/46a6df78-7952-4643-9100-23b8450466dc/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "CREEPETZ",
+  "title": "Repostería...",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

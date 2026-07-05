@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 20.5a Runtime Workbench</title>
+  <style>
+    body { margin:0; font-family:"Microsoft YaHei",Arial,sans-serif; background:#f7f7f8; color:#1f2937; line-height:1.65; }
+    main { max-width:1120px; margin:0 auto; padding:28px 18px 42px; }
+    h1 { margin:0 0 8px; font-size:28px; }
+    h2 { margin:26px 0 10px; font-size:20px; }
+    .lead { color:#64748b; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .card, table { background:#fff; border:1px solid #d8e2e7; border-radius:8px; padding:14px; }
+    .bubble { max-width:78%; padding:10px 12px; border-radius:8px; margin:8px 0; white-space:pre-wrap; }
+    .user { margin-left:auto; background:#1f2937; color:#fff; }
+    .ap { background:#eef6ff; border:1px solid #cbddee; }
+    .system { margin-left:auto; margin-right:auto; background:#ecfdf5; border:1px solid #bbf7d0; color:#14532d; }
+    table { border-collapse:collapse; width:100%; padding:0; overflow:hidden; }
+    td, th { border-bottom:1px solid #e1e8ec; padding:9px 10px; text-align:left; vertical-align:top; }
+    tr:last-child td { border-bottom:0; }
+    .ok { color:#15803d; font-weight:700; }
+    .warn { color:#92400e; font-weight:700; }
+    @media (max-width:820px) { .grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Phase 20.5a: 真实 Runtime Tick 工作台骨架</h1>
+  <p class="lead">这一阶段修的是底座真实性: tick 回放来自运行过程中即时产生的 RuntimeTickEvent, 不再从最终回复倒推展示故事。</p>
+
+  <h2>本阶段证明了什么</h2>
+  <div class="grid">
+    <div class="card"><b class="ok">RuntimeTickEvent</b><p>每轮 turn 真实 emit 输入、视觉、文本运行时、共现召回、风格组装、提交、空 tick 事件。</p></div>
+    <div class="card"><b class="ok">Projection = false</b><p>工作台 trace 全部读取真实 event; 若降级为 projection, UI 会显示警告。</p></div>
+    <div class="card"><b class="ok">8 面板骨架</b><p>历史、聊天、回放、折线、内心、想法云、记忆、教学包生态已有布局入口。</p></div>
+  </div>
+
+  <h2>示例对话</h2>
+  <div class="card">
+    <div class="bubble user">你好</div>
+    <div class="bubble ap">嗯,好。</div>
+    <div class="bubble system">纠正回答 &quot;你好。&quot; 已学习</div>
+    <div class="bubble user">你是谁?</div>
+    <div class="bubble ap">嗯,听着。</div>
+    <div class="bubble user">你好</div>
+    <div class="bubble ap">你好。</div>
+  </div>
+
+  <h2>真实 tick event</h2>
+  <table>
+    <thead><tr><th>#</th><th>阶段</th><th>action</th><th>projection</th><th>说明</th></tr></thead>
+    <tbody><tr><td>1</td><td>输入进入</td><td>phase20_5a::input_ingress</td><td>false</td><td>收到当前 turn 输入 2 字</td></tr>
+<tr><td>2</td><td>视觉聚焦</td><td>phase20_5a::visual_focus</td><td>false</td><td>本轮无视觉输入</td></tr>
+<tr><td>3</td><td>文本运行时</td><td>phase20_5a::dialogue_runtime</td><td>false</td><td>底层对话 runtime 提交 tick 3</td></tr>
+<tr><td>4</td><td>共现召回</td><td>phase20_5a::cooccurrence_recall</td><td>false</td><td>命中教师共现记忆</td></tr>
+<tr><td>5</td><td>风格组装</td><td>phase20_5a::style_assembly</td><td>false</td><td>PAR-Q.06 形成候选回复</td></tr>
+<tr><td>6</td><td>提交回复</td><td>phase20_5a::commit_reply</td><td>false</td><td>提交当前回复</td></tr>
+<tr><td>7</td><td>空 tick 1</td><td>phase20_5a::idle_observe</td><td>false</td><td>无新输入，保持最近工作记忆并等待下一轮。</td></tr>
+<tr><td>8</td><td>空 tick 2</td><td>phase20_5a::idle_observe</td><td>false</td><td>无新输入，保持最近工作记忆并等待下一轮。</td></tr></tbody>
+  </table>
+
+  <h2>边界</h2>
+  <div class="card">
+    <p><b class="warn">还没有宣称:</b> 主动停 action competition、慢记忆持久化、TTS、画布、录音识别、辅助线教学已经完成。这些属于 Phase 20.5b/20.5c。</p>
+  </div>
+</main>
+</body>
+</html>

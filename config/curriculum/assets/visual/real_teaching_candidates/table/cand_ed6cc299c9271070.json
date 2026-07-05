@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_ed6cc299c9271070",
+  "concept": "table",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_ed6cc299c9271070.png",
+  "sha256": "ed6cc299c927107038ddccd2d36e69a98723529b8034ab9169bc0d9ed7e1e909",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/24662369@N07/12443693893",
+  "download_url": "https://api.openverse.org/v1/images/3ad8400b-556c-413f-9260-3f8009d37ce9/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "NASA Goddard Photo and Video",
+  "title": "GOES EXIS Quadruplets Together in a Clean Room 'Nursery'",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

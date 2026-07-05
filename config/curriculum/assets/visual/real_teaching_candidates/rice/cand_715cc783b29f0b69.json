@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_715cc783b29f0b69",
+  "concept": "rice",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_715cc783b29f0b69.png",
+  "sha256": "715cc783b29f0b69f69eb6c001e2ee8301cd0d5e691c7302de84fbc85815aa11",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/85356407@N00/3431804865",
+  "download_url": "https://api.openverse.org/v1/images/546f899c-b99b-4d23-9804-f69b2fb210ab/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "www.bluewaikiki.com",
+  "title": "Paella",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

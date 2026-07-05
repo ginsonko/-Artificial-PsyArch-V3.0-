@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_bbf2ee329c86f9d0",
+  "concept": "fish",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_bbf2ee329c86f9d0.png",
+  "sha256": "bbf2ee329c86f9d05723aa30fbb7a419dd29d9f66687ed6fe45661860dd8deb9",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/45417428@N05/7187827720",
+  "download_url": "https://api.openverse.org/v1/images/504194c9-f233-4244-869a-fabc3488b271/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "U.S. Army Corps of Engineers Savannah District",
+  "title": "2012 Kid's Fishing Derby",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

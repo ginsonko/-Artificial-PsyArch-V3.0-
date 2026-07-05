@@ -1,0 +1,34 @@
+{
+  "confidence_decomposition": {
+    "Gamma": 0.0,
+    "Pi": 0.0,
+    "Q": 0.5302331271341869,
+    "active_cues": [],
+    "channel_evidence": {
+      "V0": 4544.0,
+      "V1": 288.0,
+      "V2": 1536.0,
+      "V3": 1110.0,
+      "V4": 296.0,
+      "V5": 16.0,
+      "V6": 40.0,
+      "V7": 320.0,
+      "V8": 5.0,
+      "V9": 3.0
+    },
+    "mu": 0.0,
+    "nu_context": null,
+    "nu_object": null,
+    "phase19_2_pending": true
+  },
+  "confidence_score": 0.0,
+  "decision_tier": "no_call",
+  "epistemic_source": "IMAGINED_PROTOTYPE_SKETCH",
+  "evaluator_label_accessed": false,
+  "feature_vector_dim": 8654,
+  "input_trace_hash": "6028d775a81f92320f612a1fe694a28299cd23acf6019ba3706d321595b8ccb9",
+  "prototype_trace_hash": "9f3ae1254ba50826e568095fe236426c2131faf1e5f947c127bf95cce00aed86",
+  "render_mode": "prototype_imagination",
+  "source_confidence": 0.45,
+  "source_image_hash": "8d9ae4a1c037b68c8f0383a83fdf2f506adadc70a810d29f71a2bdaa175aca86"
+}

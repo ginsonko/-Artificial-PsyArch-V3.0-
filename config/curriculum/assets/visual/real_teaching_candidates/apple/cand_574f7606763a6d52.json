@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_574f7606763a6d52",
+  "concept": "apple",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_574f7606763a6d52.png",
+  "sha256": "574f7606763a6d52a12f4ae7f8344ff3544b0ed6c267d5cf0e2d76b2e207a726",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/65798313@N06/6404975957",
+  "download_url": "https://api.openverse.org/v1/images/bd5e8d51-1376-43bd-829b-11c3f62899f4/thumb/",
+  "license_id": "CC0-1.0",
+  "author": "Picdrome Public Domain Pictures",
+  "title": "Green and red apples reflection on glass",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

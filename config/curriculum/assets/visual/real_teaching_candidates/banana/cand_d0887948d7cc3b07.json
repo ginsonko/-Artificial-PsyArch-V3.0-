@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_d0887948d7cc3b07",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_d0887948d7cc3b07.png",
+  "sha256": "d0887948d7cc3b07c5b4084d64688a17100a7d402311932ac35b87bc6f79301e",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/41157818@N08/4251396814",
+  "download_url": "https://api.openverse.org/v1/images/5c27c1c4-dd99-4a03-a50f-28e0014ee78c/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "publicdomainphotos",
+  "title": "banana_on_white",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

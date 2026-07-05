@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_837b5380e272a624",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_837b5380e272a624.png",
+  "sha256": "837b5380e272a62469097965bc1ec23ea38abec08a0c8348218b41d45ac3f8c8",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/55571726@N05/7825460058",
+  "download_url": "https://api.openverse.org/v1/images/47758677-f5db-4fb5-a18f-d3de7fbc38c0/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "dominik18s",
+  "title": "ripe bananas",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

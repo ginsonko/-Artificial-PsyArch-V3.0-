@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_0f20404b29addf61",
+  "concept": "apple",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_0f20404b29addf61.png",
+  "sha256": "0f20404b29addf614a6250a1dc65dcc182de14f78a3302ff15e4d004ddbfb97c",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/141436406@N04/49228762432",
+  "download_url": "https://api.openverse.org/v1/images/ae4c70e2-9319-4f0a-b289-ce3d7be72685/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "homegets.com",
+  "title": "Red apple fruit",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

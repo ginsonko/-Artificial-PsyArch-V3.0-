@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_f3e04175907c13c9",
+  "concept": "dog",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_f3e04175907c13c9.png",
+  "sha256": "f3e04175907c13c9da354555fa8bfeaffe103d91a596b76f7ed4736a27ecfbaa",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/88954214@N04/8109018571",
+  "download_url": "https://api.openverse.org/v1/images/fabe3178-7f9a-4573-94dd-9a75bfde844b/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Petful.com",
+  "title": "overweight pug, senior dog",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

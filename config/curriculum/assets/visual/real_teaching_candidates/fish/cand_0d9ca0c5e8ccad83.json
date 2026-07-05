@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_0d9ca0c5e8ccad83",
+  "concept": "fish",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_0d9ca0c5e8ccad83.png",
+  "sha256": "0d9ca0c5e8ccad83a8049726954ef1f7f09a6c15e86a111f7208f5bc16ef55d6",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/65069067@N00/2122462965",
+  "download_url": "https://api.openverse.org/v1/images/c3e82059-2457-4e78-a299-85c507c03413/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Jesus Solana Poegraphy",
+  "title": "Fish's protest / Manifestacion de salmonetes",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

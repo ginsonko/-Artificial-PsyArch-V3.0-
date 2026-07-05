@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_dccc327ea6f221ad",
+  "concept": "grape",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_dccc327ea6f221ad.png",
+  "sha256": "dccc327ea6f221ada5d9e62044caadfd0e6746473fd328ac13f87e5b3f91a13d",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/47626742@N07/9535074843",
+  "download_url": "https://api.openverse.org/v1/images/0c992799-d47d-437b-beea-282e2392f48d/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "t-mizo",
+  "title": "Atago Grape Farm (Kofu, Yamanashi, Japan)",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

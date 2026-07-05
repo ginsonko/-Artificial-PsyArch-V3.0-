@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_f0069cce32c9cd82",
+  "concept": "computer",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_f0069cce32c9cd82.png",
+  "sha256": "f0069cce32c9cd82f4544bc3afe848ec9d07f5758c410cb6d727cc13552a7102",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/26782864@N00/11682625885",
+  "download_url": "https://api.openverse.org/v1/images/c5ef5a21-d607-4ff3-83be-fa7a6d6f3dbe/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "wwarby",
+  "title": "Hard Drive Repair",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

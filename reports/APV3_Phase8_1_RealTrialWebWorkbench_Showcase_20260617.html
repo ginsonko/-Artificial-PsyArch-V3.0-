@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase8.1 真实试玩与本地 Web 工作台</title>
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #647284;
+      --line: #d9e2ec;
+      --bg: #f4f7f8;
+      --panel: #fff;
+      --green: #0d7a4f;
+      --blue: #245a8f;
+      --gold: #8a6418;
+      --soft-green: #e8f6ef;
+      --soft-blue: #e8f1fb;
+      --soft-gold: #fff4d8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.68;
+    }
+    main {
+      width: min(1180px, calc(100% - 48px));
+      margin: 28px auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 45px rgba(30, 44, 64, 0.08);
+    }
+    header {
+      padding: 36px 42px 26px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbfc 100%);
+    }
+    h1 { margin: 0; font-size: 30px; line-height: 1.25; letter-spacing: 0; }
+    h2 { margin: 0 0 12px; font-size: 21px; }
+    h3 { margin: 18px 0 8px; color: var(--blue); font-size: 16px; }
+    p { margin: 8px 0; }
+    section { padding: 28px 42px; border-bottom: 1px solid var(--line); }
+    section:last-child { border-bottom: 0; }
+    code { font-family: Consolas, "Courier New", monospace; background: #f2f5f7; border: 1px solid #e1e7ee; border-radius: 4px; padding: 1px 5px; }
+    pre {
+      margin: 12px 0 0;
+      padding: 14px 16px;
+      background: #17202a;
+      color: #f5fbff;
+      border-radius: 8px;
+      overflow: auto;
+      font-family: Consolas, "Courier New", monospace;
+      line-height: 1.55;
+    }
+    table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #edf3f8; }
+    .subtitle { max-width: 940px; color: var(--muted); font-size: 16px; margin-top: 12px; }
+    .status {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 7px 12px;
+      border-radius: 6px;
+      color: var(--green);
+      background: var(--soft-green);
+      border: 1px solid #bfe6d1;
+      font-weight: 700;
+    }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fbfdff;
+      min-height: 118px;
+    }
+    .card strong { display: block; color: var(--green); font-size: 28px; line-height: 1.1; margin-bottom: 8px; }
+    .callout {
+      border-left: 4px solid var(--green);
+      background: var(--soft-green);
+      padding: 12px 14px;
+      margin-top: 12px;
+    }
+    .gold { border-left-color: var(--gold); background: var(--soft-gold); }
+    .mock {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .pane {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fbfdff;
+      min-height: 210px;
+    }
+    .bubble {
+      border-radius: 8px;
+      padding: 9px 11px;
+      margin: 8px 0;
+      max-width: 88%;
+    }
+    .user { margin-left: auto; background: #12343b; color: white; }
+    .ap { background: var(--soft-green); border: 1px solid #cbdeda; }
+    .bar {
+      height: 8px;
+      background: #e1e8ec;
+      border-radius: 999px;
+      margin: 10px 0;
+      overflow: hidden;
+    }
+    .bar i { display: block; height: 100%; background: var(--blue); }
+    @media (max-width: 900px) {
+      main { width: calc(100% - 24px); margin: 12px auto; }
+      header, section { padding: 24px 20px; }
+      .grid, .mock { grid-template-columns: 1fr; }
+      h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Phase8.1：真实试玩把“能跑”推进到“能看、能教、能审计”</h1>
+      <p class="subtitle">本阶段代替用户做真实试玩，诚实暴露冷启动空回复和结构态坍缩两个体验问题，并用 AP-native 结构态修复；同时新增本地 Web 工作台，让对话、奖励惩罚、tick 回放和审计信息可以直观看见。</p>
+      <span class="status">状态：通过</span>
+    </header>
+
+    <section>
+      <h2>验收数字</h2>
+      <div class="grid">
+        <div class="card"><strong>12</strong>Phase8.0-8.1 targeted tests 通过</div>
+        <div class="card"><strong>37</strong>Phase7.8-8.1 组合回归通过</div>
+        <div class="card"><strong>267</strong>全量测试通过</div>
+        <div class="card"><strong>0</strong>红线扫描命中</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>真实试玩发现</h2>
+      <table>
+        <tr><th>发现</th><th>试玩中的表现</th><th>Phase8.1 修复</th></tr>
+        <tr><td>冷启动空回复</td><td>词库外输入没有候选，底层提交为空</td><td>呈现层输出“ 不知道 ”，同时保留底层空提交 trace</td></tr>
+        <tr><td>结构态坍缩</td><td>flow/request/corrective 太相似，短语会互相污染</td><td>通过不同结构视图分化 feeling，不用关键词或答案表</td></tr>
+      </table>
+      <div class="callout">这两个问题都不是“测试失败”，而是从机制走向真实体验时最应该暴露的产品化问题。</div>
+    </section>
+
+    <section>
+      <h2>修复后样例</h2>
+      <table>
+        <tr><th>输入</th><th>模式</th><th>可见输出</th><th>审计意义</th></tr>
+        <tr><td>这是什么情况</td><td>uncertain</td><td>不知道</td><td>底层 committed_text 仍为空，trace 标记 fallback</td></tr>
+        <tr><td>嗯</td><td>uncertain</td><td>嗯</td><td>学习到 p:ack:yes，共现关联升高</td></tr>
+        <tr><td>教教</td><td>request</td><td>教教</td><td>request 形成独立 feeling</td></tr>
+        <tr><td>不对</td><td>corrective</td><td>不对</td><td>corrective 形成独立 feeling</td></tr>
+        <tr><td>普通输入</td><td>flow</td><td>好</td><td>回到 flow 后不再被 corrective 污染</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Web 工作台</h2>
+      <div class="mock">
+        <div class="pane">
+          <h3>对话</h3>
+          <div class="bubble user">这是什么情况</div>
+          <div class="bubble ap">不知道</div>
+          <div class="bubble user">嗯</div>
+          <div class="bubble ap">嗯</div>
+        </div>
+        <div class="pane">
+          <h3>趋势</h3>
+          <div class="bar"><i style="width:72%"></i></div>
+          <div class="bar"><i style="width:38%; background:#a33b35"></i></div>
+          <div class="bar"><i style="width:54%; background:#0d7a4f"></i></div>
+          <p>learned / fallback / candidate</p>
+        </div>
+        <div class="pane">
+          <h3>审计</h3>
+          <p><code>reward_delta=0.1</code></p>
+          <p><code>learned_phrase_id=p:ack:yes</code></p>
+          <p><code>used_honest_fallback=true</code></p>
+        </div>
+      </div>
+      <pre>python -m apv3test.web_chat --host 127.0.0.1 --port 8765</pre>
+    </section>
+
+    <section>
+      <h2>边界</h2>
+      <p>Phase8.1 是本地体验和审计工作台，不是完整 Web 产品。内心画面和内心音频目前显示的是结构态审计视图，不是跨模态生成。系统仍然只在固定 seed corpus 内学习表达偏好，不动态学习词库外新短语。</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_4b65e655cba27059",
+  "concept": "dog",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_4b65e655cba27059.png",
+  "sha256": "4b65e655cba27059644c14a8f4dee7dfda9dd0c6c911c3c82c226172b0d2aaaf",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/38867588@N05/5339243493",
+  "download_url": "https://api.openverse.org/v1/images/cf082c0a-691d-4f86-a85a-6ccb689fce01/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Magnus Bråth",
+  "title": "Dog eating spaghetti",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_d18869b27e97c9ed",
+  "concept": "key",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_d18869b27e97c9ed.png",
+  "sha256": "d18869b27e97c9ed932380408af281224633162fb349c40302bd38820a20c8c0",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/26782864@N00/16179487284",
+  "download_url": "https://api.openverse.org/v1/images/dd39f91e-b8c5-45a1-99da-dd321b11fb56/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "wwarby",
+  "title": "OId Keyboard",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

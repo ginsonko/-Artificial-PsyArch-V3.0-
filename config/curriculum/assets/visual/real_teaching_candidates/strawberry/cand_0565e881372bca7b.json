@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_0565e881372bca7b",
+  "concept": "strawberry",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_0565e881372bca7b.png",
+  "sha256": "0565e881372bca7b904e65fbf81087abc18d9aa5fdd8fb7716db6e3e16ba4e4f",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/32443938@N03/4621893356",
+  "download_url": "https://api.openverse.org/v1/images/5585223d-6619-4957-a2a1-3d4c07d4e477/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "jnyemb",
+  "title": "The sweet life",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

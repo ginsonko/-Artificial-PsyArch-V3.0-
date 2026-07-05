@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase5.6 多技能冲突与奖惩细化</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --paper: #ffffff;
+      --ink: #182230;
+      --muted: #667085;
+      --line: #d7e0ea;
+      --blue: #2458a6;
+      --green: #087443;
+      --amber: #a15c00;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 56px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(27px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 12px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    code { background: #eef3f8; border: 1px solid #dce5ef; border-radius: 5px; padding: 1px 5px; font-family: Consolas, "Cascadia Mono", monospace; }
+    pre { margin: 10px 0; overflow: auto; background: #111827; color: #edf4ff; border-radius: 8px; padding: 14px; font-size: 13px; }
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .subtitle { color: var(--muted); max-width: 980px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--green); }
+    .warn { color: var(--amber); }
+    .note { background: var(--paper); border-left: 4px solid var(--blue); padding: 12px 14px; margin: 14px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase5.6 多技能冲突与奖惩细化</h1>
+    <p class="subtitle">本阶段验证同 cue 不同 context 的技能区分，以及错误范式被惩罚后退出 attention 竞争。没有新增 runtime 规则，现有 AP-native 机制通过测试。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">阶段</div>
+      <div class="value ok">Phase5.6 通过</div>
+      <p>只新增验收测试，未修改 runtime。</p>
+    </div>
+    <div class="card">
+      <div class="label">目标测试</div>
+      <div class="value ok">3 passed</div>
+      <p>覆盖 context 区分、惩罚退出、教学等价。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">120 passed</div>
+      <p>前序能力保持稳定。</p>
+    </div>
+    <div class="card">
+      <div class="label">边界</div>
+      <div class="value warn">非完整冲突学习</div>
+      <p>这是最小冲突探针，不代表所有长程多轮冲突都完成。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>相同 cue / 不同 context</h2>
+    <pre><code>教学:
+skill_a: cue = answer, context = ctx_a, reply = reply_a
+skill_b: cue = answer, context = ctx_b, reply = reply_b
+
+验证:
+cue = answer, context = ctx_a -> focus = skill_a, emitted = reply_a
+cue = answer, context = ctx_b -> focus = skill_b, emitted = reply_b</code></pre>
+    <div class="note">这证明当前最小系统可以利用 context evidence 区分技能，而不是只看 cue 字符串。</div>
+  </section>
+
+  <section>
+    <h2>奖惩细化</h2>
+    <pre><code>错误技能:
+skill_wrong -> wrong_reply
+punish_delta = 12.0
+
+正确技能:
+skill_right -> right_reply
+reward_delta = 1.0
+
+验证:
+skill_wrong.exposed = false
+Bn candidates 不包含 skill_wrong
+focus = skill_right
+emitted = right_reply</code></pre>
+  </section>
+
+  <section>
+    <h2>教学等价</h2>
+    <pre><code>natural emitted = reply_a
+llm_standard_teacher emitted = reply_a
+state 中没有 llm_policy</code></pre>
+  </section>
+
+  <section>
+    <h2>验收记录</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase5_6_conflict_reward_punish.py -q
+3 passed in 0.31s
+
+python -m pytest APV3.0test\tests -q
+120 passed in 3.37s
+
+红线扫描:
+仅命中 draft_action.py:126 if text:
+审查为草稿 buffer 非空检查，不是文本模态特权。</code></pre>
+  </section>
+
+  <section>
+    <h2>下一步</h2>
+    <ul>
+      <li>Phase5.7: 工作记忆 / 跨 tick 任务恢复最小复刻。</li>
+      <li>验证打断后未闭合任务能通过压力回到焦点。</li>
+      <li>验证短期/工作记忆不会长期污染下一个任务。</li>
+      <li>继续禁止关键词脚本和旧 GL harness。</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

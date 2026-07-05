@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_c2c6ae030d2e70e2",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_c2c6ae030d2e70e2.png",
+  "sha256": "c2c6ae030d2e70e267e4d6b8b60b9ae44abc18ff6852eff24080b2ce265a9354",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/27249768@N08/3513875527",
+  "download_url": "https://api.openverse.org/v1/images/124f2393-054e-4c7a-b9d5-e400bc4c737f/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "tourist_on_earth",
+  "title": "website",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

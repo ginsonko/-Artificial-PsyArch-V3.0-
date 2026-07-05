@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_ac9c89e8c1a095dc",
+  "concept": "cake",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_ac9c89e8c1a095dc.png",
+  "sha256": "ac9c89e8c1a095dc5729f3cae81253fee2566cc59531ff9cdcf65ba9b80e0692",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/25128194@N02/3845912356",
+  "download_url": "https://api.openverse.org/v1/images/c9e24314-83cd-47c2-986c-63791b74522c/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Vegan Feast Catering",
+  "title": "Black Forest Cake",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

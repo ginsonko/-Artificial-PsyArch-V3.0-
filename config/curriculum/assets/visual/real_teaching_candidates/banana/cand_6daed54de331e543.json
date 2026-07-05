@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_6daed54de331e543",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_6daed54de331e543.png",
+  "sha256": "6daed54de331e5431cc23e9c6ef4528e09eefc4feae099fd0bc2b2cd3db3df08",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/28958738@N06/4792081994",
+  "download_url": "https://api.openverse.org/v1/images/1a053dac-326a-4a4b-bb6b-17bf64258576/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Public Domain Photos",
+  "title": "Banana-Peeled_31545-480x360",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

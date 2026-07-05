@@ -1,0 +1,7760 @@
+AP底层原理白皮书
+Artificial PsyArch Bottom Principles Whitepaper
+
+版本: 2026-06-26 冷保存正本 v0.4
+状态: AP底层哲学、数学流程、实现红线、证据边界的当前理论纠偏正本
+适用: APV3.0test 数学模型重建 / APV2.1 证据解释 / GL 教学协议 / SNS 桌宠产品壳 / Agent 与未来具身路线
+
+重要说明:
+1. 本文定位为后续设计、审查、实现、验收时用于回拉方向的底层标准; 当前代码能力和阶段报告应以它为准绳来说明“已经证明了什么”和“下一步应证明什么”.
+2. 本文融合 AP十问、AP图景预期书、APV2.1 最高设计目标、PA 早期原型经验、APV3 冷保存正本、GL 教学协议、SNS 产品壳经验, 以及 2026-06-26 关于短期结构池、闭合感、按需细化 SA、统一经验流的新理论裁定.
+3. 若旧文档与本文冲突, 按以下优先级裁定:
+   a. 最新理论裁定.
+   b. 本文.
+   c. AP十问.
+   d. AP图景预期书中仍未过时的能量闭环与九大模块口径.
+   e. APV3 冷保存正本与 AP_Master_Understanding_Authoritative_20260621.
+   f. APV2.1 / PA 历史文档与实验报告.
+4. 本文的篇幅目标是十万字以上的长期白皮书体系. v0.4 固定主干、核心数学形式、红线、示例、视觉重建附录、短期结构池和统一经验流设计, 补入“拟人性优先”的七大难点解决方案, 并收束结构、公式、性能与实施映射修订. 后续可继续扩成多卷百科, 但不得违背本文主轴.
+
+目录
+
+第一卷 总论与哲学基线
+  1. AP 是什么
+  2. 全栈拟人认知架构是什么意思
+  3. 内生认知主义
+  4. AP 与符号主义、连接主义、Transformer、普通 Agent 的区别
+  5. AP 有什么, 没有什么
+  6. AP 的完整闭环
+  7. 拟人性原则与白箱原则
+
+第二卷 基础对象与能量系统
+  8. SA、认知对象、occurrence 与按需细化
+  9. 状态池: 无序认知场
+  10. 短期结构池: 有序/空间/图/时空的认知流
+  11. 实能量、虚能量、认知压、注意能量、疲劳
+  12. 认知场、认知流、认知波
+  13. 最小预测误差与稳态
+
+第三卷 感受器与主动感知
+  14. 感受器总论
+  15. 文本感受器: 字符分辨率、chunk 细化与语言结构
+  16. 视觉感受器: 像素分辨率、视焦点、周边采样、内心画面重建
+  17. 听觉感受器: 周期分辨率、听觉焦点、节奏与内心音频
+  18. 画板、桌面、键鼠、工具与身体作为感受器/行动器
+
+第四卷 召回、预测、追溯与理解
+  19. 统一经验流数据库
+  20. 现状认知召回 B: 由短期结构池召回历史结构波
+  21. 预测认知 C_forward: 向后传播
+  22. 追溯认知 C_backward: 向前传播与合理感
+  23. C* 预测/解释包与状态池回灌
+  24. 快系统与慢系统的新定义
+  25. 后继偏置、节奏、序列延续与注意力竞争
+
+第五卷 闭合感、任务、情绪与行动
+  26. 奖励/惩罚与先天规则
+  27. 期待、压力、未闭合感、闭合感与放弃
+  28. 注意力、视焦点、听觉焦点、行动焦点
+  29. 先天编码: AP 的 DNA
+  30. 认知感受通道
+  31. 情绪慢量通道
+  32. 行动器、行动竞争、坚决程度与行动反馈
+  33. 自适应调参器
+
+第六卷 学习、记忆与技能
+  34. 记忆本体: 连续经验流、结构索引、焦点片段与审计旁路
+  35. 本地在线嵌入与最小预测误差学习
+  36. 六阶段自然学习协议
+  37. SDPL 源分化包学习
+  38. 模仿、续写、范式、风格、语法与表达
+  39. 教师、LLM、记忆包与 teacher-off
+  40. 技能形成: 数学、语文、识字、绘图、桌面控制
+
+第七卷 工程红线与实现路线
+  41. AP-Core 与工程外壳的边界
+  42. 数据库、Zvec/ANN/倒排索引与性能
+  43. UI、工作台、内心画面、想法云、审计曲线
+  44. 当前 APV3 Phase20.6 距理想图景的差距
+  45. 下一步从哪里改
+  46. 一个完整信息流动示例
+  47. 扩写清单与后续研究问题
+
+第八卷 2026-06-26 最新理论裁定
+  48. 十二项裁定总表
+  49. 认知对象按需细化的正式地位
+  50. 短期结构池取代单一短期序列池
+  51. 闭合感、放弃与拟人任务感
+  52. 快慢系统融合后的数据库与召回路线
+
+第九卷 数学模型细化
+  53. Tick 内部变量表
+  54. 能量更新公式细化
+  55. 结构匹配与残差细化
+  56. B/C/C* 召回公式细化
+  57. 注意力与焦点移动公式细化
+  58. 行动竞争公式细化
+  59. 在线嵌入与索引性能模型
+
+第十卷 场景案例库
+  60. 问候学习: 你好啊 / 你好! / 你也好
+  61. 苹果与香蕉视觉共现学习
+  62. 黄色苹果: 慢系统泛化到快系统印象
+  63. 音乐中断: C_backward 与合理感
+  64. 喝水: 未闭合、条件不足、affordance 与执行
+  65. 竖式数学: DraftGrid 二维空间与行动序列
+  66. 画板与辅助线: 主动视觉和动作-感知闭环
+  67. 桌面控制: 低粒度行动器与 teacher-off 边界
+
+第十一卷 实现与验收标准
+  68. APV3 新主线实现顺序
+  69. RuntimeTickEvent 最低字段
+  70. 工作台 UI 展示规范
+  71. 红线扫描清单
+  72. teacher-off 验收清单
+  73. 性能验收与规模上限
+
+
+第一卷 总论与哲学基线
+
+1. AP 是什么
+
+1.1 具体定义
+
+AP 全称 Artificial PsyArch, 中文可称为“人工心智架构”。AP 是一种白箱、持续、全栈拟人的认知架构。它不是单个模型, 也不是普通聊天机器人, 而是一套让信息在多模态感受器、状态池、结构池、记忆、预测、追溯、认知感受、情绪、行动、反馈和自适应调参之间循环流动的心智运行框架.
+
+最短定义:
+
+AP 是以 tick 为周期运行的人工心智架构. 每个 tick 中, 外界刺激和内源预测共同进入状态池, 在状态池形成认知场; 被注意力调制后的对象进入短期结构池形成认知流; 当前认知流召回历史经验, 向后预测未来, 向前追溯原因, 形成 C* 预测/解释包回灌状态池; 由此产生惊、违和、合理、正确、把握、期待、压力、闭合/未闭合等认知感受, 再调制情绪与行动竞争; 行动结果和奖惩反馈重新进入下一 tick, 长期形成学习和适应.
+
+1.2 作用
+
+AP 试图解决传统 AI 的几个关键缺口:
+
+1. 传统符号主义可解释但泛化弱. AP 保留白箱结构, 但让符号、感觉、行动、情绪和记忆都在动态能量场中竞争与学习.
+2. 传统连接主义泛化强但黑箱且需要大规模预训练. AP 显式建模人类决策中的隐变量, 如惊、违和、未闭合、把握、压力、行动后果, 以更少数据获得可追溯的拟人泛化.
+3. 普通 Agent 把 RAG、记忆、情绪、工具调用、计划器拼在一起. AP 把这些都还原成同一个认知闭环中的状态、行动和反馈.
+4. 普通多模态系统往往把视觉识别、文本对话、语音识别做成多个独立模块. AP 要求所有模态都转为一等公民 SA, 进入同一套状态池和经验流.
+
+1.3 数学形式
+
+AP 的最低数学骨架可写成:
+
+输入:
+  X_t = {x_t^text, x_t^vision, x_t^audio, x_t^action_feedback, x_t^reward, x_t^punish, ...}
+
+感受器:
+  S_t = receptor(X_t)
+
+状态池更新:
+  Field_t = decay(Field_{t-1}) + inject(S_t) + feedback(C^*_{t-1}) + actuator_feedback_t
+
+注意力调制:
+  Focus_t = Attention(Field_t, Emotion_t, InnateRules, UnclosedPressure_t)
+
+短期结构池:
+  StructurePool_t = maintain_structure(StructurePool_{t-1}, Focus_t)
+
+现状召回:
+  Q_t = focused_subgraph(StructurePool_t)
+  B_t = RecallPresent(Q_t, LongExperienceLog, Indexes)
+
+预测与追溯:
+  C^f_t = PropagateForward(B_t, Q_t, LongExperienceLog)
+  C^b_t = PropagateBackward(B_t, Q_t, StructurePool_t, LongExperienceLog)
+  C^*_t = Merge(C^f_t, C^b_t)
+
+每 tick 双向最小误差:
+  E_forward(t)  = distance(realized_successors, C^f_t.prediction_slots)
+  E_backward(t) = min_alignment_error(StructurePool_t.recent_occurrences, C^b_t.cause_slots)
+  E_action(t)   = distance(action_outcome_real, action_outcome_predicted)
+  E_value(t)    = reward_punish_prediction_error
+
+  E_total(t) =
+      lambda_f * E_forward(t)
+    + lambda_b * E_backward(t)
+    + lambda_a * E_action(t)
+    + lambda_u * E_unclosed(t)
+    + lambda_v * E_value(t)
+    + lambda_c * E_conflict(t)
+    + lambda_cost * E_cognitive_cost(t)
+
+认知感受:
+  Feel_t = Feeling(Field_t, C^*_t, B_t, StructurePool_t, E_total)
+
+情绪慢量:
+  Emotion_{t+1} = EmotionUpdate(Emotion_t, Feel_t, reward_t, punish_t)
+
+行动竞争:
+  Action_t = arg_compete(ActuatorCandidates(Field_t, Feel_t, Emotion_t, StructurePool_t))
+
+行动结果:
+  X_{t+1} includes result(Action_t)
+
+学习:
+  LongExperienceLog.append(delta(StructurePool_t, Field_t, Focus_t, Action_t, Feel_t, reward_t, punish_t))
+  Indexes.update_from_log(delta)
+
+其中 LongExperienceLog 是 AP 经验真相源. Indexes 只是加速层.
+
+v0.5 裁定: AP 的基础循环不是单向预测, 也不是在出现问题时才触发的归因检索. 每个 tick 都同时运行后继预测与前因归因. B 召回提供历史相似现状; C_forward 沿历史后继传播, 形成“接下来会怎样”的虚能量; C_backward 沿历史前因传播, 形成“为什么现在这样”的虚能量. 当前短期结构池中已经发生的线索与 C_backward 的前因虚能量中和, 产生主观原因感和合理感. 后续现实与 C_forward 的后继虚能量中和, 产生预测闭合感. 行动竞争选择在当前约束下最可能降低 E_total 的下一步.
+
+1.4 与人类认知过程类比
+
+人不是看到一句话后直接“查表输出回答”。人会先感到这句话熟不熟、像不像刚才说过的事、是不是需要回答、有没有任务没做完、有没有风险、要不要再看一眼、要不要先组织一下草稿。人在熟悉场景里会自动化行动, 在陌生或违和场景里会注意力回拉、解释原因、慢慢想. AP 的目标就是把这些过程显式化、数值化、可回放化.
+
+1.5 示例
+
+用户说“你好啊”.
+
+早期 AP 可能只是把整句作为一个当前认知对象 occurrence 进入状态池. 如果此前没有经验, 它可能回声式模仿“你好啊”. 后续又听到“你好!”并召回“你好啊”, 系统发现“你好”部分被现实验证, “!”是现实新出现, “啊”是预测未拟合. 于是当前对象按预测误差被细化为“你好”“!”“啊”三个认知对象, 其中“你好”和“!”在短期结构池里保持顺序. 这种细化不是先天分词器给的, 而是由相似召回、现实验证和预测落空共同产生.
+
+1.6 正向边界
+
+AP 的能力应由以下边界来证明:
+1. 语义来自状态池、短期结构池、召回、预测/追溯、认知感受、行动竞争和反馈闭环.
+2. 视觉命名来自局部视觉 SA 与文本、奖惩、教师事件的经验共现和在线嵌入.
+3. 回复来自 DraftGrid 行动序列和提交竞争.
+4. 基础能力证明时, 学生侧认知由 AP 自身闭环完成; LLM 可作为教师、审计者或工程辅助.
+5. 问题求解留下白箱过程, 包括焦点、召回、草稿、回看、修改和奖惩反馈.
+6. UI 展示 RuntimeTickEvent 和经验流, 让真实过程可见.
+7. 工具和外壳作为感受器、行动器、产品载体接入闭环.
+
+AP 允许:
+1. 外部教师给材料、示范、奖励、惩罚.
+2. LLM 做教师、审计、课程生成、工程调参辅助.
+3. Zvec/ANN/倒排索引做可重建加速.
+4. UI 展示 RuntimeTickEvent.
+5. TTS 朗读 AP 已提交文本.
+
+这些外部设施的价值在于提供材料、加速、展示和执行通道; AP-Core 的语义权威应保留在经验流、状态池和行动闭环中.
+
+
+2. 全栈拟人认知架构是什么意思
+
+2.1 具体定义
+
+全栈拟人认知架构指 AP 在原理上试图覆盖人类认知过程的信息链条, 从感受、注意、短期结构、记忆、预测、追溯、感受、情绪、行动、反馈、学习、习惯、自适应、内心想象到社会互动, 都要能在信息层找到对应机制.
+
+“拟人”不是让输出语气像人, 而是让过程像人. 如果一个系统第一 tick 就根据图片直接吐出“苹果”, 而没有视焦点移动、采样、局部证据、把握上升、预测回灌、草稿写入、提交竞争, 那它即使用了温柔语气, 也不是 AP 式拟人.
+
+2.2 作用
+
+全栈拟人性提供三个约束:
+
+1. 设计约束: 每个模块都必须能说明它对应人类认知中的哪种过程.
+2. 审查约束: 若一个功能无法放入 AP 的认知闭环, 应视为外部辅助或红线.
+3. 发展约束: AP 的能力应像儿童/动物/人类学习那样经历模仿、预测、聚合、范式、组织、精修, 而不是一次性成熟输出.
+
+2.3 数学形式
+
+拟人性可作为设计正则项:
+
+  DesignScore = MechanismClosure + HumanAnalogy + WhiteboxTrace + NoShortcutPenalty
+
+其中:
+  MechanismClosure: 是否进入感受器->状态池->结构池->召回->预测/追溯->感受->行动->反馈闭环.
+  HumanAnalogy: 是否能与人类认知现象对应.
+  WhiteboxTrace: 是否能由 tick trace、状态池、记忆 delta、行动竞争复现.
+  NoShortcutPenalty: 是否存在答案表、隐藏 solver、学生侧 LLM、整图 label 路由.
+
+2.4 人类类比
+
+人类看到陌生黄色苹果时, 不会直接套一个分类器. 人可能先觉得“形状像苹果, 颜色像香蕉或梨, 有点怪”, 然后追溯“是不是灯光? 是新品种? 能不能吃?”, 如果吃过一次且获得奖励, 下次再见到会更快产生“这是我吃过的黄色苹果”的高把握印象. AP 的拟人性要求这个慢到快的转换可在能量、召回和记忆中看到.
+
+2.5 示例
+
+用户给苹果图并教“这是苹果”, 再给香蕉图并教“这是香蕉”.
+
+AP-native 学习应发生在视觉局部 SA、空间/颜色/形状/纹理/焦点 SA 与文本“苹果/香蕉”的共现、奖惩、预测误差与在线嵌入中. 下次看苹果时, 由于视觉 SA 与苹果记忆簇相似, 应召回“苹果”; 看香蕉时, 因形状/颜色/局部纹理/空间结构不同, 应召回“香蕉”. 如果系统总是说最近教过的词, 那不是 AP, 是最近答案覆盖.
+
+
+3. 内生认知主义
+
+3.1 具体定义
+
+内生认知主义是 AP 的哲学核心. 它认为认知过程本身产生的内部状态, 如惊、违和、合理、把握、期待、压力、未闭合、疲劳、时间感、节奏感、行动后果感, 都应作为可被感受、可被记忆、可被召回、可被学习的信号进入认知流程.
+
+传统输入-输出系统学习“看到 X 输出 Y”. AP 学习“看到 X 后自己产生了什么感觉、召回了什么、预测了什么、采取了什么行动、后果怎样、下次在类似内心状态下该怎么做”.
+
+3.2 作用
+
+内生认知主义把传统模型中的隐变量显式化. 人类做决定时不只看外部输入, 还看:
+
+1. 我懂不懂.
+2. 我有没有把握.
+3. 我是不是还没完成某事.
+4. 我有没有压力.
+5. 我是不是刚刚说错过.
+6. 这个行动能不能做.
+7. 会不会被奖励或惩罚.
+8. 当前情绪是否支持继续探索.
+
+这些变量若不显式建模, 大模型只能靠海量语料拟合. AP 则把它们变成状态池一等公民.
+
+3.3 数学形式
+
+认知感受是内部函数的输出, 但输出后又变成下一轮输入:
+
+  Feel_t = f_internal(Field_t, B_t, C_t, ActionTrace_t, RewardTrace_t)
+  Field_{t+1} += encode_as_SA(Feel_t)
+
+这构成内生闭环:
+
+  state -> feeling -> state -> action -> feedback -> state
+
+3.4 人类类比
+
+一个人做数学题时, “感觉不对”“再算一遍”“好像对了”“还没写完”会真实影响下一步行动. 这些感受不是外部输入, 却决定了是否回读、修改、提交. AP 把这些感觉纳入底层信号.
+
+3.5 示例
+
+AP 写草稿“3+4=8”. 回读时, 竖式或数量感召回产生不一致, 形成违和感与低正确感. 违和感提升“擦除/修改/重算”的行动驱动力, 惩罚提交行动, 直到草稿改成“3+4=7”且验证信号降低认知压. 这不是 if 答案错则改, 而是内部认知感受驱动的修正.
+
+
+4. AP 与其它路线的区别
+
+4.1 与符号主义的区别
+
+符号主义通常预先定义符号和规则. AP 允许符号和结构从经验中涌现. 例如“你好”不是必须先天分词, 而是在“你好啊/你好!/你好呀”等相似输入和预测误差中逐步成为稳定认知对象.
+
+4.2 与连接主义的区别
+
+连接主义把大量经验压进参数. AP 把经验以白箱事件流、状态池、结构池、索引和在线嵌入保存. 在线嵌入可以有, 但必须来自 AP 自身的预测误差、共现、奖惩与行动后果, 并可审计.
+
+4.3 与 Transformer 的区别
+
+Transformer 通常一次性根据上下文分布输出下一个 token. AP 的输出应是行动竞争结果:
+
+1. 是否继续观察.
+2. 是否移动视焦点.
+3. 是否写一个字/词到 DraftGrid.
+4. 是否回看草稿.
+5. 是否修改.
+6. 是否提交.
+7. 是否主动停.
+8. 是否请求教师.
+
+AP 可以学习语言续写, 但语言续写只是行动器和短期结构池的一种表现, 不是整个心智.
+
+4.4 与普通 Agent 的区别
+
+普通 Agent 常是:
+  LLM -> tool planner -> memory/RAG -> action
+
+AP 应是:
+  sensor -> state field -> structured current experience -> recall/predict/trace -> feeling/emotion -> action competition -> actuator -> feedback -> memory
+
+工具调用不是 planner 的隐藏决策, 而是行动候选. 工具结果不是外部日志, 而是行动反馈 SA.
+
+4.5 与专家系统的区别
+
+AP 可有先天规则, 但规则不是最终能力. 先天规则提供触发接口、倾向和奖惩源; 后天能力来自经验流、预测误差、共现、行动后果和调参.
+
+
+5. AP 有什么, 没有什么
+
+5.1 AP-Core 必须有
+
+1. 感受器: 文本、视觉、听觉、行动反馈、奖励/惩罚、时间、内源刺激.
+2. 状态池: 无序认知场, 实/虚能量、认知压、注意能量、疲劳.
+3. 短期结构池: 有序、二维、空间、时空、图结构的当前经验组织.
+4. 统一经验流: append-only 主体, 记录结构化经验事件.
+5. 召回: 当前结构召回历史结构, 形成现状认知 B.
+6. 预测: B 沿历史结构向后传播形成 C_forward.
+7. 追溯: B 沿历史结构向前传播形成 C_backward.
+8. C* 回灌: 预测/解释包以虚能量回到状态池.
+9. 认知感受: 惊、违和、合理、正确、把握、期待、压力、闭合、未闭合等.
+10. 情绪慢量: 对注意、行动阈值、奖惩系数、探索/保守倾向做慢调制.
+11. 行动器: 写字、移动视焦点、回看、修改、提交、停止、请求教师、工具、键鼠、画板等.
+12. 行动竞争: 行动通过 drive、阈值、冲突、疲劳、奖惩预测竞争.
+13. 自适应调参: 规则调参 + 可选 LLM 工程辅助调参.
+14. 审计: 每 tick 可回放.
+
+5.2 AP-Core 没有什么
+
+1. 没有“问题 -> 答案”的答案表.
+2. 没有“图片 hash/特征 -> label”的标注表.
+3. 没有“用户意图分类 -> 模板回复”的隐藏路线.
+4. 没有学生侧 LLM 替 AP 生成回复.
+5. 没有前端伪造 tick.
+6. 没有 UI 直接改变 AP 认知结果.
+7. 没有外部 OCR/ASR/分类器在 teacher-off 下冒充 AP 感受器.
+
+5.3 允许但要标清的工程辅助
+
+1. LLM 可作为外部教师、课程生成器、审计员、调参建议器.
+2. OCR/ASR 可作为外部教师或产品功能, 但不得在 AP-native teacher-off 证明中冒充感受器.
+3. Zvec/ANN/倒排/rolling hash 可做加速索引.
+4. 周期性白箱快照可做审计/恢复旁路, 不参与 AP 核心真相.
+5. UI 可展示、筛选、删除记忆, 但筛选本身不改变 AP 认知.
+
+
+6. AP 的完整闭环
+
+6.1 具体定义
+
+AP 的完整闭环不是固定 stage pipeline, 而是每 tick 都经历一整套循环. 每个 tick 不是“输入进入/视觉聚焦/文本运行时/风格组装/提交回复”这种前端流程名. 每个 tick 都应有当前状态、焦点、结构、召回、预测、追溯、感受、行动候选和被选行动. 某 tick 可能选 move_focus, 某 tick 可能选 write_cell, 但底层评估每 tick 都存在.
+
+6.2 作用
+
+闭环保证 AP:
+
+1. 可以被打断后恢复未完成任务.
+2. 可以空 tick 中继续想.
+3. 可以不确定时观察而不是乱答.
+4. 可以从行动后果中学习.
+5. 可以随情绪和疲劳变化.
+6. 可以将视觉、文本、听觉、行动放入同一经验结构.
+
+6.3 数学形式
+
+每 tick 可写为:
+
+  E_t = encode_inputs(X_t)
+  F_t = update_field(F_{t-1}, E_t, C^*_{t-1})
+  Atn_t = attention(F_t, U_{t-1}, Emotion_t)
+  SP_t = update_short_structure(SP_{t-1}, Atn_t)
+  B_t = recall_current(SP_t, Memory)
+  Cf_t = forward(B_t, Memory)
+  Cb_t = backward(B_t, Memory)
+  Cstar_t = merge(Cf_t, Cb_t)
+  Feel_t = derive_feelings(F_t, SP_t, B_t, Cstar_t)
+  Act_t = compete(actions(F_t, SP_t, Feel_t, Emotion_t))
+  Memory.append(event_delta(F_t, SP_t, Act_t, Feel_t))
+
+其中 U 表示未闭合压力集合.
+
+6.4 人类类比
+
+人写消息时每一瞬间都可能:
+1. 想下一字.
+2. 回看刚写的内容.
+3. 删除.
+4. 想起刚才用户的问题.
+5. 感到没说完.
+6. 感到这句话不自然.
+7. 继续写或发送.
+
+AP 的 DraftGrid、行动竞争和 tick 回放应该体现这个过程.
+
+
+第二卷 基础对象与能量系统
+
+8. SA、认知对象、occurrence 与按需细化
+
+8.1 具体定义
+
+早期文档常把 SA 写成“最小可分辨刺激单位”, 并在文本中偏向字符级. 最新裁定需要更精确:
+
+1. 物理分辨率是感受器可达到的最低分辨率:
+   文本最低可到字符或字节/码点; 视觉最低可到像素或子像素采样; 听觉最低可到采样点/短周期/频窗; 行动最低可到低粒度执行器事件.
+2. 认知对象不是固定等于最低物理单位. 它是 AP 当前为了预测、解释、行动而形成的可操作对象.
+3. SA 可理解为“当前认知对象的刺激原子或刺激结构单位”. 它可以是一个整体 chunk, 也可以按需细化为更小对象.
+4. occurrence 是某个认知对象在某次 tick、某个位置、某个空间、某个来源中的一次出现. 同一 type 可有多个 occurrence.
+
+因此, 更严格的术语建议:
+
+  PhysicalUnit: 感受器最低分辨率单位.
+  CognitiveObject: 当前被 AP 认知为一个整体的对象.
+  SA: 进入状态池的 CognitiveObject 或其可计算刺激单位.
+  SAOccurrence: SA 在某个 tick/位置/结构关系中的一次出现.
+  Bundle: 多个 occurrence 组成的有序、空间、图或时空结构.
+
+8.2 作用
+
+按需细化解决两个矛盾:
+
+1. 若一开始全按字符/像素入池, 对象数量爆炸.
+2. 若一开始只按整句/整图入池, 细节不足, 无法解释“你好啊”和“你好!”的异同.
+
+AP 应先以较粗对象进入认知, 当相似召回产生预测误差时, 再把相同部分、意外部分、预测未拟合部分细化出来.
+
+8.3 数学形式
+
+给定当前输入对象 X 与召回对象 Y, 可定义结构对齐:
+
+  align(X, Y) -> Common + X_residual + Y_residual
+
+能量分配:
+
+  Common.R += matched_real_energy
+  Common.V += matched_virtual_energy
+  X_residual.R += surprise_energy
+  Y_residual.V += unverified_prediction_energy
+
+若残差能量超过细化阈值:
+
+  if energy(X_residual) > theta_refine or energy(Y_residual) > theta_refine:
+      split CognitiveObject into sub-objects
+
+阈值不应太高, 否则潜意识细节无法进入; 也不能太低, 否则对象爆炸. 注意力可降低局部细化阈值.
+
+8.4 人类类比
+
+人第一次听一句陌生外语, 可能只记成一整段声音. 多听几次, 发现前半段总一样、后半段变化, 才逐渐切出词. 看到一张图, 人不是先把每个像素命名, 而是先看整体, 当局部违和或任务需要时才看细节.
+
+8.5 示例
+
+输入一: “你好啊”
+冷启动: 整体 chunk SA = text_chunk::你好啊.
+
+输入二: “你好!”
+召回: text_chunk::你好啊.
+对齐:
+  Common = “你好”
+  X_residual = “!”
+  Y_residual = “啊”
+于是细化出:
+  text_unit::你好
+  text_unit::!
+  text_unit::啊
+并建立结构:
+  [你好] -> [!]
+  [你好] -> [啊]
+
+“你好”因实虚匹配获得平衡能量; “!”因现实新出现产生惊; “啊”因预测未被验证产生负认知压/违和.
+
+8.6 红线
+
+1. 不要把先天分词器当 AP 的概念来源.
+2. 不要把所有字符永远强制作为唯一粒度.
+3. 不要把整句作为不可拆答案模板.
+4. 细化必须来自预测误差、注意需求、行动需求或重复结构证据.
+
+
+9. 状态池: 无序认知场
+
+9.1 具体定义
+
+状态池是 AP 当前 tick 的无序认知场. “无序”不是说对象没有时间/空间属性, 而是说状态池本身不是线性序列; 它保存的是当前场强、来源、注意、认知压和行动驱动力背景.
+
+v0.4 修订: 状态池可以拥有 type-level field projection, 但不等于把多个 occurrence 合并成一个不可追溯对象. 同一 type 的多个 occurrence 在不同时间、不同空间、不同草稿格或不同声学位置上, 其“重复感、序列感、计数感、空间分布感”主要由短期结构池的 occurrence 流和结构边表达, 而不是靠状态池简单累计. 状态池至多保存聚合能量、occurrence_count、latest_occurrence_ref、supporting_occurrence_refs、dominant_structure_ref 等索引入口, 用于给注意力和行动竞争提供场强背景.
+
+9.2 作用
+
+状态池负责:
+
+1. 聚合当前外源刺激.
+2. 聚合内源预测与回忆.
+3. 保存实/虚能量错配.
+4. 供注意力选择波峰.
+5. 承接认知感受与情绪调制.
+6. 为行动候选提供驱动力基础.
+
+9.3 数学形式
+
+对每个状态池对象 i:
+
+  R_i(t+1) = lambda_R * R_i(t) + sum external_R_i + sum action_feedback_R_i + sum verified_internal_R_i
+  V_i(t+1) = lambda_V * V_i(t) + C^*_i(t) + imagination_i(t) + memory_i(t)
+  P_i(t+1) = R_i(t+1) - V_i(t+1)
+  A_i(t+1) = lambda_A * A_i(t) + attention_gain_i(t)
+  F_i(t+1) = lambda_F * F_i(t) + focus_fatigue_i(t) + action_fatigue_i(t)
+
+加算注入 + 乘法衰减使能量存在天然上限. 若某对象每 tick 注入 c, 衰减 lambda<1, 长期稳态约为:
+
+  E* = c / (1 - lambda)
+
+这解释为什么状态池不会在稳定输入下无限爆炸, 也解释为什么持续关注可维持对象.
+
+9.4 人类类比
+
+状态池像当前脑内图景. 它不只包含“我正在看的字”, 还包含刚刚听到的话、未完成任务、身体感受、期待、担心、草稿、即将做的动作. 它们不是排成一行, 而是在脑中以强弱不同同时存在.
+
+9.5 示例
+
+用户问“这是什么?”并给图.
+
+状态池可能同时有:
+1. text_chunk::这是什么 R 高.
+2. visual_patch::red_round_region R 高.
+3. query_pressure V/R 混合.
+4. low_grasp R 高.
+5. action::move_focus drive 高.
+6. draft_grid::empty.
+7. memory::曾经苹果图与“苹果”共现 V 中等.
+
+如果系统第一 tick 就写“苹果”, 说明 move_focus/observe 的驱动力没有正确竞争赢, 或视觉证据没有被要求逐步提高把握.
+
+9.6 v0.4 两池协同语义
+
+状态池与短期结构池的分工:
+
+1. 状态池回答“此刻哪些 type/对象/感受/行动倾向在场中有多强”.
+2. 短期结构池回答“这些 occurrence 在什么时间、什么空间、什么顺序、什么关系中出现”.
+3. 重复感来自短期结构池中同 type occurrence 的 temporal_lag / rhythm_lag / same_pattern_repeat 边, 不是状态池把同 type 能量盲目相加.
+4. 计数感来自空间/时间上可分离 occurrence 的结构分布, 不是一个 type 的 R 值大小.
+5. 状态池中的 type-level projection 必须能反查 supporting_occurrence_refs, 否则它只是丢失结构的缓存.
+
+例: 用户连续说“苹果 苹果 苹果”.
+
+状态池可以有 text_unit::苹果 的高场强和 occurrence_count=3; 但“说了三次”“重复得有点奇怪”“每次之间间隔很短”来自短期结构池的三个 occurrence 及其 next/rhythm_lag/repetition 边. 若把三次直接合并成一个 type 能量, AP 就会失去拟人的重复感.
+
+
+10. 短期结构池: 有序/空间/图/时空的认知流
+
+10.1 具体定义
+
+用户最初提出“短期序列池”, 最新裁定应扩展为“短期结构池”. 它包含:
+
+1. 线性序列: 文本、动作步骤、语音节奏.
+2. 二维画面结构: 像素/patch/对象在画面中的位置关系.
+3. 三维空间结构: 物体、身体、工具、环境之间的空间关系.
+4. 三维时空结构: 运动轨迹、视焦点轨迹、音频频谱随时间变化.
+5. 图结构: 对象-属性-行动-后果-情绪之间的关系.
+
+短期结构池记录的是 occurrence, 而不是只记录 type. 它保留顺序、位置、距离、方向、时间差、来源、实/虚能量、注意强度等结构信息.
+
+v0.4 补充: 同一 type 在不同时间序列位置、不同空间位置、不同 DraftGrid 格子、不同听觉频段中的 occurrence 不能在短期结构池中累计成一个对象. 它们可以在状态池形成 type-level 场强投影, 但短期结构池必须保留多 occurrence 结构. 这正是重复、节奏、数量、空间布局和“第几次”的来源.
+
+10.2 作用
+
+短期结构池统一解决:
+
+1. 同 tick 内文本顺序.
+2. 跨 tick 后继顺序.
+3. 图像中局部与整体空间关系.
+4. 听觉节奏与旋律.
+5. 行动步骤.
+6. 被打断任务恢复.
+7. 预测与追溯的结构化查询.
+
+10.3 数学形式
+
+短期结构池可抽象为动态图:
+
+  G_t = (O_t, E_t)
+
+其中 O_t 是 SAOccurrence 集合:
+
+  o = (sa_id, type_id, R, V, A, P, source, tick, position, modality, payload_ref)
+
+E_t 是结构边:
+
+  e = (o_i, o_j, relation_type, weight, metric)
+
+relation_type 包括:
+  next, previous, same_tick_group, spatial_left_of, spatial_near, spatial_inside, temporal_lag, causal_candidate, action_result, focus_transition, rhythm_lag, coattention, contrast, common_part, residual_part.
+  v0.4 新增强调: same_type_repeat, repeated_pattern, count_candidate, same_type_different_position, same_type_different_time.
+
+维护:
+
+  O_{t+1} = decay_and_prune(O_t) + selected_occurrences(Focus_t)
+  E_{t+1} = decay_and_prune(E_t) + structural_edges(new_occurrences)
+
+记录阈值:
+
+  occurrence enters G_t if salience(o) > theta_register
+
+theta_register 不能太高, 因为潜意识残留需要存在; 但可低于进入注意焦点的阈值. 注意力调制会提高写入强度和半衰期.
+
+10.4 人类类比
+
+人不会记住所有感官细节, 但会留下刚才对话的顺序、画面中物体的大概位置、某个声音节奏、刚刚做到第几步. 这些不是单个无序概念, 而是短期结构.
+
+10.5 示例: 线性 + 并列
+
+“你 好 啊 [停顿 视觉SA 节奏感] 你 也 好 [行动SA:握手 奖励信号] 问候”
+
+这里:
+1. “你->好->啊”是线性.
+2. 停顿、视觉 SA、节奏感可作为同 tick group.
+3. “握手”是行动 occurrence.
+4. 奖励信号是行动后果 occurrence.
+5. “问候”是后续涌现的高层 bundle, 不是先天标签.
+
+10.6 示例: 视觉结构
+
+苹果图不是一个 label. 它可形成:
+1. 中心附近红色 patch.
+2. 圆形轮廓边缘.
+3. 高光区域.
+4. 背景桌面 patch.
+5. 视焦点轨迹.
+6. patch 之间的空间边.
+
+下次相似图召回的是结构相似, 不是文件名或整图标签.
+
+10.7 红线
+
+1. 不要只做线性 token 序列, 忽略空间/图/时空结构.
+2. 不要把短期结构池写成全量状态池快照复制.
+3. 不要让 UI 的流程阶段替代真实结构池.
+4. 不要把对象 type 聚合后丢掉 occurrence 的顺序和位置.
+5. 不要用状态池 type 能量替代重复感、计数感或空间多实例判断.
+
+
+11. 实能量、虚能量、认知压、注意能量、疲劳
+
+11.1 具体定义
+
+实能量 R: 当前被系统记账为现实证据、实际反馈或已验证发生的信息.
+
+虚能量 V: 当前由预测、想象、回忆、期待、追溯解释、未验证后继带来的信息.
+
+认知压 P: R - V. 正值常表示现实比预测强, 即预测不足/惊; 负值常表示预测比现实强, 即过度预测/期待落空/违和.
+
+注意能量 A: 注意力对对象的维持与增益.
+
+疲劳 F: 重复关注、重复行动、持续激活后的抑制量.
+
+11.2 作用
+
+这些量让 AP 能区分:
+
+1. 我看到了什么.
+2. 我想到/预测了什么.
+3. 哪些被验证.
+4. 哪些没解释.
+5. 哪些该继续看.
+6. 哪些已经看腻或不应死盯.
+
+11.3 数学形式
+
+错配:
+
+  P_i = R_i - V_i
+
+惊:
+
+  Surprise_i = max(P_i - theta_surprise, 0)
+
+违和:
+
+  Dissonance_i = max(-P_i - theta_dissonance, 0)
+
+合理感:
+
+  Reasonable_i = decrease(Surprise_i over time) + support(C_backward explanation)
+
+正确感:
+
+  Correct_i = verified_prediction_i + low_abs(P_i) + reward/check_success
+
+把握感:
+
+  Grasp = f(max_similarity(B), margin(B), support_count, low_conflict, low_abs(P))
+
+疲劳:
+
+  F_i(t+1) = decay_F * F_i(t) + repeated_focus_i + repeated_action_i
+
+11.4 人类类比
+
+你以为耳机里音乐会继续, 突然停了: 预期 V 高, 现实 R 低, 产生负 P 和违和; 同时“没有声音”这个现实变化 R 高, 也产生惊. 你会追溯原因: 没电? 蓝牙断了? 如果看到耳机电量 0, C_backward 解释成功, 合理感上升, 惊讶下降.
+
+
+12. 认知场、认知流、认知波
+
+12.1 定义
+
+认知场: 状态池中的无序能量分布.
+
+认知流: 短期结构池中的有序/空间/时空/图结构 occurrence 流.
+
+认知波: 当前认知流对长期经验流进行相似召回后, 多个历史片段叠加形成的现状认知 B 与预测/追溯 C.
+
+12.2 作用
+
+这三个概念避免把 AP 简化为 token n-gram. AP 的思考既有场的并行强弱, 也有流的结构顺序, 还有由历史经验叠加产生的波.
+
+12.3 数学形式
+
+认知流查询 q = encode(G_t). 历史经验片段 h_k. 相似度:
+
+  sim(q, h_k) = w_content sim_content + w_energy sim_energy + w_structure sim_graph + w_time sim_time + w_source sim_source + w_feeling sim_feeling
+
+B 波:
+
+  B = sum_k softmax(sim(q,h_k)/tau) * h_k.current_part
+
+C_forward:
+
+  C_f = sum_k weight_k * future_window(h_k)
+
+C_backward:
+
+  C_b = sum_k weight_k * past_window(h_k)
+
+C*:
+
+  C* = merge_and_normalize(C_f, C_b)
+
+
+13. 最小预测误差与稳态
+
+13.1 定义
+
+AP 的长期学习目标之一是让预测虚能量 V 与现实实能量 R 在可预测环境中趋向平衡. 这不是追求永远低能, 而是追求在熟悉环境中预测恰当, 在陌生环境中保留惊和探索.
+
+13.2 作用
+
+最小预测误差提供:
+
+1. 概念细化依据.
+2. 在线嵌入学习信号.
+3. 认知感受来源.
+4. 注意力回拉机制.
+5. 熟悉环境自动化的基础.
+
+13.3 数学形式
+
+损失可写为:
+
+  L_pred = sum_i w_i * rho(R_i - V_i)
+
+其中 rho 可为 Huber/平方/绝对值, w_i 受注意、来源、奖惩、任务相关性调制.
+
+在线学习目标:
+
+  minimize E[L_pred over future similar episodes]
+
+当正认知压高:
+  现实对象未被预测, 应拉近当前上下文与该现实对象/片段的嵌入或增强后继边.
+
+当负认知压高:
+  预测对象未被验证, 应降低该预测后继权重或拉远误导关联.
+
+13.4 人类类比
+
+第一次去陌生城市, 很多输入无法预测, 时间感觉变慢, 记忆多. 熟悉通勤路上, 大多数输入被预测, 注意力可转去想别的事, 时间感觉变快.
+
+
+第三卷 感受器与主动感知
+
+14. 感受器总论
+
+14.1 定义
+
+感受器把外界或内部行动反馈转为 AP 可处理的 source-tagged SAOccurrence. 感受器不提供最终语义判决, 只提供证据.
+
+14.2 作用
+
+1. 保留可重建信息.
+2. 保留来源边界.
+3. 进入状态池和短期结构池.
+4. 支持预测误差计算.
+5. 支持未来想象/重建.
+
+14.3 数学形式
+
+  receptor_m(x) -> {o_j}
+  o_j = (sa_id, modality, physical_payload_ref, R, source, resolution, uncertainty, spatial/temporal anchor)
+
+14.4 类比
+
+眼睛不直接告诉你“这是苹果”这个社会词汇. 它提供颜色、亮度、边缘、视网膜位置、运动等信号. “苹果”是经验召回和语言共现产生的认知结果.
+
+14.5 红线
+
+1. 视觉感受器不读文件名.
+2. 音频感受器不偷用 ASR 文字.
+3. 画板不偷用 OCR.
+4. 教师框只提升 saliency, 不携带 label.
+
+
+15. 文本感受器
+
+15.1 定义
+
+文本感受器把输入文本转为可按需细化的文本认知对象. 冷启动可先以 chunk 为对象; 当相似召回、预测误差、重复结构足够时, 细化到字符、词、标点、节奏、停顿、语气等.
+
+15.2 作用
+
+1. 让同 tick 顺序进入短期结构池.
+2. 让跨 tick 后继在同一结构池中延续.
+3. 支持语言学习六阶段.
+4. 支持 DraftGrid 写入与回读.
+
+15.3 数学形式
+
+文本输入 T:
+
+  initial_object = chunk(T)
+
+若已有相似记忆:
+
+  alignment = sequence_align(T, recalled_text)
+  split where prediction_error peaks
+
+序列边:
+
+  edge(o_i, o_{i+1}, relation=next, weight = order_confidence)
+
+同 tick group:
+
+  edge(o_i, o_j, relation=same_utterance, weight = coattention)
+
+15.4 类比
+
+儿童不是一开始知道所有词. 他们从整句、音块、重复声调中逐渐切出词和语法.
+
+15.5 示例
+
+“我想吃烤冷面”在熟悉后可作为多个层次同时存在:
+1. 整句 episode.
+2. “我想吃”意图 chunk.
+3. “烤冷面”食物对象.
+4. 字符级细节.
+5. 想吃带来的期待/奖励预测.
+
+
+16. 视觉感受器、视焦点与内心画面重建
+
+16.1 定义
+
+视觉感受器把图像/画布/桌面区域转为视觉 SAOccurrence. 它必须支持主动视焦点. 视焦点附近高分辨率采样, 周边低概率/低清晰度采样, 并随 tick 移动. 内心画面必须由状态池中的视觉 SA 和 sensory canvas 重建, 不是原图缩略图或椭圆装饰.
+
+16.2 作用
+
+1. 模拟人类眼动和中央凹/周边视觉.
+2. 支持逐 tick 观察, 把握逐步上升.
+3. 支持多对象识别和计数.
+4. 支持视觉教学共现.
+5. 支持内心画面像素级/局部重建.
+
+16.3 数学形式
+
+视焦点 f_t = (x_t, y_t, scale_t)
+
+采样概率:
+
+  p(pixel u sampled) = p_min + (p_max - p_min) * exp(-dist(u, f_t)^2 / sigma_t^2) + saliency_bonus(u)
+
+清晰度:
+
+  clarity(u) = exp(-dist(u, f_t)^2 / sigma_clarity^2)
+
+视觉 SA:
+
+  o_patch = (color, luminance, edge, texture, position, clarity, R, source=PERCEIVED)
+
+视焦点行动候选:
+
+  drive(move_focus to r) =
+    w_surprise * surprise(r)
+    + w_dissonance * dissonance(r)
+    + w_uncertainty * low_grasp(r)
+    + w_saliency * saliency(r)
+    + w_task * task_relevance(r)
+    - w_fatigue * visited_fatigue(r)
+
+内心画面重建:
+
+  canvas(u) = sum_{o in visual_state_pool} weight(o,u) * reconstruct(o,u)
+
+其中 weight 受 R/V/A/clarity/source/focus_distance 调制. 能量越高的对象不透明度越高; 焦点附近更清晰; 周边更稀疏/模糊.
+
+16.4 类比
+
+人看图不会一眼均匀读取每个像素. 眼睛在焦点附近清晰, 周边模糊但仍有感受; 如果哪里违和、亮、动、边界强或与任务相关, 眼睛会被吸过去. 多看几个 tick 后, 内心画面逐渐丰富.
+
+16.5 示例
+
+看苹果图:
+
+tick1: 焦点在中心, 采到红色/圆形局部, 低把握, move_focus 赢.
+tick2: 焦点移到边缘, 采到轮廓曲率和高光, 苹果相关记忆 V 上升.
+tick3: 焦点移到顶部/柄附近, 与苹果经验相似度上升.
+tick4: “苹果”文本 token 作为候选进入 DraftGrid, 但仍可被低把握抑制.
+tick5: 把握足够, 写“苹”.
+tick6: 写“果”.
+tick7: 回读/提交.
+
+16.6 当前 APV3 问题映射
+
+如果内心画面只有一个椭圆, 说明视觉 SA 未携带足够像素/patch 重建信息, 或 UI 没读取状态池视觉 SA. 如果视焦点只在固定小方块内移动, 说明焦点行动仍是几何预设, 没由 surprise/dissonance/uncertainty/saliency/task/fatigue 竞争产生.
+
+16.7 红线
+
+1. 不许整图 label 直接参与回复.
+2. 不许文件名/路径语义进入视觉识别.
+3. 不许固定扫视伪装主动视觉.
+4. 不许用原图缩略图伪装内心画面.
+5. 不许一个 tick 就宣称看懂复杂图.
+
+
+17. 听觉感受器、听觉焦点与节奏
+
+17.1 定义
+
+听觉感受器把音频波形转为短周期/频窗/响度/音色/节奏 SA. 听觉焦点类似视焦点, 可聚焦某个时间段、频段、声源或节奏模式.
+
+17.2 作用
+
+1. 支持音频输入.
+2. 支持内心音频/内语.
+3. 支持节奏感.
+4. 支持 TTS 输出后的自听反馈.
+
+17.3 数学形式
+
+音频窗:
+
+  frame_t = waveform[t:t+N]
+  features = STFT/MFCC-like or whitebox spectral bins
+
+听觉 SA:
+
+  audio_sa = (freq_band, amplitude, timbre, onset, rhythm_lag, source, R)
+
+节奏预测:
+
+  lag_kernel(k) = exp(-k/tau) + periodic_bonus(k mod period)
+
+17.4 类比
+
+听熟的歌时, 下一拍和下一句歌词会以虚能量出现. 如果耳机断电, 预测不验, 注意力被拉回听觉并追溯原因.
+
+
+18. 画板、桌面、键鼠、工具与身体
+
+18.1 定义
+
+画板、桌面截图、鼠标键盘、文件、浏览器、未来机器人身体都应作为感受器/行动器接入 AP. 它们不是外部脚本宏.
+
+18.2 作用
+
+1. 画板支持绘图、辅助线、坐标轴、竖式.
+2. 桌面支持 UI 识字、目标定位、低粒度动作.
+3. 键鼠支持真实行动反馈.
+4. 工具调用支持 Agent 化.
+
+18.3 数学形式
+
+行动:
+
+  action = (actuator_id, params, drive, threshold, source_evidence)
+
+反馈:
+
+  feedback = observe_after_action(action)
+  Field += encode(feedback)
+  Memory.append(action, params, feedback, reward/punish)
+
+18.4 红线
+
+1. 不许 open_app_and_do_everything() 这种宏作为 AP 技能.
+2. 不许固定坐标 teacher-off 当泛化证据.
+3. 不许工具 wrapper 生成 AP 的答案.
+
+
+第四卷 召回、预测、追溯与理解
+
+19. 统一经验流数据库
+
+19.1 定义
+
+AP 记忆真相源应是连续 append-only 经验流, 而不是快慢两套数据库, 也不是周期 checkpoint 核心化. 每 tick 只需写入相对上一 tick 新增的结构事件、能量变化、焦点 occurrence、行动、反馈、奖惩、感受等 delta. 经验流形成时空单链/多链结构.
+
+19.2 作用
+
+1. 避免每 tick 全量快照重复保存.
+2. 保持 AP 认知过程连续无断层.
+3. 支持向后预测与向前追溯.
+4. 支持白箱回放.
+5. 支持索引加速.
+
+19.3 数学形式
+
+事件:
+
+  Event_t = {
+    tick,
+    added_occurrences,
+    removed_or_decayed_refs,
+    edge_deltas,
+    energy_deltas,
+    focus_delta,
+    action_delta,
+    feedback_delta,
+    feeling_delta,
+    source_tags
+  }
+
+长期经验:
+
+  Log = [Event_0, Event_1, ..., Event_t]
+
+重建近期状态:
+
+  State_t = fold(Log[0:t]) 或 fold(checkpoint_audit + Log[a:t])
+
+注意: checkpoint 可作为审计/恢复旁路, 不是 AP 思考真相源.
+
+19.4 类比
+
+人不是每秒完整复制一次大脑状态长期保存. 更多是连续经验流中有些片段被注意、被强化、被奖惩、被反复召回. 回忆时可从关键片段和结构索引重建.
+
+19.5 工程允许
+
+1. 可有 Zvec/ANN/倒排/rolling hash 索引.
+2. 可有近期审计快照供 UI 快速回放.
+3. 可有压缩冷存档.
+4. 但真相源是经验事件, 索引可删可重建.
+
+
+20. 现状认知召回 B
+
+20.1 定义
+
+B 不是一个单独对象, 而是当前短期结构池与长期经验流相似片段召回后叠加形成的“当前认知波”. 它回答“现在像过去哪些经验”.
+
+20.2 作用
+
+1. 形成对现状的把握.
+2. 提供预测起点.
+3. 提供追溯起点.
+4. 让多种可能性并存竞争.
+
+20.3 数学形式
+
+查询 q = encode(ShortStructurePool_t)
+
+候选 h_k = historical_structured_segment(k)
+
+  score_k = sim(q,h_k) * source_trust_k * freshness_or_relevance_k * grasp_gate_k
+  w_k = softmax(score_k / tau)
+  B_t = sum_k w_k * present_part(h_k)
+
+把握:
+
+  grasp = max(w_k) * margin(w_1,w_2) * support_quality
+
+20.4 类比
+
+你看到黄色圆果, 会同时召回苹果、梨、香蕉部分经验, 不会只有一个分类. 哪个经验更像, 取决于形状、颜色、触感、语境、曾经吃过的经历.
+
+
+21. 预测认知 C_forward
+
+21.1 定义
+
+C_forward 是从 B 命中的历史片段沿时间/结构/行动后果向后传播得到的预测认知. 它回答“按过去经验, 接下来可能发生什么”.
+
+21.2 作用
+
+1. 形成虚能量.
+2. 形成期待/压力.
+3. 形成后继偏置.
+4. 影响行动候选.
+
+21.3 数学形式
+
+  C_f = sum_k w_k * future_window(h_k, lag_kernel)
+
+lag_kernel:
+
+  immediate successor strongest, farther tail decays, rhythm may periodicize.
+
+21.4 类比
+
+听熟悉歌曲时, 下一句歌词提前在脑中出现; 走熟悉道路时, 身体预测下一步会看到什么.
+
+
+22. 追溯认知 C_backward
+
+22.1 定义
+
+C_backward 是从 B 命中的历史相似现状沿时间/结构/因果候选/证据边向前传播得到的追溯认知. 它回答“历史上这种现状之前通常有什么条件”, 并把这些历史前因作为虚能量投向当前短期结构池.
+
+它正式纳入 AP 基础流程, 不是 C 的小特例, 也不是“有指代词/有图片教学/有明显缺口时才启动”的特殊模块. 每个 tick 都有 C_backward, 只是高熟悉、高闭合、低残差时, 归因波很快被当前线索中和, 不进入显性注意. 它是合理感、因果直觉、解释欲、远距离回忆和被打断后任务恢复的重要来源.
+
+22.2 作用
+
+1. 每 tick 给当前状态提供前因虚能量, 与短期结构池中的近期线索做实虚中和.
+2. 面对意外输入时, 因 E_backward 升高而显性寻找解释.
+3. 如果解释成功, 惊/困惑下降, 合理感上升.
+4. 如果解释失败, 注意力持续聚焦, 低把握和困惑维持.
+5. 支持问题解决、诊断、溯源、远距离回忆、被打断后的任务恢复和自我纠错.
+
+22.3 数学形式
+
+  B_t = RecallPresent(Q_t, ExperienceFlow)
+  C_b = sum_k w_k * past_window(h_k^0, backward_kernel)
+
+当前短期结构池中的线索 o_i 与 C_b 的前因虚能量做中和:
+
+  neutralize(o_i, C_b) =
+      align(o_i, C_b.cause_slot)
+    * energy_match(o_i.R, C_b.cause_slot.V)
+    * structure_edge_match(o_i, C_b.cause_slot)
+    * temporal_spatial_plausibility(o_i, Q_t)
+    * learned_bridge(o_i, C_b.cause_slot)
+
+主观原因感:
+
+  cause_grasp(o_i) =
+      neutralize(o_i, C_b)
+    + active_energy(o_i)
+    + recency_bias(o_i)
+    + unclosed_or_affect_gain(o_i)
+    + reward_punish_path_support(o_i)
+    - contradiction_pressure(o_i)
+    - conflict_entropy(o_i)
+
+合理感:
+
+  Reasonable += max_i cause_grasp(o_i) * surprise_reduction
+  Surprise -= max_i cause_grasp(o_i) * decay
+
+这里的 recency_bias 是拟人的近因偏差, 不是硬规则; contradiction_pressure 来自后天反例、教师纠正、行动失败和重复不验, 不是先天反伪因果门. 如果没有线索能充分中和 C_b, AP 仍可形成低把握归因, 表现为猜测、误会、触景生情或“感觉和那个有关”.
+
+22.4 类比
+
+耳机音乐停了. 人会追溯: 电量? 蓝牙? 软件? 这不是另开一个“故障排查模块”, 而是“音乐停”召回历史相似现状, 沿历史前因传播出“低电量/蓝牙断开/软件暂停”等前因虚能量. 如果当前短期结构池里刚好有“电量 0”的线索, 它与“低电量”前因虚能量中和, 合理感产生, 惊讶消退.
+
+22.5 示例
+
+看到苹果图却召回香蕉词, 产生违和. C_backward 应从“当前像水果/被问这是什么/输出香蕉”这一历史相似现状向前传播, 找历史上导致这种现状的前因: 最近刚教香蕉、视觉 SA 与香蕉结构过近、苹果视觉 SA 没写入、教师短句覆盖视觉证据. 当前短期结构池中若存在“刚刚连续教香蕉”的线索, 它会中和对应前因虚能量, AP 的白箱审计即可指出“我可能是受刚刚香蕉教学影响”. 如果该解释被教师纠正, 这条归因关系被惩罚, 而不是写死新的标签.
+
+
+23. C* 预测/解释包与回灌
+
+23.1 定义
+
+C* 是 C_forward 与 C_backward 叠加、裁剪、归一化后的唯一回灌包. 它以虚能量和解释性调制回到状态池.
+
+23.2 作用
+
+1. 让预测影响下一 tick.
+2. 让解释降低惊/违和.
+3. 让后继偏置与当前场竞争.
+4. 让内心想象持续.
+
+23.3 数学形式
+
+  C* = normalize( alpha_f C_f + alpha_b C_b )
+
+回灌:
+
+  V_i(t+1) += C*_i.energy
+  feeling_channels_i += C*_i.explanation_modulation
+
+23.4 红线
+
+B 不直接回灌状态池. B 是现状认知中间波. 只有 C* 作为预测/解释包回灌.
+
+
+24. 快系统与慢系统的新定义
+
+24.1 定义
+
+快系统与慢系统不再是两套数据库, 也不是两个分离召回管线. 它们是同一次召回/预测过程中的两种处理状态.
+
+v0.4 交叉引用: 本节是哲学定义; 最终量化定义见第 174 节 `FastModeScore / SlowModeScore`. 后续实现应以第 174 节为可编码口径, 不能再拆出 fast_memory_db / slow_memory_db 作为真相源.
+
+快系统:
+  高把握、低冲突、低认知压、低注意需求, 行动可习惯性执行.
+
+慢系统:
+  低把握、高冲突、高惊/违和/未闭合, 需要注意力维持, 多 tick 泛化、想象、追溯、计划.
+
+24.2 作用
+
+这种定义更拟人:
+
+1. 熟悉走路、熟悉歌曲、熟悉问候走快系统.
+2. 突然出现狗、音乐中断、黄色苹果走慢系统.
+3. 一个对象可从慢系统学习后转入快系统印象.
+
+24.3 数学形式
+
+  confidence = grasp * low_conflict * low_abs_pressure * high_support
+  attention_need = surprise + dissonance + uncertainty + unclosed_pressure
+
+若 confidence > theta_fast 且 attention_need < theta_slow:
+  fast mode dominates.
+否则:
+  slow attention-maintained mode.
+
+24.4 类比
+
+熟悉路上走路时, 走路本身不占注意力; 路上突然出现狗, 注意力被拉回视觉, 进入慢系统观察和判断.
+
+
+25. 后继偏置、节奏与竞争
+
+25.1 定义
+
+后继偏置是短期结构池和长期经验流中的 next/lag 关系对下一 occurrence 的虚能量赋能. 它不是硬规则, 必须与状态池能量、C*、注意力、情绪、未闭合压力竞争.
+
+25.2 数学形式
+
+  successor_score(x_next) =
+    lag_support(x_next | current_sequence)
+    + Cstar_support(x_next)
+    + state_field_support(x_next)
+    + action_affordance(x_next)
+    - fatigue(x_next)
+
+25.3 类比
+
+人打字到逗号后会停一下, 因为后继可能性分散, 没有强波峰; 说熟语时后继波峰强, 会自然接下去.
+
+
+第五卷 闭合感、任务、情绪与行动
+
+26. 奖励/惩罚与先天规则
+
+26.1 定义
+
+AP 底层不把“社交期待、认知解释收益、任务承诺、内在驱力”等工程分类设为原语. 底层原语应是:
+
+1. 奖励信号 reward.
+2. 惩罚信号 punish.
+3. 先天规则 innate rules.
+4. 由它们塑形出的期待/压力/未闭合/行动倾向.
+
+“解释成功很舒服”“用户等我回答”“我还没说完”都应由先天规则和奖惩信号转译, 而不是新增一堆总结性原语.
+
+26.2 作用
+
+这样保持 AP 解释力: 上层心理分类可以被 AP 解释, 而不是作为 AP 无法解释的底层硬标签.
+
+26.3 数学形式
+
+先天规则:
+
+  innate_rule: condition(Field, StructurePool, ActionTrace) -> reward/punish/feeling/action_bias
+
+例如:
+  unresolved external query + no reply -> mild pressure/punish over time
+  explanation reduces surprise -> small reward
+  repeated failed action -> punish/fatigue
+  successful closure -> reward
+
+26.4 类比
+
+婴儿并非先天有“社交期待”这个抽象词, 但会通过舒适/不舒适、回应/不回应、奖励/惩罚、照料关系逐渐形成相关心理结构.
+
+
+27. 期待、压力、未闭合感、闭合感与放弃
+
+27.1 定义
+
+期待/压力来自 B/C 中预测到 reward/punish 的虚能量, 并锚定到对应现状认知/结构对象. 若某过程预测会带来奖励, 形成期待; 预测会带来惩罚, 形成压力.
+
+未闭合感是“曾产生期待/压力, 且预测中存在可通过自身行动获得奖励或规避惩罚的路径, 但该路径尚未完成或尚未被解除”的持续张力.
+
+闭合感是预期行动或预期后果获得足够实能量验证, 使未闭合压力下降的感受.
+
+放弃/解除是另一种让未闭合下降的方式: 当系统获得新信息表明任务不再需要、不再可能、不再相关、代价过高或压力源消失, 未闭合也应下降. 这非常重要, 否则系统会像机器一样只要想到任务就必须做, 不够拟人.
+
+27.2 作用
+
+1. 让 AP 能记得未完成任务.
+2. 空闲时能想起之前没做完的事.
+3. 被打断后能回归注意力.
+4. 有条件时执行, 没条件时等待/计划.
+5. 能放下不再需要做的事.
+
+27.3 数学形式
+
+期待:
+
+  Expectation(B_j) = predicted_reward_energy(C | B_j)
+
+压力:
+
+  Pressure(B_j) = predicted_punish_energy(C | B_j)
+
+未闭合:
+
+  U_j(t+1) =
+    decay_U * U_j(t)
+    + new_expectation_pressure_j
+    - closure_evidence_j
+    - cancellation_evidence_j
+    - impossibility_acceptance_j
+
+27.6 v0.4 未闭合释放完整写法:
+
+  U_j(t+1) =
+      lambda_U * U_j(t)
+    + new_unresolved_evidence_j
+    + prediction_of_required_self_action_j
+    - closure_evidence_j
+    - source_removal_evidence_j
+    - giving_up_evidence_j
+    - impossibility_evidence_j
+    - cost_revaluation_evidence_j
+
+其中:
+
+1. closure_evidence: 预期行动或预期后果获得实能量验证.
+2. source_removal_evidence: 压力源消失, 如“今天不上班了”.
+3. giving_up_evidence: AP 或用户明确放弃, 且放弃行为本身获得现实/奖惩支持.
+4. impossibility_evidence: C_backward / B 召回说明任务前提不成立或当前无法做.
+5. cost_revaluation_evidence: 新经验显示继续做代价过高, 放弃更合理.
+
+这些项不需要新增“放弃模块”. 它们都来自外部 SA、内源 C_backward 解释、行动反馈、奖惩和经验流. UI 可显示“已放下/压力源消失/条件不成立”, 但底层仍是 U 的能量更新.
+
+行动增益:
+
+  drive(action a) += U_j * affordance(a | current_state) * predicted_reward_or_punish_avoidance
+
+注意: U 提供驱动力增益, 不等于直接执行. 行动还需要 affordance/把握/触发条件.
+
+27.4 类比
+
+口渴想喝水, 但手边没水. 未闭合感让你时不时想起喝水; 但没有杯子/水时, “拿水喝”的行动把握低, 不会执行. 看到水杯后, affordance 上升, 喝水行动赢得竞争, 完成后未闭合下降.
+
+另例: 原本要上班, 压力大; 突然收到通知今天不上班. 并不是“上班行动完成”产生闭合, 而是压力源被取消, cancellation_evidence 使未闭合下降.
+
+再例: 用户说“等下提醒我喝水”, U 上升. 后来用户说“不用了”, 这句话作为外部 SA + 用户来源信号, 形成 source_removal_evidence 或 giving_up_evidence, U 下降. AP 不应再像机器 TODO 一样强行提醒.
+
+
+28. 注意力、视焦点、听觉焦点、行动焦点
+
+28.1 定义
+
+注意力是有限资源的能量增益/滤波/行动准备机制. 视焦点、听觉焦点、行动焦点是注意力在不同模态/执行器上的落点.
+
+28.2 数学形式
+
+  attention_priority(i) =
+    wR R_i + wV V_i + wP abs(P_i) + wU U_i + wNovel novelty_i
+    + wReward expected_reward_i + wPunish expected_punish_i
+    + wTask task_relevance_i
+    - wF fatigue_i
+
+28.3 类比
+
+人可以一边走路一边想晚上吃什么; 走路由快系统维持. 突然路上出现狗, 视觉惊和风险压力使注意力从内心问题回到外界.
+
+
+29. 先天编码
+
+29.1 定义
+
+先天编码是 AP 的人工 DNA. 它不直接给答案, 而是规定哪些状态会产生哪些认知感受、奖惩、情绪调制和行动倾向.
+
+29.2 作用
+
+1. 冷启动时让系统能对惊/违和/奖励/惩罚/疼痛/舒适/任务/风险有反应.
+2. 为后天学习提供接口.
+3. 长期塑形发展方向.
+
+29.3 数学形式
+
+  InnateRule r = (condition, effect, strength, decay, source)
+  effect ∈ {feeling_SA, reward, punish, action_bias, emotion_delta, attention_bias}
+
+29.4 类比
+
+动物天生会趋利避害, 但具体什么安全、什么危险、什么有用, 需要经验学习.
+
+
+30. 认知感受通道
+
+30.1 定义
+
+认知感受是认知过程状态被自身感受器化后的信号. 一切可量化通道的值、变化量、变化率、错配、波峰、疲劳、时间差都可产生感受.
+
+30.2 典型通道
+
+1. 惊: 现实强于预测.
+2. 违和: 预测强于现实或结构冲突.
+3. 合理: 追溯解释成功, 惊下降.
+4. 正确: 预测被验证或检查通过.
+5. 把握: B/C 支持高、margin 高、冲突低.
+6. 期待: 奖励预测.
+7. 压力: 惩罚预测.
+8. 未闭合: 期待/压力未完成或未解除.
+9. 时间感: 召回时间差形成波峰.
+10. 节奏感: lag kernel 与周期预测.
+11. 证据缺口: 任务需要证据但状态池不足.
+12. 重复疲劳: 重复同对象/行动.
+
+30.3 数学形式
+
+  feeling_channel_i = activation(metric_i, threshold_i, slope_i, fatigue_i)
+
+30.4 类比
+
+“感觉哪里不对”就是认知压和结构冲突被自身感受到.
+
+
+31. 情绪慢量通道
+
+31.1 定义
+
+情绪是由认知感受、奖惩、行动反馈和记忆召回积分出的慢变量. 它调制注意、行动阈值、奖惩权重、探索/保守、表达风格.
+
+31.2 数学形式
+
+  emotion_c(t+1) =
+    clamp(decay_c * emotion_c(t)
+      + sum_k w_ck feeling_k
+      + reward_weight_c * reward
+      - punish_weight_c * punish
+      + memory_recall_c)
+
+31.3 类比
+
+长期压力会让人更警觉、保守; 成功和亲和经历会让表达更柔和、行动更愿意接近.
+
+31.4 红线
+
+1. 情绪不由关键词直接设置.
+2. 情绪只软调制, 不强制模板.
+
+
+32. 行动器、行动竞争、坚决程度
+
+32.1 定义
+
+行动器是 AP 改变外界或自身状态的接口. 行动包括移动视焦点、写字、擦除、回读、提交、停止、请求教师、画线、点击、按键、调用工具、等待、内心私有草稿等.
+
+32.2 数学形式
+
+行动候选 a:
+
+  drive_a =
+    base_a
+    + evidence_support_a
+    + expected_reward_a
+    - expected_punish_a
+    + unclosed_gain_a
+    + emotion_modulation_a
+    - fatigue_a
+    - conflict_penalty_a
+
+执行:
+
+  execute if drive_a - threshold_a is maximal and > 0
+
+坚决程度:
+
+  determination_a = drive_a - threshold_a
+
+坚决程度可作为行动参数, 如视焦点移动速度、注意聚焦强度、写入是否果断.
+
+32.3 类比
+
+内急时上厕所 drive 很强, 但仍需要环境可行、行动把握足够、社会约束允许. drive 强不等于立刻执行.
+
+
+33. 自适应调参器
+
+33.1 定义
+
+自适应调参器负责长期环境适应. 它分两部分:
+
+1. 规则调参: 根据理想值、理想范围、最大正常范围、统计窗口、调参幅度、方向和回滚策略自动调节.
+2. LLM 辅助调参: 在工程应用中可用 LLM 读审计数据、提出建议、生成配置候选. 在 AP 基础能力证明中, 学生侧认知应由 AP 自身闭环完成, LLM 保持教师、审计或工程辅助角色.
+
+33.2 作用
+
+1. 防止状态池过热/过冷.
+2. 防止注意力过窄/过散.
+3. 控制 HDB/索引耗时.
+4. 调整阈值以适应环境.
+5. 形成局部稳态.
+
+33.3 数学形式
+
+指标 m:
+
+  ideal_range_m = [l_m, u_m]
+  normal_range_m = [L_m, U_m]
+
+若 m 超过 normal_range:
+  priority = high
+  delta_param = rule_direction * step_large * severity
+
+若 m 在 normal 外? 不在 ideal 内:
+  priority = low
+  delta_param = rule_direction * step_small * distance_to_ideal
+
+试验:
+
+  apply param change for window W
+  if objective worsens or oscillation increases:
+      rollback
+  else:
+      persist with confidence
+
+33.4b v0.4 多调参器预算、优先级与互相抑制
+
+多个调参器并存时, 不能各自追局部稳态而互相打架. 但也不应新增一个脱离 AP 的“中央上帝调参器”. 正确做法是让调参行为本身进入行动竞争和预算竞争:
+
+  TuneDrive(domain_j) =
+      deviation_from_ideal_range_j
+    * severity_j
+    * source_trust_j
+    * expected_stability_gain_j
+    * priority_bias_j
+    - recent_tune_fatigue_j
+    - cross_domain_conflict_j
+
+全局调参预算:
+
+  sum_j tune_budget_j <= global_tune_budget_per_window
+
+优先级来自拟人先天规则和经验:
+
+1. 安全/疼痛/高惩罚风险 > 行动失控 > 感受器失真 > 召回质量 > 表达风格 > UI 展示.
+2. 高惩罚、高风险、高持续异常的域优先.
+3. 最近刚调过且未验证效果的域产生 tune_fatigue.
+4. 调参后的效果必须写入经验流; 若反效果, 后续同类调参 drive 降低.
+
+这相当于 AP 对自己的参数调节也有“行动后果学习”. 它不是多个后台脚本同时改参数, 而是一个可审计的自适应行动系统.
+
+实施上可先简化:
+
+1. 每 turn 最多一个 domain 获得 active_tune_lock.
+2. 其他 domain 只记录 deviation, 不立即调.
+3. active_tune_lock 过期或验证后释放.
+4. 所有参数变化带 reason、before/after、expected_gain、observed_gain.
+
+33.5 类比
+
+人在长期噪音环境中会逐渐适应, 过滤背景噪音; 长期压力下会调整警觉阈值. AP 也需要长期调参, 但不能因此改变底层认知原则.
+
+
+第六卷 学习、记忆与技能
+
+34. 记忆本体
+
+34.1 定义
+
+记忆本体是连续经验流. “快记忆/慢记忆”不应是两个数据库, 而应是经验流在不同把握/注意状态下被使用的方式.
+
+短期结构池 delta 是记忆写入的主要材料. 高价值焦点片段、行动后果、奖惩、感受、视觉/听觉采样、草稿操作都写入事件流.
+
+34.2 作用
+
+1. 支持 B 召回.
+2. 支持 C_forward 后继.
+3. 支持 C_backward 追溯.
+4. 支持 teacher-off.
+5. 支持记忆包导入导出.
+
+34.3 红线
+
+1. 记忆包是经验证据包, 不是技能插件/答案包.
+2. 卸载应撤回该 batch 新增证据, 不删除共享 dedup 证据.
+3. 本地记忆查看和删除应作用于真实经验事件/索引/tombstone.
+
+
+35. 本地在线嵌入
+
+35.1 定义
+
+本地在线嵌入是 APV2/APV3 依赖向量数据库实现记忆和召回时的必备层. 它不是外部预训练模型, 而是 AP 自己从预测误差、共现、结构邻近、奖惩、行动后果中训练出的轻量表示.
+
+35.2 层级
+
+L1 现状召回准确性层:
+  用认知压训练对象软相似, 改善 B 召回.
+
+L2 时序/空间/因果层:
+  学顺序、运动、空间趋势、因果候选.
+
+L3 行动后果层:
+  学场景-行动-奖惩后果, 支持 Agent/具身.
+
+35.3 数学形式
+
+正样本:
+  sim(a,b) ↑
+
+负样本:
+  sim(a,n) ↓
+
+triplet:
+  L = max(0, margin - sim(a,b) + sim(a,n))
+
+认知压定向更新:
+  正 P 对象向当前高实能量锚点靠近.
+  负 P 对象从未验证预测关联中远离.
+  锚点不被对称反向拖动.
+
+35.4 红线
+
+1. 在线嵌入不替代白箱显式通道.
+2. 不可全库暴力.
+3. 必须有预算、置信、支持度、审计.
+
+
+36. 六阶段自然学习协议
+
+36.1 定义
+
+AP 的自然语言/技能学习可分为:
+
+0. passive observation / social sensing 被动观察.
+1. echo imitation 回声模仿.
+2. successor prediction 后继预测.
+3. multi-reply aggregation 多回应聚合.
+4. process-paradigm binding 过程范式绑定.
+5. keyword organization 关键词/焦点组织.
+6. grammar/style refinement 语法风格精修.
+
+36.2 作用
+
+防止一开始要求 AP 成人级语义, 也防止用整句模板伪造成熟.
+
+36.3 示例
+
+“你好啊”课程:
+1. 模仿: 复述“你好啊”.
+2. 后继: “你好啊 -> 你也好”.
+3. 多回应: 你好/好啊/你也是/嗯你好.
+4. 范式: 问候状态、亲和情绪、社交奖励.
+5. 关键词: 你好/也好.
+6. 精修: “嗯, 你好呀。”
+
+
+37. SDPL 源分化包学习
+
+37.1 定义
+
+所有学习按 source-differentiated packet 累积. 同内容不同来源不同学习. 看到火、想象火、听说火、回忆火、推断火不能混成一个.
+
+37.2 数学形式
+
+  packet_key = sensory_feature_signature + epistemic_source + substrate + receptor_version + energy_bucket + feeling_bucket
+
+来源:
+  PERCEIVED, IMAGINED, HEARSAY, REMEMBERED, INFERRED, TEACHER, SELF_ACTUATED 等.
+
+37.3 作用
+
+防止“想象火躲开”和“真实火躲开”学成同一行动后果.
+
+
+38. 模仿、续写、范式、风格
+
+38.1 定义
+
+风格化回复不是模板表, 而是表达片段、情绪/社交状态、过程范式、奖励反馈在经验流中的共现波峰.
+
+38.2 作用
+
+你之前一千来句风格化对话示例应作为 AP 经验/表达范式材料导入, 通过 teacher-off、多回应聚合、表达片段共现和 DraftGrid 行动竞争发挥作用.
+
+38.3 红线
+
+不许 p:resp:hello 这种候选压倒所有上下文, 导致“你是谁?”也回“你好”.
+
+
+39. 教师、LLM、记忆包
+
+39.1 定义
+
+教师是外部来源. 教学输入进入 AP 为 source-tagged SA、软 action bias、reward/punish、示范 episode. 教师不能直接重写答案.
+
+39.2 LLM 边界
+
+应用中可用 LLM:
+1. 生成课程.
+2. 做外部教师.
+3. 做审计.
+4. 给调参建议.
+5. 帮助产品表达.
+
+证明 AP 基础能力时必须 teacher-off, student_side_llm=false.
+
+39.3 记忆包
+
+记忆包 = 经验子图/事件片段/索引材料/元数据. 导入去重, 卸载回退 batch 新增证据. 包名不作为语义证据.
+
+
+40. 已证明/已探索技能证据层
+
+40.1 APV2.1 控制实验证据
+
+本地 README 和报告显示 APV2.1 已在受控实验中展示:
+
+1. 小学数学过程学习: 加减乘除、竖式、借位、进位、试商、验算、方程预砖、应用题桥接.
+2. 小学语文/日常语言预砖: 多轮对话、常识、疲劳边界、开放日常干扰.
+3. 视觉识字/界面文字预砖: 汉字、UI 词、短语、截图式视觉读取.
+4. 桌面控制预砖: 合成 UI 行动、输入序列、结果选择、多窗口流程、风险/证据/权限门控, 可以证明低粒度桌面行动的流程设计、teacher-off 验收方式和风险门控路径.
+5. 干扰恢复、未完成任务、记忆冷却/复健、teacher-off retention.
+
+40.2 正向证据口径
+
+这些受控证据可以证明 AP 路线在局部闭环、过程学习、teacher-off、视觉/文本/行动预砖方面有可继续推进的基础. APV3 的任务是在新的数学模型下把这些局部证据迁移成开放中文对话 runtime.
+
+
+第七卷 工程红线与实现路线
+
+41. AP-Core 与外壳边界
+
+41.1 定义
+
+AP-Core 是闭环. SNS、网页工作台、Agent wrapper、TTS、浏览器、SQLite UI 都是外壳或执行器/感受器/视图.
+
+41.2 红线
+
+1. UI 只能读 RuntimeTickEvent, 不能编 tick.
+2. TTS 只能读已 commit 文本, 不能生成文本.
+3. 工作台图表必须来自真实 tick 数值.
+4. 内心画面必须来自状态池视觉 SA.
+
+
+42. 数据库、Zvec/ANN/性能
+
+42.1 定义
+
+逻辑唯一数据库 = 统一经验流. 工程上允许多个索引表:
+1. Zvec/ANN 向量索引.
+2. 倒排.
+3. rolling hash.
+4. 时空邻近索引.
+5. 来源/感受/行动索引.
+
+42.2 作用
+
+性能提升来自:
+1. 当前短期结构池 query 较小.
+2. 索引召回候选, 非全库遍历.
+3. 局部结构/owner 数据库.
+4. 预算化在线更新.
+5. 可重建索引.
+
+42.3 红线
+
+Zvec 返回 id/score, 不返回 label/答案. 关闭 Zvec 应只影响速度/召回候选效率, 不改变真相记忆.
+
+
+43. UI 与审计
+
+43.1 工作台应显示
+
+1. 当前对话原文.
+2. 图片/音频/画板缩略与来源.
+3. 每 tick 状态池 top.
+4. 短期结构池当前结构.
+5. B 候选与相似度.
+6. C_forward/C_backward.
+7. C* 回灌.
+8. 认知感受.
+9. 行动竞争.
+10. DraftGrid 二维草稿.
+11. 视焦点/听觉焦点.
+12. 内心画面/音频.
+13. 想法云.
+14. 审计曲线: 每 tick 运行时间、分过程耗时、状态池对象数、能量总量、R/V/P、注意峰、视觉 SA 数、结构池大小、召回候选数、行动 drive 等.
+
+43.2 红线
+
+图表不能用直线假数据. 悬停要显示具体 tick 数值. 多曲线应在同图展示相关维度.
+
+
+44. 当前 APV3 Phase20.6 距理想图景的差距
+
+44.1 核心差距
+
+根据本地冷保存和用户实测, 当前问题集中在:
+
+1. 回复仍被短句候选主导, 导致无论问什么都“嗯,听着”.
+2. 视觉学习区分度不足, 苹果/香蕉被最近教师短句覆盖.
+3. 视焦点移动不由认知压/惊/违和/任务驱动, 仍像固定几何轨迹.
+4. 内心画面尚未按视觉 SA 像素/patch 重建.
+5. Tick 虽有 RuntimeTickEvent, 但还没完整实现本文的 B/C/C* 与短期结构池闭环.
+6. 快慢记忆 UI 与本地记忆/记忆包关系仍混乱.
+7. 审计曲线信息不足.
+
+44.2 理论修法
+
+不要继续修前端小 bug. 应从底层改:
+
+1. 新建/重构短期结构池.
+2. 将视觉/文本/行动 occurrence 写入统一经验流.
+3. 用短期结构池做 B 召回.
+4. 实现 C_forward 与 C_backward.
+5. 用 C* 回灌状态池.
+6. 行动竞争基于状态池与未闭合/把握/视觉证据.
+7. DraftGrid 写入来自行动竞争, 不是预选短句.
+8. UI 只展示这些真实字段.
+
+
+45. 下一步从哪里改
+
+45.1 第一优先级
+
+Phase20.7 或新主线应先改核心闭环, 顺序:
+
+1. 红线隔离旧 phrase candidate / teaching hit / whole reply path.
+2. 实现 ShortStructurePool 数据结构.
+3. 接入状态池 occurrence 写入.
+4. 统一经验流 event log.
+5. B recall 从短期结构池 query 开始.
+6. C_forward/C_backward 与 C*.
+7. 视觉 foveated sampling 与 sensory canvas.
+8. DraftGrid 真实二维行动器.
+9. 未闭合/放弃/主动停行动竞争.
+10. UI 重接 RuntimeTickEvent.
+
+45.2 不应先做
+
+1. 不应先美化页面.
+2. 不应再加教学表.
+3. 不应再加图片 label 表.
+4. 不应用“最近教师短句”当识别.
+
+
+46. 完整信息流动示例
+
+场景: 用户给苹果图问“这是什么?”, AP 之前学过苹果和香蕉.
+
+tick1:
+感受器:
+  文本 chunk “这是什么?” 进入.
+  图片全局低分辨率 + 初始焦点 patch 进入.
+状态池:
+  query_pressure、low_grasp、visual_patch_red_round、draft_empty.
+短期结构池:
+  [这是什么?] 与视觉 patch 同 tick group.
+B:
+  召回若干“用户问图像是什么”的 episode, 以及苹果/香蕉视觉教学 episode.
+C_forward:
+  预测可能需要观察、回答名词、请求教师.
+C_backward:
+  若视觉证据不足, 追溯不出稳定解释.
+感受:
+  低把握、证据缺口.
+行动竞争:
+  move_focus > write_cell. AP 移动视焦点.
+
+tick2:
+视焦点到边缘, 采到圆形轮廓和红色纹理.
+B:
+  苹果 episode 权重上升, 香蕉下降.
+C_forward:
+  “苹果” token 获得虚能量, 但把握未满.
+行动:
+  move_focus 或 observe 仍可能赢.
+
+tick3:
+焦点到顶部/柄/高光, 苹果支持更强.
+感受:
+  把握上升, 证据缺口下降.
+行动:
+  write_cell(苹) 赢.
+
+tick4:
+DraftGrid 有“苹”. 后继偏置 + 苹果 episode 预测“果”.
+行动:
+  write_cell(果).
+
+tick5:
+回读 DraftGrid “苹果”. C_forward 预测提交会获奖励/闭合.
+行动:
+  commit_reply.
+
+教学纠正:
+若用户说“不对, 这是香蕉”, 则这不是直接覆盖答案. 它产生 teacher event, 对本轮视觉 SA 与“香蕉”共现加支持, 对导致错误的“苹果”候选按 eligibility 惩罚. 如果视觉证据其实更像苹果, 后续多次冲突会形成困惑/低把握/请求教师, 而不是一次纠正永久覆盖.
+
+
+47. 扩写清单与后续研究问题
+
+47.1 需要继续扩写的章节
+
+1. 视觉 V0-V12 通道详细数学附录.
+2. 听觉 Phase19.1/19.4 通道设计.
+3. DraftGrid 二维草稿: 竖式、手指计数、坐标轴、画板.
+4. 先天规则库: 惊/违和/合理/闭合/放弃/风险/求知的规则正本.
+5. 自适应调参器: 指标表、理想范围、回滚策略.
+6. APV2.1 各实验证据索引.
+7. SNS 桌宠 UI 与 AP-Core 的接口规范.
+8. Agent tool schema.
+9. 具身智能接口.
+10. 性能模型: 经验流、索引、在线嵌入预算.
+
+47.2 当前仍需理论细化的问题
+
+1. 短期结构池中不同模态结构边的统一权重标定.
+2. 认知对象按需细化的最优阈值与疲劳机制.
+3. C_backward 的因果直觉、伪因果形成与后天修正.
+4. 放弃/解除未闭合的先天规则边界.
+5. 内心画面重建的像素级 payload 与长期记忆压缩平衡.
+6. 语言 chunk 与字符细化的长期稳定形式.
+7. 行动 affordance 的统一数学定义.
+
+结语
+
+AP 的核心不是“更聪明地给答案”, 而是让一个系统拥有可以被看见、被纠正、被学习、被中断、被恢复、被长期塑形的内在认知过程. 这条路线的美感在于: 它不把人类心理现象粗暴塞成工程标签, 而是试图从实能量、虚能量、结构经验、预测误差、奖惩、先天规则、注意力和行动反馈中, 让惊讶、合理、期待、压力、未闭合、放弃、习惯、想象、风格、技能和关系自然长出来.
+
+后续实现必须记住: 先有真实 AP tick, 再有 UI; 先有状态池和短期结构池, 再有回复; 先有视觉采样和重建, 再有图片认知; 先有经验流和奖惩, 再有学习; 先有行动竞争, 再有提交. 任何绕过这条闭环的捷径, 即使短期看起来更聪明, 都会让 AP 离自己的图景更远.
+
+
+第八卷 2026-06-26 最新理论裁定
+
+48. 十二项裁定总表
+
+48.1 定位
+
+本章把 2026-06-26 用户对 AP 白皮书开放问题的裁定写成正式标准. 后续所有实现和文档遇到冲突, 应以本章为准.
+
+48.2 裁定 1: 短期结构池记录阈值
+
+结论:
+短期结构池只记录调制后达到阈值的 SA occurrence, 不记录所有进入状态池的对象. 但阈值不能太高, 因为人类并不会记得所有事情, 但潜意识、残响、弱关联也需要保留一定机会.
+
+数学形式:
+
+  salience(o) =
+    a_R R_o + a_V V_o + a_A A_o + a_P abs(P_o)
+    + a_source source_weight_o
+    + a_task task_relevance_o
+    - a_noise noise_o
+
+  write_to_short_structure(o) if salience(o) > theta_register
+
+其中 theta_register < theta_attention_focus. 也就是说, 能进入短期结构池的对象可多于显性注意焦点, 但少于状态池全部对象.
+
+人类类比:
+人不会记住房间里每一粒灰尘, 但会留下背景音、气味、刚才说过的话、边缘处移动影子等弱痕迹. 这些弱痕迹平时不显性, 但在后续相关事件中可能被召回.
+
+实现红线:
+不许为了省事只存 top-3 显性注意对象; 也不许把整个状态池每 tick 全量复制进短期结构池.
+
+48.3 裁定 2: 文本粒度不是先天字符唯一论
+
+结论:
+文本的物理最低分辨率可以是字符, 但 SA/认知对象不应先天固定等于字符. 初次输入“你好啊”时, 整体可先作为一个认知对象. 后续“你好!”召回“你好啊”时, 根据共同部分和残差细化为“你好”“!”“啊”. 字符是可用的最低分辨率, 不是永远唯一的认知粒度.
+
+关键思想:
+SA 是由认知对象切分出来的, 而不是由工程分词器先天塞给 AP 的. 一个 SA 可以包含多个物理分辨率单位. 文本可包含多个字符, 视觉可包含多个像素, 听觉可包含多个周期. 系统按需细化.
+
+数学形式:
+
+  CognitiveObject = aggregate(PhysicalUnits)
+  refine(CognitiveObject) triggered by:
+    prediction_error_peak
+    attention_need
+    action_need
+    repeated_alignment
+    teacher_focus_with_evidence
+
+人类类比:
+人第一次听陌生短语时可能只记住一整块声音. 多次听到相似短语后, 才切出稳定词和变体.
+
+48.4 裁定 3: Bundle 允许有序子序列
+
+结论:
+短期结构池中的 bundle 允许包含有序子序列, 同时也允许并列 group. 例如文本有序, 视觉/节奏/情绪可以与某个位置或 tick 并列绑定.
+
+数学形式:
+
+  Bundle = {
+    ordered_edges: [(o1,next,o2), ...],
+    group_edges: [(oi,same_context,oj), ...],
+    spatial_edges,
+    temporal_edges,
+    causal_candidate_edges
+  }
+
+48.5 裁定 4: C_backward 正式纳入基础流程
+
+结论:
+C_backward 是基础流程, 不是可选特殊模式. 它是合理感的主要来源. 人类面对意外输入时, 第一时间会尝试解释; 能解释, 惊讶快速消退; 不能解释, 困惑和注意聚焦维持.
+
+实现要求:
+每个 RuntimeTickEvent 至少应能表达:
+  backward_recall_candidates
+  explanation_fit
+  reasonable_feeling_delta
+  unresolved_surprise_after_explanation
+
+48.6 裁定 5: 期待/压力仍来自 reward/punish 预测
+
+结论:
+期待/压力仍按 AP 图景预期书的根口径: 由 B/C 中预测到 reward/punish 的虚能量产生, 并锚定到 B 对象或结构对象. 但在新结构中, B 是认知波/历史片段叠加, 锚定对象可以是短期结构池中的结构片段、行动候选、任务片段或状态池认知对象.
+
+48.7 裁定 6: 闭合不是唯一解除方式
+
+结论:
+预期行动或预期后果获得实能量验证, 是未闭合下降的重要条件, 但不是唯一条件. 放弃、取消、不再需要、不可能、压力源消失、任务承诺被解除, 也可以让未闭合下降.
+
+拟人理由:
+人类会放下事情. 机器式“想到任务就必须做完”不是拟人.
+
+48.8 裁定 7: 奖惩信号与先天规则是底层, 上层心理分类不是原语
+
+结论:
+认知解释收益、社交期待、任务承诺、内在驱力等不作为 AP-Core 原语. 它们应由 reward/punish + innate rules + 期待/压力 + 行动把握/affordance 涌现.
+
+实现要求:
+代码中可以为审计显示“social expectation”这类解释标签, 但它必须能追溯到更底层的先天规则、奖惩、经验和状态池信号, 并落实为可审计的底层驱动组合.
+
+48.9 裁定 8: 自适应调参器两轨
+
+结论:
+自适应调参器分规则调参与 LLM 辅助调参两部分. 规则调参参考 PA 原型: 理想值、理想范围、最大正常范围、统计窗口、方向、幅度、回滚. LLM 可在工程应用中辅助分析, 但在 AP 基础能力证明时应排除学生侧 LLM.
+
+48.10 裁定 9: 本地在线嵌入是 APV2/APV3 必备层
+
+结论:
+对 APV2/APV3 这类依赖向量数据库储存记忆和召回的实现, 本地在线嵌入是必备层. 它不是 AP 哲学唯一可能实现, 但在当前工程路线上必须有.
+
+48.11 裁定 10: 感受器通道要写细
+
+结论:
+视觉、听觉、文本的通道级细节需要写入白皮书, 不应只写原则. V0-V12、时频金字塔、foveated canvas、局部 mask、内心重建都应逐步补成附录.
+
+48.12 裁定 11: 数据库逻辑唯一, 工程索引多样
+
+结论:
+数据库唯一指逻辑唯一: AP 真相源只有统一经验流. 工程上允许多个索引表、ANN、Zvec、倒排、rolling hash、审计快照. 索引是派生物, 可删除重建, 不是真相源.
+
+48.13 裁定 12: 工程历史写成一章
+
+结论:
+APV1/PA、APV2.1、APV3、GL、SNS 的工程历史应写入白皮书, 但要标清证据层和边界, 防止把旧脚手架或产品壳混成 AP-Core.
+
+
+49. 认知对象按需细化的正式地位
+
+49.1 具体定义
+
+按需细化是 AP 从粗认知对象走向细粒度理解的核心机制. 它不是文本专属, 而是多模态通用机制.
+
+文本:
+  整句 -> 短语 -> 字符 -> 笔画/视觉字形.
+
+视觉:
+  整体场景 -> 对象候选 -> patch -> 边缘/纹理/像素.
+
+听觉:
+  整段声音 -> 音节/音色事件 -> 频窗 -> 周期/采样.
+
+行动:
+  完整任务 -> 动作步骤 -> 低粒度执行器事件.
+
+49.2 作用
+
+1. 控制状态池对象数量.
+2. 保留必要细节.
+3. 让概念来自经验.
+4. 支持从模仿到语法的学习.
+5. 支持像素级内心画面与字符级语言细节同时存在.
+
+49.3 数学形式
+
+设对象 O 由物理单位集合 U 构成. 当前预测对象 P 与现实对象 O 对齐:
+
+  Common = U_O ∩_align U_P
+  RealityResidual = U_O - Common
+  PredictionResidual = U_P - Common
+
+细化收益:
+
+  gain_refine =
+    alpha * energy(RealityResidual)
+    + beta * energy(PredictionResidual)
+    + gamma * future_task_value
+    + delta * repeated_alignment_support
+    - cost(number_of_new_objects)
+
+若 gain_refine > 0, 执行细化.
+
+49.4 人类类比
+
+学写字时, 成人看到“你”就是一个字, 初学者可能需要细化成左右结构、笔画、位置. 同一个刺激在不同熟练度、任务和注意力下有不同认知粒度.
+
+49.5 实现建议
+
+1. 初始输入产生 coarse object.
+2. 保存 payload_ref 指向原始物理数据或可重建片段.
+3. 预测误差处生成 split proposal.
+4. split proposal 作为行动/认知候选, 也要竞争, 不应无节制执行.
+5. 被注意力选中的 split 写入经验流.
+
+
+50. 短期结构池取代单一短期序列池
+
+50.1 具体定义
+
+短期结构池是 AP 当前认知流的结构化工作区. 它比“短期序列池”更一般:
+
+1. 一维序列: 文本、动作、节奏.
+2. 二维结构: 图像、草稿、画板、竖式.
+3. 三维结构: 空间关系、身体与工具.
+4. 时空结构: 运动、视焦点轨迹、音频变化.
+5. 因果/功能图: 行动-反馈-奖惩.
+
+50.2 作用
+
+它让“同 tick 文本顺序”和“跨 tick 后继顺序”不再分裂成两个机制. 它也让视觉和行动拥有等价结构池, 避免文本特权.
+
+50.3 结构边详表
+
+基础边:
+  next, prev, same_tick, same_focus, coattention.
+
+文本边:
+  char_next, chunk_contains, punctuation_pause, utterance_boundary.
+
+视觉边:
+  left_of, right_of, above, below, inside, overlap, near, edge_continuation, same_color_region, same_texture_region.
+
+听觉边:
+  next_frame, rhythm_lag, same_timbre, onset_after, frequency_neighbor.
+
+行动边:
+  action_before, action_after, action_result, action_conflict, actuator_same.
+
+认知边:
+  common_part, residual_reality, residual_prediction, explains, contradicts, predicts, closes, cancels.
+
+50.4 数学形式
+
+图匹配:
+
+  sim_graph(G_current, G_memory) =
+    node_match_score + edge_match_score + energy_distribution_score + source_score
+
+可用近似:
+1. 先用 rolling hash / 局部签名召回候选.
+2. 再做小图结构匹配.
+3. 再用在线嵌入补软相似.
+
+50.5 性能注意
+
+短期结构池不能无限增长. 维护策略:
+
+1. 乘法衰减.
+2. 低能 occurrence 淘汰后序列缩进.
+3. 高价值 focus memory 写入长期经验.
+4. 对重复熟悉结构压缩成 chunk.
+5. 对高认知压区域展开细化.
+
+
+51. 闭合感、放弃与拟人任务感
+
+51.1 具体定义
+
+任务不是外部 task object 魔法. 只有当某结构预测到 reward/punish, 或先天规则把某状态转译成 reward/punish 压力时, AP 才会“关心”. 任务感来自这种奖惩相关的期待/压力与未闭合.
+
+51.2 未闭合的来源
+
+1. 用户问题尚未回答.
+2. 草稿未提交.
+3. 视觉证据不足但需要识别.
+4. 行动开始但后果未验证.
+5. 预测惩罚未规避.
+6. 期待奖励未达成.
+7. 内部解释未完成导致困惑维持.
+
+51.3 未闭合的下降方式
+
+1. 完成: 预期行动执行且后果被验证.
+2. 替代完成: 另一行动达到同等奖励/规避惩罚.
+3. 取消: 外部或内部证据表明不再需要.
+4. 放弃: 代价、风险或长期失败使系统学到继续追求不值得.
+5. 不可能: affordance 长期为 0 或环境条件不满足.
+6. 遗忘/衰减: 长期无支持, 但高价值任务衰减慢.
+
+51.4 数学形式
+
+  U_j(t+1) = clamp(
+    decay_U * U_j(t)
+    + reward_pressure_j
+    + punish_pressure_j
+    + interruption_reactivation_j
+    - closure_j
+    - cancellation_j
+    - learned_abandonment_j
+    - impossibility_j
+  )
+
+放弃学习:
+
+  learned_abandonment_j increases when:
+    repeated_attempt_failures
+    high_cost
+    low_affordance
+    teacher_or_environment_cancels_goal
+    punish_for_persistence
+
+51.5 人类类比
+
+“我还没回这条消息”会在空闲时回来; “今天不上班了”会让上班压力消失; “我一直想找杯水但附近没有”会维持低强度未闭合, 看到水后行动驱动力突然增强.
+
+
+52. 快慢系统融合后的数据库与召回路线
+
+52.1 旧设计降级
+
+旧口径中“快系统数据库/慢系统数据库”“每 tick 快照 + 焦点记忆作为核心本体”的设计, 应降级为历史方案或工程视图. 新口径:
+
+1. 真相源是统一经验流.
+2. 快/慢是处理状态, 不是数据库.
+3. 快用高把握低注意的召回结果直接行动.
+4. 慢用注意维持低把握高冲突结构, 进行多 tick 泛化/追溯/计划.
+
+52.2 仍保留的有效思想
+
+1. 状态池快照可作为审计和快速恢复视图.
+2. 注意焦点片段仍是高价值记忆.
+3. 长期冷存档、warm ticket、focus index 仍可作为派生索引.
+4. 但这些不是 AP-Core 的多个真相数据库.
+
+
+第九卷 数学模型细化
+
+53. Tick 内部变量表
+
+每个 tick 至少应有以下变量:
+
+外源:
+  X_t: 原始输入.
+  S_t: 感受器输出 occurrence.
+
+状态:
+  F_t: 状态池.
+  G_t: 短期结构池.
+  ELog_t: 经验流追加事件.
+
+召回:
+  Q_t: 当前结构查询.
+  B_t: 现状认知波.
+  C_f_t: 向后预测.
+  C_b_t: 向前追溯.
+  Cstar_t: 回灌包.
+
+感受:
+  Surprise_t, Dissonance_t, Reasonable_t, Correct_t, Grasp_t, EvidenceGap_t, U_t.
+
+情绪:
+  Emotion_t: 多通道慢量.
+
+行动:
+  Candidates_t.
+  SelectedAction_t.
+  DraftGrid_t.
+  FocusState_t.
+
+性能:
+  timing_receptor_ms, timing_state_ms, timing_structure_ms, timing_recall_ms, timing_action_ms, active_counts.
+
+
+54. 能量更新公式细化
+
+54.1 基础更新
+
+  R_i' = clamp(lambda_R_i R_i + input_R_i + feedback_R_i + verification_R_i)
+  V_i' = clamp(lambda_V_i V_i + cstar_V_i + imagination_V_i + recall_V_i)
+  A_i' = clamp(lambda_A_i A_i + attention_boost_i)
+  F_i' = clamp(lambda_F_i F_i + fatigue_input_i)
+  P_i' = R_i' - V_i'
+
+54.2 中和
+
+若 R 与 V 同对象接近:
+
+  matched = min(R_i, V_i) * neutralize_rate
+  prediction_verified += matched
+  abs(P_i) decreases
+
+中和不是删除, 而是降低错配并产生正确/合理/闭合等感受可能.
+
+54.2b v0.4 反例去中和与信念松动
+
+中和会带来把握感, 也会形成信念固化倾向. 这符合拟人性: 人会因为一次强烈验证而更相信某个预期或因果. 但若只有中和增加, 没有反例带来的松动, 系统会变成“只会越信越深”的机械信念累加器.
+
+因此需要反例去中和, 但它不是天生反伪因果门, 而是后天经验事件对旧把握的松动:
+
+  counter_evidence_i =
+      unfulfilled_prediction_i
+    + observed_without_predicted_i
+    + failed_action_outcome_i
+    + teacher_correction_i
+    + repeated_counterexample_i
+
+  verified_i(t+1) =
+      lambda_verified * verified_i(t)
+    + neutralize_rate * matched_i
+    - unlearning_rate * counter_evidence_i * contradiction_gate_i
+
+其中:
+
+  unlearning_rate < neutralize_rate
+
+默认人类式信念不容易被单个反例翻转; 强反例、重复反例、可信教师纠正、行动失败带来的惩罚, 才会逐步提高 `contradiction_gate_i`.
+
+例: AP 觉得“按按钮 -> 程序会好”. 第一次按完程序好了, 中和增加把握. 后来多次不按按钮也好了、按按钮也没好、教师解释是网络恢复, 这些反例会降低旧把握. AP 可以先迷信, 再被经验慢慢教育.
+
+54.3 稳态
+
+持续输入 c 与衰减 lambda:
+
+  E* = c / (1-lambda)
+
+这解释 AP 能在长期稳定刺激下达成动态上限.
+
+
+55. 结构匹配与残差细化
+
+55.1 结构匹配分数
+
+  sim = w_node node_overlap
+      + w_edge edge_overlap
+      + w_order order_fit
+      + w_space spatial_fit
+      + w_time temporal_fit
+      + w_energy energy_fit
+      + w_source source_fit
+      + w_feeling feeling_fit
+
+55.2 残差
+
+  residual_real = current - matched_common
+  residual_virtual = predicted - matched_common
+
+55.3 细化条件
+
+  refine if:
+    energy(residual_real) > theta_real
+    or energy(residual_virtual) > theta_virtual
+    or task_requires_detail
+    or repeated_confusion_between_candidates
+
+55.4 例子
+
+苹果/香蕉混淆时, 系统应细化视觉对象到曲率、长宽比、颜色区域、纹理、局部柄/端部结构, 而不是继续把整图当一个视觉对象.
+
+
+56. B/C/C* 召回公式细化
+
+56.1 B 候选召回
+
+  candidates = index.search(Q_t)
+  score_B(k) = sim(Q_t,h_k) * trust(h_k) * support(h_k) * freshness_mod * source_mod
+
+56.2 残差 B 召回
+
+采用 residual competition:
+
+1. 选择最强 B.
+2. 将被解释的 query mass 降权.
+3. 剩余 query mass 继续召回.
+4. 不删除尾部候选, 只降低当前主导性.
+
+这支持多对象、多任务、多阶段认知.
+
+召回查询 Q_t 是完整短期序列池的加权内容 (近段权重高, 远段按 recency 衰减), 不只是当前注意焦点段. 最强子序列组合先被解释 (整体优先于碎片: A+B+C 可召回时天然压过 B+C); 命中候选解释掉的 query mass 按吸收系数降权 (类比谐振吸收: 被匹配的频段能量被吸走, 剩余频段相对占优), 剩余 mass 中的其它子序列 (如 D+E) 在后续轮次继续召回. 多轮结果并列进入 B 波, 各带自身支持度; 后续轮次支持度带阻尼, 恒低于第一轮主召回 — 残差召回丰富认知场与 C*, 不直接决定输出. 由此: 同一问句在不同前文下召回不同 (上下文区分); 回味 A 的残余与当前 B 共存时, 命中同时关联二者的记忆 (联想与灵光的来源); 每次解决即积累新的细化经验, 泛化随经验越来越细.
+
+56.3 C_forward
+
+  C_f = sum_k w_k sum_l lag_kernel(l) * future(h_k,l)
+
+56.4 C_backward
+
+  C_b = sum_k w_k sum_l backward_kernel(l) * past(h_k,l)
+
+v0.5 裁定: C_forward 与 C_backward 是同一 B 召回结构的时间正向/反向传播. C_forward 不只是“生成回复”, C_backward 也不只是“解释异常”; 二者每 tick 同时运行, 共同服务于最小误差闭环.
+
+设当前焦点结构为 Q_t, 历史命中 h_k 可拆为:
+
+  h_k^- : 历史前因窗口
+  h_k^0 : 历史相似现状
+  h_k^+ : 历史后继窗口
+
+则:
+
+  C_forward(t)  = propagate(h_k^0 -> h_k^+)
+  C_backward(t) = propagate(h_k^0 -> h_k^-)
+
+前因中和:
+
+  E_backward(t) =
+    min_alignment_error(StructurePool_t.recent_occurrences, C_backward.cause_slots)
+
+后继中和:
+
+  E_forward(t) =
+    distance(realized_successors, C_forward.prediction_slots)
+
+总误差:
+
+  E_total(t) =
+      lambda_f * E_forward(t)
+    + lambda_b * E_backward(t)
+    + lambda_a * E_action(t)
+    + lambda_u * E_unclosed(t)
+    + lambda_v * E_value(t)
+    + lambda_c * E_conflict(t)
+    + lambda_cost * E_cognitive_cost(t)
+
+行动竞争应选择在当前 affordance、能量预算和奖惩约束下最能降低 E_total 的行动. 因此观察、询问、继续想、回答、放下、休眠都不是特殊策略, 而是不同情境下的误差降低行动.
+
+56.5 C*
+
+  C* = compress(merge(C_f, C_b), budget)
+
+预算:
+1. 高能优先.
+2. 高任务相关优先.
+3. 高解释收益优先.
+4. 多样性保留.
+
+56.6 v0.4 C_forward / C_backward 结构化整合
+
+C* 不是把 C_forward 与 C_backward 简单加权平均成一团虚能量. 它应保留结构化 slot:
+
+  CStarPacket {
+    prediction_slots: C_forward items,
+    explanation_slots: C_backward items,
+    contradiction_links,
+    suppressed_prediction_refs,
+    confidence_distribution,
+    source_distribution
+  }
+
+当 C_forward 与 C_backward 矛盾时:
+
+1. C_forward 保留“我原本以为会发生什么”的预测痕迹.
+2. C_backward 保留“为什么没发生/为什么发生了别的”的解释痕迹.
+3. 若解释有足够经验支持, 它不直接删除旧预测, 而是给相似情境下的旧 forward 模板增加 context-specific suppression.
+4. 新经验写入时同时保存 prediction_failed 与 explanation_candidate, 形成完整的人类式经验.
+
+例: 我打招呼, 预测对方回招呼; 对方没回. C_forward 记录“对方回招呼”的预测失败; C_backward 召回“对方可能没听见/在生气/不喜欢我”. 后续如果看到对方戴耳机, “没听见”解释增强, 同类场景下“打招呼必回”的预测会被上下文降权.
+
+
+57. 注意力与焦点移动公式细化
+
+57.1 注意力优先级
+
+  priority_i =
+    0.20 R_i
+    + 0.15 V_i
+    + 0.25 abs(P_i)
+    + 0.15 U_i
+    + 0.10 novelty_i
+    + 0.10 task_relevance_i
+    + 0.10 expected_reward_i
+    - 0.15 fatigue_i
+
+具体权重可由自适应调参器调整, 但解释项必须保留.
+
+57.2 视焦点候选
+
+候选区域来自:
+1. 高 saliency.
+2. 高 P 视觉 patch.
+3. 低 grasp 但任务相关区域.
+4. C* 预测但未验证区域.
+5. 教师 focus box 的 saliency boost.
+6. 周边随机探索.
+7. IOR 返回抑制后的未访问区域.
+
+57.3 采样不是只采焦点
+
+周边仍采样, 只是概率低、清晰度低. 这样才能保留“余光”.
+
+
+58. 行动竞争公式细化
+
+58.1 候选类型
+
+1. observe / move_focus.
+2. refine_object.
+3. recall_more / trace_back.
+4. write_cell.
+5. erase_cell.
+6. reread_draft.
+7. commit_reply.
+8. stop_generating.
+9. request_teacher.
+10. wait_idle.
+11. tool/keyboard/mouse/canvas actions.
+
+58.2 驱动力
+
+  drive(a) =
+    evidence_fit(a)
+    + predicted_reward(a)
+    - predicted_punish(a)
+    + unclosed_gain(a)
+    + affordance(a)
+    + habit_support(a)
+    + emotion_bias(a)
+    - fatigue(a)
+    - conflict(a)
+    - risk(a)
+
+58.3 主动停
+
+stop_generating 不是 max_tick timeout. 它应在:
+1. draft 已提交或无需回复.
+2. 未闭合压力低.
+3. 继续写的后继波峰弱.
+4. 重复疲劳高.
+5. 停止行动的预测后果可接受.
+
+时通过行动竞争赢出.
+
+
+59. 在线嵌入与索引性能模型
+
+59.1 性能路径
+
+统一经验流本身可很长, 但每 tick 不应全库遍历:
+
+1. 短期结构池生成小 query.
+2. 倒排/rolling hash 找结构候选.
+3. Zvec/ANN 找软相似候选.
+4. 时空索引找邻近窗口.
+5. 小候选集合做精排.
+6. C_forward/C_backward 只沿候选窗口传播.
+
+59.2 复杂度目标
+
+理想:
+  O(log N + K * local_cost)
+
+可接受:
+  O(K * local_cost), K 由预算固定.
+
+不可接受:
+  O(N) 全库遍历作为每 tick 常态.
+
+59.3 索引红线
+
+1. 索引不返回 label.
+2. 索引不决定回复.
+3. 索引缺失可重建.
+4. 索引结果必须进入 B/C/行动竞争, 不能绕过.
+
+
+第十卷 场景案例库
+
+60. 问候学习
+
+60.1 初次输入
+
+用户: 你好啊
+
+AP:
+1. 文本 chunk 进入状态池.
+2. 若无后继经验, 低 grasp + 社交新输入.
+3. 可能 echo imitation: 写“你好啊”或短回应.
+4. 教师奖励后, echo 行动与问候场景共现.
+
+60.2 第二次相似输入
+
+用户: 你好!
+
+AP:
+1. 召回“你好啊”.
+2. 细化共同“你好”和残差“!”/“啊”.
+3. 形成“你好”高能问候片段.
+4. 若曾学“你也好”, C_forward 预测“你也好”.
+
+60.3 错误防线
+
+若用户问“你是谁?”, AP 不应因“你好”是最高短句就回复“你好”. 因为短期结构池、B 召回、query_pressure、自我描述任务和后继预测不同.
+
+
+61. 苹果与香蕉视觉共现学习
+
+61.1 正确流程
+
+教学苹果:
+1. 视觉 patch/对象/空间结构与文本“苹果”同 tick/邻近 tick 共现.
+2. 教师奖励确认.
+3. 经验流写入视觉-文本-奖励 episode.
+4. 在线嵌入把相似苹果视觉结构拉近“苹果”文本/对象簇.
+
+教学香蕉:
+1. 香蕉长条形、黄色、端部结构、纹理等视觉结构与“香蕉”共现.
+2. 与苹果区分的残差获得高能.
+3. 竞争对象产生负样本, 防止苹果/香蕉塌缩.
+
+61.2 再识别
+
+苹果图:
+  B 召回苹果视觉 episode > 香蕉.
+  C_forward 给“苹果” token V.
+  move_focus 直到把握足够.
+
+香蕉图:
+  B 召回香蕉 episode > 苹果.
+
+61.3 bug 诊断
+
+如果教香蕉后苹果也说香蕉:
+1. 教师短句最近性权重过高.
+2. 视觉 SA 区分度不足.
+3. 视觉-文本共现没有按视觉对象锚定.
+4. DraftGrid 候选没有引用视觉证据.
+5. 在线嵌入缺负样本或对象级 handle.
+
+
+62. 黄色苹果
+
+62.1 场景
+
+第一次见黄色苹果:
+1. 形状召回苹果.
+2. 颜色召回香蕉/梨.
+3. 结构冲突产生违和和惊.
+4. 慢系统介入.
+5. 推测“能不能吃”“是不是新品种”.
+
+62.2 学习
+
+吃过后若奖励:
+1. 黄色苹果视觉结构与味觉/奖励/“苹果”文本共现.
+2. 第二次见时召回该 episode.
+3. 快系统印象增强, 注意需求下降.
+
+
+63. 音乐中断
+
+63.1 场景
+
+听熟歌:
+  C_forward 预测下一拍.
+
+音乐停:
+  预测不验, 违和.
+  “静音/中断”现实输入, 惊.
+
+C_backward:
+  追溯耳机没电、蓝牙断开、播放器暂停.
+
+看到电量 0:
+  解释成功, 合理感上升, 惊下降.
+
+
+64. 喝水
+
+64.1 场景
+
+口渴:
+  先天规则/身体感受产生压力/期待.
+  未闭合 U_water 上升.
+
+无水:
+  affordance(drink) 低.
+  行动不执行, 但空闲时 U_water 召回“喝水”.
+
+看到水:
+  affordance 高.
+  drink action drive 增强.
+  执行后 reward/舒适, U_water 下降.
+
+
+65. 竖式数学
+
+65.1 DraftGrid 二维空间
+
+竖式不是线性 token 输出. 它需要二维草稿栏:
+
+1. 个位、十位、百位列.
+2. 进位/借位辅助格.
+3. 当前计算焦点.
+4. 回读与验算行动.
+
+65.2 AP-native 路径
+
+1. 文本题进入.
+2. 数量/符号/位值 SA 进入短期结构池.
+3. 召回竖式过程 episode.
+4. 行动器逐格写数字.
+5. 认知感受检查错位/进位/逆算.
+6. 不对则擦除修改.
+
+65.3 红线
+
+不许用 Python eval/隐藏算术 solver 直接给答案冒充 AP.
+
+
+66. 画板与辅助线
+
+66.1 定义
+
+画板是行动器 + 视觉感受器闭环. AP 画一条线后, 必须重新看见这条线, 让它成为视觉 SA, 再继续推理.
+
+66.2 作用
+
+1. 几何题画辅助线.
+2. 坐标轴.
+3. 手指计数.
+4. 草稿可视化.
+
+66.3 红线
+
+画板不做 OCR. 用户写字/画图后, AP 通过视觉感受器看, 或通过用户文本教学共现学.
+
+
+67. 桌面控制
+
+67.1 正确路径
+
+1. observe_window.
+2. observe_region.
+3. visual/text UI reading.
+4. action candidates: move/click/type/key/wait/readback.
+5. risk/evidence/permission feelings.
+6. execute only after competition and safety affordance.
+7. readback feedback.
+8. reward/punish learning.
+
+67.2 证据边界
+
+APV2.1 DesktopText 系列多为合成/dry-run 预砖, 可以证明桌面观察、动作预演、安全门控、teacher-off 受控能力和后续真实 OS 控制路线的前置闭环.
+
+
+第十一卷 实现与验收标准
+
+68. APV3 新主线实现顺序
+
+68.1 Stage A: 红线隔离
+
+1. 禁用旧 phrase candidate 作为主回复源.
+2. 禁用 teaching hit 直接回答.
+3. 禁用整图 label.
+4. 禁用 UI projection tick.
+
+68.2 Stage B: 核心数据结构
+
+1. StatePool 使用 R/V/P/A/F.
+2. ShortStructurePool 支持 occurrence 和结构边.
+3. ExperienceLog append-only.
+4. RuntimeTickEvent 读取真实字段.
+
+68.3 Stage C: 召回闭环
+
+1. B recall.
+2. C_forward.
+3. C_backward.
+4. C* 回灌.
+
+68.4 Stage D: 行动器
+
+1. DraftGrid 二维.
+2. move_focus.
+3. observe/refine.
+4. write/erase/reread/commit/stop/request_teacher.
+
+68.5 Stage E: 视觉重建
+
+1. foveated sampling.
+2. sensory canvas.
+3. inner picture from visual SA.
+4. focus trajectory.
+
+68.6 Stage F: UI
+
+UI 最后接, 只展示真实 tick.
+
+
+69. RuntimeTickEvent 最低字段
+
+每个 tick 至少保存:
+
+1. tick_id, turn_id, is_projection=false.
+2. input_occurrences.
+3. state_pool_top and energy summaries.
+4. short_structure_pool_delta.
+5. attention_candidates and selected_focus.
+6. B candidates.
+7. C_forward candidates.
+8. C_backward candidates.
+9. Cstar_feedback.
+10. cognitive_feelings.
+11. emotion_channels.
+12. action_candidates.
+13. selected_action.
+14. DraftGrid snapshot.
+15. visual sensory canvas delta.
+16. inner picture reconstruction refs.
+17. memory delta.
+18. performance timings.
+
+
+70. 工作台 UI 展示规范
+
+70.1 中文化
+
+所有面向普通用户的字段必须中文显示:
+  RecallCandidate -> 召回候选
+  ActionCompetition -> 行动竞争
+  DraftGrid -> 草稿栏
+  cognitive pressure -> 认知压
+  visual SA -> 视觉信号
+
+技术 ID 可折叠显示.
+
+70.2 内心画面
+
+必须显示:
+1. 视焦点.
+2. 焦点附近清晰.
+3. 周边低清晰/稀疏.
+4. 多 tick 后细节增加.
+5. 来自状态池视觉 SA, 非原图缩略.
+
+70.3 想法云
+
+1. 显示非视觉/非听觉高能 SA.
+2. 大小 = 能量.
+3. 位置向中心吸引, 相互排斥.
+4. 颜色 = 实/虚能量比例.
+5. 饱和度 = 能量强度.
+6. 随 tick 变化.
+
+70.4 审计曲线
+
+至少:
+1. tick 运行总时长.
+2. receptor/state/structure/recall/action/UI 分耗时.
+3. 状态池对象数.
+4. 短期结构池 occurrence 数.
+5. R/V/P 总量.
+6. 最高注意能量.
+7. 视觉 SA 数.
+8. B/C 候选数.
+9. DraftGrid 长度/二维格占用.
+10. 行动 drive/threshold.
+
+悬停必须显示数值.
+
+
+71. 红线扫描清单
+
+必须扫描:
+
+1. answer_table, label_map, image_label_map.
+2. if text contains -> reply.
+3. taught_response direct return.
+4. whole reply candidate_text.
+5. enumerate_objects_in_image in dialogue path.
+6. OCR imports in AP-native canvas path.
+7. ASR text in teacher-off audio path.
+8. student-side LLM generation.
+9. UI projection tick labels.
+10. filename/path semantic use.
+11. package name semantic use.
+12. direct confidence posthoc display.
+
+
+72. teacher-off 验收清单
+
+一个能力要算 teacher-off, 必须:
+
+1. teacher state_items empty.
+2. action_biases empty.
+3. feedback empty until post-commit judge.
+4. answer_payload null.
+5. student_side_llm=false.
+6. no hidden solver.
+7. no answer table.
+8. trace shows B/C/feel/action path.
+9. delayed cold retest still works.
+10. interference case不过度崩溃.
+
+
+73. 性能验收与规模上限
+
+73.1 每 tick 预算
+
+应记录:
+1. 感受器耗时.
+2. 状态池维护耗时.
+3. 短期结构池维护耗时.
+4. 索引召回耗时.
+5. 精排耗时.
+6. 行动竞争耗时.
+7. 写入耗时.
+
+73.2 在线嵌入预算
+
+每 tick:
+1. 学习事件上限.
+2. 更新向量上限.
+3. 负样本上限.
+4. ANN 更新预算.
+
+73.3 退化策略
+
+性能压力高时可:
+1. 降低周边视觉采样.
+2. 降低低能 occurrence 写入.
+3. 减少 C tail.
+4. 推迟低价值在线嵌入更新.
+
+不可:
+1. 跳过状态池.
+2. 直接用答案表.
+3. 关闭 C_backward 后还声称合理感.
+4. UI 编假数据.
+
+
+第十二卷 九大模块的标准章节模板
+
+74. 为什么每章都必须按同一模板写
+
+74.1 具体定义
+
+AP 白皮书后续扩写时, 每个模块都必须包含“具体定义、作用、数学形式、人类类比、示例、实现红线、验收指标”. 这是为了防止理论章节变成口号, 也防止工程章节只写接口不写哲学.
+
+74.2 作用
+
+统一模板有三个作用:
+
+1. 让设计者知道模块在 AP-Core 中的位置.
+2. 让实现者知道它的输入、输出、更新公式和禁止捷径.
+3. 让审查者能检查它是否真的走 AP-native 路线.
+
+74.3 数学形式
+
+每个模块 M 可写作:
+
+  M = (Input_M, State_M, Update_M, Output_M, Audit_M, Redline_M)
+
+其中:
+  Input_M: 它能读取哪些 AP-native 信息.
+  State_M: 它维护哪些状态.
+  Update_M: 它每 tick 如何更新.
+  Output_M: 它向状态池/结构池/行动器输出什么.
+  Audit_M: 它如何被 RuntimeTickEvent 回放.
+  Redline_M: 它不能做什么.
+
+74.4 人类类比
+
+人类心智中的任何能力都不是孤立模块. 视觉会影响注意, 注意会影响记忆, 记忆会影响期待, 期待会影响行动, 行动后果会影响情绪和习惯. AP 文档也必须保持这种互联感, 不能把模块写成互不相干的函数库.
+
+
+75. 模块一: 感受器标准
+
+75.1 具体定义
+
+感受器是 AP 与外界及自身行动后果接触的入口. 感受器把物理输入、文本输入、行动反馈、时间变化、奖励惩罚等转为带来源、分辨率、锚点、置信和可重建 payload 的 SAOccurrence.
+
+75.2 作用
+
+感受器不做“理解”. 它做证据转换:
+
+1. 文本证据: chunk/字符/标点/停顿/说话者/来源.
+2. 视觉证据: 像素/patch/边缘/颜色/亮度/纹理/空间位置/焦点清晰度.
+3. 听觉证据: 波形/频段/响度/音色/节奏/声源方向.
+4. 行动反馈: 操作是否执行、执行后画面/文本/状态如何变化.
+5. 时间证据: tick 间隔、wallclock、周期、延迟任务触发.
+6. 奖惩证据: 外部教师/环境/先天规则产生的 reward/punish.
+
+75.3 数学形式
+
+  receptor_m(raw_input, focus_state, config) -> OccurrenceSet
+
+每个 occurrence:
+
+  o = {
+    sa_id,
+    modality,
+    source,
+    physical_resolution,
+    payload_ref,
+    R,
+    uncertainty,
+    anchors: {time, space, channel, actor, object_candidate},
+    reconstruct_hint
+  }
+
+75.4 人类类比
+
+眼睛、耳朵、皮肤不是直接输出语言判断, 而是输出神经信号. 人脑通过这些信号的结构、历史经验、注意和行动后果形成理解.
+
+75.5 示例
+
+画板上用户画了一个圆. 正确路径:
+
+1. canvas bitmap 进入视觉感受器.
+2. 产生圆形边缘 patch、笔画颜色、位置、粗细、闭合度 SA.
+3. 用户说“这是苹果”时, 文本 SA 与视觉 SA 同时存在.
+4. 后续相似图形通过视觉结构召回“苹果”文本候选.
+
+错误路径:
+  canvas -> OCR/shape classifier -> label=apple -> reply.
+
+75.6 验收指标
+
+1. 感受器输出有 payload_ref.
+2. 有 source tag.
+3. 无文件名语义.
+4. 无 label authority.
+5. 可从 SA 重建至少低保真感受画面/音频.
+
+
+76. 模块二: 状态池标准
+
+76.1 具体定义
+
+状态池是 AP 当前认知场. 它聚合同一认知对象 type 的多个 occurrence 能量, 但不能丢失短期结构池中的 occurrence 关系.
+
+76.2 作用
+
+1. 统一外源和内源.
+2. 提供注意力候选.
+3. 承接 C* 虚能量.
+4. 承接认知感受和情绪调制.
+5. 为行动竞争提供 drive 材料.
+
+76.3 数学形式
+
+对象 i 的字段:
+
+  id_i
+  type_i
+  R_i, V_i, P_i, A_i, F_i
+  source_mix_i
+  anchors_i
+  support_i
+  uncertainty_i
+  last_update_tick_i
+
+聚合:
+
+  StateObject(type) = merge(occurrences with same type and compatible source/anchor)
+
+注意:
+  source 不可粗暴混合. PERCEIVED 与 IMAGINED 可聚合到同一认知对象的不同 source_mix, 但不能失去来源边界.
+
+76.4 人类类比
+
+你脑中可以同时有“苹果”这个对象的现实视觉、记忆味道、想象图像和别人说的描述. 它们会聚成一个苹果相关认知对象, 但你仍知道哪些是看到的、哪些是想的、哪些是听说的.
+
+76.5 验收指标
+
+1. 每 tick 状态池有 R/V/P.
+2. C* 能回灌 V.
+3. 认知感受由 P/结构/行动反馈生成.
+4. 状态池不是固定测试假对象.
+5. 同一对象能量随 tick 衰减/增强可见.
+
+
+77. 模块三: 数据库/经验流标准
+
+77.1 具体定义
+
+数据库是 AP 长期经验的真相源. 新标准中, 真相源不是多个主题表, 而是连续经验流 EventLog. 所有索引都是派生.
+
+77.2 作用
+
+1. 保存经历.
+2. 支持当前结构查询.
+3. 支持后继预测.
+4. 支持向前追溯.
+5. 支持 teacher-off.
+6. 支持记忆删除、导入、导出、卸载.
+
+77.3 数学形式
+
+事件分层:
+
+  SensoryEvent
+  StateEnergyDelta
+  StructureDelta
+  RecallEvent
+  FeelingEvent
+  ActionEvent
+  FeedbackEvent
+  LearningEvent
+  ImportEvent
+  TombstoneEvent
+
+经验流:
+
+  ExperienceLog = append(Event)
+
+索引:
+
+  Index = build(ExperienceLog excluding tombstoned events)
+
+77.4 人类类比
+
+人不是只存“问候技能表”或“苹果标签表”. 人存很多经历: 谁说了什么、当时看到什么、自己怎么回应、对方反应如何、下次有没有更顺.
+
+77.5 红线
+
+1. 不许把记忆包做成插件函数.
+2. 不许包名影响语义.
+3. 不许卸载时删共享证据.
+4. 不许索引成为真相.
+
+
+78. 模块四: 注意力标准
+
+78.1 具体定义
+
+注意力是有限资源分配机制. 它决定哪些对象进入更长半衰期、更高细化概率、更高行动相关性和短期结构池高权重.
+
+78.2 作用
+
+1. 选择波峰.
+2. 维持内源想象.
+3. 打断自动化快系统.
+4. 指导视焦点/听觉焦点/行动焦点.
+5. 支持未闭合任务回归.
+
+78.3 数学形式
+
+  attention_budget_t = base_budget * emotion_mod * fatigue_mod * load_mod
+
+对象分数见第 57 章.
+
+78.4 类比
+
+在熟悉环境中, 注意力可离开外界转向“晚上吃什么”; 意外出现狗时, 外界视觉对象用高惊/风险抢回注意力.
+
+78.5 红线
+
+1. 视焦点不能固定轨迹.
+2. 注意力不能只按 saliency, 必须包含认知压/任务/疲劳/未闭合.
+3. 空 tick 也要有注意力演化.
+
+
+79. 模块五: 先天编码标准
+
+79.1 具体定义
+
+先天编码是 AP 的初始反射、倾向和学习接口. 它可以由规则、参数、配置、未来轻量模型实现, 但必须可审计.
+
+79.2 作用
+
+1. 冷启动产生惊/违和/好奇/趋利避害.
+2. 把底层信号转为 reward/punish.
+3. 让 AP 能学习上层心理结构.
+4. 约束危险行动.
+
+79.3 数学形式
+
+  condition -> effect
+
+condition 可读:
+  energy, pressure, source, action_feedback, time, repetition, affordance.
+
+effect 可写:
+  feeling, reward, punish, action_bias, attention_bias, emotion_delta.
+
+79.4 红线
+
+先天编码不是答案表. 例如可以有“低把握+外部问题 -> 请求教师 drive 增加”, 不能有“如果问这是什么 -> 回答苹果”.
+
+
+80. 模块六: 认知感受标准
+
+80.1 定义
+
+认知感受是 AP 对自身认知过程的感受器化. 它们是内生认知主义的关键.
+
+80.2 作用
+
+1. 把不可见的过程变量变成可学习 SA.
+2. 支持自我认知.
+3. 支持过程范式绑定.
+4. 支持风格和行动选择.
+
+80.3 示例
+
+“我不懂”这句话不应由关键词触发. 正确路径是 low_grasp + evidence_gap + external_query + request_teacher 候选获胜, 然后学到“不懂/教我/这个”表达片段.
+
+
+81. 模块七: 情绪标准
+
+81.1 定义
+
+情绪是慢变量. 它从认知感受和奖惩积累而来, 软调制认知与行动.
+
+81.2 推荐通道
+
+1. reward_tone.
+2. arousal_pressure.
+3. curiosity_drive.
+4. confidence_stability.
+5. caution_hesitation.
+6. affiliation_warmth.
+7. fatigue_repetition.
+8. calm_settling.
+
+81.3 红线
+
+情绪不直接决定回复模板. “伤心 -> 安慰模板”是错的; 应是 affect evidence + relationship memory + task context + expression pattern 共同影响写字行动.
+
+
+82. 模块八: 行动器标准
+
+82.1 定义
+
+行动器是 AP 输出和改变环境的手段. 所有行动必须可竞争、可反馈、可记忆、可奖惩.
+
+82.2 低粒度优先
+
+文本:
+  type_char, erase_char, move_cursor, reread_buffer, commit_reply.
+
+视觉:
+  move_focus, zoom_focus, inspect_region.
+
+画板:
+  draw_point, draw_line, erase, select_color.
+
+桌面:
+  move_cursor, mouse_down, mouse_up, press_key, type_char, observe_region, wait.
+
+内部:
+  recall_more, trace_back, refine_object, stop_generating, request_teacher.
+
+82.3 红线
+
+不许 whole_sentence_action. 不许 do_everything 宏. 不许行动成功不读回.
+
+
+83. 模块九: 自适应调参器标准
+
+83.1 定义
+
+自适应调参器是 AP 的长期稳态维护器. 它不改理论, 只调参数.
+
+83.2 指标表
+
+建议监控:
+
+1. state_pool_active_count.
+2. short_structure_occurrence_count.
+3. total_R, total_V, total_abs_P.
+4. attention_entropy.
+5. focus_stuck_rate.
+6. repeated_action_rate.
+7. average_tick_ms.
+8. recall_candidate_count.
+9. B_grasp_mean.
+10. C_prediction_error.
+11. unresolved_pressure_mean.
+12. teacher_request_rate.
+13. correction_rate.
+14. post_feedback_repair_rate.
+15. memory_growth_rate.
+
+83.3 调参参数
+
+可调:
+1. 衰减系数.
+2. 注意力预算.
+3. occurrence 写入阈值.
+4. 细化阈值.
+5. 召回候选 K.
+6. C tail 长度.
+7. 行动阈值.
+8. 疲劳恢复.
+9. 视觉周边采样率.
+10. 在线嵌入学习率.
+
+不可调成捷径:
+1. 某词直接回答.
+2. 某图直接 label.
+3. 强行提高某个答案候选.
+
+
+第十三卷 工程历史与证据边界
+
+84. APV1 / PA 原型
+
+84.1 定位
+
+PA 是早期文本主线和持续认知原型. 它提出并实现过 SA、ST、EM、ER、EV、CP、HDB、StatePool、Attention/CAM、CFS、情绪递质、IESM、Action、AutoTuner 等一系列机制.
+
+84.2 有价值经验
+
+1. 状态池不是普通缓存.
+2. 内源刺激可以重新进入查存一体.
+3. EM/ST 身份边界很重要.
+4. 感应生长比状态池自由拼接更可审计.
+5. 自适应调参器需要理想范围和回滚.
+6. UI 观测台要显示真实指标, 不能靠自然语言报告.
+
+84.3 需要降级的旧口径
+
+1. 字符级 SA 不应被误解为永远唯一粒度.
+2. HDB 历史结构可作为经验, 但 APV3 应按新短期结构池与统一经验流重建.
+3. 早期实验不能直接宣称开放对话成熟.
+
+
+85. APV2.1
+
+85.1 定位
+
+APV2.1 是受控能力验证仓库. 它积累了大量 teacher-off、no-answer feedback、数学过程、视觉识字、桌面 dry-run、干扰恢复、长记忆复健等证据.
+
+85.2 已证明方向
+
+1. 竖式/小学数学过程可通过可审计过程和反馈学习稳定.
+2. teacher-off 比 teacher-on 更有证据价值.
+3. 无答案惩罚反馈可以触发修复.
+4. 多轮干扰和疲劳边界可被建模.
+5. 视觉文字预砖能在 phrase-free observation 下通过视觉读取产生行动材料.
+6. 桌面控制需要低粒度行动、读回、安全门控.
+
+85.3 边界
+
+APV2.1 的很多能力仍是受控 sandbox. 它证明 AP 路线的局部闭环有效, 不等于 APV3 开放中文对话底座已经完成. APV3 必须重建底层数学模型, 不能把 APV2.1 脚手架硬搬.
+
+
+86. GL 教学协议
+
+86.1 定位
+
+GL 是课程/协议/验证层, 不是 AP runtime 本体. 它规定如何教, 如何退场, 如何验证 teacher-off.
+
+86.2 核心贡献
+
+1. demonstrate -> strong_scaffold -> weak_scaffold -> feedback_only -> teacher_off -> cold_retest.
+2. 六阶段语言学习.
+3. LLM 可做教师, 不可做学生侧 solver.
+4. 反馈不能带答案.
+5. 开放世界是更强验证, 不是不同机制.
+
+86.3 对 AP 白皮书的意义
+
+GL 提供“怎么证明 AP 学会了”的标准, 但不替代 AP 的状态池、结构池、B/C/C*.
+
+
+87. APV3
+
+87.1 定位
+
+APV3 当前目标是多模态中文开放自由对话底座. 它需要把 AP 的所有新理解落成真 runtime, 不是继续修 demo.
+
+87.2 当前风险
+
+1. Phrase candidate replay.
+2. 教师短句覆盖视觉.
+3. 假 tick / 投影式 UI.
+4. 内心画面装饰化.
+5. 视焦点固定轨迹.
+6. 记忆显示与真实经验流脱节.
+
+87.3 正确方向
+
+用本文第 68 章顺序重建.
+
+
+88. SNS 桌宠
+
+88.1 定位
+
+SNS 是 AP 的产品壳和体验载体. 它可以展示状态池、表情、TTS、动作、桌面感受器、长期陪伴关系, 但它不是 AP-Core.
+
+88.2 正确关系
+
+桌宠 UI:
+  展示 AP 状态.
+
+桌宠动作:
+  AP 行动器输出.
+
+桌宠语音:
+  TTS 朗读 AP commit.
+
+桌宠情绪:
+  AP 情绪慢量 + 表情映射.
+
+88.3 红线
+
+不许桌宠产品脚本替 AP 做认知决策.
+
+
+89. Agent 与具身路线
+
+89.1 Agent
+
+AP 可作为 Agent 的心智底座. 工具调用是行动器. 计划不是外部 planner 硬塞, 而是未闭合、B/C 预测、行动后果学习共同形成的行动序列.
+
+89.2 具身
+
+机器人身体只是更多感受器和行动器. AP-Core 不应因为换成物理世界而改变:
+
+  感受 -> 状态池 -> 短期结构池 -> 召回 -> 预测/追溯 -> 感受/情绪 -> 行动 -> 反馈 -> 学习.
+
+89.3 未来重点
+
+1. 触觉感受器.
+2. 身体姿态短期结构池.
+3. 低粒度电机行动器.
+4. 行动后果 L3 嵌入.
+5. 安全边界和人类授权.
+
+
+第十四卷 当前 bug 的理论诊断与底层修法
+
+90. “无论说什么都嗯,听着”
+
+90.1 现象
+
+用户输入不同文本、图片、教学后, AP 仍输出“嗯,听着”.
+
+90.2 理论诊断
+
+这说明回复生成仍被固定或高权重表达候选支配, 而不是由短期结构池 query -> B/C/C* -> 行动竞争决定. “嗯,听着”可能作为风格/倾听表达片段被过度提升, 缺少 task/query/current-input 区分.
+
+90.1b v0.4 风格候选过度命中的补充诊断
+
+若少数 styled corpus 片段, 如“嗯,听着”, 在不同输入下高频出现, 还可能来自 deterministic seed + corpus 分布不均 + 最近使用无疲劳. 这不是 AP 哲学核心问题, 但会严重破坏拟人感: 人不会在多种语境里机械重复同一句倾听话术.
+
+AP-native 修法不是加随机回复表, 而是让表达片段也进入状态池/经验流的疲劳和近期使用调制:
+
+  ExpressionDrive(e) =
+      semantic_fit(e, current_structure)
+    + affect_fit(e, current_emotion)
+    + style_support(e)
+    + reward_history(e)
+    - recent_expression_fatigue(e)
+    - same_surface_form_penalty(e)
+    - task_mismatch_penalty(e)
+
+其中:
+
+1. recent_expression_fatigue 来自短期结构池中近期已输出 occurrence.
+2. same_surface_form_penalty 只惩罚表面重复, 不惩罚同一风格族的合理变体.
+3. task_mismatch_penalty 来自当前任务结构: 用户问身份/图像/数学时, 倾听片段不能压过具体任务后继.
+
+这让风格多样性成为 AP 行动竞争和疲劳机制的一部分, 而不是外部随机润色器.
+
+90.3 底层修法
+
+1. 表达片段只能作为 write_cell 候选的一类证据.
+2. 候选必须绑定当前 B/C/Feel/Task.
+3. 若外部问题未闭合, “倾听”不能直接闭合任务.
+4. “你是谁”“这是什么”“你好”必须形成不同短期结构 query.
+5. 教学纠正写入经验流, 不能写成最新答案覆盖.
+
+90.4 验收
+
+最小四轮:
+1. 你好啊 -> 学问候.
+2. 你是谁 -> 应召回 self-profile 或请求教师, 不能问候.
+3. 图片问这是什么 -> 应先观察, 不应倾听短句.
+4. 用户纠正后延迟重测 -> 不被最近短句覆盖.
+
+
+91. “苹果教完香蕉后苹果变香蕉”
+
+91.1 诊断
+
+视觉 SA 没有成为区分学习的主锚. 教师短句作为最近高能文本覆盖了视觉结构. 这说明缺:
+
+1. 对象级视觉 handle.
+2. 正负样本.
+3. 视觉结构相似检索.
+4. teacher phrase eligibility.
+5. 按视觉对象锚定的共现边.
+
+91.2 修法
+
+1. 视觉 occurrence 必须包含 object_candidate_id / patch graph.
+2. 教师“这是香蕉”绑定到当前 focus-local visual object, 不是整 turn.
+3. 苹果/香蕉竞争产生负样本.
+4. 下一次召回按视觉结构分数进入 B.
+5. 若把握低, move_focus/refine_object 赢, 不直接写词.
+
+
+92. “内心画面只有椭圆/空”
+
+92.1 诊断
+
+UI 或 runtime 没有使用状态池视觉 SA 的 reconstruct_hint/payload_ref, 或视觉感受器没有保存足够 patch/像素信息.
+
+92.2 修法
+
+1. foveated sampling 输出 sensory_canvas_delta.
+2. 每个 visual SA 有 position、color、luminance、edge、texture、clarity.
+3. inner_picture = fold(visual SA by energy and clarity).
+4. 多 tick 叠加, 焦点附近清晰, 周边模糊稀疏.
+5. UI 禁止使用原图完整缩略作为内心画面.
+
+
+93. “识别流程像假的”
+
+93.1 诊断
+
+真实 AP 视觉应先观察、移动焦点、提高把握, 而不是第一个 tick 就写答案. 如果第一个 tick 写字, 说明 write_cell drive 过高或 observe/move_focus drive 过低.
+
+93.2 修法
+
+write_cell 需要门槛:
+
+  visual_grasp > theta_write
+  or teacher_explicit_text_currently_in_focus with source boundary
+
+否则:
+  move_focus / refine_object / request_teacher 更应赢.
+
+
+94. “审计曲线像造假”
+
+94.1 诊断
+
+曲线若无数值、无多线、无每 tick 真实字段, 就只是 UI 装饰.
+
+94.2 修法
+
+RuntimeTickEvent 必须带 timings 和 counts. UI 只画这些字段. 如果字段缺失, UI 显示“该 tick 未记录此指标”, 不补直线.
+
+
+95. “记忆显示不统一”
+
+95.1 诊断
+
+快记忆、慢记忆、本地记忆、记忆包被 UI 分成多个地方, 会让用户误解 AP 有多套记忆.
+
+95.2 修法
+
+只有一个“本地记忆/记忆包”视图:
+
+1. 经验流事件.
+2. 焦点片段.
+3. 状态摘要.
+4. 索引/共现边/在线嵌入作为派生视图.
+5. 包导入/卸载以 batch_id 标记证据 delta.
+
+UI 可筛选“快用/慢用倾向”, 但不能说它们是两套数据库.
+
+
+第十五卷 白皮书后续扩写路线
+
+96. 百万字级扩写结构
+
+若要扩写到百万字级, 推荐拆卷:
+
+卷 A: 哲学总论与认知科学类比.
+卷 B: 数学模型与公式推导.
+卷 C: 感受器通道百科.
+卷 D: 状态池/短期结构池/经验流实现.
+卷 E: 学习协议与课程设计.
+卷 F: 行动器、DraftGrid、画板、桌面、具身.
+卷 G: APV2.1/PA/GL/SNS/APV3 工程史与证据.
+卷 H: 验收、红线、反作弊、teacher-off.
+卷 I: 产品化、记忆包生态、社区知识分享.
+卷 J: 失败案例与纠偏手册.
+
+97. 当前 v0.2 的后续扩展点
+
+本文已经固定主轴, 后续最值得继续形式化的扩展点包括:
+
+1. V0-V12 未逐项数学化.
+2. 听觉感受器还需更具体.
+3. DraftGrid 二维草稿需单独长章.
+4. 自适应调参器需指标配置表.
+5. APV2.1 实验证据需要完整索引表.
+6. 记忆包数据 schema 需要正式化.
+7. 具身智能仍是接口级.
+
+98. 下一次扩写建议
+
+下一次最值得扩写:
+
+1. 《视觉感受器与内心画面重建附录》.
+2. 《短期结构池与统一经验流数据库设计》.
+3. 《B/C/C* 召回数学与性能实现》.
+4. 《APV3 Phase20.7 实现设计稿》.
+
+
+第十六卷 视觉感受器与内心画面重建附录
+
+99. 视觉感受器的 AP-native 总原则
+
+99.1 具体定义
+
+视觉感受器不是“分类器”. 它的职责是把视觉输入变成 AP 可以学习、召回、预测、追溯、行动的多通道证据. 所谓“看见苹果”, 在 AP 中不应是一个 detector 输出 label=apple, 而应是:
+
+1. 多个局部视觉 occurrence 被采样.
+2. 这些 occurrence 在短期结构池中形成二维/时空结构.
+3. 当前结构召回历史视觉经验.
+4. 历史视觉经验与文本“苹果”、奖励、教师确认、味觉/行动后果等共现.
+5. C_forward 预测“苹果”相关 token 和行动后果.
+6. 把握足够时, DraftGrid 写入“苹果”.
+
+视觉感受器本身只提供证据, 不给结论.
+
+99.2 作用
+
+视觉感受器承担四件事:
+
+1. 当前看见: 把图像变成状态池和短期结构池中的视觉 SA.
+2. 主动看: 根据注意力和行动竞争移动视焦点, 在多个 tick 中逐步采样.
+3. 想象/重建: 让视觉 SA 可反向合成内心画面.
+4. 学习接口: 让视觉 SA 与文本、行动、奖惩、教师事件建立共现和在线嵌入关系.
+
+99.3 数学形式
+
+原图 I, 当前视焦点 f_t, 采样函数:
+
+  V_t = VisualReceptor(I, f_t, saliency_map_t, previous_visual_canvas_t)
+
+输出:
+
+  V_t = {v_1, v_2, ..., v_n}
+
+每个 v_i:
+
+  v_i = {
+    channel_id,
+    position: (x,y),
+    scale,
+    clarity,
+    local_payload_ref,
+    features,
+    R,
+    source=PERCEIVED,
+    receptor_version,
+    focus_distance,
+    reconstruct_hint
+  }
+
+99.4 人类类比
+
+人眼中心清晰、周边模糊; 眼动不是固定扫描, 而是被显著性、任务、意外、违和、未闭合目标、疲劳共同影响. AP 的视觉感受器必须体现这点.
+
+
+100. V0-V12 通道建议
+
+100.1 通道定位
+
+以下通道不是固定神圣编号, 而是 APV3 当前视觉实现可采用的一套白箱通道. 核心要求是: 每个通道都必须可解释、可审计、可局部化、可进入状态池, 并且不能单独作为 label.
+
+100.2 V0 原始采样与边缘基础
+
+定义:
+V0 保存焦点附近较高分辨率像素采样、周边稀疏采样、灰度/亮度、基础边缘强度和采样位置.
+
+作用:
+1. 内心画面重建的根.
+2. 局部对齐的根.
+3. 视觉变化检测的根.
+
+数学:
+
+  V0_patch = sample(I, p(u|focus), resolution_by_distance)
+  edge = gradient(luminance)
+
+类比:
+视网膜原始输入和早期视觉皮层边缘响应.
+
+红线:
+V0 不输出“苹果”.
+
+100.3 V1/V2 颜色统计的降级口径
+
+定义:
+V1 RGB, V2 HSV 或其他颜色统计, 只能作为局部或区域证据. 旧 Phase19 中全局 RGB/HSV 在真实自然图上可能反诊断, 所以不能做主诊断.
+
+作用:
+1. 辅助区分红/黄/绿.
+2. 支持“颜色像香蕉但形状像苹果”的冲突.
+3. 支持内心画面颜色重建.
+
+数学:
+
+  hist_local(region, color_space)
+
+红线:
+全局颜色直方图不能直接决定类别. 如果自然图中背景、光照、桌面使同类更分散、跨类更近, 权重应降为 audit 或低权.
+
+100.4 V3 LBP/纹理
+
+定义:
+局部纹理模式, 可用于表皮、纸张、桌面、字迹纹理.
+
+作用:
+1. 区分香蕉纹理、苹果表皮、橙子颗粒.
+2. 支持内心画面纹理重建.
+
+红线:
+全局 LBP 不能主诊断.
+
+100.5 V4 HOG/方向梯度
+
+定义:
+局部方向梯度, 支持轮廓、长条形、圆形、笔画方向.
+
+作用:
+1. 识字笔画.
+2. 物体轮廓.
+3. 辅助线/坐标轴.
+
+100.6 V5/V6 空间与前景背景
+
+定义:
+区域位置、前景概率、背景关系、遮挡关系.
+
+作用:
+1. 多物体分离.
+2. 计数.
+3. 防止背景污染.
+
+100.7 V7 部件/局部原型覆盖
+
+定义:
+把对象局部分解为可重复出现的部件原型, 例如圆弧、端部、柄、长条、文字笔画块.
+
+作用:
+1. 比全局统计更诊断.
+2. 支持对象级 handle.
+3. 支持视焦点局部识别.
+
+数学:
+
+  part_coverage = {prototype_j: coverage_energy_j}
+
+红线:
+部件 codebook 不读取 label/文件名. codebook entry 应是 opaque id 或视觉结构签名.
+
+100.8 V8/V9 视焦点与运动/变化
+
+定义:
+视焦点轨迹、局部变化、跨 tick 同对象连续性.
+
+作用:
+1. 主动视觉.
+2. 同一对象不同视角绑定.
+3. IOR 返回抑制.
+
+100.9 V10 部件级颜色/纹理
+
+定义:
+在局部部件上统计颜色和纹理, 而不是整图统计.
+
+作用:
+1. 香蕉端部/果身颜色差异.
+2. 苹果高光/果皮/柄.
+3. 橙子颗粒.
+
+100.10 V11 部件关系图
+
+定义:
+部件之间的位置、距离、方向、包含、连接关系.
+
+作用:
+1. 形状理解.
+2. 多部件对象.
+3. 视觉 Gestalt.
+
+数学:
+
+  G_part = (parts, relation_edges)
+
+100.11 V12 颜色簇空间图
+
+定义:
+主色块在空间中的分布.
+
+作用:
+1. 区分“红圆形主体”与“背景红色杂点”.
+2. 支持内心画面大色块重建.
+
+100.12 通道融合
+
+视觉相似度:
+
+  sim_visual =
+    w0 sim_V0
+    + w7 sim_part
+    + w10 sim_part_color_texture
+    + w11 sim_part_graph
+    + w12 sim_color_spatial
+    + low_weight_global_stats
+
+权重应随任务、数据诊断性、teacher-off 验收动态调整. 若某通道同类距离大于跨类距离, 它对识别应降权, 但可保留为审计/重建材料.
+
+
+101. 视焦点移动的先天与后天因素
+
+101.1 先天因素
+
+初期没有后天学习时, 视焦点应由先天规则驱动:
+
+1. 高对比边界.
+2. 高亮/运动/变化.
+3. 高认知压区域.
+4. 未解释残差区域.
+5. 与当前任务相关区域.
+6. 未访问区域.
+7. 教师 focus box saliency boost.
+
+101.2 后天因素
+
+随着经验积累, 视焦点移动可学习:
+
+1. 看水果先看整体轮廓再看端部/柄.
+2. 看 UI 先看按钮文字区域.
+3. 看竖式先看个位再看十位/进位.
+4. 看人脸先看眼睛/嘴.
+
+101.3 数学形式
+
+  drive_focus(region r) =
+    innate_saliency(r)
+    + surprise(r)
+    + dissonance(r)
+    + task_relevance(r)
+    + predicted_information_gain(r)
+    + learned_focus_policy(r | current_structure)
+    - inhibition_of_return(r)
+    - movement_cost(r)
+
+101.4 验收
+
+1. 同一图连续多个 tick 焦点位置应变化.
+2. 焦点变化应可解释.
+3. 焦点附近内心画面清晰度上升.
+4. 不应总在固定小方块内循环.
+
+
+102. 内心画面重建的最低标准
+
+102.1 具体定义
+
+内心画面是 AP 从状态池和短期结构池中的视觉 SA 重建出的主观视觉图景. 它不是原图, 不是缩略图, 不是检测框, 不是椭圆装饰.
+
+102.2 三层重建
+
+第一层: sensory sketch
+  来自当前/近期真实视觉采样, 按清晰度和能量画回 canvas.
+
+第二层: remembered/prototype overlay
+  来自记忆召回的视觉结构, 透明度较低, source 标为 REMEMBERED/IMAGINED.
+
+第三层: prediction overlay
+  来自 C* 预测但尚未验证的视觉对象, 用虚线/低透明度/不同色相表示.
+
+102.3 数学形式
+
+对 canvas 像素 u:
+
+  color(u) =
+    sum_i alpha_i(u) * color_hint_i(u) / sum_i alpha_i(u)
+
+  alpha_i(u) =
+    source_weight_i
+    * energy_weight(R_i,V_i,A_i)
+    * clarity_i(u)
+    * recency_decay_i
+    * spatial_kernel_i(u)
+
+实能量多的对象更实、更清晰; 虚能量多的对象更淡、更像想象或预测.
+
+102.4 人类类比
+
+闭眼回忆刚看过的图时, 焦点处细节更清楚, 周边模糊. 多看几眼后, 画面细节增加. 想象的部分和刚看到的部分主观上也有不同真实感.
+
+102.5 验收
+
+1. 用多 tick 采样同图, 内心画面覆盖率上升.
+2. 焦点附近 PSNR/SSIM 或简化相似度上升.
+3. 周边稀疏但非全空.
+4. source 分层可见.
+5. 删除原图后仍可从保存的视觉 SA/payload_ref 重建低保真画面.
+
+
+第十七卷 听觉感受器与内心音频附录
+
+103. 听觉通道总论
+
+103.1 定义
+
+听觉感受器应把音频转为时间-频率-响度-音色-节奏结构. 它不能直接 ASR 成文字后当 AP 听懂.
+
+103.2 通道
+
+A0 波形/短窗能量.
+A1 频谱/频带.
+A2 响度变化.
+A3 onset/offset.
+A4 音色纹理.
+A5 节奏 lag.
+A6 声源方向/空间.
+A7 听觉焦点.
+A8 语音候选音节/音素片段, 若实现, 也必须是 AP 感受器证据, 非外部 ASR label.
+
+103.3 数学形式
+
+  audio_frame = waveform[t:t+N]
+  spectrum = transform(audio_frame)
+  auditory_occurrence = (band, amplitude, timbre, time_anchor, R, source)
+
+103.4 类比
+
+人先听到声音, 再逐步识别音节、词、说话人. 初期 AP 可以只记录音频纹理和节奏, 不必假装听懂文字.
+
+
+104. 内心音频与 TTS 的区别
+
+104.1 定义
+
+reply_tts_audio 是行动器: 把已经 commit 的回复朗读出来.
+
+inner_audio / inner_voice 是 AP 内源听觉图景: 来自听觉记忆、节奏预测、私有草稿或自听反馈.
+
+104.2 红线
+
+1. TTS 不决定回复.
+2. TTS 声音不等于内心声音.
+3. 外部 ASR 不得在 teacher-off 冒充 AP 听觉理解.
+
+104.3 xiaoyi 音色
+
+产品应用中可选择本地 xiaoyi 神经合成音色作为 TTS 执行器声音. 这属于行动器表现层. 它可以改善体验, 但不改变 AP-Core 认知.
+
+
+第十八卷 DraftGrid、二维草稿与行动化输出
+
+105. DraftGrid 总论
+
+105.1 定义
+
+DraftGrid 是 AP 输出前的二维行动 substrate. 它不仅用于文本回复, 也用于竖式、画板、坐标轴、辅助线、表格、私有思考和可回读草稿.
+
+105.2 作用
+
+1. 让输出成为行动序列, 而不是一次性字符串.
+2. 支持回读、修改、删除、重排.
+3. 支持二维空间计算.
+4. 支持“还没写完”的未闭合.
+5. 支持中断后恢复.
+
+105.3 数学形式
+
+  Grid = cells[x,y,layer]
+  cell = {content_sa, R, V, source, committed?, visible?, last_written_tick}
+
+行动:
+  write_cell(x,y,content)
+  erase_cell(x,y)
+  move_cursor(dx,dy)
+  reread_region(rect)
+  commit_region(rect)
+
+105.4 人类类比
+
+人写文章会先打草稿、回看、删改; 做竖式会把数字写在列上; 画几何题会加辅助线再重新观察.
+
+
+106. 文本回复中的 DraftGrid
+
+106.1 流程
+
+1. C_forward 预测表达片段.
+2. action competition 选择 write_cell.
+3. 每次写入一个低粒度单位, 可是字符、chunk 或标点, 取决于当前熟练度和行动器粒度.
+4. 写完后 reread_draft 可能赢.
+5. 若不自然或不匹配当前问题, erase/modify 赢.
+6. commit_reply 赢后才显示给用户.
+
+106.2 反例
+
+旧实现若先选中完整“嗯,听着。”再按 tick 切成字符, 这是预生成回复切片, 不是 DraftGrid 行动.
+
+
+107. 竖式与数学
+
+107.1 定义
+
+竖式是 DraftGrid 的关键证明场景. 它要求空间位置、列、进位/借位、当前焦点、回读检查都进入短期结构池.
+
+107.2 过程
+
+例: 27 + 58
+
+tick1: 读题, 识别两个数和加号.
+tick2: DraftGrid 放置 27 / 58 / 横线.
+tick3: 焦点个位 7+8, 召回加法表或计数过程.
+tick4: 写个位 5, 写进位 1.
+tick5: 焦点十位 2+5+1.
+tick6: 写 8.
+tick7: 回读 85, 逆算/估算验证.
+tick8: commit.
+
+107.3 红线
+
+1. 不许 eval.
+2. 不许 answer_payload.
+3. 不许只写最终答案无过程.
+
+
+108. 画板、坐标轴与辅助线
+
+108.1 定义
+
+画板是 DraftGrid 的视觉/动作版本. 画出的线会成为下一 tick 视觉输入, 而不是只保存在 UI.
+
+108.1b v0.4 DraftGrid 与短期结构池的边界
+
+DraftGrid 是行动器 + 工作面, SSP 是认知结构池. 二者都会有二维结构, 但职能不同:
+
+1. DraftGrid 负责 AP 已经写出/画出/摆出的外化草稿.
+2. SSP 负责 AP 当前认知到的 occurrence 与结构关系.
+3. AP 在 DraftGrid 上写字、画线、擦除、移动光标, 会产生 substrate=SELF_DRAFT_GRID 的感受器反馈.
+4. SELF_DRAFT_GRID 反馈进入 SSP, 与 EXTERNAL_VISUAL 区分来源.
+5. AP 因此能“看见自己写的字/画的线”, 能回读、修订、擦除, 而不是只把草稿当 UI 字符串.
+
+关系:
+
+  DraftGrid action -> DraftGrid surface delta
+  DraftGrid surface delta -> SELF_DRAFT_GRID visual/text occurrence
+  occurrence -> SSP spatial/text structure
+  SSP -> B/C/C* -> next DraftGrid action
+
+这与人类写字/画图一致: 手在纸上写, 眼睛看见自己写的东西, 大脑再判断是否继续、修改或提交.
+
+108.2 流程
+
+1. AP 认为证据缺口在几何关系.
+2. draw_line action 赢.
+3. 画板产生新图像.
+4. 视觉感受器重新采样.
+5. 新交点/辅助线进入短期结构池.
+6. B/C 重新召回.
+
+108.3 类比
+
+人做几何题画辅助线, 是用行动改变外部认知环境, 再通过视觉重新理解问题.
+
+
+第十九卷 经验流、记忆包与社区生态
+
+109. 经验流 schema 建议
+
+109.1 Event 基础字段
+
+每个经验事件:
+
+  event_id
+  tick_id
+  turn_id
+  event_type
+  source
+  created_at
+  parent_event_ids
+  affected_sa_ids
+  payload_ref
+  trust
+  support_delta
+  tombstone=false
+
+109.2 事件类型
+
+SensoryObservation:
+  modality, occurrences, receptor_version.
+
+StateUpdate:
+  energy_deltas, merges, decays.
+
+StructureUpdate:
+  added_occurrences, edges, bundles, refinements.
+
+RecallTrace:
+  query_signature, candidate_ids, scores.
+
+PredictionTrace:
+  C_forward, C_backward, Cstar.
+
+FeelingTrace:
+  feeling_type, anchor, intensity.
+
+ActionTrace:
+  candidates, selected, drive, threshold, params.
+
+FeedbackTrace:
+  reward, punish, correctness, source, answer_payload_null.
+
+LearningTrace:
+  cooccurrence_delta, embedding_update, eligibility_credit.
+
+PackageImport:
+  package_id, batch_id, dedup_keys, imported_event_ids.
+
+Deletion/Tombstone:
+  target_event_id, reason, scope.
+
+
+110. 记忆包生态
+
+110.1 定义
+
+记忆包是可分享的 AP 经验子图. 它不是插件, 不是技能函数, 不是答案表. 它包含一组经验事件、索引提示、来源元数据和许可信息.
+
+110.2 导出筛选
+
+用户应可按:
+
+1. 时间范围.
+2. 技能/场景.
+3. 关键词/可读摘要.
+4. 模态.
+5. 支持度.
+6. reward/punish 质量.
+7. teacher-off 通过状态.
+8. 手动勾选/排除.
+9. 隐私字段.
+
+选择导出.
+
+110.3 导入
+
+导入流程:
+
+1. 读取包 manifest.
+2. 检查许可.
+3. 计算 dedup key.
+4. 已存在事件不重复导入.
+5. 新事件标记 import_batch_id.
+6. 构建派生索引.
+7. 在 UI 中显示包名、来源、内容预览、可卸载状态.
+
+110.4 卸载
+
+卸载:
+
+1. 只 tombstone 该 batch 新增事件.
+2. 不删除导入前已有或其他包共享事件.
+3. 重建索引.
+4. 卸载后状态应等同从未导入该包.
+
+110.5 隐私
+
+默认不导出原图、原音频、用户隐私原文, 除非用户明确选择. 可导出可读摘要或脱敏片段.
+
+110.6 社区生态意义
+
+用户可以训练一个“画坐标轴”“温柔问候”“某软件安全操作”“水果视觉课程”的记忆包分享给别人. 别人导入后, AP 获得的是经验材料, 仍需在自己 runtime 中通过 B/C/行动竞争使用, 而不是安装一个硬技能.
+
+
+111. 本地记忆查看与删除
+
+111.1 UI 要求
+
+本地记忆只应有一个入口, 内部分视图:
+
+1. 经验事件.
+2. 焦点片段.
+3. 视觉/听觉重建片段.
+4. 行动后果.
+5. 共现边.
+6. 在线嵌入邻居.
+7. 导入包来源.
+
+111.2 可读性
+
+不应只显示 sa_id. 应显示:
+
+1. 中文摘要.
+2. 来源.
+3. 关联文本.
+4. 视觉缩略/重建.
+5. reward/punish.
+6. 最近使用.
+7. 支持度.
+8. 所属包.
+
+111.3 删除
+
+删除应产生 tombstone, 而不是物理硬删后破坏审计. 对用户来说效果是未来召回不再使用; 对审计来说历史仍可解释“当时为什么那样”.
+
+
+第二十卷 APV3 Phase20.7 设计骨架
+
+112. 目标
+
+Phase20.7 的目标不是更漂亮的工作台, 而是把 Phase20.6 的候选短句 replay 主线替换为:
+
+  感受器 -> 状态池 -> 短期结构池 -> B -> C_forward/C_backward -> C* -> 认知感受 -> 行动竞争 -> DraftGrid/视焦点/停止/请求教师 -> 经验流
+
+112.1 必须先做的删除/隔离
+
+1. 旧 taught response 直接候选.
+2. 旧 phase20teach 最近短句覆盖.
+3. legacy_runtime_candidate_evidence 直接写字.
+4. whole reply candidate_text.
+5. visual label recall shortcut.
+
+保留为对照可用, 但主 path 禁止调用.
+
+112.2 新文件建议
+
+  apv3test/runtime/phase20_7_core.py
+  apv3test/runtime/short_structure_pool.py
+  apv3test/runtime/experience_log.py
+  apv3test/runtime/bc_recall.py
+  apv3test/runtime/cstar_feedback.py
+  apv3test/runtime/foveated_visual_runtime.py
+  apv3test/runtime/draft_grid_actions.py
+
+112.3 RuntimeTickEvent v2
+
+必须能承载第 69 章字段.
+
+
+113. 最小端到端验收
+
+113.1 文本验收
+
+脚本:
+1. 用户: 你好啊.
+2. 教师: 你也好.
+3. 用户: 你好!
+4. 期望: 能召回问候, 但不会污染“你是谁?”.
+5. 用户: 你是谁?
+6. 期望: 不再回答“你也好/嗯听着”, 而是低把握请求教师或召回自我资料.
+
+113.2 视觉验收
+
+脚本:
+1. 苹果图 + 教“这是苹果”.
+2. 香蕉图 + 教“这是香蕉”.
+3. 苹果图重测.
+4. 香蕉图重测.
+
+期望:
+1. 先观察多个 tick.
+2. 内心画面逐步丰富.
+3. 苹果/香蕉不互相覆盖.
+4. 错误时 trace 能解释是哪些视觉 SA 混淆.
+
+113.3 未闭合验收
+
+脚本:
+1. 用户: 等下提醒我喝水.
+2. 中间插入闲聊.
+3. 空 tick 或时间到.
+4. 期望: 未闭合回流.
+5. 用户: 不用了.
+6. 期望: 未闭合下降, 不再强迫提醒.
+
+113.4 C_backward 验收
+
+脚本:
+1. 播放/模拟熟悉节奏.
+2. 突然中断.
+3. 给出“耳机没电”视觉/文本证据.
+4. 期望: 惊/违和下降, 合理感上升.
+
+
+114. 最小反作弊扫描
+
+必须 grep:
+
+1. "嗯,听着" 是否作为固定 fallback.
+2. "苹果"/"香蕉" 是否出现在测试路径硬编码.
+3. image path/name 是否进入 semantic score.
+4. teaching phrase 是否直接成为 reply.
+5. UI 是否含 projection stage title.
+6. RuntimeTickEvent.is_projection 是否 false.
+7. B/C/Cstar 字段是否真实非空.
+8. DraftGrid 是否逐 action 变化.
+
+
+115. 性能与退化验收
+
+115.1 指标目标
+
+在小规模本地工作台:
+1. 普通文本 turn < 可交互等待范围.
+2. 图片 turn 允许更慢, 但每 tick 有分段耗时.
+3. 经验流增长不应导致每 turn 线性明显变慢.
+
+115.2 性能红线
+
+为了性能可以降低采样/候选数, 但不能:
+1. 跳过视觉采样直接 label.
+2. 跳过 B/C 直接短句.
+3. 关闭经验写入.
+4. 关闭 teacher-off 审计.
+
+
+第二十一卷 白皮书执行摘要
+
+116. 一句话原则
+
+AP 的能力必须来自同一个闭环, 而不是来自每个功能旁边各自藏一个小专家.
+
+117. 三条总红线
+
+1. 任何语义输出必须经过状态池、短期结构池、召回、预测/追溯、行动竞争.
+2. 任何学习必须写入经验流或其派生索引, 不能写答案表.
+3. 任何 UI 展示必须来自 RuntimeTickEvent 或经验流, 不能编故事.
+
+118. 三个最重要的新设计
+
+1. SA 按需细化: 粒度由预测误差、注意和行动需求决定.
+2. 短期结构池: 线性、空间、图、时空结构统一, 替代单一短期序列.
+3. 统一经验流: 逻辑真相源唯一, 快慢是处理状态, 索引是加速.
+
+119. 当前实现最该先改哪里
+
+先改 runtime heart:
+
+1. 旧短句候选隔离.
+2. 短期结构池.
+3. 经验流.
+4. B/C/C*.
+5. 视觉 foveated sampling + inner picture.
+6. DraftGrid 行动器.
+7. UI 重接真实 tick.
+
+120. 最终图景是否逻辑上可能
+
+从逻辑上看, AP 图景是有机会实现的. 原因:
+
+1. 它把外源刺激、内源预测、奖惩、行动反馈统一到同一个可迭代状态系统.
+2. 它用 R/V/P 给预测误差一个明确数学位置.
+3. 它用短期结构池保存当前经验的结构, 避免纯无序状态池无法表达顺序和空间.
+4. 它用 B/C/C* 把“认出现状、预测未来、解释过去”统一成可审计召回.
+5. 它用 reward/punish + innate rules 解释任务感、期待、压力和未闭合, 而不是把这些上层词当原语.
+6. 它允许在线嵌入和索引提升性能, 但不让它们篡夺真相源.
+7. 旧 APV2.1/PA 已经在受控场景证明过部分环节可以工作, 虽然 APV3 还要重建开放对话主线.
+
+因此, 目标不是数学上自相矛盾, 而是工程上必须非常克制: 一旦用隐藏 label、答案表、固定短句、UI 假 tick 偷懒, 整个闭环就会断. 只要坚持本文路线逐步实现, 从局部技能到开放对话再到 Agent/桌宠/具身, 在逻辑上存在连续推进路径.
+
+
+第二十二卷 视觉感受器与内心画面重建 v0.2 细化
+
+121. 本卷定位
+
+121.1 具体定义
+
+本卷把“视觉感受器”和“内心画面重建”从原则层推进到可实施的设计标准. 它回答四个问题:
+
+1. AP 每个 tick 究竟从图像中采集什么.
+2. 视焦点怎样由注意力和行动竞争驱动, 而不是固定绕圈.
+3. 采集到的视觉 SA 怎样进入状态池、短期结构池、经验流和 B/C/C*.
+4. 内心画面怎样从状态池视觉 SA 与 sensory canvas 中反向重建, 形成逐 tick 变化的主观图景.
+
+视觉感受器的目标不是立刻识别物体, 而是提供足够细、足够可回放、足够可组合的视觉证据, 让 AP 能像人一样“看一眼、觉得哪里值得看、再看、局部更清楚、周边更模糊、逐渐形成把握”.
+
+121.2 作用
+
+本卷解决此前前端实测暴露的三个核心问题:
+
+1. 苹果/香蕉教学互相覆盖: 说明文本教师短句没有绑定到可区分的局部视觉 SA.
+2. 内心画面空白或只有椭圆: 说明状态池内没有可重建的 pixel/patch payload, 或 UI 没读这些 payload.
+3. 视焦点固定小方块移动: 说明 focus action 没有受到惊、违和、未闭合、显著性、记忆预测和教师引导的共同调制.
+
+121.3 数学形式
+
+视觉输入可以写成:
+
+  I_t: 原始图像或外部视觉场
+  F_t: 当前视焦点, 包括中心坐标、尺度、方向、焦距、持驻时间
+  A_t^visual: 视觉注意场
+  S_t^visual: 显著性场
+  M_t^expect: C* 回灌形成的视觉预测场
+  Canvas_t: 已采集 sensory canvas
+
+视觉感受器每 tick 输出:
+
+  O_t^visual = Sample(I_t, F_t, A_t^visual, S_t^visual, M_t^expect, Canvas_{t-1})
+
+其中每个 occurrence:
+
+  o_i = {
+    modality = vision,
+    physical_payload_ref,
+    channel_payloads,
+    spatial_anchor,
+    clarity,
+    focus_distance,
+    source = PERCEIVED,
+    R,
+    V_expected_before_observe,
+    prediction_error,
+    reconstruct_kernel,
+    structure_edges
+  }
+
+121.4 人类类比
+
+人类视觉不是一次性把整张图片完整读进“分类器”. 我们有中央凹高分辨率、周边低分辨率、眼跳、持驻、回看、被意外吸引、被任务目标吸引、被记忆预测牵引. 当我们看苹果时, 清楚的部分往往是当前视线附近的果皮、边缘、柄或高光; 周边桌面和背景也被感知, 但清晰度较低. 当我们被问“这是什么”时, 视线会倾向扫物体轮廓和诊断性局部; 当被问“有几个”时, 视线会倾向在对象之间跳转; 当被问“哪里不对”时, 视线会倾向落到违和区域.
+
+121.5 示例
+
+用户给一张苹果图并问“这是什么?”. AP 第一个 tick 不应直接写“苹果”. 更拟人的轨迹是:
+
+1. tick 1: 文本问题进入状态池, 图片输入进入视觉场, observe/move_focus drive 高于 write_cell.
+2. tick 2: 焦点落在显著边缘或中心区域, 采集红/黄局部、曲率、纹理、高光, sensory canvas 增厚.
+3. tick 3: C_forward 召回曾经和“水果/苹果/圆形/红色”共现的经验, 但把握仍不满.
+4. tick 4: 焦点移动到柄或端部, 局部部件证据增强.
+5. tick 5: “苹果”相关文本 SA 的预测虚能量形成波峰, DraftGrid 写入“苹”.
+6. tick 6: 回看草稿与视觉预测一致, 写入“果”.
+7. tick 7: commit_reply 与 stop_generating 竞争, 把握足够后提交.
+
+这条轨迹能证明: 视觉命名不是整图 label, 而是局部证据、多 tick 采样、经验召回、草稿行动和提交竞争共同形成的结果.
+
+
+122. Foveated Sampling 的正式设计
+
+122.1 具体定义
+
+Foveated sampling 指视焦点附近高密度、高精度采样, 远离焦点处低密度、低清晰度但仍保留概率采样. 它不是“只截一个小方块”. 周边必须仍有信息, 只是清晰度和采样概率降低.
+
+122.2 作用
+
+它同时实现三件事:
+
+1. 让内心画面随视焦点逐步清晰.
+2. 让 AP 可以被周边强刺激拉动视线.
+3. 让对象识别拥有局部证据, 也拥有全局结构背景.
+
+122.3 数学形式
+
+对任意像素或 patch 位置 p, 到焦点 F_t 的距离:
+
+  d(p, F_t) = ||p - F_t.center|| / F_t.scale
+
+采样概率:
+
+  Pr(sample p) = p_min + (p_max - p_min) * exp(-d(p,F_t)^2 / sigma_sample^2) + saliency_bonus(p) + surprise_bonus(p)
+
+清晰度:
+
+  clarity(p) = clamp(c_min + (1 - c_min) * exp(-d(p,F_t)^2 / sigma_clarity^2), 0, 1)
+
+采样分辨率:
+
+  resolution(p) = r_min + (r_max - r_min) * clarity(p)
+
+每 tick 应采集:
+
+1. 中心高分辨率 patch 若干.
+2. 中近距离中分辨率 patch 若干.
+3. 远周边低分辨率 patch 若干.
+4. 高显著性/高惊/高违和区域额外 patch.
+
+122.4 人类类比
+
+人看一张桌上的水果, 并非只看到瞳孔中心的一点. 中心清楚, 周围模糊, 但周围出现突然移动、强对比、颜色异常时, 眼睛会被拉过去. AP 的周边低概率采样就是这种“模糊但仍有感”的机制.
+
+122.5 示例
+
+香蕉图片中, 焦点在中心果肉区域时, 中心 patch 捕获黄色和长条曲率; 周边 patch 仍可能捕获两端尖部和桌面边缘. 若 AP 只采中心小方块, 可能把局部黄色误认为苹果高光或背景色. 若 AP 保留周边低清晰结构, 就能逐步建立“长条、弯曲、端部、整体方向”结构.
+
+
+123. 视焦点移动的 AP-native 公式
+
+123.1 具体定义
+
+视焦点移动是行动竞争的结果. 它不是 for-loop 扫描, 不是固定螺旋, 不是 UI 动画. 每个 tick, move_focus action 与 write_cell、look_again_draft、request_teacher、commit_reply、stop_generating 等行动一起竞争.
+
+123.2 作用
+
+视焦点移动负责把注意力从“想知道什么”变成“下一眼看哪里”. 它是视觉 AP-native 的核心行动器.
+
+123.3 数学形式
+
+候选焦点位置 q 的驱动力:
+
+  Drive_focus(q) =
+      w_sal * Saliency(q)
+    + w_sur * PositivePressure(q)
+    + w_mis * MismatchAnchor(q)
+    + w_unc * UncertaintyReduction(q)
+    + w_task * TaskNeed(q)
+    + w_mem * MemoryPredictedDiagnosticity(q)
+    + w_teacher * TeacherGuidedFocus(q)
+    + w_novel * Novelty(q)
+    - w_fatigue * FocusFatigue(q)
+    - w_cost * SaccadeCost(F_t, q)
+
+其中:
+
+  Saliency(q): 边缘、对比、运动、颜色突变、前景概率.
+  PositivePressure(q): 实强虚弱, 即“没预期到但出现了”.
+  MismatchAnchor(q): 预测了但没看到, 或局部不符合.
+  UncertaintyReduction(q): 看这里预计能最大降低当前识别/计数/读题不确定.
+  TaskNeed(q): 当前未闭合任务需要的证据位置.
+  MemoryPredictedDiagnosticity(q): 历史经验表明该位置/部件对区分当前候选有用.
+  TeacherGuidedFocus(q): 用户画框/点击/辅助线带来的视线提示, 只提升 saliency, 不绑定 label.
+  FocusFatigue(q): 最近看过的位置有返回抑制.
+  SaccadeCost: 眼跳成本, 太远的 q 略降.
+
+选中:
+
+  F_{t+1} = sample_or_argmax_q Drive_focus(q)
+
+可加入少量随机性, 但必须可记录 seed 和候选分布, 供回放.
+
+123.4 人类类比
+
+人不一定按网格看图. 看陌生图时, 眼睛会先到高对比、中心、脸/物体、文字或任务相关区域; 看过的位置短时间内会有返回抑制; 如果老师指着一处说“你看这里”, 人会更容易看那里, 但不会因此把那里硬命名成老师说的词.
+
+123.5 示例
+
+用户画框圈住苹果柄并说“注意这里”. 这产生 TeacherGuidedFocus(q) 增益, 让 AP 下一 tick 更可能看柄附近. 若该局部视觉 SA 后续与“苹果”共现, 学习发生在视觉证据和文本之间; 教师引导只负责让它看, 不负责替它答.
+
+
+124. Sensory Canvas 与 R_sketch
+
+124.1 具体定义
+
+Sensory canvas 是 AP 对当前视觉场已采样证据的可重建工作面. R_sketch 是从真实感受器采样得到的现实草图层; V_sketch 是从 C* 预测、记忆原型、想象产生的虚拟草图层. 内心画面应至少由 R_sketch、V_sketch、clarity_field、focus_trace、source_mask 五部分构成.
+
+124.2 作用
+
+Sensory canvas 让 AP 可以:
+
+1. 多 tick 累积视觉证据.
+2. 从状态池视觉 SA 重建局部画面.
+3. 区分现实看到的内容、预测的内容和想象的内容.
+4. 在 UI 中展示“视焦点附近逐渐清楚”的过程.
+5. 支持回看、计数、识字、几何辅助线和桌面观察.
+
+124.3 数学形式
+
+Canvas 可以表示为多层张量:
+
+  Canvas_t = {
+    R_rgb[x,y,3],
+    R_alpha[x,y],
+    V_rgb[x,y,3],
+    V_alpha[x,y],
+    edge_energy[x,y],
+    texture_energy[x,y],
+    part_energy[k,x,y],
+    clarity[x,y],
+    source_mask[x,y],
+    timestamp[x,y],
+    confidence[x,y]
+  }
+
+每个视觉 occurrence o_i 写入 canvas:
+
+  alpha_i = clarity_i * attention_gain_i * source_trust_i
+  Canvas.R_rgb[p] = blend(Canvas.R_rgb[p], payload_rgb_i[p], alpha_i)
+  Canvas.R_alpha[p] = 1 - (1 - Canvas.R_alpha[p]) * (1 - alpha_i)
+  Canvas.clarity[p] = max(Canvas.clarity[p], clarity_i)
+  Canvas.timestamp[p] = t
+
+每个 C* 视觉预测写入 V_sketch:
+
+  beta_j = prediction_energy_j * trust_j * imagination_gate
+  Canvas.V_rgb[p] = blend(Canvas.V_rgb[p], predicted_rgb_j[p], beta_j)
+  Canvas.V_alpha[p] = 1 - (1 - Canvas.V_alpha[p]) * (1 - beta_j)
+
+UI 渲染:
+
+  InnerPicture = compose(
+    R_rgb with alpha=R_alpha,
+    V_rgb with alpha=V_alpha * virtual_opacity,
+    edge/part overlays,
+    focus marker,
+    clarity heat,
+    source legend
+  )
+
+124.4 人类类比
+
+人闭眼回忆刚才看到的水果, 有些地方清晰, 有些地方模糊, 有些地方是推测补全. 清晰区域来自刚才真正看过的局部; 模糊补全来自记忆和预测. AP 的内心画面也应如此: 视焦点附近像素级较清楚, 未看过处只能稀疏、低透明或由 V_sketch 推测.
+
+124.5 示例
+
+苹果图 tick 1 只看中心, 内心画面只有中心一块红黄纹理较清楚, 周边低透明. tick 2 看左边缘, 左弧线清楚. tick 3 看上方柄, 柄附近清楚. tick 4 C* 根据历史苹果经验预测右侧轮廓, V_sketch 以低透明补出右弧. 当真实焦点扫到右侧并验证预测, 右侧从 V_alpha 转为 R_alpha, 合理感上升.
+
+
+125. 内心画面重建的三层证据
+
+125.1 具体定义
+
+内心画面不是单一图片, 而是三层证据叠加:
+
+1. Reality layer: 真正采样过的 R_sketch.
+2. Memory/prototype layer: 由历史视觉经验召回的原型补全.
+3. Prediction/imagination layer: 当前 C* 预测、任务想象、计划画板动作产生的 V_sketch.
+
+125.2 作用
+
+三层分开可以证明 AP 没有把想象当现实, 也能让用户看到“它哪里看见了、哪里只是猜的”.
+
+125.3 数学形式
+
+对每个像素/patch:
+
+  perceived_score = R_alpha * source_trust(PERCEIVED)
+  remembered_score = memory_alpha * source_trust(REMEMBERED)
+  imagined_score = V_alpha * source_trust(IMAGINED)
+
+显示颜色:
+
+  display = perceived_score * R_color
+          + remembered_score * Prototype_color
+          + imagined_score * V_color
+
+显示边框或纹理:
+
+  PERCEIVED: 实线/高饱和.
+  REMEMBERED: 细虚线/中透明.
+  IMAGINED: 淡色/低透明.
+
+125.4 人类类比
+
+人会说“我刚才好像看到那里有个柄”或“我猜右边也是圆的”. 这两种体验不同. AP 也必须保留来源差异.
+
+125.5 示例
+
+看半个被遮挡的苹果时, R_sketch 只含可见半边; Prototype layer 召回完整苹果轮廓; Prediction layer 猜测被遮挡半边可能延续圆形. 若遮挡移开后现实不符合, 产生违和和模型修正.
+
+
+126. V0-V12 的最低 payload 要求
+
+126.1 具体定义
+
+V0-V12 可以继续作为 APV3 视觉白箱通道, 但每个通道必须既能参与召回, 又能支持重建或解释. 通道只给证据, 不给语义标签.
+
+126.2 作用
+
+通道 payload 是苹果/香蕉不互相覆盖的基础. 若只存一个整图 hash 或一个视觉候选 id, 教师“苹果/香蕉”就只能绑定到最近短句或粗糙对象, 自然会串.
+
+126.3 数学形式与最低字段
+
+V0 原始采样:
+  patch_ref, normalized_pixels, luminance, sample_grid, clarity.
+
+V1/V2 色彩:
+  local_rgb_stats, hsv_hist, color_quantiles, illumination_hint.
+
+V3 纹理:
+  local_binary_pattern, texture_direction, roughness, periodicity.
+
+V4 方向梯度:
+  hog_bins, edge_orientation, stroke_direction.
+
+V5 空间:
+  bbox_or_patch_anchor, relative_position, scale, depth_hint optional.
+
+V6 前景背景:
+  foreground_prob, background_context, occlusion_hint.
+
+V7 部件原型覆盖:
+  part_proto_ids, coverage_energy, local_alignment, prototype_payload_ref.
+
+V8 焦点:
+  focus_xy, focus_radius, focus_duration, saccade_from, saccade_cost.
+
+V9 变化/运动:
+  optical_delta, changed_patch_ids, motion_direction, temporal_continuity.
+
+V10 部件颜色纹理:
+  per_part_color_stats, per_part_texture_stats.
+
+V11 部件关系图:
+  part_nodes, relation_edges, relative_distance, relative_angle, topology.
+
+V12 色彩簇空间图:
+  color_cluster_nodes, cluster_positions, adjacency, spatial_hist.
+
+126.4b v0.4 AP-native payload 与 Phase 19 V0-V12 映射
+
+为了避免实现时重新发明视觉 payload, Phase20.7 的 patch payload 应尽量复用 Phase19 已有通道:
+
+1. patch_pixels_ref ← V0 原始采样 / retinal pyramid focus core.
+2. patch_alpha_mask ← V0 sample_grid + clarity / foreground confidence.
+3. clarity_map ← Phase19 foveated clarity field / V8 focus distance.
+4. sample_points ← V0 sample_grid + V8 focus trajectory.
+5. color_basis ← V1 RGB local stats + V2 HSV local stats.
+6. edge_basis ← V4 HOG / edge orientation / radial gradient.
+7. texture_basis ← V3 LBP / local texture.
+8. part_payload_refs ← V7 part prototypes + V10 per-part color/texture.
+9. spatial_anchor ← V5/V6 geometry + V8 layout/focus.
+10. source_mask ← receptor source discipline: PERCEIVED / REMEMBERED / IMAGINED.
+11. relation_payload ← V11 part relational graph.
+12. cluster_payload ← V12 color cluster spatial map.
+
+这张映射表的意义是: 第 168 节的新 payload 名称不是另起炉灶, 而是 Phase19 视觉通道在 Phase20.7 runtime 中的 AP-native 承接方式. 实施时应优先查现有 visual_receptor / Phase19 通道输出, 缺什么补什么, 不应绕开旧通道做第二套假重建.
+
+126.4 人类类比
+
+人认水果不只看颜色. 红色可能是苹果, 也可能是背景、番茄、灯光; 黄色可能是香蕉, 也可能是黄苹果、梨、桌面. 形状、端部、柄、纹理、尺度、空间关系一起形成把握.
+
+126.5 示例
+
+苹果与香蕉区分:
+
+1. 苹果: 局部曲率多方向接近闭合, 宽高比接近 1, 可能有柄/凹陷, 表皮纹理细, 色彩区域块状.
+2. 香蕉: 长宽比大, 主轴弯曲, 两端尖/柄状, 色彩沿长轴连续, 部件关系呈长条拓扑.
+
+若教师说“这是苹果”, 学习应绑定到这些局部视觉结构和文本 SA 的共现; 下次香蕉进入状态池时, 由于 V11/V12/长宽比/端部结构不同, “苹果”不应凭最近教师短句获胜.
+
+
+127. 视觉教学的 AP-native 流程
+
+127.1 具体定义
+
+视觉教学是多模态共现、奖惩和预测误差学习, 不是图片标注表. 用户说“这是苹果”时, AP 获得的是一个 teacher event, 它把当前焦点附近的视觉 SA、整轮视觉结构、文本“苹果”、教师来源、奖励/纠错信号一起写入经验流.
+
+127.2 作用
+
+该流程让 AP 可以在后续相似视觉结构中自然联想到“苹果”, 同时避免把“苹果”硬贴到所有图片.
+
+127.3 数学形式
+
+教师事件:
+
+  Teach_t = {
+    teacher_text_occurrences,
+    target_turn_id,
+    target_tick_window,
+    focus_scope,
+    reward_delta,
+    punish_delta_for_prior_wrong_candidate,
+    source = TEACHER
+  }
+
+绑定窗口:
+
+  VisualScope = top visual occurrences in target_tick_window
+                weighted by attention, clarity, diagnosticity, focus proximity
+
+共现更新:
+
+  support(visual_sa, text_sa) += eta * attention * clarity * teacher_trust * diagnosticity
+
+预测误差更新:
+
+  if prior_reply_wrong:
+      punish candidate path by eligibility
+      do not erase visual evidence
+
+在线嵌入:
+
+  move text_sa and visual_sa closer only under sufficient co-presence and pressure evidence
+  move wrong competing text_sa away from the specific visual context, not globally
+
+127.4 人类类比
+
+孩子看着苹果, 大人说“这是苹果”. 孩子学到的不是“所有以后问这是什么都说苹果”, 而是把眼前这个形状、颜色、纹理、吃过的味道、大人的词和奖励感联系起来. 下次看到香蕉, 如果大人说“这是香蕉”, 它会建立另一组视觉结构和词的联系.
+
+127.5 示例
+
+苹果图教“这是苹果”, 香蕉图教“这是香蕉”, 再测苹果:
+
+1. 若系统回“香蕉”, 审计应显示是“最近教师文本覆盖”或“视觉 SA 区分度不足”.
+2. 合格系统应显示苹果当前 V11/V12 与苹果经验相似, 与香蕉经验在长条/端部/曲率上不相似.
+3. 若把握低, 可以说“我不太确定, 看起来更像苹果”, 或请求教师, 而不是被最近词覆盖.
+
+
+128. 内心画面验收标准
+
+128.1 具体定义
+
+内心画面验收不看漂亮程度, 看是否能证明它来自状态池视觉 SA.
+
+128.2 最低通过项
+
+1. 每 tick 至少能列出进入 canvas 的 visual occurrence id、patch_ref、clarity、source.
+2. 焦点附近重建像素/patch 清晰度高于周边.
+3. 多 tick 播放时, 新看过的区域清晰度增加.
+4. 远周边有低清晰采样或显著性残影.
+5. R_sketch 与 V_sketch 可开关显示.
+6. 视焦点 marker 与实际采样位置一致.
+7. 不同图片产生不同 sensory canvas hash.
+8. 教师辅助焦点只改变 focus drive, 不直接写 label.
+9. UI 不读取原图直接做缩略图冒充内心画面.
+10. 若 payload 不足, UI 显示“该 tick 缺少可重建 payload”, 而不是画椭圆糊弄.
+
+128.3 数学验收
+
+可测指标:
+
+  focus_clarity_mean > peripheral_clarity_mean
+  canvas_delta_pixels(t+1) > 0 when observe/move_focus selected
+  reconstructed_similarity_focus > reconstructed_similarity_periphery
+  R_source_pixel_ratio + V_source_pixel_ratio + empty_ratio = 1 within tolerance
+  unique_visual_payload_refs >= minimum for image turn
+
+128.4 人类类比
+
+人回忆刚才看过的图, 被看过的区域会更清楚; 没看过的区域不会凭空高清. AP 的内心画面也应有这种“不均匀的清晰度历史”.
+
+128.5 示例
+
+一张水果图最多 16 tick:
+
+1. tick 1 内心画面只有中心和少量周边.
+2. tick 4 已出现轮廓多段.
+3. tick 8 柄/端部/主体边缘更清晰.
+4. tick 12 若已经有足够把握, 视觉预测层可以淡淡补全未看部分.
+5. tick 16 若仍低把握, request_teacher 或继续观察胜出.
+
+
+第二十三卷 短期结构池与统一经验流数据库设计 v0.2
+
+129. 本卷定位
+
+129.1 具体定义
+
+短期结构池是当前认知流的结构化工作记忆. 它不是只有一维文本序列, 而是支持线性、二维、三维、时空、图结构和行动序列的统一短期结构容器.
+
+统一经验流是 AP 的长期真相源. 它以 append-only event log 记录达到阈值的认知事件、结构增量、行动、反馈和学习更新. 索引、ANN、Zvec、倒排、审计快照都可从经验流派生.
+
+129.2 作用
+
+短期结构池解决“同 tick 内顺序”和“跨 tick 后继”的同源问题. 统一经验流解决“快慢数据库分裂”和“每 tick 全量快照膨胀”的问题.
+
+129.3 数学形式
+
+短期结构池:
+
+  SSP_t = (N_t, E_t, H_t)
+
+其中:
+
+  N_t: occurrence 节点, 每个节点有 sa_type、payload_ref、R/V/A/P、source、time、modality.
+  E_t: 结构边, 包括 next、prev、spatial_left_of、inside、overlap、same_object、causes_candidate、action_result 等.
+  H_t: 高阶 bundle, 由多节点和多边组成, 如“问候片段”“苹果局部结构”“竖式一列”.
+
+经验流:
+
+  Log = [Event_1, Event_2, ..., Event_n]
+
+每 tick 追加:
+
+  Delta_t = {
+    new_occurrences_above_threshold,
+    energy_delta_summaries,
+    structure_edges_added,
+    refinements,
+    recalls,
+    predictions,
+    feelings,
+    actions,
+    feedback,
+    learning_updates
+  }
+
+129.4 人类类比
+
+人不会长期记住每一秒完整脑状态, 但会留下被注意、被强化、被奖惩、被反复召回的片段. 同时, 人短期内可以记住“刚才说了什么顺序”“图里哪个东西在左边”“竖式写到哪一列”“我刚才打算喝水”. 这就是短期结构池和经验流的类比.
+
+129.5 示例
+
+输入“你好啊”, 第一轮可形成一个整体 occurrence. 后来输入“你好!”, 与前者相似召回后, 残差细化成“你好”“啊”“!”并建立 next 边. 经验流不需要每 tick 存整段完整状态, 只记录新增 occurrence、细化事件、顺序边和能量变化.
+
+
+130. SA 粒度与按需细化
+
+130.1 具体定义
+
+SA 的最低物理分辨率可到字符、像素、音频周期, 但认知对象粒度不先天固定为最低单位. AP 初次接触时可以把较粗对象入池; 当预测误差、任务需求、注意力或行动需要更细粒度时, 再细化.
+
+130.2 作用
+
+按需细化减少状态池爆炸, 同时保留走向像素级/字符级/周期级理解的能力.
+
+130.3 数学形式
+
+若当前对象 a 与召回对象 b 对齐:
+
+  common = align(a, b)
+  residual_real = a - common
+  residual_virtual = b - common
+
+当:
+
+  pressure(common/residual) > refine_threshold
+  or task_requires_resolution(a) > current_resolution(a)
+  or repeated_alignment_variance(a) > variance_threshold
+
+执行:
+
+  Refine(a) -> {common_node, real_residual_node, virtual_residual_node}
+
+能量分配:
+
+  R(common) += matched_R
+  V(common) += matched_V
+  R(real_residual) += unexpected_R
+  V(virtual_residual) += unfulfilled_V
+
+130.4 人类类比
+
+第一次听外语可能只记成一团声音; 多次听到相似句后, 大脑才切出重复片段. 视觉上也是先看整体, 需要区分时才看纹理、边缘、像素、部件.
+
+130.5 示例
+
+“你好啊”与“你好!”:
+
+1. “你好”被共同验证, 实虚平衡.
+2. “!”是现实新出现, 正 P.
+3. “啊”是预测未拟合, 负 P.
+4. “你好”成为更稳定的问候片段.
+
+
+131. 短期结构池的数据模型
+
+131.1 具体定义
+
+短期结构池由节点、边、bundle 和窗口组成.
+
+节点:
+
+  StructureNode {
+    node_id,
+    sa_id,
+    occurrence_id,
+    modality,
+    payload_ref,
+    R, V, A, P,
+    source,
+    tick_start,
+    tick_last,
+    spatial_anchor,
+    temporal_anchor,
+    granularity,
+    readable_summary
+  }
+
+边:
+
+  StructureEdge {
+    edge_id,
+    src,
+    dst,
+    relation_type,
+    weight_R,
+    weight_V,
+    confidence,
+    directionality,
+    distance,
+    source,
+    tick_created
+  }
+
+bundle:
+
+  StructureBundle {
+    bundle_id,
+    node_ids,
+    edge_ids,
+    bundle_type,
+    support,
+    prototype_ref,
+    readable_summary
+  }
+
+131.2 作用
+
+这套模型让文本顺序、视觉空间、音频节奏、行动后果、草稿二维位置可以用同一种结构进入召回.
+
+131.3 数学形式
+
+结构相似度:
+
+  SimStruct(Q, E) =
+      w_node * SimNodes(Q.nodes, E.nodes)
+    + w_edge * SimEdges(Q.edges, E.edges)
+    + w_energy * SimEnergy(Q.energy, E.energy)
+    + w_source * SimSource(Q.source, E.source)
+    + w_time * SimRhythm(Q.time, E.time)
+    + w_space * SimSpace(Q.space, E.space)
+
+残差:
+
+  Residual(Q,E) = unmatched(Q,E) + mismatched_edges(Q,E)
+
+131.4 人类类比
+
+“狗咬我”和“我咬狗”包含相同词, 但结构边方向不同. “苹果在香蕉左边”和“香蕉在苹果左边”视觉对象相同, 空间边不同. 人能区分, AP 也必须让结构边进入召回.
+
+131.5 示例
+
+二维草稿中:
+
+  row=0 col=0 写 3
+  row=1 col=0 写 +4
+  row=2 col=0 写 7
+
+这些不是线性 token 串, 而是 DraftGrid 空间结构. 做竖式时, 召回的是“同列加法、进位、回读”结构, 不是一句文本.
+
+
+132. 统一经验流 EventLog
+
+132.1 具体定义
+
+经验流是 AP 的长期真相源. 它只追加事件, 删除通过 tombstone 表达. AP 核心流程从经验流和派生索引读取历史经验; 索引可重建.
+
+132.2 作用
+
+1. 支持跨 turn 记忆.
+2. 支持白箱审计.
+3. 支持记忆包导入/导出/卸载.
+4. 支持派生索引重建.
+5. 支持从历史中回放和分析学习来源.
+
+132.3 数学形式
+
+核心表:
+
+  experience_event(
+    event_id TEXT PRIMARY KEY,
+    tick_id TEXT,
+    turn_id TEXT,
+    session_id TEXT,
+    event_type TEXT,
+    source TEXT,
+    created_at INTEGER,
+    parent_event_ids JSON,
+    affected_node_ids JSON,
+    payload_ref TEXT,
+    readable_summary TEXT,
+    trust REAL,
+    support_delta REAL,
+    reward_delta REAL,
+    punish_delta REAL,
+    import_batch_id TEXT,
+    tombstone INTEGER DEFAULT 0,
+    tombstone_reason TEXT
+  )
+
+节点表:
+
+  experience_node(
+    node_id TEXT PRIMARY KEY,
+    event_id TEXT,
+    sa_id TEXT,
+    modality TEXT,
+    payload_ref TEXT,
+    granularity TEXT,
+    source TEXT,
+    readable_summary TEXT,
+    R REAL, V REAL, A REAL, P REAL,
+    tick_start INTEGER,
+    tick_last INTEGER
+  )
+
+边表:
+
+  experience_edge(
+    edge_id TEXT PRIMARY KEY,
+    event_id TEXT,
+    src_node_id TEXT,
+    dst_node_id TEXT,
+    relation_type TEXT,
+    directionality REAL,
+    weight REAL,
+    confidence REAL,
+    distance REAL,
+    source TEXT
+  )
+
+学习更新表:
+
+  learning_update(
+    update_id TEXT PRIMARY KEY,
+    event_id TEXT,
+    layer TEXT,
+    target_id TEXT,
+    reference_ids JSON,
+    pressure REAL,
+    direction TEXT,
+    delta_norm REAL,
+    budget REAL,
+    audit_payload_ref TEXT
+  )
+
+132.4 人类类比
+
+经验是连续的. 人的记忆不是“问候数据库”“水果数据库”“快数据库”“慢数据库”四套真相源. 我们会从连续经历中抽出索引、习惯、印象和技能. AP 也应如此.
+
+132.5 示例
+
+一次“苹果图 + 这是苹果”的教学至少写入:
+
+1. SensoryObservation: 本轮视觉 patch.
+2. TextObservation: “这是苹果”.
+3. StructureUpdate: 视觉 patch 与文本 token 同 tick/近 tick 共现边.
+4. FeedbackTrace: 教师确认或奖励.
+5. LearningTrace: 视觉-文本在线嵌入更新.
+6. FocusMemory: 高注意视觉片段摘要.
+
+
+133. 阈值记忆与潜意识
+
+133.1 具体定义
+
+经验流不必记录所有低能噪声, 只记录经过调制后达到阈值的 SA 和结构 delta. 阈值不能过高, 需要保留潜意识式弱痕迹.
+
+133.2 作用
+
+1. 控制存储规模.
+2. 保留潜意识弱偏置.
+3. 支持后来由相似经验逐步抬升弱记忆.
+
+133.3 数学形式
+
+写入条件:
+
+  WriteScore(o) =
+      w_A * A(o)
+    + w_P * |P(o)|
+    + w_reward * |reward_delta(o)|
+    + w_punish * |punish_delta(o)|
+    + w_repeat * recent_repeat(o)
+    + w_teacher * teacher_focus(o)
+    + w_task * task_relevance(o)
+
+若:
+
+  WriteScore(o) >= theta_memory
+
+写入经验流.
+
+潜意识弱痕迹:
+
+  theta_weak <= WriteScore(o) < theta_memory
+
+可写入低成本 rolling sketch 或 weak trace, 有短半衰期; 若后续重复出现, 晋升为正式事件.
+
+133.4 人类类比
+
+人不会记住路上每一块地砖, 但可能对某个一闪而过的危险、熟悉气味、重复出现的词留下弱印象. 这种弱印象以后遇到相似东西可能影响感觉.
+
+133.5 示例
+
+用户聊天时背景里出现一次模糊香蕉, 可能只留下 weak trace. 若后续多次出现且用户教学“香蕉”, 这些弱痕迹可提供低权重背景, 但不会单次决定答案.
+
+
+134. 派生索引与性能
+
+134.1 具体定义
+
+派生索引用于让经验流可用, 包括:
+
+1. 倒排索引: SA id / token / channel bucket 到 event id.
+2. rolling hash: 结构片段快速候选.
+3. Zvec / ANN: 在线嵌入向量候选.
+4. temporal index: 时间邻近.
+5. spatial index: 视觉/画板空间邻近.
+6. source index: 教师/现实/想象/记忆等来源过滤.
+7. package index: 导入包来源和卸载范围.
+
+134.2 作用
+
+索引让 B/C/C* 不需要全库遍历, 同时保持逻辑真相源唯一.
+
+134.3 数学形式
+
+B 召回:
+
+  candidates = union(
+    inverted_lookup(top_sa_ids),
+    ann_lookup(embedding(query_structure)),
+    rolling_hash_lookup(structure_signature),
+    temporal_hint_lookup(time_feeling),
+    spatial_hint_lookup(focus_region)
+  )
+
+候选重排:
+
+  score(e) = SimStruct(query, e)
+           + source_bonus
+           + recency_decay
+           + reward_quality
+           - tombstone_penalty
+           - learned_contradiction_pressure
+
+134.4 人类类比
+
+人回忆不是从出生开始逐帧扫描. 一个词、味道、位置、节奏会直接勾起少量候选记忆, 然后再判断哪一个最像现在. 派生索引就是这种“勾起候选”的工程等价物.
+
+134.5 示例
+
+看苹果时:
+
+1. 倒排命中红/圆/柄/局部曲率.
+2. ANN 命中视觉结构相似经验.
+3. temporal index 命中刚刚同一 turn 的视觉 patch.
+4. source index 过滤掉低可信想象.
+5. 最终 B 重排选出“过去苹果教学经验”而不是“最近香蕉教师短句”.
+
+
+135. 记忆包导入、去重与卸载
+
+135.1 具体定义
+
+记忆包是经验流子图, 不是技能插件. 它包含事件、节点、边、payload 引用、摘要、许可、来源、teacher-off 状态、包名、作者、导入 batch_id.
+
+135.2 作用
+
+记忆包让用户可以分享自己训练出的经验材料, 同时保证导入和卸载可审计、可回滚.
+
+135.3 数学形式
+
+dedup key:
+
+  dedup_key = hash(canonical(event_type, source, payload_digest, structure_signature, readable_summary))
+
+导入:
+
+  if dedup_key exists:
+      link package -> existing_event
+      no new truth event
+  else:
+      insert event with import_batch_id
+
+卸载:
+
+  tombstone events where import_batch_id = batch and not shared_preexisting
+  rebuild derived indexes
+
+135.4 人类类比
+
+别人教你一套画图经验, 你吸收的是经验片段. 后来你不想用这套课程, 可以降低它的影响; 但如果你本来就知道的东西与它重复, 不应因为卸载课程而忘掉自己原有经验.
+
+135.5 示例
+
+导入“水果视觉基础包”:
+
+1. 已有苹果经验不重复.
+2. 新增橙子/草莓经验带 batch_id.
+3. 用户查看包内容, 可看到“橙子视觉结构 + 文本橙子 + 教师确认”.
+4. 卸载包时, 新增橙子事件 tombstone, 原有苹果经验保留.
+
+
+第二十四卷 B/C/C* 召回数学与性能实现 v0.2
+
+136. 本卷定位
+
+136.1 具体定义
+
+B/C/C* 是 AP 从经验中理解现在、预测未来、解释过去的核心. 新口径下, B 不是快数据库对象, C 不是慢数据库对象; B 是当前短期结构池召回到的历史相似结构波, C_forward/C_backward 是这些历史结构向后/向前传播形成的预测/解释波, C* 是合并后回灌状态池的唯一预测/解释包.
+
+136.2 作用
+
+1. B: 现在像什么.
+2. C_forward: 接下来可能怎样.
+3. C_backward: 为什么会这样.
+4. C*: 预测和解释合并后, 影响下一 tick 的虚能量、认知感受和行动竞争.
+
+136.3 数学形式
+
+  B_t = RecallPresent(SSP_t, Log, Indexes)
+  C^f_t = Propagate(B_t, direction=forward, window=W_f)
+  C^b_t = Propagate(B_t, direction=backward, window=W_b)
+  C^*_t = CompressAndMerge(C^f_t, C^b_t, constraints=SourceDiscipline)
+
+136.4 人类类比
+
+看到音乐忽然停了, 人会先认出“这像耳机没电/网络断/播放器暂停”, 这是 B; 然后预测“接下来可能需要检查耳机电量”, 是 C_forward; 同时追溯“刚才是不是耳机提示音变弱”, 是 C_backward; 合并后形成“哦, 大概耳机没电了”的合理感和行动倾向.
+
+136.5 示例
+
+用户问“这是什么”且有图片:
+
+1. B 召回类似视觉问答经验、当前水果视觉结构经验.
+2. C_forward 预测可能写“苹果/香蕉/不确定/再看”.
+3. C_backward 追溯为什么当前视觉结构像某个经验, 找柄、曲率、端部等证据.
+4. C* 回灌后, write_cell 或 move_focus 的 drive 变化.
+
+
+137. B 召回的残差式结构匹配
+
+137.1 具体定义
+
+B 召回不是只算向量相似. 它应同时计算共同部分、残差、错配边、来源可信度和能量分布.
+
+137.2 作用
+
+残差让 AP 能知道“哪里像、哪里不像”. 这正是按需细化、合理感和不确定感的来源.
+
+137.3 数学形式
+
+对 query Q 与历史 episode E:
+
+  common_nodes = align_nodes(Q,E)
+  common_edges = align_edges(Q,E)
+  q_residual = Q - common
+  e_residual = E - common
+
+相似度:
+
+  sim = alpha * coverage(common_nodes, Q.nodes)
+      + beta * coverage(common_edges, Q.edges)
+      + gamma * energy_alignment(Q,E)
+      + delta * source_alignment(Q,E)
+      - lambda_q * residual_cost(q_residual)
+      - lambda_e * expected_unmet_cost(e_residual)
+
+把握:
+
+  confidence_B = sigmoid(k * (sim - residual_cost))
+
+137.4 人类类比
+
+黄色苹果像苹果的形状, 不像苹果的常见颜色; 像香蕉的颜色, 不像香蕉的形状. 人的“像但又不完全像”就是残差匹配.
+
+137.5 示例
+
+第一次看黄色苹果:
+
+1. B_apple 形状边高, 颜色残差高.
+2. B_banana 颜色边高, 形状残差高.
+3. 没有一个 B 波峰压倒性胜出, 慢处理启动.
+4. C_forward 形成“可能能吃/可能是新品种/需要问老师”.
+
+
+138. C_forward 预测
+
+138.1 具体定义
+
+C_forward 是从 B 命中的历史结构沿后继边、时间邻近边、行动结果边向未来传播.
+
+138.2 作用
+
+1. 预测下一个文本 token/片段.
+2. 预测下一眼该看哪里.
+3. 预测行动后果.
+4. 预测奖励/惩罚.
+5. 预测任务是否会闭合.
+
+138.3 数学形式
+
+对每个 B_j:
+
+  C^f_j(k) = sum_{events e in future_window(B_j,k)} w(B_j) * transition_weight(e) * decay(k)
+
+合并:
+
+  C^f = sum_j normalize(w_j) * C^f_j
+
+传播窗口:
+
+  W_f 可由任务、节奏感、未闭合压力、当前模态决定.
+
+138.4 人类类比
+
+听到“你好”之后, 人会预测后面可能是“啊/呀/你好/请问”. 看到竖式写到个位, 人会预测要算下一列. 看到杯子在手边且口渴, 人会预测拿起杯子能喝水并带来舒适.
+
+138.5 示例
+
+“你好!”:
+
+1. B 命中问候经验.
+2. C_forward 预测回应、微笑、礼貌、短句.
+3. 若当前状态池还有“用户问身份”结构, 身份回答预测也竞争.
+4. 因结构不同, “你好->你也好”不应污染“你是谁”.
+
+
+139. C_backward 追溯与合理感
+
+139.1 具体定义
+
+C_backward 是从 B 命中的历史相似现状沿前驱边、因果候选边、证据边向过去传播, 把历史前因作为虚能量投向当前短期结构池, 再由当前已经发生的线索进行实虚中和, 形成主观原因感和合理感.
+
+它不是“意外输入解释器”, 而是每个 tick 都运行的基础过程. 意外、违和、未闭合、奖惩和困惑只会提高 C_backward 进入显性注意的概率; 熟悉、稳定、低误差场景中, C_backward 仍在隐性运行, 只是很快被中和.
+
+139.2 作用
+
+1. 形成合理感.
+2. 降低惊和违和.
+3. 支持因果直觉.
+4. 支持故障排查和自我纠错.
+5. 支持“我刚才想说什么来着”的注意力回归.
+6. 支持“为什么突然想到这个”的自我归因.
+7. 支持文本、视觉、听觉、动作、情绪、未闭合任务之间的任意模态归因.
+8. 支持远距离回忆: 一个归因线索成为下一 tick 的注意对象后, 可以继续召回更远的历史结构.
+
+139.3 数学形式
+
+每 tick 的基本形式:
+
+  Q_t = focused_subgraph(StructurePool_t)
+  B_t = RecallPresent(Q_t, ExperienceFlow)
+  cause_slots = sum_k w_k * backward_neighbors(h_k^0, window=W_b)
+
+当前短期结构池中的 occurrence o_i 对 cause_slot c_j 的中和:
+
+  Neutralize(o_i, c_j) =
+      sim(o_i, c_j)
+    * energy_match(R(o_i), V(c_j))
+    * edge_alignment(o_i, c_j)
+    * temporal_spatial_plausibility(o_i, Q_t)
+    * learned_bridge(o_i, c_j)
+    * source_trust(c_j)
+    - learned_contradiction_pressure(o_i, c_j)
+
+主观原因把握:
+
+  CauseGrasp(o_i) =
+      max_j Neutralize(o_i, c_j)
+    + active_energy(o_i)
+    + recency_bias(o_i)
+    + unclosed_or_affect_gain(o_i)
+    + reward_punish_path_support(o_i)
+    - conflict_entropy(o_i)
+    - recent_failed_attribution(o_i)
+
+归因误差:
+
+  E_backward(t) =
+    min_alignment_error(StructurePool_t.recent_occurrences, cause_slots)
+
+合理感:
+
+  ReasonableFeeling(Q_t) = top_k_energy(CauseGrasp) - E_backward(t)
+
+惊下降:
+
+  Surprise_{t+1}(Q_t) =
+    Surprise_t(Q_t) * (1 - sigmoid(ReasonableFeeling(Q_t)) * explain_gain)
+
+如果 Neutralize 很高, AP 会感觉“哦, 原来是这个原因”. 如果 Neutralize 低但 recency_bias、affect、reward/punish 或 unclosed_or_affect_gain 很高, AP 可能形成低把握猜测或伪因果. 这不是 bug, 而是拟人归因的正常形态.
+
+139.3b 奖惩调制的溯源巩固
+
+每个 tick 的 C_backward 不只负责“解释现在”, 也为奖惩学习提供信用分配对象. 当奖励或惩罚事件出现时, AP 不应只学习“当前行动以后会怎样”, 还应把当时 C_backward 正在溯源出的前因、短期结构池中的近邻线索、注意力正在抓住的动作/想法/感受, 一起作为后果的候选因进行巩固或抑制.
+
+这仍然不是新增“信念模块”“迷信模块”或“强迫模块”. 它只是:
+
+  C_backward cause_slot
+  + SSP occurrence/edge
+  + reward/punish
+  + eligibility trace
+  + action outcome learning
+
+在同一个 AP 主流程中的回写.
+
+对当前 tick 的候选前因 o_i:
+
+  CauseEligibility_i(t) =
+      attention_i
+    * max_j Neutralize(o_i, c_j)
+    * temporal_spatial_proximity(o_i, reward_or_punish_event)
+    * self_action_or_thought_participation(o_i)
+    * affective_gain(reward, punish)
+    * source_weight(o_i)
+    * recency_bias(o_i)
+    - conflict_entropy(o_i)
+
+若出现奖励:
+
+  Expectation(o_i -> reward) += eta_r * reward * CauseEligibility_i
+  attention_bias(o_i) += eta_a * reward * CauseEligibility_i
+  causal_confidence(o_i -> reward_context) += eta_c * reward * CauseEligibility_i
+  decay_rate(o_i -> reward_context) becomes slower within budget
+
+若出现惩罚:
+
+  Pressure(o_i -> punish) += eta_p * punish * CauseEligibility_i
+  inhibition(o_i/action_i) += eta_i * punish * CauseEligibility_i
+  avoidance_or_alternative_search_drive += eta_s * punish * unresolved_pressure
+  causal_confidence(o_i -> punish_context) += eta_c * punish * CauseEligibility_i
+
+这里的 causal_confidence 是主观因果把握, 不是科学真因果证明. 强奖励会让 AP 更容易把“当时想到的/做过的/看见的/祈愿过的/尝试过的”归因为成功原因; 强惩罚会让 AP 更容易把某些动作或线索归因为失败原因, 并产生回避、冻结、求助、检查、换方法等倾向. 这些倾向由后续经验继续塑形, 不由先天反伪因果规则直接否决.
+
+“坚信不疑”在 AP 中不应写成绝对锁死, 而应表现为高权重、低衰减、高注意偏置和高重复召回概率. 后续反例、教师纠正、行动失败、source 可信度下降和多次未验证, 都可以逐步提高 learned_contradiction_pressure 并降低对应因果把握.
+
+139.4 人类类比
+
+音乐突然停, 人会往前想“是不是耳机没电、蓝牙断了、手机没电”. 这来自历史相似现状“音乐中断”向前传播出的前因虚能量. 如果当前短期结构池里已经有“刚才听到低电量提示/耳机电量图标变红”的线索, 它与“低电量”前因虚能量中和, 合理感上升, 惊下降. 如果没有解释, 困惑维持, 注意力继续被拉住.
+
+被打断后想起任务也是同一个机制. 当前闲时 Q_t 召回“未完成任务”相似结构, C_backward 向前传播出“刚才我正在写一半/答应过用户/草稿未提交”等前因虚能量, 与短期结构池和经验流里的残留线索中和, 于是注意力回到未完成任务.
+
+139.5 示例
+
+AP 看到黄色苹果:
+
+1. 意外: 颜色与苹果原型不符.
+2. B 召回历史上“像苹果但颜色不符”的相似现状.
+3. C_backward 从这些现状向前传播“灯光偏黄”“新品种水果”“老师曾说黄苹果也存在”等前因虚能量.
+4. 若当前短期结构池里有“室内黄灯”的线索, 它中和“灯光偏黄”的前因虚能量, 颜色违和下降.
+5. 若没有可中和线索, AP 保持低把握: 可能是新品种, 也可能需要问老师.
+
+139.6 长距离归因
+
+长距离归因不需要专门远距离模块. 某个当前线索 o_i 如果部分中和 C_backward 的前因虚能量, 它会获得注意力; 下一 tick 中, o_i 可以成为新的 Q_t 或 Q_t 的高权重部分, 继续召回历史相似结构并向前传播. 多 tick 后, 注意力就能沿经验结构一步步走到很久以前的来源. 高情绪、高奖惩、高未闭合可以增大步长, 但仍是同一 AP tick 循环.
+
+
+140. C* 合并与状态池回灌
+
+140.1 具体定义
+
+C* 是所有 C_forward 和 C_backward 的合并包. 它不是答案, 而是会回灌状态池的虚能量、解释能量、行动后果预测和认知感受触发.
+
+v0.4 补充: C* 是结构化预测/解释包, 不应把 C_forward 与 C_backward 简单加权平均. C_forward 与 C_backward 可以并存、冲突、互相解释. 具体结构化 slot 见第 56.6 节.
+
+140.2 作用
+
+1. 让预测影响下一 tick.
+2. 让解释降低惊.
+3. 让行动后果影响行动竞争.
+4. 让语言、视觉、情绪、任务在同一个场中汇合.
+
+140.3 数学形式
+
+对每个 SA i:
+
+  V_i(t+1) += sum_{c in C*} energy(c,i) * source_trust(c) * compression_weight(c)
+
+冲突处理:
+
+  if multiple predictions conflict:
+      keep distribution, increase uncertainty
+      do not hard argmax before action competition
+
+压缩:
+
+  C* = top_k_by_energy_and_diversity(C_forward union C_backward)
+
+140.4 人类类比
+
+人心里可能同时有几个念头:“像苹果”“颜色怪”“可能是灯光”“要不要问一下”. 不是马上只剩一个答案. AP 的 C* 也应保留分布, 直到行动竞争选择下一步看、写、问或停.
+
+140.5 示例
+
+苹果/香蕉混淆时:
+
+1. C* 同时含苹果和香蕉的低/中虚能量.
+2. 若视觉残差大, uncertainty 上升.
+3. move_focus 到最能区分二者的部件胜出.
+4. 若教师已纠正, 错误路径被 eligibility 惩罚, 但不是全局删除.
+
+
+141. 快/慢作为处理状态
+
+141.1 具体定义
+
+快/慢不是两套数据库. 快是同一次召回中把握高、残差低、行动后果清楚、无需额外注意维持的处理状态. 慢是把握低、残差高、冲突多、需要注意力维持多个 tick 的处理状态.
+
+141.2 作用
+
+1. 避免数据库分裂.
+2. 解释熟练动作自动化.
+3. 解释陌生场景注意力集中.
+4. 解释任务思考和想象续写.
+
+141.3 数学形式
+
+  fastness = confidence_B * action_affordance * low_residual * low_uncertainty
+  slowness = (1 - confidence_B) + residual_pressure + conflict_entropy + task_unclosed_need
+
+若:
+
+  fastness > fast_threshold
+
+行动可低注意执行.
+
+若:
+
+  slowness > slow_threshold
+
+注意力维持, 写入更多焦点记忆, 扩大 C* 探索.
+
+141.4 人类类比
+
+熟悉路上走路是快处理; 路上突然出现异常物体, 注意力回到视觉, 慢处理启动. 思考晚上吃什么也是慢处理, 因为没有明确高把握答案, 需要在内心连续续写和评估.
+
+141.5 示例
+
+第二次见黄色苹果且吃过觉得好吃:
+
+1. B 命中“黄色苹果可吃且奖励”经验.
+2. 颜色残差下降.
+3. reward 预测上升.
+4. “吃/想吃”的行动驱动力更快出现.
+
+
+142. 性能模型
+
+142.1 具体定义
+
+性能设计目标是在不破坏 AP-native 的前提下, 让每 tick 召回复杂度接近 active set 和 top-k, 而不是全库.
+
+142.2 作用
+
+1. 支持开放对话长期运行.
+2. 支持视觉多 patch.
+3. 支持记忆包生态.
+4. 支持白箱审计.
+
+142.3 数学形式
+
+设:
+
+  N = 经验流事件总数
+  A = 当前 active nodes 数
+  K = 索引召回候选数
+  P = 每 tick 视觉 patch 数
+  E = 结构边数
+
+目标:
+
+  B recall: O(A log N + K * SimStruct)
+  C propagation: O(K * window * edge_degree_cap)
+  C* merge: O(M log M), M 为 C 候选数上限
+  visual sampling: O(P * channel_cost)
+  canvas update: O(P * patch_area)
+
+预算:
+
+  K_B <= 128 初期
+  K_C <= 64 初期
+  visual patches <= 32/64 初期
+  C* items <= 128 初期
+  learning updates <= fixed_budget_per_tick
+
+142.4 人类类比
+
+人不会每秒回忆一生. 我们只被少数线索勾起少数相关记忆. AP 也应先靠索引勾候选, 再做白箱重排.
+
+142.5 示例
+
+工作台 turn:
+
+1. 文本无图片: K 小、P=0, tick 快.
+2. 图片识别: P 增加, 视觉通道耗时增加, 但每 tick 可显示分段耗时.
+3. 大记忆库: Zvec/ANN 降低候选检索成本, 但 final score 仍由 AP-native 结构匹配决定.
+
+
+第二十五卷 积极证据口径与路线证明
+
+143. 本卷定位
+
+143.1 具体定义
+
+积极证据口径指每个阶段都明确说明“可以证明什么”, 而不是只用防御性语言说明边界. 边界仍要保留, 但表达重点应放在已证明能力、可迁移机制、下一步验证目标.
+
+143.2 作用
+
+1. 让白皮书更像设计标准, 不像免责声明.
+2. 让外部读者理解每条证据线的价值.
+3. 让实现者知道下一步该把哪些局部证据迁移进 APV3.
+
+143.3 数学形式
+
+证据声明可写成:
+
+  EvidenceClaim = {
+    mechanism_proven,
+    task_scope,
+    teacher_off_status,
+    trace_observability,
+    transfer_target,
+    next_validation
+  }
+
+143.4 人类类比
+
+评价一个孩子会不会数学, 不应只说“他还不是数学家”. 更有价值的说法是: 他已经能列竖式、能进位、能验算、能在类似题中迁移, 下一步要证明应用题和多步题. AP 证据也应这样写.
+
+143.5 示例
+
+“CanvasSkill-9”积极口径:
+
+它可以证明 GL 课程能把笔画角色、顺序、局部修订和逐 tick 画板行动组织成可回放经验. 该证据可迁移到 APV3 的 DraftGrid/画板行动器设计, 下一步要证明 live runtime 中画后再观察、错笔修订和用户反馈学习.
+
+
+144. APV2.1 证据可以证明什么
+
+144.1 具体定义
+
+APV2.1 是受控 AP-Core/GL 原型证据库, 价值在于证明许多 AP 机制可以在小规模、可审计、teacher-off 条件下跑通.
+
+144.2 可以证明的机制
+
+1. Tick 主链、状态池、Bn/Cn/C*、认知感受、行动后果可以组成可运行闭环.
+2. 小学数学中的列竖式、进位、借位、验算可通过过程行动和草稿回读学习.
+3. 视觉、文本、行动可以在受控课程中形成多模态过程证据.
+4. 干扰恢复、未完成任务、记忆冷却/复健可以作为可测试机制.
+5. teacher-off/no-leakage 验收可以区分学习与泄漏.
+
+144.3 数学形式
+
+APV2.1 证据可映射为:
+
+  ProofSlice = {
+    closed_loop_fields,
+    action_trace,
+    memory_delta,
+    teacher_off_result,
+    ablation_or_boundary,
+    migration_hint
+  }
+
+144.4 人类类比
+
+这像儿童教育中一组可观察的课堂实验: 孩子能否不用老师提示做类似题、能否回看草稿、能否修正错误、能否把旧技能迁移到新题.
+
+144.5 示例
+
+数学题 37+48:
+
+1. AP 不直接吐 85.
+2. 它在 DraftGrid 中写 7+8, 产生进位, 写个位 5.
+3. 再写十位 3+4+1, 得 8.
+4. 回读验证.
+
+这可以证明过程性草稿和行动反馈路线的价值.
+
+
+145. GL 证据可以证明什么
+
+145.1 具体定义
+
+GL 是课程、协议和验证层. 它证明 AP-style 学习材料、teacher-off 退场、记忆包、技能注册和受控用户自测可以怎样组织.
+
+145.2 可以证明的机制
+
+1. 六阶段学习协议可把模仿、后继预测、多回复聚合、过程范式、关键词组织、语法/风格修 refine 分层验证.
+2. CanvasSkill 系列可以证明画板行动、辅助线、几何标注、错笔修订的逐 tick 过程.
+3. ChineseGrammar 系列可以证明中文词角色、关系、槽位、低把握确认和反馈软偏置.
+4. AudioSense-0 可以证明听觉 payload 的重建诊断价值.
+5. DesktopText 系列可以证明桌面控制前的只读观察、风险门控、动作预演、确认令牌和受控 harness 路线.
+
+145.3 数学形式
+
+GL package 应输出:
+
+  SkillEvidence = {
+    episodes,
+    ticks,
+    audit_events,
+    final_correct,
+    revision_count,
+    teacher_off_cases,
+    boundary_cases,
+    package_manifest
+  }
+
+145.4 人类类比
+
+GL 像课程大纲和考试制度. 它不替学生思考, 但规定怎样教、怎样撤掉老师、怎样出迁移题、怎样检查有没有作弊.
+
+145.5 示例
+
+ChineseGrammar-2:
+
+它可以证明“整下灯”这类口语表达可通过上下文受限软偏置学习: 初次低把握确认, 多次确认后增强, 换到“灯太亮/灯坏了”时重新按上下文判断.
+
+
+146. SNS/桌宠证据可以证明什么
+
+146.1 具体定义
+
+SNS 是产品壳和连续交互环境. 它可以证明 AP 状态如何以用户可理解方式展示、如何通过 TTS/表情/动作/记忆包形成陪伴体验.
+
+146.2 可以证明的机制
+
+1. 状态池、想法云、内心画面、内心音频、审计曲线可以转成用户可见界面.
+2. TTS 可以作为 reply actuator, 朗读 AP 已提交文本.
+3. 桌宠关系感可以由长期共现、奖励、情绪和关系 SA 支持.
+4. 产品端可以承载记忆包导入、卸载、检索、分享.
+5. 桌面感受器和行动器可以在安全边界下逐步接入.
+
+146.3 数学形式
+
+SNS 读取:
+
+  ProductView = View(RuntimeTickEvent, ExperienceDelta, MemoryPackageIndex)
+
+不应生成 AP 语义, 只展示和执行.
+
+146.4 人类类比
+
+桌宠像一个身体和表情系统. 心智仍在 AP-Core; 身体让用户看见、听见、纠正和陪伴.
+
+146.5 示例
+
+AP 提交“我不太确定, 可以再看一下吗?”. SNS 可用 xiaoyi TTS 朗读, 表情显示低把握, 内心画面显示焦点还没覆盖关键局部. 这证明产品壳能把 AP 的不确定过程展示给用户.
+
+
+147. APV3 当前文档可以证明什么
+
+147.1 具体定义
+
+APV3 当前文档和 Phase20.6 问题复盘可以证明: 我们已经识别出候选短句、假 tick、固定视焦点、假内心画面、最近教学覆盖等偏差的共同根因, 并形成 Phase20.7 的底层重建路线.
+
+147.2 可以证明的机制
+
+1. 真实 runtime 必须从状态池和短期结构池开始.
+2. UI 必须跟随 RuntimeTickEvent.
+3. 教学必须进入经验流, 不是最近答案表.
+4. 视觉必须 foveated sampling + sensory canvas.
+5. DraftGrid 必须逐行动写入.
+6. B/C/C* 必须替代候选短句主路径.
+
+147.3 数学形式
+
+Phase20.7 目标:
+
+  NewMainPath = Sensor -> StatePool -> SSP -> B/C/C* -> Feeling -> ActionCompetition -> ExperienceLog
+
+旧路径隔离:
+
+  LegacyPhraseCandidate = audit_only
+
+147.4 人类类比
+
+这像发现孩子不是在理解题, 而是在背最近一句老师答案. 正确做法不是换一个更花的答题界面, 而是重新让他读题、列草稿、回看、做过程.
+
+147.5 示例
+
+“无论说什么都回嗯,听着”可以证明固定 fallback 或风格候选权重支配了 runtime. Phase20.7 的验收应证明不同输入形成不同短期结构、不同 B/C、不同行动候选, 从而产生不同回复或请求教师.
+
+
+第二十六卷 Phase20.7 正式设计审查稿
+
+148. 设计目标
+
+148.1 具体定义
+
+Phase20.7 是 APV3 开放中文对话底座的底层重建阶段. 它应把 Phase20.6 的前端工作台和候选回复逻辑降级为对照, 新建以状态池、短期结构池、统一经验流、B/C/C*、DraftGrid、foveated visual runtime 为主路径的 runtime.
+
+148.2 作用
+
+1. 修复“一直嗯,听着”.
+2. 修复苹果/香蕉视觉串扰.
+3. 修复假 tick 回放.
+4. 修复内心画面空/椭圆.
+5. 修复记忆分裂.
+6. 为 Agent/SNS/具身保留统一接口.
+
+148.3 数学形式
+
+主循环:
+
+  for tick in budget:
+      S = receptors(input, action_feedback)
+      Field = state_pool.evolve(S, Cstar_prev)
+      SSP = short_structure_pool.update(Field, Focus)
+      B = recall_present(SSP)
+      C_f = propagate_forward(B)
+      C_b = propagate_backward(B)
+      Cstar = merge(C_f, C_b)
+      Feel = compute_feelings(Field, B, Cstar)
+      Action = compete(Field, SSP, Feel, Cstar)
+      execute(Action)
+      ExperienceLog.append(delta)
+      emit RuntimeTickEvent
+
+148.4 人类类比
+
+这相当于重新搭一个“真的在想”的孩子, 而不是改一个“看起来会答”的对话框.
+
+148.5 示例
+
+用户: “你好啊”
+
+1. 文本感受器形成粗粒度问候 occurrence.
+2. 经验流召回问候经验.
+3. DraftGrid 写“你”.
+4. 回看草稿与后继预测, 写“也”.
+5. 写“好”.
+6. commit.
+7. 后续“你是谁”因结构不同, 不命中问候后继为主峰.
+
+
+149. Stage 0: 红线隔离
+
+149.1 具体定义
+
+Stage 0 先清理或隔离旧捷径, 再写新功能.
+
+149.2 作用
+
+避免新 runtime 表面运行, 实际仍由旧候选短句/教学命中/整图识别支配.
+
+149.3 必查项
+
+1. 固定 fallback “嗯,听着”应只作为低权表达片段, 且必须通过当前状态场和行动竞争获得局部使用机会.
+2. taught response 不能直接成为 reply candidate.
+3. image filename/path 不能进入语义分数.
+4. visual label map 不能存在主路径.
+5. UI projection stage 只能作为历史对照或审计警告, 真 tick 必须来自 RuntimeTickEvent.
+6. whole reply string 不能预生成后切片.
+7. RuntimeTickEvent.is_projection 必须 false.
+8. B/C/Cstar 字段必须由 runtime 填充.
+
+149.4 人类类比
+
+先把学生藏在桌下的答案纸收起来, 再评估他会不会做题.
+
+149.5 示例
+
+Stage 0 grep 发现 `legacy_runtime_candidate_evidence` 仍被 write_cell 使用, 则主路径不合格. 它可保留在 audit baseline, 但不能影响新 runtime 的 action competition.
+
+
+150. Stage 1: 状态池与短期结构池
+
+150.1 具体定义
+
+实现真实 StatePool 和 ShortStructurePool 的每 tick 演化.
+
+150.2 作用
+
+让输入、草稿、视觉、听觉、情绪、未闭合、教师事件都进入同一认知场.
+
+150.3 最小字段
+
+StatePoolItem:
+
+  sa_id, modality, source, R, V, A, P, fatigue, trust, payload_ref, readable_summary
+
+StructureNode:
+
+  occurrence_id, sa_id, tick, position, granularity, source, energy snapshot
+
+StructureEdge:
+
+  relation_type, src, dst, weight, confidence, direction
+
+150.4 人类类比
+
+这是“脑内当前有什么”和“这些东西之间如何排列/关联”的底座.
+
+150.5 验收
+
+1. 同一句输入重复后, 状态池能量不是固定假值.
+2. “你好啊/你好!”能形成共同片段和残差.
+3. 图片输入能产生多个 visual occurrence.
+4. DraftGrid 已写内容进入状态池.
+
+
+151. Stage 2: 统一经验流
+
+151.1 具体定义
+
+实现 append-only ExperienceLog, 每 tick 写入达到阈值的 delta.
+
+151.2 作用
+
+让学习持久化、可检索、可卸载、可审计.
+
+151.3 数学形式
+
+写入:
+
+  if WriteScore(delta) >= theta:
+      log.append(delta)
+      indexes.update(delta)
+
+151.4 人类类比
+
+这是长期经验形成.
+
+151.5 验收
+
+1. 教学后重启仍能召回.
+2. 本地记忆视图能看到可读摘要、来源、文本/视觉关联.
+3. 删除产生 tombstone 并影响后续召回.
+4. 导入包卸载后新增事件不再召回.
+
+
+152. Stage 3: B/C/C*
+
+152.1 具体定义
+
+实现结构查询、候选索引、残差重排、前向预测、后向解释和 C* 回灌.
+
+152.2 作用
+
+替代旧候选短句生成主路径.
+
+152.3 数学形式
+
+见第 136-140 章.
+
+152.4 人类类比
+
+这是“现在像什么、接下来可能怎样、为什么这样”的核心思考.
+
+152.5 验收
+
+1. RuntimeTickEvent 显示 B candidates、残差和 C* items.
+2. “你好”与“你是谁”召回不同历史结构.
+3. 视觉问答先召回视觉经验和观察行动, 不第一 tick 直接写最终词.
+4. C_backward 在意外输入时产生解释候选.
+
+
+153. Stage 4: DraftGrid 与行动竞争
+
+153.1 具体定义
+
+实现逐 tick action competition, 包括 move_focus、observe、write_cell、read_draft、edit_cell、commit_reply、stop_generating、request_teacher、idle.
+
+153.2 作用
+
+让输出变成行动, 而不是字符串.
+
+153.3 数学形式
+
+行动驱动力:
+
+  Drive(a) =
+      base(a)
+    + Cstar_expected_reward(a)
+    - Cstar_expected_punish(a)
+    + task_pressure_gain(a)
+    + evidence_need_gain(a)
+    + successor_bonus(a)
+    + emotion_modulation(a)
+    - fatigue(a)
+    - cost(a)
+
+选择:
+
+  selected = sample_softmax_or_argmax(Drive(a), decisiveness)
+
+153.4 人类类比
+
+人说话时也会边想边写/说, 可停顿、回看、改字、问“我理解对吗”.
+
+153.5 验收
+
+1. 没有完整回复预生成.
+2. 每 tick DraftGrid delta 可见.
+3. commit_reply 需要 readiness 超阈值.
+4. 低把握时 move_focus/request_teacher 可赢过 write_cell.
+
+
+154. Stage 5: 视觉与内心画面
+
+154.1 具体定义
+
+接入 foveated visual runtime、sensory canvas、R_sketch/V_sketch 和内心画面 UI.
+
+154.2 作用
+
+修复视觉造假和重建空洞.
+
+154.3 数学形式
+
+见第 121-128 章.
+
+154.4 人类类比
+
+看图不是整图分类, 是眼睛逐步采样和内心图景逐步清晰.
+
+154.5 验收
+
+1. 视焦点由 action competition 选择.
+2. 采样覆盖全图概率场, 不只中心小方块.
+3. 内心画面由 payload 重建.
+4. 苹果/香蕉教学绑定到局部视觉 SA.
+5. 多 tick 后视觉把握应随证据增加而变化.
+
+
+155. Stage 6: UI 只读镜像
+
+155.1 具体定义
+
+工作台 UI 只读取 RuntimeTickEvent 和 ExperienceLog, 不生成认知内容.
+
+155.2 作用
+
+让用户看懂 AP 真实运行, 而不是看前端演示.
+
+155.3 面板
+
+1. 对话与媒体: 显示原文、图片缩略、音频播放、AP 回复.
+2. Tick 回放: 播放/暂停/前后 tick, 显示 action competition.
+3. DraftGrid: 当前二维草稿、回看、修改痕迹.
+4. 内心画面/音频: R/V 分层和焦点.
+5. 想法云: 中文摘要, 能量大小, 实/虚色彩, 排斥布局.
+6. 本地记忆/记忆包: 统一入口, 可搜索、删除、导入、卸载.
+7. 审计曲线: 多线图、tooltip、真实数值.
+8. 性能面板: 每 tick 各阶段耗时、候选数、patch 数、索引耗时.
+
+155.4 人类类比
+
+这是“把脑内活动用仪表盘给老师看”, 老师能知道孩子为什么答错, 该教哪里.
+
+155.5 验收
+
+1. UI 无英文裸 id 主显示.
+2. 所有曲线 hover 显示 tick 数值.
+3. 想法云不重叠, 中文可读.
+4. 本地记忆中快用/慢用只是筛选视图, 不是两套数据库.
+
+
+156. Phase20.7 最小测试集
+
+156.1 文本测试
+
+脚本:
+
+1. 用户: 你好啊.
+2. 教师纠正: 你也好.
+3. 用户: 你好!
+4. 期望: 召回问候, 可回复“你也好/你好”.
+5. 用户: 你是谁?
+6. 期望: 不被问候污染; 若无自我资料, 请求教师或低把握回应.
+
+证明点:
+
+1. 教学影响相似结构.
+2. 不同结构不会被最近短句覆盖.
+3. DraftGrid 逐 tick 写入.
+
+156.2 视觉测试
+
+脚本:
+
+1. 苹果图 + 教“这是苹果”.
+2. 香蕉图 + 教“这是香蕉”.
+3. 苹果图重测.
+4. 香蕉图重测.
+
+证明点:
+
+1. 视觉 SA 区分.
+2. 教师文本绑定 focus-local visual scope.
+3. 内心画面逐 tick 增厚.
+4. 错误候选由 eligibility 局部惩罚.
+
+156.3 未闭合测试
+
+脚本:
+
+1. 用户: 等会提醒我喝水.
+2. 插入闲聊.
+3. 空 tick.
+4. 期望: 未闭合回流.
+5. 用户: 不用了.
+6. 期望: cancellation evidence 降低未闭合.
+
+证明点:
+
+1. 未闭合不是 TODO 表.
+2. 放弃/取消可降低压力.
+3. 空 tick 可让内源任务重新赢注意力.
+
+156.4 C_backward 测试
+
+脚本:
+
+1. 模拟熟悉音乐节奏.
+2. 突然中断.
+3. 提供耳机没电证据.
+4. 期望: 合理感上升, 惊下降, 行动倾向转向检查/收起.
+
+证明点:
+
+1. 追溯解释是基础流程.
+2. 合理感由解释候选产生.
+
+
+第二十七卷 完整信息流动示例
+
+157. 示例一: 苹果/香蕉教学闭环
+
+157.1 初始状态
+
+AP 没有水果视觉经验. 用户上传苹果图并问“这是什么?”.
+
+状态池:
+
+1. 文本问题 SA: “这是什么”.
+2. 图片输入存在 SA.
+3. 低把握感.
+4. 证据缺口.
+5. move_focus 和 observe drive 高.
+
+157.2 Tick 1-3 观察
+
+AP 选择 move_focus/observe:
+
+1. 视焦点落到主体边缘.
+2. V0/V1/V4/V8 写入 sensory canvas.
+3. 状态池出现红黄局部、圆弧、前景候选.
+4. B 召回弱水果/圆形/未知物经验.
+5. C* 没有稳定词峰.
+
+行动:
+
+  继续观察 或 请求教师.
+
+157.3 教师输入
+
+用户教学“这是苹果”.
+
+经验流写入:
+
+1. TextObservation: 这是苹果.
+2. FeedbackTrace: teacher correction/reward.
+3. StructureUpdate: 当前视觉 scope 与文本“苹果”近 tick 共现.
+4. LearningTrace: 局部视觉结构与“苹果”在线嵌入靠近.
+
+157.4 香蕉教学
+
+用户上传香蕉图并教“这是香蕉”.
+
+关键差异:
+
+1. 视觉结构为长条、弯曲、端部.
+2. 与苹果视觉结构残差大.
+3. “香蕉”与该结构共现.
+4. “苹果”候选若误触, 被当前视觉上下文局部惩罚.
+
+157.5 重测苹果
+
+苹果图进入:
+
+1. B 命中苹果视觉经验.
+2. C_forward 预测“苹果”.
+3. C_backward 找到柄/圆弧/表皮证据解释.
+4. move_focus 到诊断区域, 把握上升.
+5. DraftGrid 写“苹果”.
+
+该闭环证明: AP 学到的是视觉结构与词的共现和预测关系, 不是最近标签.
+
+
+158. 示例二: 一直“嗯,听着”的底层诊断
+
+158.1 症状
+
+用户说任何话, AP 都回复“嗯,听着”.
+
+158.2 AP-native 诊断
+
+这说明至少一个环节异常:
+
+1. style expression pattern 作为高权 candidate 直接进入 reply.
+2. 当前输入没有形成可区分短期结构.
+3. B/C 召回没有被当前 query 调制.
+4. DraftGrid 没有逐 tick 行动竞争, 只提交默认短句.
+5. 教学事件没有改变经验流和召回排序.
+
+158.3 修法
+
+1. 把“嗯,听着”降为表达片段, 只在倾听/低任务压力/无需具体回答场景有低中权重.
+2. 当前文本结构必须进入 SSP.
+3. B/C 召回必须显示候选和残差.
+4. write_cell 必须从 C* 的 token/片段虚能量中逐步产生.
+5. commit_reply 必须被当前任务 readiness 门控.
+
+158.4 人类类比
+
+一个人如果无论别人问什么都说“嗯,听着”, 说明他没有真正处理问题内容, 只是在摆出倾听姿态. AP 也一样.
+
+
+159. 示例三: 音乐中断与合理感
+
+159.1 初始状态
+
+AP 正在听熟悉节奏. 听觉结构池中有节拍、音高、响度、后继预测.
+
+159.2 中断
+
+现实音频突然停止:
+
+1. 预测中的下一音有 V, 现实 R 缺失, 负 P.
+2. 停止事件本身有 R, 之前未预测, 正 P.
+3. 惊和违和上升.
+4. 注意力转向听觉.
+
+159.3 C_backward
+
+AP 追溯类似经验:
+
+1. 耳机没电.
+2. 蓝牙断开.
+3. 播放器暂停.
+4. 网络卡顿.
+
+若当前视觉/系统文本显示“电量低”, 解释分最高.
+
+159.4 闭合
+
+合理感上升后:
+
+1. 惊下降.
+2. 行动倾向转向检查耳机或收起.
+3. 经验流写入“音乐中断 + 电量低 + 合理解释”.
+
+159.5 证明点
+
+这证明 C_backward 不是可选小功能, 而是拟人合理感的核心.
+
+
+160. 示例四: 喝水未闭合与放弃
+
+160.1 想喝水但没水
+
+状态池中:
+
+1. 口渴/舒适-不舒适先天规则产生惩罚压力.
+2. 喝水行动被预测为可降低惩罚.
+3. 但 affordance 缺失: 手边无水.
+4. 未闭合感形成.
+
+行动:
+
+  不能立刻喝水, 但空闲时会想起.
+
+160.2 看到水
+
+视觉感受器发现杯子/水:
+
+1. affordance 上升.
+2. 未闭合压力给拿水行动 drive 增益.
+3. 行动竞争中拿水胜出.
+4. 行动反馈产生舒适/奖励.
+5. 未闭合下降.
+
+160.3 放弃/取消
+
+若用户说“不用了”或收到“今天不用上班”的通知:
+
+1. pressure_source_disappeared evidence 进入状态池.
+2. 对应任务的未闭合压力下降.
+3. 不需要执行原行动也能放下.
+
+160.4 人类类比
+
+人能“想做但暂时做不了”, 也能在条件出现时行动, 还能在任务取消时放下. AP 的任务感也应这样, 而不是机械 TODO.
+
+
+161. 示例五: 几何画板与辅助线
+
+161.1 输入
+
+用户给几何题和图形. AP 视觉感受器读取点、线、角、文本题意.
+
+161.2 证据缺口
+
+B/C 召回发现当前证明需要某个关系, 但图中证据不够直观. 认知感受产生“证据缺口”.
+
+161.3 行动竞争
+
+draw_auxiliary_line action 的预期收益上升:
+
+1. 画线能改变外部视觉场.
+2. 画后再看可产生新交点/平行/垂直证据.
+3. 若错画可擦除修订.
+
+161.4 执行
+
+AP 在画板 DraftGrid 上画辅助线. 新图像进入视觉感受器. 状态池出现新关系 SA.
+
+161.5 证明点
+
+这证明 AP 的思考可以通过行动改变外界, 再通过感受器重新进入认知闭环. 这比只在文本中“想”更接近人类解题.
+
+
+162. 示例六: 桌面控制的 AP-native 路线
+
+162.1 输入
+
+桌面截图、可访问文本摘要、窗口标题、鼠标位置、键盘反馈进入感受器.
+
+162.2 只读观察
+
+AP 先形成视觉/文本状态池, 判断目标窗口、按钮、风险、隐私.
+
+162.3 动作预演
+
+行动候选不是直接点击, 而是:
+
+1. move_mouse_preview.
+2. click_preview.
+3. type_preview.
+4. wait.
+5. request_confirmation.
+
+162.4 确认与执行
+
+只有当确认令牌、窗口身份、预览 hash、风险等级、撤销路径都匹配时, 才能执行低风险动作. 执行后必须读回.
+
+162.5 证明点
+
+这条路线证明桌面控制不是宏脚本, 而是感知、风险、预演、确认、执行、读回、奖惩的闭环.
+
+
+第二十八卷 反作弊与白箱验收总表
+
+163. 本卷定位
+
+163.1 具体定义
+
+反作弊不是为了保守表达, 而是为了保证每个能力声明都能指向 AP-native 机制. 它的正向目标是: 让每个演示都能证明真实闭环.
+
+163.2 总原则
+
+1. 能证明学习, 就要有经验流 delta.
+2. 能证明视觉, 就要有视觉 payload 和 sensory canvas.
+3. 能证明逐 tick 思考, 就要有 RuntimeTickEvent.
+4. 能证明回复, 就要有 DraftGrid action.
+5. 能证明泛化, 就要 teacher-off/held-out/reload.
+6. 能证明性能, 就要有分段耗时和规模曲线.
+
+163.3 最小扫描
+
+实现前后应扫描:
+
+1. label_map / image_label / answer_payload / template_reply.
+2. filename/path semantic scoring.
+3. pre_generated_reply slicing.
+4. fallback fixed commit.
+5. UI projection stages.
+6. student-side LLM.
+7. OCR/ASR 替代基础视觉/听觉证明.
+8. hidden solver.
+
+163.4 人类类比
+
+这像考试时既允许草稿纸、老师讲解和课后练习, 也要防止把答案贴在桌底. 防作弊不是否定学生能力, 而是为了证明能力真实来自学习.
+
+163.5 示例
+
+合格视觉识别测试应证明: `苹果` 文本只来自教师事件或用户输入, 后续召回通过视觉 SA 相似性、经验流共现和行动竞争触发; 若测试路径存在硬编码字符串, 它只能作为反作弊扫描命中的失败证据.
+
+
+164. 审计曲线最低字段
+
+164.1 具体定义
+
+审计曲线应显示每 tick 的真实数值, 不是 turn 总量平均, 也不是直线占位.
+
+164.2 必备曲线
+
+1. StatePool size.
+2. R total / V total / A total / |P| total.
+3. max attention.
+4. conflict entropy.
+5. unresolved pressure.
+6. B candidate count.
+7. B top score / residual.
+8. C_forward item count.
+9. C_backward item count.
+10. C* merge count.
+11. action drive top-5.
+12. DraftGrid cell count.
+13. visual patch count.
+14. sensory canvas changed pixels.
+15. learning update count.
+16. elapsed total ms.
+17. receptor ms / recall ms / cstar ms / action ms / log ms / ui ms.
+
+164.3 数学形式
+
+每个 RuntimeTickEvent:
+
+  audit_metrics = {
+    metric_name: value,
+    unit,
+    source_field,
+    missing_reason optional
+  }
+
+UI hover:
+
+  show tick, value, source_field, explanation.
+
+164.4 人类类比
+
+老师看学生做题, 不只看最终答案, 也看每一步耗时、哪里卡住、什么时候回看、什么时候改错.
+
+164.5 示例
+
+苹果图 tick 1-6:
+
+1. visual patch count 增加.
+2. canvas changed pixels 增加.
+3. B top score 从低到中.
+4. residual 降低.
+5. write_cell drive 逐渐超过 move_focus.
+
+
+165. 想法云最低字段
+
+165.1 具体定义
+
+想法云是状态池非视觉/非听觉高能对象的中文可视化, 不是 SA id 列表.
+
+165.2 作用
+
+让用户看到 AP 当前注意到哪些概念、任务、感受、草稿、行动倾向.
+
+165.3 数学形式
+
+ThoughtCloudItem:
+
+  id
+  readable_text
+  category
+  R
+  V
+  A
+  P
+  size = f(A + |P|)
+  color_hue = real_vs_virtual_balance(R,V)
+  saturation = energy_magnitude
+  x,y from force_layout
+  opacity = source_trust
+
+布局:
+
+  central_force proportional to A
+  repulsion between bubbles
+  link_force for structure edges
+  mild drift animation driven by tick, not random chaos
+
+165.4 人类类比
+
+想法不是排成表格. 重要念头靠近意识中心, 较弱念头在边缘游离, 相关念头互相牵引.
+
+165.5 示例
+
+问图“这是什么”时, 想法云可能显示:
+
+1. “这是什么”问题.
+2. “需要识别”.
+3. “红色圆形局部”.
+4. “苹果?”低/中虚能量.
+5. “把握不足”.
+6. “再看一下”.
+
+
+166. 最终收束
+
+166.1 本文 v0.3 已经固定的核心
+
+1. AP 是闭环, 不是候选答案器.
+2. SA 按需细化, 不是固定字符/像素全展开.
+3. 短期结构池统一线性、空间、图、时空关系.
+4. 经验流是逻辑真相源, 索引是加速.
+5. B/C/C* 统一现状认知、未来预测和过去解释.
+6. 快/慢是处理状态, 不是数据库.
+7. 视觉必须 foveated sampling + sensory canvas + R/V sketch.
+8. 教学是共现、奖惩、预测误差和在线嵌入, 不是答案覆盖.
+9. 输出是 DraftGrid 行动, 不是字符串模板.
+10. UI 是 RuntimeTickEvent 镜像, 不是认知生成器.
+
+166.2 后续应继续扩写的方向
+
+1. 每个认知感受通道的公式百科.
+2. 自适应调参器的指标、理想范围和回滚机制.
+3. 在线嵌入 L1/L2/L3 的具体优化算法.
+4. 经验流 schema 的 SQLite/Zvec 落地接口.
+5. Phase20.7 代码级设计稿.
+6. APV2.1/GL/SNS 证据路径完整索引.
+
+166.3 结尾
+
+AP 的美感在于: 它不把“理解”“任务”“关系”“共情”“风格”“记忆”“想象”写成一堆孤立标签, 而是让这些现象从感受器、实虚能量、结构经验、预测误差、奖惩、先天规则、注意力、行动和反馈里长出来. 这也是后续所有实现必须守住的方向.
+
+
+第二十九卷 v0.3 七大难点的 AP-native 解决方案
+
+167. 本卷定位
+
+167.1 具体定义
+
+本卷处理七个高风险理论点, 并按拟人性优先原则重新收束: AP 的最高准则是拟人性. 拟人性不是让系统天生无错, 也不是让系统像工程理性机器一样自动规避所有伪因果. 拟人性意味着系统应能像人一样形成直觉、错觉、迷信、偏方、经验主义把握、后悔、修正、放弃、习惯和更成熟的判断.
+
+因此, 本卷的原则是:
+
+1. 不新增多余实体.
+2. 不把上层心理分类直接做成底层魔法字段.
+3. 不把“防错”写成先天硬门.
+4. 所有修正都落回状态池、短期结构池、经验流、B/C/C*、奖惩、先天规则、注意力和行动反馈.
+5. 允许 AP 像人一样犯错, 但错误必须能被经验、反例、奖惩和教师纠正逐步塑形.
+
+167.2 作用
+
+本卷让 Phase20.7 之后的实现者清楚: 我们不是要造一个机械正确的分类器, 而是要造一个会经历“我觉得是这样 -> 现实反馈不符 -> 我开始动摇 -> 我形成更成熟判断”的白箱主体.
+
+167.3 数学形式
+
+对任意候选机制 M, 判断是否 AP-native:
+
+  APNative(M) =
+      uses_existing_loop(M)
+    * traceable_to_energy_and_experience(M)
+    * anthropomorphic_failure_allowed(M)
+    * learnable_correction_path(M)
+    * no_hidden_oracle(M)
+
+其中 `anthropomorphic_failure_allowed` 很关键: 若某机制让 AP 天生不会犯人类常犯的认知错误, 就要警惕它是不是偷偷塞了工程上帝视角.
+
+167.4 人类类比
+
+人类不是通过天生严格因果推断生活. 很多人会因为“吃了某个偏方后病好了”相信偏方, 因为“拜过之后事情顺了”相信神灵, 因为“一次失败前穿了某件衣服”形成迷信. 这些不是理想科学推理, 但它们是人类认知的重要现象. 人后来通过更多经验、教育、反例、统计训练和社会反馈逐渐降低伪因果. AP 也应如此.
+
+167.5 示例
+
+AP 第一次遇到“按某个按钮后程序好了”, 会形成“按钮 -> 好了”的因果感. 若后来多次发现不按按钮也会好、按按钮也不一定好, 且教师解释“这是网络恢复, 和按钮无关”, 相关因果边的把握应下降. 这不是先天反伪因果门, 而是后天经验修正.
+
+
+168. 难点一: 视觉 patch payload 与内心画面工程闭合
+
+168.1 具体定义
+
+视觉重建需要保存足够多的可重建信息. 只保存特征向量, 可以支持召回相似性, 但无法支持用户要的“视焦点附近像素级清晰、周边稀疏模糊、多 tick 逐步丰富”的内心画面.
+
+168.2 作用
+
+本节给出最低 payload 设计, 使视觉感受器既能进入 AP 认知, 又能反向重建.
+
+168.3 数学形式
+
+每个视觉 occurrence 至少分三层:
+
+  VisualOccurrence {
+    semantic_free_id,
+    spatial_anchor,
+    focus_meta,
+    channel_features,
+    reconstruction_payload,
+    source_meta,
+    audit_meta
+  }
+
+其中 reconstruction_payload:
+
+  patch_pixels_ref: 压缩后的原始局部像素或量化像素
+  patch_alpha_mask: 局部采样置信/清晰度 mask
+  clarity_map: 同 patch 每位置清晰度
+  sample_points: 实际采样点坐标
+  color_basis: 局部颜色基
+  edge_basis: 边缘/方向响应
+  texture_basis: 纹理响应
+  part_payload_refs: 部件原型局部重建提示
+  source_mask: PERCEIVED / REMEMBERED / IMAGINED
+
+存储策略:
+
+  如果 A + |P| + teacher_focus + task_relevance >= high_threshold:
+      保存高质量 patch payload.
+  如果达到 medium_threshold:
+      保存降采样/量化 payload.
+  如果只达到 weak_threshold:
+      保存 sketch payload, 如颜色/边缘/位置稀疏点.
+
+重建:
+
+  R_sketch = blend(perceived payloads by clarity and recency)
+  V_sketch = blend(predicted/prototype payloads by virtual energy and source trust)
+  InnerPicture = compose(R_sketch, V_sketch, focus_trace, source_mask)
+
+168.4 人类类比
+
+人不是把看过的一切都高清存入脑中. 被注视过、情绪强、任务相关、惊讶强的局部更容易留下可重建细节. 其他区域只留下大概颜色、方向、空间感. AP 也应按注意力和认知压决定保存细度.
+
+168.5 示例
+
+看苹果时:
+
+1. 焦点在柄上, 柄 patch 保存高质量 payload.
+2. 周边果皮保存中等 payload.
+3. 桌面背景只保存低清晰颜色/边缘 sketch.
+4. 内心画面播放时, 柄附近最清楚, 果皮次之, 桌面模糊.
+
+168.6 实施规划
+
+Phase20.7 不必一开始保存全分辨率全图. 最小可行:
+
+1. 每 tick 保存 8-32 个 patch payload.
+2. patch 尺寸 16x16 或 32x32.
+3. 中心 patch 保留 RGB, 周边 patch 可量化到 4-6 bit 或保存采样点.
+4. Canvas 保持低分辨率工作面, 如 128x128 或 192x192.
+5. UI 可显示放大版, 但必须标明重建分辨率.
+
+168.7 验收
+
+1. 同一图不同 tick 的 canvas hash 应变化.
+2. 焦点移动到新区域后, 新区域 clarity 增加.
+3. 关闭 raw original image 读取后, UI 仍能从 payload 重建内心画面.
+4. 只用特征向量无法通过该测试.
+
+
+169. 难点二: 统一经验流无核心 checkpoint 的恢复策略
+
+169.1 具体定义
+
+统一经验流作为逻辑真相源不应依赖核心 checkpoint. 但工程上, 长程回放和冷启动不能每次从创世事件重放. 解决方式是: 核心真相仍是 append-only 经验流; 恢复加速采用派生的“近期可丢弃状态索引”和“审计快照”, 它们可重建、可丢弃、不可成为语义权威.
+
+169.2 作用
+
+1. 保持 AP 美学: 经验连续, 无周期断层真相.
+2. 保持工程可用: 冷启动不慢到不可用.
+3. 保持审计能力: 必要时可从事件链重放验证.
+
+169.3 数学形式
+
+逻辑真相源:
+
+  Log = append_only_events
+
+派生恢复层:
+
+  RecoveryCache {
+    cache_id,
+    covers_event_range,
+    state_pool_digest,
+    active_node_summaries,
+    ssp_tail,
+    open_unclosed_threads,
+    canvas_digest,
+    index_versions,
+    derivation_hash,
+    rebuild_command
+  }
+
+恢复:
+
+  start = latest_valid_cache_before(target_time)
+  state = load_cache(start)
+  replay Log[start.end_event + 1 : target_event]
+
+合法性:
+
+  if cache missing or invalid:
+      rebuild from earlier cache or full log
+
+关键限制:
+
+  RecoveryCache 不参与学习真相.
+  RecoveryCache 不单独提供记忆证据.
+  RecoveryCache 中的数据必须能由 Log 重放得到.
+
+169.4 人类类比
+
+人不会每次想起今天的事都从出生开始回放. 我们有当前脑状态、近期印象和长期记忆索引. 但如果要追问“你为什么这么想”, 仍能回到具体经历片段. AP 的 RecoveryCache 就像近期心境和工作记忆的工程缓存.
+
+169.5 示例
+
+AP 重启后:
+
+1. 读取最近合法 cache.
+2. 重放最近 200-1000 个事件.
+3. 恢复状态池高能 SA、未闭合任务、DraftGrid 草稿尾部、sensory canvas 摘要.
+4. 继续运行.
+
+169.6 实施规划
+
+1. 每 turn 结束或每 N 个高价值事件生成 RecoveryCache.
+2. cache 保存 active set, 不保存全库.
+3. cache 写入 `derived_cache` 表, 与 `experience_event` 分离.
+4. redline: 删除 cache 不应改变 AP 最终可重建经验.
+
+169.7 验收
+
+1. 删除 RecoveryCache 后, 可从 Log 重建同等状态摘要.
+2. 使用 RecoveryCache 与全量重放的 B/C top-k 在容差内一致.
+3. cache 不被记忆包导出为真相事件.
+
+
+170. 难点三: C_backward、因果感与伪因果的拟人保留
+
+170.1 具体定义
+
+C_backward 的目标不是让 AP 天生拥有科学因果推断, 而是让 AP 像人一样形成“这可能解释当前现象”的因果感/合理感. 新口径下, 因果感来自每 tick 的前因虚能量与当前短期结构池线索的实虚中和. 这种中和可以充分, 也可以只是近因、共现、情绪或奖惩造成的部分中和; 因此因果感可以正确, 也可以错误. 错误因果不是 bug, 而是拟人认知的一部分; 后天经验、反例、教师纠正、行动失败和奖惩会逐渐塑形其把握.
+
+170.2 作用
+
+本节替换 v0.2 中偏工程理性的“反伪因果门”口径. AP 不能天生屏蔽迷信、偏方、错觉因果; 它应能形成, 也应能被经验修正.
+
+170.3 数学形式
+
+对当前 Q_t, C_backward 产生前因虚能量 cause_slot c_j, 当前短期结构池中存在可疑线索 o_i:
+
+  CauseFeeling(o_i -> Q_t) =
+      neutralize(o_i, c_j)
+    + co_temporal_support(o_i, Q_t)
+    + sequence_fit(o_i before Q_t)
+    + salience_binding(o_i, Q_t)
+    + reward_punish_binding(o_i, Q_t)
+    + repetition_support(o_i, Q_t)
+    + current_need_for_explanation(Q_t)
+    + affective_gain(o_i)
+    + recency_bias(o_i)
+    - learned_contradiction_pressure(o_i, Q_t)
+
+注意:
+
+1. `learned_contradiction_pressure` 不是先天反伪因果门.
+2. 它只来自后天经验: 反例、失败行动、教师纠正、重复不验、源可信度下降.
+3. 初期 AP 可以因为少量共现形成很强错觉因果.
+4. 认知成熟后, 反例和统计经验会自然降低错觉因果把握.
+5. recency_bias 和 affective_gain 是拟人的近因偏差与情绪归因倾向, 不应被硬关掉.
+
+因果把握:
+
+  causal_confidence =
+    sigmoid(CauseFeeling - uncertainty - conflict_entropy - recent_failed_attribution)
+
+合理感:
+
+  reasonable_feeling = max_i causal_confidence(o_i -> Q_t)
+
+惊下降:
+
+  surprise_decay = reasonable_feeling * explain_relief_gain
+
+若伪因果后来被打脸:
+
+  learned_contradiction_pressure(o_i,Q_t) += contradiction_eta * punish_or_mismatch
+  source_confidence(o_i,Q_t) *= source_decay
+  repetition_support(o_i,Q_t) may decrease or split by context
+
+奖惩事件发生时, 归因巩固还应读取当 tick 的 CauseFeeling:
+
+  AttributionConsolidation(o_i, result_t) =
+      CauseFeeling(o_i -> result_t)
+    * attention_i
+    * eligibility_trace_i
+    * result_intensity(reward_t, punish_t)
+    * source_context_weight_i
+
+奖励结果:
+
+  causal_confidence(o_i -> reward_context) += eta_reward_cause * AttributionConsolidation
+  expected_reward(o_i/action_i/context_i) += eta_reward_outcome * AttributionConsolidation
+  attention_bias(o_i/action_i/context_i) += eta_reward_attention * AttributionConsolidation
+
+惩罚结果:
+
+  causal_confidence(o_i -> punish_context) += eta_punish_cause * AttributionConsolidation
+  expected_punish(o_i/action_i/context_i) += eta_punish_outcome * AttributionConsolidation
+  inhibition(o_i/action_i/context_i) += eta_punish_inhibit * AttributionConsolidation
+  alternative_search_drive += eta_alt * punish_t * unresolved_pressure
+
+这解释了强迫性习惯和迷信式因果的同源性: 如果某个动作、念头、仪式或近邻线索在奖励前被注意力反复抓住, 它就会不断成为 C_backward 的高 eligibility 候选因. 下次相似压力或期待出现时, 该动作/念头更容易被注意到, 更容易被行动竞争选中, 也更容易再次被归因为结果原因. 这不是另一个模块, 而是 C_backward、奖惩、注意偏置和行动后果学习的闭环.
+
+170.4 人类类比
+
+人会因为一次巧合形成迷信: “我穿这件衣服考试就会顺”. 这来自共时、强情绪、奖励结果和解释需求. 后来如果多次穿了也失败, 或老师解释“成绩来自复习”, 这个因果感可能下降. 但也可能因为情绪需要继续保留. AP 也应允许这种人类式非理性.
+
+动物的强迫性习惯也可以由同一机制解释. 狗偶然转圈后得到食物, 奖励事件会把“转圈”这一近邻动作和“得到食物”结果绑定起来. 后续饥饿或期待食物时, “转圈”因为曾经被奖励巩固而获得更高注意偏置和行动驱动力, 于是更容易重复. 若之后多次转圈没有食物, 或其它行为更稳定地得到食物, 这个因果把握会被经验重塑.
+
+人在炒股、考试、求职、祈愿或医疗偏方中的许多经验主义信念, 也可由同一机制产生: 奖励让当时被注意到的解释更像“原因”, 惩罚让当时被注意到的失败线索更像“应避免的原因”. AP 若要拟人, 就应允许这种主观归因形成, 再通过后天经验成长, 而不是天生像理性机器一样拒绝它.
+
+170.5 示例: 偏方
+
+AP 观察到:
+
+1. 用户不舒服.
+2. 用户喝某草药.
+3. 用户过一会儿说舒服多了.
+4. 奖励/舒适信号出现.
+
+AP 可能形成“草药 -> 舒服”的因果感. 这拟人. 后续如果:
+
+1. 多次不喝也自然恢复.
+2. 喝了也没用.
+3. 教师说“这只是安慰剂/自然恢复”.
+
+对应因果边的把握下降, 但不会被先天规则直接禁止.
+
+170.6 示例: 神灵/仪式
+
+若 AP 多次经历“祈祷/仪式 -> 压力下降/结果变好”的共现, 它可能形成仪式安慰或神灵因果的经验边. 这在拟人桌宠/角色设定中可以存在, 但 source discipline 要保留: 它应知道这是 remembered/hearsay/belief-like 经验, 不应冒充 PERCEIVED 的物理因果.
+
+170.7 实施规划
+
+1. 删除所有先天 `spurious_correlation_penalty` 风格硬门.
+2. 保留 `learned_contradiction_pressure`, 但只由经验流事件产生.
+3. 因果边加入 source、context、reward/punish、repetition、contradiction 字段.
+4. UI 显示“我有这种联想/我有这种解释感/把握高低”, 不显示“真因果”.
+5. teacher-off 科学任务中, 教师可通过反例课程降低伪因果; 拟人日常中, 可保留低把握信念和安慰性仪式.
+6. 奖惩事件必须读取同 tick 或近邻 tick 的 C_backward cause_slot 与 SSP occurrence/edge, 形成 reward/punish modulated attribution consolidation.
+7. 行动竞争读取这种巩固后的期待/压力/抑制/注意偏置, 但不得新增“迷信行动表”“强迫行为表”或关键词规则.
+8. 若奖惩归因对象来自想法、草稿回读、视觉焦点、听觉焦点或身体动作, 也按同一 eligibility trace 处理, 不因模态不同而走旁路.
+
+170.8 验收
+
+1. 单次强共现可以形成较高但可动摇的因果感.
+2. 反例经验会降低该因果感.
+3. 教师纠正不会硬删, 而是加入反证和来源重估.
+4. 不同 source 的因果感可共存: “我记得有人说过”与“我亲眼看见过”不同.
+5. 奖励事件能让当时被 C_backward 溯源出的动作/想法/线索提高后续期待和行动倾向.
+6. 惩罚事件能让当时被 C_backward 溯源出的动作/想法/线索提高后续压力、抑制或替代搜索倾向.
+7. 单次奖励可以形成拟人伪因果, 但多次反例或教师纠正能逐步削弱, 不能被先天硬门一次性禁止.
+
+
+171. 难点四: 社交期待、任务承诺、共情等不得变魔法字段
+
+171.1 具体定义
+
+社交期待、任务承诺、共情、关系感可以作为 UI/审计摘要词, 但底层不能把它们做成直接驱动的独立实体. 它们应由先天规则、奖惩、状态池、经验流、来源、表情/语音/文字共现、行动后果自然组合出来.
+
+171.2 作用
+
+既保留拟人社交能力, 又避免新增一堆工程标签.
+
+171.3 数学形式
+
+以“共情”为例:
+
+  EmpathyLikeResponseDrive =
+      perceived_user_distress_R
+    + recalled_past_distress_context
+    + innate_reduce_observed_distress_bias
+    + reward_history_for_comforting
+    + punishment_history_for_ignoring
+    + relationship_context_energy
+    + current_affordance_to_reply_or_act
+    - uncertainty_or_risk
+
+审计可显示:
+
+  readable_label = "共情倾向"
+
+但底层必须展开为上述能量来源.
+
+以“任务承诺”为例:
+
+  CommitmentPressure =
+      prior_self_action_or_reply_promised
+    + user_reward_expectation
+    + punish_prediction_for_forgetting
+    + unfinished_structure_energy
+    + temporal_trigger
+    - cancellation_evidence
+    - impossibility_evidence
+
+171.4 人类类比
+
+人并不是脑中有一个独立“社交期待模块”直接发号施令. 许多社交感来自从小到大的奖惩、模仿、关系经验、看到别人痛苦的不舒服、帮助后被认可的奖励、失信后的惩罚. AP 也应这样.
+
+171.5 示例
+
+用户说“我今天很难受”. AP 的温柔回应不应来自 if sad then comfort template. 它应来自:
+
+1. 文本感受器识别痛苦/低落相关 SA.
+2. 过去类似场景中安慰带来奖励.
+3. 忽视带来惩罚或关系压力.
+4. 先天规则对观察到痛苦有轻微惩罚倾向.
+5. DraftGrid 写出低风险、支持性短句.
+
+171.6 实施规划
+
+1. UI 可以显示“共情/社交期待/承诺”, 但必须可展开.
+2. RuntimeTickEvent 中保存 `label_explanation_sources`.
+3. 禁止把这些摘要字段直接进入 action drive.
+4. action drive 只读展开后的 SA 能量和经验信号.
+
+171.7 验收
+
+1. 删除 UI 摘要标签后, AP 行为不变.
+2. 删除底层 reward/experience/innate 信号后, 对应行为变化.
+3. 审计能追踪每个“共情”显示来自哪些状态池项和经验事件.
+
+
+172. 难点五: Phase20.7 范围控制与实施顺序
+
+172.1 具体定义
+
+Phase20.7 不能再被 UI 牵着走. 它的目标是先造一个最小真实闭环, 再逐步接视觉和工作台.
+
+172.2 作用
+
+避免再次出现“页面很好看, 底层仍是假 tick / 候选短句 / 最近教学覆盖”.
+
+172.3 实施切片
+
+Stage 0: 隔离旧路径.
+
+目标:
+1. 旧短句候选、教学命中、整图识别、固定 fallback 从主路径移除.
+2. 保留为 audit baseline.
+
+验收:
+1. 新 runtime 不调用旧 reply candidate.
+2. “嗯,听着”不再全局主导.
+
+Stage 1: 文本最小闭环.
+
+目标:
+1. Text receptor -> StatePool -> ShortStructurePool -> ExperienceLog.
+2. 最小 B/C_forward.
+3. DraftGrid 写字.
+
+验收:
+1. “你好啊/你好!”能学问候.
+2. “你是谁”不被污染.
+
+Stage 2: C_backward 与未闭合.
+
+目标:
+1. 解释感.
+2. 任务未闭合.
+3. 放弃/取消.
+
+验收:
+1. 音乐中断/原因提示.
+2. 喝水提醒/取消.
+
+Stage 3: 视觉最小闭环.
+
+目标:
+1. patch payload.
+2. foveated sampling.
+3. sensory canvas.
+4. 苹果/香蕉教学.
+
+验收:
+1. 内心画面逐 tick 增厚.
+2. 苹果/香蕉不互相覆盖.
+
+Stage 4: 在线嵌入 L1-L3.
+
+目标:
+1. 预测误差驱动向量更新.
+2. 结构/顺序/行动后果三层.
+
+验收:
+1. teacher-off 重测.
+2. reload 后保持.
+
+Stage 5: UI 只读镜像.
+
+目标:
+1. 工作台读取 RuntimeTickEvent.
+2. 想法云、审计曲线、记忆包.
+
+验收:
+1. UI 删除不影响 runtime.
+2. 曲线来自真实字段.
+
+172.4 人类类比
+
+先让孩子真的能听、记、想、写, 再给他漂亮课桌和成绩板. 不能先做成绩板.
+
+172.5 示例
+
+如果 Stage 1 没证明“你好”不污染“你是谁”, 就不进入视觉 UI. 因为这说明最基本的短期结构池和 B/C 还没工作.
+
+
+173. 难点六: 在线嵌入 L1/L2/L3 的可编码优化器
+
+173.1 具体定义
+
+在线嵌入是 AP 在向量底座上实现长期相似召回优化的学习层. 它不是外部预训练模型, 也不是黑箱学生大脑. 它从 AP 自己的预测误差、结构共现、行动后果和奖惩中学习.
+
+173.2 作用
+
+1. L1: 现状认知相似性, 帮 B 召回.
+2. L2: 顺序/空间/因果结构, 帮 C_forward/C_backward.
+3. L3: 行动后果与奖惩, 帮 action competition.
+
+173.3 数学形式
+
+通用更新:
+
+  z_i <- normalize(z_i + lr * gate * budget * direction)
+
+gate:
+
+  gate = source_trust * attention * pressure_strength * novelty * not_fatigued
+
+预算:
+
+  per_tick_budget_B
+  per_tick_budget_structure
+  per_tick_budget_action
+
+L1 预测误差更新:
+
+若现实对象 r 与预测不足对象/上下文 q 共现:
+
+  direction = z_context - z_r
+  z_r += lr_L1 * positive_pressure * direction
+
+若某预测对象 p 多次未被现实验证:
+
+  z_p -= lr_L1 * negative_pressure * normalized(z_context - z_p)
+
+注意: 这是定向更新, 不是所有共现无脑拉近.
+
+L2 结构更新:
+
+对边 e = (a relation b):
+
+  z_relation_context = compose(z_a, relation_type, z_b)
+  z_edge <- z_edge + lr_L2 * structure_support * (z_relation_context - z_edge)
+
+顺序是非对称:
+
+  z_next(a->b) != z_next(b->a)
+
+L3 行动后果更新:
+
+  outcome_value = reward_prediction - punish_prediction
+  z_action_context <- z_action_context + lr_L3 * outcome_value * direction_to_success_or_failure
+
+173.4 负样本与反例
+
+负样本不应由工程随机硬塞为“正确理性”. 它来自 AP 经验:
+
+1. 预测了但没发生.
+2. 行动了但失败.
+3. 教师纠正.
+4. 反例重复出现.
+5. 来源后来被证明低可信.
+
+负更新:
+
+  contradiction_pressure = f(unfulfilled_prediction, failed_action, teacher_punish, repeated_counterexample)
+
+173.5 退火曲线
+
+学习率应随成熟度下降:
+
+  lr_t = lr_0 / sqrt(1 + support_count)
+
+但强惊、强奖惩、教师重点纠错可临时提高:
+
+  lr_eff = lr_t * (1 + surprise_boost + teacher_boost + reward_punish_boost)
+
+这拟人: 初学时容易被一次经验影响, 熟练后更稳定; 强烈事件仍会改变旧印象.
+
+173.6 人类类比
+
+孩子第一次被热水烫, 会快速学到“热水危险”. 对常见词汇和熟悉场景, 单次反例不一定改变旧认知, 需要多次经验. AP 的退火也应如此.
+
+173.7 实施规划
+
+1. 先实现 L1, 因为当前最大问题是 B 召回和视觉/文本混淆.
+2. 再实现 L2, 解决顺序、空间、C_backward.
+3. 最后实现 L3, 接 action competition.
+4. 每 tick 限制更新条数, 先 top pressure/top attention.
+5. 所有更新写 learning_update 表.
+
+173.8 验收
+
+1. 苹果/香蕉视觉嵌入更新方向可审计.
+2. “狗咬我/我咬狗”顺序不同.
+3. 行动失败会降低相同状态下该行动 drive.
+4. 重启后向量索引可由经验流重建或校验.
+
+
+174. 难点七: 快慢作为处理状态的指标化
+
+174.1 具体定义
+
+快/慢不分数据库, 但必须有可计算指标, 否则实现者会重新写两个系统. 快/慢是同一召回和行动竞争中的状态倾向.
+
+174.2 作用
+
+1. 指导 attention 是否继续维持.
+2. 指导是否扩大 C* 探索.
+3. 指导是否直接执行熟练行动.
+4. 指导写入经验流的细度.
+
+174.3 数学形式
+
+基础量:
+
+  confidence_B: 当前现状认知把握.
+  residual_pressure: 未解释残差.
+  conflict_entropy: C* 候选冲突熵.
+  action_affordance: 行动条件是否满足.
+  outcome_confidence: 行动后果把握.
+  unresolved_need: 未闭合任务需求.
+  attention_cost: 继续注意的成本.
+  fatigue: 相关对象疲劳.
+
+快倾向:
+
+  FastModeScore =
+      confidence_B
+    * action_affordance
+    * outcome_confidence
+    * (1 - normalized_residual_pressure)
+    * (1 - conflict_entropy)
+    * habit_support
+    * (1 - risk_pressure)
+
+慢倾向:
+
+  SlowModeScore =
+      residual_pressure
+    + conflict_entropy
+    + unresolved_need
+    + epistemic_value
+    + novelty
+    + risk_pressure
+    - fatigue
+    - excessive_attention_cost
+
+选择不是二选一模块, 而是调制:
+
+  attention_gain *= 1 + slow_gain * SlowModeScore
+  direct_action_drive *= 1 + fast_gain * FastModeScore
+  memory_write_detail *= 1 + slow_memory_gain * SlowModeScore
+
+174.4 人类类比
+
+熟练走路时, FastModeScore 高, 走路行动自动执行; 路上出现异常, residual_pressure 和 novelty 抬高, SlowModeScore 高, 注意力转向视觉. 同一人同一时刻可以边走路快处理, 边思考晚上吃什么慢处理, 因为快慢是不同对象/行动上的状态倾向.
+
+174.5 示例
+
+问候:
+
+1. “你好”在熟悉社交场景中 confidence_B 高, conflict 低, FastModeScore 高.
+2. “你是谁”如果缺自我资料, confidence_B 低, SlowModeScore 高, 更可能 request_teacher 或低把握回答.
+
+174.6 实施规划
+
+1. RuntimeTickEvent 对每个 top action 和 top B 记录 FastModeScore / SlowModeScore.
+2. UI 可显示“熟练倾向/思考倾向”, 但底层仍是分数.
+3. 禁止新建 fast_memory_db / slow_memory_db 作为真相源.
+4. 经验流可记录“该事件被快用/慢加工”的处理标签, 仅为审计.
+
+174.7 验收
+
+1. 同一经验可在熟悉场景快用, 在冲突场景慢加工.
+2. 快慢分数随残差和把握变化.
+3. 删除快/慢 UI 标签不影响 runtime.
+
+
+175. v0.3 后的总实施路线
+
+175.1 具体定义
+
+v0.3 之后, Phase20.7 的第一优先级不是继续扩 UI, 而是把最小闭环按可验收顺序落地.
+
+175.2 总顺序
+
+1. Stage 0 红线隔离.
+2. Stage 1 文本 StatePool + SSP + EventLog + DraftGrid.
+3. Stage 2 B/C_forward + C_backward + 未闭合/放弃.
+4. Stage 3 视觉 patch payload + sensory canvas.
+5. Stage 4 L1 在线嵌入, 再 L2/L3.
+6. Stage 5 RuntimeTickEvent v3.
+7. Stage 6 UI 只读重接.
+
+175.3 每步最低证明
+
+Stage 0 证明: 主路径无旧候选答案器.
+Stage 1 证明: 文本教学不串场.
+Stage 2 证明: 解释感、伪因果形成、反例修正、未闭合恢复.
+Stage 3 证明: 内心画面由 payload 重建, 苹果/香蕉不覆盖.
+Stage 4 证明: 经验驱动向量变化可审计.
+Stage 5 证明: tick 字段真实.
+Stage 6 证明: UI 不参与认知.
+
+175.4 人类类比
+
+先证明孩子能真的听懂一点、记住一点、写出一点、看清一点、被纠正一点, 再让他上更复杂的课. 这比一次性搭大舞台更稳.
+
+175.5 最终判断
+
+七个难点都不要求新增上层实体. 它们都可以落回:
+
+1. 感受器 payload.
+2. 状态池能量.
+3. 短期结构池.
+4. 统一经验流.
+5. B/C/C*.
+6. 奖惩与先天规则.
+7. 注意力与行动竞争.
+8. 后天经验修正.
+
+这保持 AP 的拟人性和美学一致性.
+
+
+第三十卷 v0.4 最终理论纠偏与 AP-native 收束
+
+176. 本卷定位
+
+176.1 具体定义
+
+本卷收束 10 项高风险理论问题, 同时对其中部分修法做 AP-native 哲学纠偏. 原则仍然是: 能用状态池、短期结构池、经验流、B/C/C*、奖惩、先天规则、注意力、行动竞争解释的, 就不新增实体; 必须新增字段时, 也应作为既有闭环的可审计派生量.
+
+176.2 总裁定
+
+1. 问题一的裁定: 修法不是让状态池承担重复真相, 而是明确状态池 field projection + SSP occurrence flow.
+2. 问题二的裁定: 补入“反例去中和”, 但保持人类式信念固化: unlearning_rate 默认低于 neutralize_rate.
+3. 问题三的裁定: 补入 C* prediction/explanation slots.
+4. 问题四的裁定: 补入未闭合 U 的 source_removal / giving_up / impossibility / cost_revaluation.
+5. 问题五的裁定: 补入 patch_payload 与 Phase19 V0-V12 映射.
+6. 问题六的裁定: 修法不是后台互斥脚本, 而是调参行动进入预算和行动后果学习.
+7. 问题七的裁定: 在第 24 节交叉引用第 174 节.
+8. 问题八的裁定: 补入 DraftGrid 与 SSP 的 SELF_DRAFT_GRID 回流.
+9. 问题九的裁定: 补入风格候选过度命中的疲劳/重复惩罚诊断.
+10. 问题十的裁定: 补入性能预算与拟人 tick 模型.
+
+176.3 人类类比
+
+这次吸收的共同点是: AP 不应像无限算力的神谕, 而应像一个有限注意、有限工作记忆、会重复、会误信、会放弃、会疲劳、会通过反例慢慢改变的人.
+
+
+177. 问题一 两池协同最终裁定
+
+177.1 具体定义
+
+状态池不是 occurrence 真相源, SSP 才是 occurrence 结构真相源. 状态池可以显示 type-level 场强, 但必须能反查到 SSP occurrence.
+
+177.2 数学形式
+
+状态池条目:
+
+  StateFieldItem {
+    type_id,
+    aggregate_R,
+    aggregate_V,
+    aggregate_A,
+    aggregate_P,
+    occurrence_count,
+    latest_occurrence_ref,
+    supporting_occurrence_refs,
+    dominant_structure_ref
+  }
+
+短期结构池条目:
+
+  Occurrence {
+    occurrence_id,
+    type_id,
+    tick,
+    position,
+    substrate,
+    R,V,A,P,
+    relation_edges
+  }
+
+重复感:
+
+  repetition_feeling(type_id) =
+      f(count_same_type_occurrences,
+        temporal_lag_pattern,
+        rhythm_consistency,
+        source_similarity,
+        attention_to_repetition)
+
+计数感:
+
+  count_feeling(type_id) =
+      f(spatially_or_temporally_separable_occurrences,
+        count_candidate_edges,
+        focus_visits,
+        suppression_of_duplicate_same_object)
+
+177.3 示例
+
+“苹果苹果苹果”不是一个大能量苹果就完事. SSP 里是三个文本 occurrence; 状态池里可以有一个 text_unit::苹果 的强投影. AP 觉得“重复说苹果”来自三个 occurrence 的 temporal_lag 结构, 不是来自一个 R 值变大.
+
+
+178. 问题二 信念中和与反例松动
+
+178.1 具体定义
+
+预测被验证会中和认知压并增强把握. 反例会松动把握. 两者都拟人.
+
+178.2 数学形式
+
+已写入第 54.2b, 总结为:
+
+  belief_support(t+1) =
+      lambda * belief_support(t)
+    + neutralize_rate * matched_evidence
+    - unlearning_rate * counter_evidence * contradiction_gate
+
+约束:
+
+  0 < unlearning_rate < neutralize_rate by default
+
+这表示人类更容易相信已验证经验, 不容易被单个反例说服; 但强反例和重复反例可以改变信念.
+
+178.3 示例
+
+“偏方有效”的信念可形成, 也可被多次无效和教师解释削弱. AP 可以有迷信, 也可以成长.
+
+
+179. 问题三 C* 结构化整合
+
+179.1 具体定义
+
+C* 不再写成一个扁平 bag. 它是结构化 packet.
+
+179.2 数学形式
+
+  CStarPacket {
+    prediction_slots,
+    explanation_slots,
+    contradiction_links,
+    suppression_links,
+    unresolved_slots,
+    source_distribution,
+    confidence_distribution
+  }
+
+回灌:
+
+  prediction_slots -> V future expectation
+  explanation_slots -> reasonable_feeling / surprise_decay
+  contradiction_links -> conflict_entropy / learning_update
+  suppression_links -> context-specific future prediction lowering
+
+179.3 示例
+
+“我以为对方会回招呼”和“对方没回可能因为没听见”应同时存在. 前者是失败预测, 后者是解释候选. 这比简单平均更像人.
+
+
+180. 问题四 未闭合释放
+
+180.1 具体定义
+
+未闭合下降路径包括完成、取消、放弃、不可能、代价重估和压力源消失.
+
+180.2 数学形式
+
+已写入第 27.3:
+
+  U_j(t+1) =
+      lambda_U * U_j(t)
+    + new_unresolved_evidence_j
+    + prediction_of_required_self_action_j
+    - closure_evidence_j
+    - source_removal_evidence_j
+    - giving_up_evidence_j
+    - impossibility_evidence_j
+    - cost_revaluation_evidence_j
+
+180.3 示例
+
+今天不上班通知让“上班”未闭合下降, 不是因为上班完成, 而是压力源消失.
+
+
+181. 问题五 视觉 payload 映射
+
+181.1 具体定义
+
+第 168 节 patch payload 与第 126 节 V0-V12 已建立映射. 该映射是 Phase20.7 视觉实施的桥.
+
+181.2 实施要求
+
+1. 实现前先读现有 visual_receptor / Phase19 通道.
+2. 能复用的通道复用.
+3. 缺失的 payload 只补最小字段.
+4. UI 重建必须从 payload/sensory canvas 读, 不能读原图缩略冒充.
+
+181.3 示例
+
+texture_basis 不应重写一套, 应优先承接 V3 LBP; part_payload_refs 应承接 V7/V10; relation_payload 应承接 V11.
+
+
+182. 问题六 多调参器协同
+
+182.1 具体定义
+
+多个调参器争用同一个 global_tune_budget. 调参是行动, 有 drive、疲劳、后果、回滚和经验学习.
+
+182.2 数学形式
+
+见第 33.4b:
+
+  TuneDrive(domain_j) =
+      deviation * severity * source_trust * expected_stability_gain * priority_bias
+    - recent_tune_fatigue
+    - cross_domain_conflict
+
+182.3 示例
+
+若视觉感受器失真导致识别混乱, 其调参优先级高于表达风格多样性. 若刚调过视觉采样率但反效果明显, 同类调参 fatigue 上升.
+
+
+183. 问题七/问题八 结构交叉引用
+
+183.1 快慢系统
+
+第 24 节是哲学定义; 第 174 节是最终量化口径. 实施者应按第 174 节编码.
+
+183.2 DraftGrid / SSP
+
+DraftGrid 是行动工作面; SSP 是认知结构池. DraftGrid delta 通过 SELF_DRAFT_GRID 感受器回流到 SSP. AP 因此能看见自己写/画的内容.
+
+DraftGrid 回读也必须进入同一闭环. read_draft 不是 UI 展示事件, 而是 AP 对自身草稿的感受器输入. 它应写入 ExperienceFlow, 形成 SSP occurrence 和 edge, 并在后继 tick 参与 B/C/C*:
+
+1. C_backward: 回读内容解释“我刚才为什么要这样写/哪里还不顺”.
+2. C_forward: 回读内容预测“继续写/修改/停止/提交”的后果.
+3. C*: 回读结果把草稿把握、冲突、未闭合、疲劳和奖惩预期回灌状态池.
+4. action competition: continue_writing、read_draft、edit_cell、stop_generating、commit_reply 读取同一套 C* 与奖惩预期.
+
+若回读后得到奖励, AP 会巩固“这样写/这样停顿/这样确认”的前因; 若回读后被纠正或失败, AP 会把当前草稿片段、写入顺序、回读发现的冲突和教师反馈一起作为惩罚归因候选. 因此长回复、局部修订和竖式计算都不应靠隐藏编辑器, 而应从 DraftGrid 自感受、SSP 结构、C_backward 溯源和奖惩巩固中长出来.
+
+
+184. 问题九 风格候选过度命中
+
+184.1 具体定义
+
+“嗯,听着”高频出现是表达片段驱动力、确定性选择和近期疲劳不足共同造成的可诊断 bug.
+
+184.2 数学形式
+
+见第 90.1b:
+
+  ExpressionDrive(e) =
+      semantic_fit
+    + affect_fit
+    + style_support
+    + reward_history
+    - recent_expression_fatigue
+    - same_surface_form_penalty
+    - task_mismatch_penalty
+
+184.3 示例
+
+连续两轮都说“嗯,听着”后, 第三轮同表面形式应疲劳上升. 若用户问“这是什么”, task_mismatch_penalty 让纯倾听短句让位给视觉观察/请求教师/识别草稿.
+
+
+185. 问题十 性能预算与拟人 tick 模型
+
+185.1 具体定义
+
+AP 的 tick 是有限注意与有限算力周期. 性能预算不是为了把 AP 机械锁死在某个毫秒数, 而是为了让实现具有拟人的“每一刻只能处理有限内容”的约束. 没有预算, 实现者会把每 tick 写成无限全库扫描和无限视觉采样, 既不拟人也不可用.
+
+185.2 目标预算
+
+家用机本地工作台初期目标:
+
+  单 tick 总预算: 50-150 ms
+
+建议分配:
+
+1. 感受器输入: 5-15 ms.
+2. 状态池更新: 2-8 ms.
+3. 短期结构池更新: 5-12 ms.
+4. B 召回候选检索: 10-25 ms.
+5. B 重排与残差: 5-15 ms.
+6. C_forward / C_backward: 10-25 ms.
+7. C* 整合与回灌: 3-10 ms.
+8. 行动竞争: 2-8 ms.
+9. 执行与反馈写入: 3-10 ms.
+10. 经验流写入与索引增量: 5-15 ms.
+
+图片 tick 可放宽:
+
+  视觉重采样 tick: 100-300 ms
+
+但必须在 RuntimeTickEvent 中记录分段耗时.
+
+185.3 容量预算
+
+初期工作台建议:
+
+1. 状态池 active type projection: 30-80.
+2. 高注意 active items: 7-15.
+3. SSP active occurrence: 50-200.
+4. SSP 高注意 occurrence: 10-30.
+5. B 候选初筛 K: 64-256.
+6. B 重排 top: 16-64.
+7. C_forward items: 32-128.
+8. C_backward items: 16-64.
+9. C* 回灌 items: 32-128.
+10. 每 tick visual patch: 文本场景 0; 图片场景 8-64.
+11. 每 tick learning updates: 0-32.
+
+这些不是绝对上限, 而是拟人/可交互目标. 若超出, 应触发 pressure、fatigue、预算调参或降采样, 而不是无感全开.
+
+185.4 性能与拟人性
+
+人类工作记忆有限, 但不是固定 7±2 的僵硬槽位. AP 可用预算近似这种有限性:
+
+1. 高注意对象少.
+2. 低注意背景可多.
+3. 熟练任务快, 陌生任务慢.
+4. 视觉观察比普通文本更耗时.
+5. 疲劳和预算不足会影响策略: 观察少一点、请求教师、先提交低把握、或暂停.
+
+185.5 验收
+
+1. RuntimeTickEvent 必须记录 elapsed_ms 和分段 timings.
+2. 审计曲线显示每 tick 耗时、候选数、SSP 数、C* 数、patch 数.
+3. 删除索引后可重建, 但性能可下降; 重建后恢复.
+4. 大记忆库下, B/C 召回不能明显随全库线性变慢.
+5. 超预算时, runtime 应有降采样/降低 K/request_teacher/idle 等 AP-native 行动, 不能静默跳过核心流程.
+
+185.6 示例
+
+图片识别时, AP 可花多个 tick 看. 某 tick 视觉 patch 达 64 且耗时过高, 下一 tick 可降低周边采样或缩小 B 候选, 但不能直接跳到整图 label. 这就是性能约束下的 AP-native 退化.
+
+第十三卷 2026-07-03 补录裁定 (范式触发条件精确化 + 行动竞争决策三例)
+
+186. 范式触发条件的精确化裁定
+
+186.1 裁定
+范式触发条件 = 内生感受主导 + 内容粗桶(感受器级类别), 与具体内容解耦.
+此前表述"范式条件与外界具体信息无关"精确化如上: 严格无关会欠判别(不同范式感受相似分不开).
+人切换到"竖式范式"也需要看见"这是算术题"这个 gist, 只是不依赖"是 3 还是 5".
+
+186.2 粗桶与关键词路由的本质区别
+粗桶(digit/cjk/latin/punct)是 §15 文本感受器本就有的类别分辨.
+判据: 类别只进范式条件键, 绝不映射到任何答案/回复.
+关键词路由是"内容→答案"(红线); 粗桶是"类别→行动条件"(合法先验).
+
+187. 行动竞争决策三例 (2026-07-02 用户裁定, 权威转译见
+     docs/ColdSave_ActionCompetition_ParadigmLearning_ContinuousMind_20260703.md)
+
+187.1 元认知分诊 (慌乱例)
+超阈值感受通道必须回灌状态池成 feeling::* SA (一等公民, 带 R 能量走正常衰减),
+下一 tick 参与注意力竞争 — AP 由此"感到自己在慌"; "高慌乱"本身成为范式可匹配的现状条件;
+分诊(观察→挑最高驱力→抑制其余)是可教可学的范式, 禁止硬编为调度器分支.
+
+187.2 链式逐步触发与反例抑制 (竖式例)
+范式单元的条件 = 上一行动的可感知结果(readback/自观察), 非"计划中的第 N 步".
+每步都是当 tick 行动竞争胜出, 范式只注入偏置 (禁宏回放).
+反例抑制是一等公民: punish 按(条件,行动)对写负偏置, 同条件该行动 drive 持续走低 (§127.3).
+熟练 = 快系统接管: 同链反复成功 → support_count 升 → 犹豫下降, 由 §173.5 退火自然涌现.
+举一反三 = 角色化条件: 换数字时"低把握开局/写完第一行/该换行"条件不变, 槽位由召回竞争填充.
+
+187.3 连续内源运行与自发行动 (发呆例)
+AP 应有常驻 tick 循环(节奏=f(arousal,fatigue)), 用户输入随时插队为外源注入不中断循环.
+idle 内源输入 = 状态池衰减残余 + 未闭合项 + 记忆节奏召回 — 发呆时的弱内源流.
+自发行动只能从经验正 Q 涌现 (L3 行动后果表), initiate_user_message 等主动行为走正常
+DraftGrid 管线. 红线: 禁止定时器硬触发主动行为.
+
+187.4 逐单元生成裁定 (C16 的运行时形态)
+整串召回 = 最强后继偏置来源, 不是承诺输出. 每个 write tick "下一单元"过竞争
+(写下一单元/暂停回读/主动停), 源偏置正常最强故行为稳定, 但 mid-write 冲突可真正改变后续内容.
+
+第十四卷 2026-07-04 补录: 泛化能力教学的统一理念 (范式=感知/器官/学得决策三分)
+
+188. 一切技能范式的统一实现模板 (§36第4阶的工程正本)
+
+188.1 核心裁定: 三分原则
+任何"过程性技能"(竖式/画画/写作/画坐标/桌面操作...) 的实现, 必须严格三分:
+  (A) 感知层 — 可以是工程. "现在处于什么状态"由感受器级比较派生 (读回自己
+      做到哪一步、对照目标还差什么). 这是感受器, 不是决策.
+  (B) 行动器层 (器官) — 可以注册. AP 能做哪些低粒度动作 (写一格/移光标/投一个
+      轮廓单元/观察自己的产物), 以及内容从哪个通道来 (抄观察/召回事实/进位).
+      注册器官本身合规 (人也需要有手有眼), 但器官不含"什么时候用哪个"的知识.
+  (C) 决策层 — 必须是学的. "这个状态该做哪个 (动作,目标)" 完全由经验共现表
+      竞争决定. 没有任何 if 状态→动作 的硬编、没有步骤表、没有 sort 排序键、
+      没有 role 的分类 if. 决策只读共现统计, 教什么学什么, 不教靠自发累积.
+
+188.2 red line: 伪装决策的三种硬编 (审计必查)
+  - 步骤列表/状态机: if state=='X': do Y (把顺序藏进控制流);
+  - 排序键: sort(key=energy) (把顺序伪装成物理量排序);
+  - 分类 if: if 面积>θ: role='fill' (把类别伪装成规则). 
+  role/条件/桶必须是感受器级连续量的分桶 (如 digit/cjk 字符类别、edge_ratio/
+  color_dev 二分), 与内容/答案零映射 — 分桶只进条件键, 绝不映射到"该做什么".
+
+188.3 三共享 (机理等同的机械证据)
+  示范教学 / 自主执行 / 自发发现 必须调用同一套函数:
+  - perceive_state(...) 同一感知函数 → 三端状态键空间机械一致 (不可能不相交);
+  - derive_key(...) 同一键派生 → 范式识别同一标准;
+  - record/query/counter 同一共现读写 → 教学与自发写同种事件、同一查询消费.
+  教学 = 快速灌注 (教师给具体例子的行动序列, 属课程知识); 自发 = 偶现成功+奖励
+  累积 (慢, 但产物与教学逐字段等价). 两者原理零差别 — 代码层可查, 无"教学专用表".
+
+188.4 空库 baseline 与学习覆盖
+  未学任何顺序时, 允许先天显著性/先天节奏给一个 baseline (新手倾向先做最显眼的),
+  但 baseline 只是行动竞争 drive 的一小项 (权重 ~0.15), 学到的共现支持稳压过它 →
+  学过顺序按学的走, 教不同顺序走不同顺序, 反例惩罚使错误顺序竞争分走低.
+  这保证: 首屏不难看 + 顺序可学/可改/可退化 (符合 §29 先天+后天双通道).
+
+188.5 决定性验证 (质疑者标准)
+  任一过程技能, 现场教正序与反序两种作法, AP 必须真的产出两种不同过程 (同一
+  对象). 这是无法伪造的证据: 若顺序是硬编, 教反序不会改变行为. 竖式已验
+  (两位数示范→三位数执行, 宽度泛化证明学到的是相对寻址非坐标公式); 画画已验
+  (同一香蕉, 教主体先画主体先、教细节先画细节先).
+
+188.6 落地实例索引
+  - 竖式: paradigm_process.py perceive_process_state/anchor寻址/content_source通道;
+    teach_process_paradigm_demonstration(example="61+22=83").
+  - 画画: paradigm_process.py perceive_painting_state/PAINT_ACTIONS/paint_role_bucket;
+    teach_process_paradigm_demonstration(example="paint_order:桶A,桶B,...").
+  - 后续技能 (写作起承转合/画坐标轴/桌面操作) 一律按本卷三分模板实现,
+    禁止另造机制、禁止 188.2 三种硬编.

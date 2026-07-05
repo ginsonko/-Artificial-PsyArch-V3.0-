@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_7da1c4982e07b329",
+  "concept": "dog",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_7da1c4982e07b329.png",
+  "sha256": "7da1c4982e07b3297adaf3231313d5d8fd10799f4d10307802206ada16b2c7fe",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/97333561@N00/184302210",
+  "download_url": "https://api.openverse.org/v1/images/1670216b-eb63-4c59-9134-61a2658f1230/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "TroyMasonPhotography",
+  "title": "random dog",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

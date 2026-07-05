@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase6.1 主动学习桥接</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --paper: #ffffff;
+      --ink: #182230;
+      --muted: #667085;
+      --line: #d7e0ea;
+      --blue: #2458a6;
+      --green: #087443;
+      --amber: #a15c00;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 56px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(27px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 12px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    code { background: #eef3f8; border: 1px solid #dce5ef; border-radius: 5px; padding: 1px 5px; font-family: Consolas, "Cascadia Mono", monospace; }
+    pre { margin: 10px 0; overflow: auto; background: #111827; color: #edf4ff; border-radius: 8px; padding: 14px; font-size: 13px; }
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .subtitle { color: var(--muted); max-width: 980px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--green); }
+    .warn { color: var(--amber); }
+    .note { background: var(--paper); border-left: 4px solid var(--blue); padding: 12px 14px; margin: 14px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase6.1 主动学习桥接</h1>
+    <p class="subtitle">本阶段把 teacher_request 接到工作记忆恢复失败和 Bn/Cn 召回失败。失败只生成求教 SA，不直接生成答案。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">阶段</div>
+      <div class="value ok">Phase6.1 通过</div>
+      <p><code>APV3ActiveLearningBridge</code> 已落地。</p>
+    </div>
+    <div class="card">
+      <div class="label">目标测试</div>
+      <div class="value ok">9 passed</div>
+      <p>覆盖 Phase6.0/6.1 主动学习链路。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">142 passed</div>
+      <p>前序能力保持稳定。</p>
+    </div>
+    <div class="card">
+      <div class="label">边界</div>
+      <div class="value warn">非自动课程设计</div>
+      <p>桥接器只创建求教 SA，不规划完整课程。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>工作记忆失败求教</h2>
+    <pre><code>work_memory = goal::ask
+context = ctx_work
+
+work_memory recalled = goal::ask
+dialogue_result = &lt;none&gt;
+teacher_request.reason = remediation_needed</code></pre>
+  </section>
+
+  <section>
+    <h2>教师响应后恢复</h2>
+    <pre><code>teacher_request generated
+llm_standard_teacher responds through CurriculumRemediationLoop
+skill_teacher_answer learned as AP-native evidence
+work_memory idle recall again
+
+emitted = teacher::answer
+teacher_request_result = &lt;none&gt;
+state 中没有 llm_policy</code></pre>
+    <div class="note">教师响应后，原工作记忆任务可以继续；成功后不再求教。</div>
+  </section>
+
+  <section>
+    <h2>直接召回失败求教</h2>
+    <pre><code>cue = goal::ask
+context = ctx_work
+emit_reply = true
+
+dialogue_result = &lt;none&gt;
+teacher_request.reason = remediation_needed</code></pre>
+  </section>
+
+  <section>
+    <h2>成功不求教</h2>
+    <pre><code>已学会:
+goal::ask -> teacher::answer
+
+emitted = teacher::answer
+teacher_request_result = &lt;none&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2>验收记录</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase6_1_active_learning_bridge.py APV3.0test\tests\test_phase6_0_active_teacher_request.py -q
+9 passed in 0.33s
+
+python -m pytest APV3.0test\tests -q
+142 passed in 3.02s
+
+红线扫描:
+命中均为测试断言/测试名，以及 draft_action.py 的 buffer 非空检查。</code></pre>
+  </section>
+
+  <section>
+    <h2>下一步</h2>
+    <ul>
+      <li>Phase6.2: 主动学习请求与补习强度衰减的长期趋势探针。</li>
+      <li>同一技能多次成功后 teacher_request 频率下降。</li>
+      <li>多次失败时 remediation_intensity / teacher_request 仍可上升。</li>
+      <li>继续保持教师响应 AP-native、学生侧无 LLM 策略字段。</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

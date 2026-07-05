@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_688b949138a0252d",
+  "concept": "apple",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_688b949138a0252d.png",
+  "sha256": "688b949138a0252d58c84c31ce539b6c834bcdfb5b05c47929b444d80f7102e1",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/97485958@N02/37035746120",
+  "download_url": "https://api.openverse.org/v1/images/ab45ea53-846f-4e82-b77a-ce2810b14c73/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Michele Dorsey Walfred",
+  "title": "Apples",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

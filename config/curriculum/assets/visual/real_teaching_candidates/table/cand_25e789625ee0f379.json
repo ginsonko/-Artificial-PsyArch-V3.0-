@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_25e789625ee0f379",
+  "concept": "table",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_25e789625ee0f379.png",
+  "sha256": "25e789625ee0f3795d42661d3e65e82a811afaf54bd58166060431d5350ee74d",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/40586164@N07/6793049577",
+  "download_url": "https://api.openverse.org/v1/images/cde897d5-0822-4240-b930-cd861338e2a3/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "BFS Man",
+  "title": "Living Room",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

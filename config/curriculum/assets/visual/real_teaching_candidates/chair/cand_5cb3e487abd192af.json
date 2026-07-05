@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_5cb3e487abd192af",
+  "concept": "chair",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_5cb3e487abd192af.png",
+  "sha256": "5cb3e487abd192af8fe3b05bd84ae65da297cc59128dcf598dc77e6464d77ec9",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/39415470@N02/6859957080",
+  "download_url": "https://api.openverse.org/v1/images/8b955e0b-3612-4737-a1fa-96dc2ee93ad4/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Gnilenkov Aleksey",
+  "title": "Interior photos",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

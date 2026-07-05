@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_0a70db18029e91e3",
+  "concept": "fish",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_0a70db18029e91e3.png",
+  "sha256": "0a70db18029e91e3feaaa5dd3003183f3a9ca8547bfb68effae1575e879e904d",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/82955120@N05/14091612527",
+  "download_url": "https://api.openverse.org/v1/images/a6ebbb50-ef2e-4da8-91b4-2fe6110fbf08/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Bold Frontiers",
+  "title": "Marble Skin Fish Fossil",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

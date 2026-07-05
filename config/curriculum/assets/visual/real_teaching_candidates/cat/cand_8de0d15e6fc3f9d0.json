@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_8de0d15e6fc3f9d0",
+  "concept": "cat",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_8de0d15e6fc3f9d0.png",
+  "sha256": "8de0d15e6fc3f9d022d3f0f58cfaddc23a748f151d7ae52544532bf7a0223108",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/38867588@N05/5339239070",
+  "download_url": "https://api.openverse.org/v1/images/8affe79a-452b-418c-9fcc-1fe8aad7e3ee/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Magnus Bråth",
+  "title": "Grey Persian Cat",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

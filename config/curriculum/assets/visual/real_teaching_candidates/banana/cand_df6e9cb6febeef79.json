@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_df6e9cb6febeef79",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_df6e9cb6febeef79.png",
+  "sha256": "df6e9cb6febeef79c0dce93a27c2181fb047e971e21d1ab8ff313e3ffa9537c9",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/17160935@N03/5932294914",
+  "download_url": "https://api.openverse.org/v1/images/1a5630af-d894-46b2-ab9f-877b323da2f0/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "awsheffield",
+  "title": "Dallas Farmers Market 2",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

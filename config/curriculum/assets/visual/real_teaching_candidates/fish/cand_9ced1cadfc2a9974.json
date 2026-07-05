@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_9ced1cadfc2a9974",
+  "concept": "fish",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_9ced1cadfc2a9974.png",
+  "sha256": "9ced1cadfc2a997432b73803e0bba7f2d1ee3ea9a923f1ffabf1d23df0655cb3",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/162244249@N03/52305393523",
+  "download_url": "https://api.openverse.org/v1/images/c8a62fda-f622-448c-b64b-755ea68c884d/thumb/",
+  "license_id": "PDM-1.0",
+  "author": "chris-hayes",
+  "title": "A dog cat bird fish animal, photo closeup zoom",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

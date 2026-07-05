@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_8eb91a02e1a0a5bd",
+  "concept": "apple",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_8eb91a02e1a0a5bd.png",
+  "sha256": "8eb91a02e1a0a5bd878fb2d3a71010a8e51448088378114eb9ad2640aa402569",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/123012464@N05/14495484212",
+  "download_url": "https://api.openverse.org/v1/images/5435319d-f1d2-4d2a-a305-75e00be08930/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "natasia.causse",
+  "title": "Day 45/365 - An apple a day...",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

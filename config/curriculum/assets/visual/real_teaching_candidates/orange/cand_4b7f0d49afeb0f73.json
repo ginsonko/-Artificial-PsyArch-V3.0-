@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_4b7f0d49afeb0f73",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_4b7f0d49afeb0f73.png",
+  "sha256": "4b7f0d49afeb0f73ad3b0c6e6e1f306a10a19ec68f1718deb4f24b25d4e6d113",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/26176646@N04/2492945625",
+  "download_url": "https://api.openverse.org/v1/images/6c238b6c-f135-4342-af30-8abd804f199d/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "TheBusyBrain",
+  "title": "Apples & Oranges - They Don't Compare",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

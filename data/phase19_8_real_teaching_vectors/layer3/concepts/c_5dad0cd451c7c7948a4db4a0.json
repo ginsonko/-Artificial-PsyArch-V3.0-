@@ -1,0 +1,464 @@
+{
+  "concept_uuid": "c_5dad0cd451c7c7948a4db4a0",
+  "epistemic_source": "PERCEIVED",
+  "lifecycle_status": "promoted",
+  "lifetime_observations": 16,
+  "metadata": {
+    "teacher_label_source": "visible_curriculum_signal",
+    "used_filename_label": false,
+    "visible_teacher_label": "apple"
+  },
+  "part_weights": [
+    {
+      "part_uuid": "part_19310f8f9878f6cd4bbbfab2",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_7d19286f2b3bfb727f4d591f",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_1cce1eb96db2585e16502903",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_51596fed883a14e166c75906",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_b45570bf2b5985d590219930",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_de32d8bdd83043d1b0365c70",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_be58516957c396de7f979067",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_1b961265a83076d55c144216",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_3f92c10737a1df741dcc9edc",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_402b8b97978968cfa718ac2d",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_b973b3874fb6aa9158a97364",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_fcbfdec3cf661d0fb27748a6",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_f878390a4cab657ae07662ee",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_19ddad4b5fae3e8a96d9b85c",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_71bee709807bd566cd66497c",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_9c7ec0b716ab02671a44cba7",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_d74dc94855494272c267db4c",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_1c1777da04cfcca452920e0d",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_c1731968949fc35d9228eb3e",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_352cd48c6850d645c9282373",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_c3d4f55e4965759eff0da50c",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_cd8a559969e9dd51d3d14615",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_92f0505912ad82e0b643a126",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_10b347a8ec011c1b9a537d79",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_3aaa7540b49a3ad65930bdf3",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_225910b5ead7fae5ce43af56",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_612d545b929af5ddb2d838a0",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_884ebe84adfbfa7ee86af440",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_2c25e0e279ba089856685f8c",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_688004105bc8ffea6a5499ac",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_ede5dba5c83ce96677ebdead",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_df316b0087fafffda5e94cad",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_42dc7167d34c6edee370a670",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_6583519b7d09974587391071",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_96cb73c0e82b385373a4d5ac",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_245690cf1996ff5f557b6f78",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_5d058340848913262c855d94",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_5b2bd8d1d19f7600ea53c622",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_0b7f5f842a5f6e5ff8f9167d",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_9719eab36485d1d9a7b90fa9",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_c2ab3ad7571bbbcd6787d341",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_0a4b38908a99b29ffb23434d",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_4bdb4d9ddbebbe0a85592dce",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_8f14e01304c4c3f6f5958a73",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_50584028d70fe8129cd45538",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_96f9ab45cced59a1b234b32c",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_99d12b60b8a3b4ea9262efa6",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_1681667c8b916a87ed1e7950",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_4f97dc4a8377b42ec0135b49",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_1d2cb324206ca293ad5af236",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_841725cd3079d04cef6f7caf",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_c11e9f1dcdfc123927724308",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_84b5c279f693e4c7da4432d4",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_1c44de976a094b8b7e13e214",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_d9d71d65031fe9d790cc23c5",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_1cddf6a0233e9ed83fb63a84",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_2b90ad8352d040b3415ce5d7",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_77c96102416b14da434b873f",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_38a5f7aeda79323dad27fedf",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_d1147660d78b622a37cdea7d",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_75095b56867a6744bc9b08d7",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_d1461d2938ad020c02f95345",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_7329eff9564442b01722e7a5",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_e47a3dec4d42f94c0b2c70a6",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_f753b506f221b203d5c094d0",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_1e09e42f456f44a46b528038",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_37241ddc3f77f7547c14df42",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_aab547f2f09ea609c804b68c",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_6abffb162f6b862fd2674351",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_5ca624bb34a15ca323b11fb6",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_e949ce376f2d18ef56c86564",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_6cb89b0527ca1e88e4414c7e",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_a12068e634cb98406d0771d8",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_d5336a7a414fc6a30d17a8b8",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_7778c7773d06ece0622ad561",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_91e856ad3ba988b7bced4cdd",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_f15c0fa8a5fba3c07d3acc3e",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_a37444a233315b0c16470093",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_f4cc64ac44c8a504834b2da1",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_50749e0d3bdc5979231b8de5",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_8bf7acac6d096fac49d7dc5b",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_89cab603022504434bad7e74",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_47b7b4687b8da4ee686be335",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_d56c6e07e889b6b2ed77ed65",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_9b4b7468f4c762d33418a032",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_6684ddf9bda3aef9a45cf34a",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_93615307b9f7d05e2da68290",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_5128d0b5c20df10e11698bfc",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_98f8b04a9909e659653636b0",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_6d99eac23c3cea505fe2bb96",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_00fa720de8734cf89e2c202e",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_f5939baa01e682c2ce38313b",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_16ecd2cbc4f2468402bf1027",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_0247cfc409b575763cbb20da",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_7ac66abec9d125f06c647e62",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_2116b37db166119f75cf6623",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_33ceb6abfd8b6e874c052dd8",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_b275ff42dbfc8fdb046f2d7d",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_f0677e185b09d032bada5430",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_a192c61fa7f4bf8ce05b4eda",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_504a88d3dd842c4b1f738ab5",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_7ee3ed506a851227add6f872",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_a6ec3aa4ab6307f3acf59835",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_ba018325670b38e01f083492",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_302632abd05bb1d208e7b7d0",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_d708f0b3ec16b453a0faf5ea",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_b7a52e522aa1da30baf5f173",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_159a6cfbf13234f7c99756f5",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_43f05f6273c5e788e0466d21",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_6c183e332e5221fa0fb34bc2",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_30c019c831085e57151d69d9",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_cea0025cf446ac5edb7ccaf0",
+      "weight": 1.0
+    }
+  ],
+  "vocab_associations": [
+    "teacher_visible::3a7bd3e2360a"
+  ]
+}

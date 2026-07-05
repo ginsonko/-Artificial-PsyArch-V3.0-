@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_faa5367f36b9b2f8",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_faa5367f36b9b2f8.png",
+  "sha256": "faa5367f36b9b2f86aae04b99d49d53629f8789da59820efefdcefb249855dde",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/64148767@N00/14437783249",
+  "download_url": "https://api.openverse.org/v1/images/b252a78e-27e3-4de9-8f5c-9804da22eeae/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "penelope waits",
+  "title": "banana, cinnamon, and honey soft serve ingredients: 2.5 ripe bananas 2tsp honey 2tsp cinnamon 1/8 cup skim milk method: • slice bananas and freeze overnight • place banana, honey & cinnamon in food processor and blitz. slowly add drips of milk as you",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_cd68fe2238246c68",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_cd68fe2238246c68.png",
+  "sha256": "cd68fe2238246c68bc9126c846a0ac1c1e43f8c878749556512b3e08f0360d34",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/57201140@N08/8735341475",
+  "download_url": "https://api.openverse.org/v1/images/ff361484-1556-4d89-9c5e-8941b56b44fb/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Gwyrosydd",
+  "title": "orange",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

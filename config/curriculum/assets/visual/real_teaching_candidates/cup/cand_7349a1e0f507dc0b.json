@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_7349a1e0f507dc0b",
+  "concept": "cup",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_7349a1e0f507dc0b.png",
+  "sha256": "7349a1e0f507dc0b6eacdccd98ca88b401999b1ec9ecb5bda0f01367b7c14945",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/92899351@N08/31451777962",
+  "download_url": "https://api.openverse.org/v1/images/9493a246-133b-4e28-a1f2-82e5a4694026/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Martin Cooper Ipswich",
+  "title": "My current stacking rig",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

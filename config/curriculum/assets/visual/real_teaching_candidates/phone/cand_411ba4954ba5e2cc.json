@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_411ba4954ba5e2cc",
+  "concept": "phone",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/phone/cand_411ba4954ba5e2cc.png",
+  "sha256": "411ba4954ba5e2cc11eecf4fb0c8123ae067bdda70057e743b38c12c9e58f1cf",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/35850894@N08/49922402463",
+  "download_url": "https://api.openverse.org/v1/images/63536899-c2b4-4caf-a71d-83e268090b04/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "markus119",
+  "title": ".",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

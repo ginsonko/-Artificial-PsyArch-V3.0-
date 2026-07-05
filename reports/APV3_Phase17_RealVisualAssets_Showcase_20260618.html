@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 17：真实照片资产种子</title>
+  <style>
+    :root {
+      --bg: #f5f7f8;
+      --paper: #ffffff;
+      --ink: #172126;
+      --muted: #60727a;
+      --line: #d9e3e7;
+      --accent: #0f766e;
+      --accent-soft: #e7f4f1;
+      --blue: #245a8f;
+      --warn: #fff8e8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif;
+      letter-spacing: 0;
+      line-height: 1.65;
+    }
+    header {
+      padding: 40px 24px 24px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+    main { max-width: 1180px; margin: 0 auto; padding: 22px; }
+    .hero { max-width: 1180px; margin: 0 auto; }
+    h1 { margin: 0; font-size: 34px; line-height: 1.2; }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    h3 { margin: 0 0 8px; font-size: 17px; }
+    p { margin: 8px 0; color: var(--muted); }
+    .lead { max-width: 860px; color: #2c3b41; font-size: 17px; }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      margin: 14px 0;
+    }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .pill {
+      border: 1px solid #bfdbd6;
+      background: var(--accent-soft);
+      color: #17453f;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 13px;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfdff;
+      padding: 14px;
+    }
+    .metric b { display: block; color: var(--blue); font-size: 26px; }
+    .metric span { color: var(--muted); font-size: 13px; }
+    .concept {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+    }
+    .concept-title {
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+    }
+    .asset-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .asset {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfdff;
+      padding: 8px;
+      min-width: 0;
+    }
+    .asset img {
+      width: 100%;
+      height: 128px;
+      object-fit: cover;
+      border-radius: 6px;
+      background: #fff;
+      display: block;
+    }
+    .asset b { display: block; margin-top: 6px; font-size: 12px; color: var(--blue); }
+    .asset small { display: block; color: var(--muted); overflow-wrap: anywhere; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 8px; text-align: left; vertical-align: top; }
+    th { background: #fbfdff; color: var(--muted); }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      background: #f0f4f5;
+      border: 1px solid #d8e2e7;
+      border-radius: 6px;
+      padding: 1px 5px;
+      overflow-wrap: anywhere;
+    }
+    .boundary { background: var(--warn); }
+    @media (max-width: 900px) {
+      h1 { font-size: 26px; }
+      .metric-grid, .concept, .asset-grid { grid-template-columns: 1fr; }
+      .asset img { height: auto; max-height: 240px; object-fit: contain; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <h1>APV3 Phase 17：第一批真实照片资产</h1>
+      <p class="lead">Phase 14 用本地合成图证明了“资产治理干净”。Phase 17 开始接入真实世界照片：从 Wikimedia Commons 采集、只收白名单 license、统一转成 PNG、写入 sha256、来源 URL 和署名。它不是示意图，也不是临时贴图，而是可以审计的真实素材种子。</p>
+      <div class="pill-row">
+        <span class="pill">15 张真实照片</span>
+        <span class="pill">3 个概念</span>
+        <span class="pill">9 train / 3 held-out / 3 contrast</span>
+        <span class="pill">PDM / CC0 / CC-BY</span>
+        <span class="pill">不收 CC-BY-SA</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>一句话结论</h2>
+      <p>这一步证明：APV3 已经可以把真实网络图片纳入课程资产系统，同时保留来源、license、sha256 和 train/held-out/contrast 隔离。它解决的是“能不能用真实照片做课程材料”的工程地基。</p>
+      <div class="metric-grid">
+        <div class="metric"><b>15</b><span>真实 PNG 资产</span></div>
+        <div class="metric"><b>3</b><span>水果概念</span></div>
+        <div class="metric"><b>5</b><span>每概念资产数</span></div>
+        <div class="metric"><b>0</b><span>生成示意图</span></div>
+        <div class="metric"><b>0</b><span>CC-BY-SA</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>苹果：真实照片进入课程资产</h2>
+      <div class="concept">
+        <div class="concept-title">
+          <h3>概念：苹果</h3>
+          <p>3 张训练图，1 张 held-out 未见图，1 张其它概念作为 contrast。</p>
+        </div>
+        <div class="asset-grid">
+          <div class="asset"><img src="../config/curriculum/assets/visual/real/noun_apple_train_0.png" alt="苹果训练图 0"><b>train 0</b><small>苹果照片</small></div>
+          <div class="asset"><img src="../config/curriculum/assets/visual/real/noun_apple_train_1.png" alt="苹果训练图 1"><b>train 1</b><small>苹果照片</small></div>
+          <div class="asset"><img src="../config/curriculum/assets/visual/real/noun_apple_train_2.png" alt="苹果训练图 2"><b>train 2</b><small>苹果照片</small></div>
+          <div class="asset"><img src="../config/curriculum/assets/visual/real/noun_apple_held_out_0.png" alt="苹果 held-out 图"><b>held-out</b><small>未见苹果图</small></div>
+          <div class="asset"><img src="../config/curriculum/assets/visual/real/noun_apple_contrast_0.png" alt="苹果 contrast 图"><b>contrast</b><small>香蕉图</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>香蕉：同样的结构，不同真实来源</h2>
+      <div class="concept">
+        <div class="concept-title">
+          <h3>概念：香蕉</h3>
+          <p>训练图和 held-out 图来自 Commons 白名单素材，contrast 使用橙子图。</p>
+        </div>
+        <div class="asset-grid">
+          <div class="asset"><img src="../config/curriculum/assets/visual/real/noun_banana_train_0.png" alt="香蕉训练图 0"><b>train 0</b><small>香蕉照片</small></div>
+          <div class="asset"><img src="../config/curriculum/assets/visual/real/noun_banana_train_1.png" alt="香蕉训练图 1"><b>train 1</b><small>香蕉照片</small></div>
+          <div class="asset"><img src="../config/curriculum/assets/visual/real/noun_banana_train_2.png" alt="香蕉训练图 2"><b>train 2</b><small>香蕉照片</small></div>
+          <div class="asset"><img src="../config/curriculum/assets/visual/real/noun_banana_held_out_0.png" alt="香蕉 held-out 图"><b>held-out</b><small>未见香蕉图</small></div>
+          <div class="asset"><img src="../config/curriculum/assets/visual/real/noun_banana_contrast_0.png" alt="香蕉 contrast 图"><b>contrast</b><small>橙子图</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>橙子：真实照片和对照图分开</h2>
+      <div class="concept">
+        <div class="concept-title">
+          <h3>概念：橙子</h3>
+          <p>这组材料展示真实照片进入课程系统后的结构：训练、未见验证、干扰对照三者都可追溯。</p>
+        </div>
+        <div class="asset-grid">
+          <div class="asset"><img src="../config/curriculum/assets/visual/real/noun_orange_train_0.png" alt="橙子训练图 0"><b>train 0</b><small>橙子照片</small></div>
+          <div class="asset"><img src="../config/curriculum/assets/visual/real/noun_orange_train_1.png" alt="橙子训练图 1"><b>train 1</b><small>橙子照片</small></div>
+          <div class="asset"><img src="../config/curriculum/assets/visual/real/noun_orange_train_2.png" alt="橙子训练图 2"><b>train 2</b><small>橙子照片</small></div>
+          <div class="asset"><img src="../config/curriculum/assets/visual/real/noun_orange_held_out_0.png" alt="橙子 held-out 图"><b>held-out</b><small>未见橙子图</small></div>
+          <div class="asset"><img src="../config/curriculum/assets/visual/real/noun_orange_contrast_0.png" alt="橙子 contrast 图"><b>contrast</b><small>苹果图</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>资产治理怎么保证干净</h2>
+      <table>
+        <tr><th>检查项</th><th>Phase 17 做法</th></tr>
+        <tr><td>来源</td><td>每张图都来自 Wikimedia Commons 文件页，source_url 不是伪造网址。</td></tr>
+        <tr><td>license</td><td>只收 <code>PDM-1.0</code> / <code>CC0-1.0</code> / <code>CC-BY-2.0/3.0/4.0</code>，不收 <code>CC-BY-SA</code>。</td></tr>
+        <tr><td>文件完整性</td><td>每张图统一转 PNG，manifest 记录 sha256，测试会重新读文件校验。</td></tr>
+        <tr><td>课程隔离</td><td>每个概念都有 train / held-out / contrast，held-out 不混进 train。</td></tr>
+        <tr><td>不污染旧证据</td><td>Phase 14 的 200 个合成资产 manifest 保持不变，真实照片使用独立 <code>real_manifest.yaml</code>。</td></tr>
+      </table>
+    </section>
+
+    <section class="boundary">
+      <h2>当前边界</h2>
+      <p>Phase 17 证明的是“真实照片资产白名单接入”成立，不宣称 AP 已经完整学会视觉识别，也不宣称已经拥有大规模真实数据集。下一步可以把这批真实照片接入更长课程回放，再逐步扩展到更多物体、场景、动作和声音。</p>
+    </section>
+  </main>
+</body>
+</html>

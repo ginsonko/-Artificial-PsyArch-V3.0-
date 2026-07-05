@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_3b76fb1c5605719d",
+  "concept": "cake",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_3b76fb1c5605719d.png",
+  "sha256": "3b76fb1c5605719d1e281fee068627cda5e168685f43f13543e28fe9d062801d",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/12803689@N02/4349226673",
+  "download_url": "https://api.openverse.org/v1/images/34c5b010-994d-48c8-b43b-b9df14cc647a/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "clevercupcakes",
+  "title": "Chocolate Mud Cake",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,265 @@
+{
+  "schema_id": "apv3_asset_manifest/v1",
+  "manifest_id": "phase17_real_visual_assets_v1",
+  "asset_origin_policy": "wikimedia_commons_allowlisted_real_photos",
+  "assets": [
+    {
+      "asset_id": "asset::real::noun_apple::train::0",
+      "path": "visual/real/noun_apple_train_0.png",
+      "media_type": "image/png",
+      "sha256": "57c5e390d967581c17a5cdc3a2b47d717396004be2e359b15983980986b75272",
+      "asset_origin": "cc_by",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Apple_Orchard_Row_with_Fruit_in_Winter_East_Hampton_New_York.jpg",
+      "license_id": "CC-BY-4.0",
+      "attribution": "Hayden Soloviev; File:Apple Orchard Row with Fruit in Winter East Hampton New York.jpg",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "real_photo",
+        "noun_apple"
+      ]
+    },
+    {
+      "asset_id": "asset::real::noun_apple::train::1",
+      "path": "visual/real/noun_apple_train_1.png",
+      "media_type": "image/png",
+      "sha256": "5d4c8fee69504fe0344f3f13881b02b4b089381f247a3417e2e1ab5b10519428",
+      "asset_origin": "cc_by",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Apple_Tree_Branches_with_Fruit_in_Winter_East_Hampton_New_York.jpg",
+      "license_id": "CC-BY-4.0",
+      "attribution": "Hayden Soloviev; File:Apple Tree Branches with Fruit in Winter East Hampton New York.jpg",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "real_photo",
+        "noun_apple"
+      ]
+    },
+    {
+      "asset_id": "asset::real::noun_apple::train::2",
+      "path": "visual/real/noun_apple_train_2.png",
+      "media_type": "image/png",
+      "sha256": "b4a74a15e3e4444ab48970dd1d3225a40eb5064d55332ea949d29e0780df9a9d",
+      "asset_origin": "cc_by",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Apple_Tree_with_Fruit_in_Winter_East_Hampton_New_York.jpg",
+      "license_id": "CC-BY-4.0",
+      "attribution": "Hayden Soloviev; File:Apple Tree with Fruit in Winter East Hampton New York.jpg",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "real_photo",
+        "noun_apple"
+      ]
+    },
+    {
+      "asset_id": "asset::real::noun_apple::held_out::0",
+      "path": "visual/real/noun_apple_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "ae74c371d0e06e25af9d4e0f363f82aa52782d562bf70b1e19a3fb17d8471279",
+      "asset_origin": "cc_by",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Apple_Tree_with_Fruit_in_Winter_East_Hampton_New_York_2.jpg",
+      "license_id": "CC-BY-4.0",
+      "attribution": "Hayden Soloviev; File:Apple Tree with Fruit in Winter East Hampton New York 2.jpg",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "real_photo",
+        "noun_apple"
+      ]
+    },
+    {
+      "asset_id": "asset::real::noun_apple::contrast::0",
+      "path": "visual/real/noun_apple_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "880411830c48538aaf7ac121d25dbc06788d19778826ca614e5dd075409c9881",
+      "asset_origin": "cc_by",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Banana_(53235211900).jpg",
+      "license_id": "CC-BY-2.0",
+      "attribution": "Michael Gaylard from Horsham, UK; File:Banana (53235211900).jpg",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "real_photo",
+        "noun_apple",
+        "contrast_source:noun_banana"
+      ]
+    },
+    {
+      "asset_id": "asset::real::noun_banana::train::0",
+      "path": "visual/real/noun_banana_train_0.png",
+      "media_type": "image/png",
+      "sha256": "880411830c48538aaf7ac121d25dbc06788d19778826ca614e5dd075409c9881",
+      "asset_origin": "cc_by",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Banana_(53235211900).jpg",
+      "license_id": "CC-BY-2.0",
+      "attribution": "Michael Gaylard from Horsham, UK; File:Banana (53235211900).jpg",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "real_photo",
+        "noun_banana"
+      ]
+    },
+    {
+      "asset_id": "asset::real::noun_banana::train::1",
+      "path": "visual/real/noun_banana_train_1.png",
+      "media_type": "image/png",
+      "sha256": "c8d854b89dcfcffc8bf882bde724253c8881d2bfa97ed708515ca9376a9c09a1",
+      "asset_origin": "public_domain",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Banana_Plantation_(1),_photograph_by_Brother_Bertram.jpg",
+      "license_id": "PDM-1.0",
+      "attribution": "Gabriel Bertram Bellinghausen; File:Banana Plantation (1), photograph by Brother Bertram.jpg",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "real_photo",
+        "noun_banana"
+      ]
+    },
+    {
+      "asset_id": "asset::real::noun_banana::train::2",
+      "path": "visual/real/noun_banana_train_2.png",
+      "media_type": "image/png",
+      "sha256": "3170b17aa3da59d4b87854f9be03f4eaa68d66e1951dea23362143539599d5dd",
+      "asset_origin": "public_domain",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Banana_Plantation_(2),_photograph_by_Brother_Bertram.jpg",
+      "license_id": "PDM-1.0",
+      "attribution": "Gabriel Bertram Bellinghausen; File:Banana Plantation (2), photograph by Brother Bertram.jpg",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "real_photo",
+        "noun_banana"
+      ]
+    },
+    {
+      "asset_id": "asset::real::noun_banana::held_out::0",
+      "path": "visual/real/noun_banana_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "f9e5269621eeced72678bb2d79b3713e63d141282887ab1b1070709d087eaa5e",
+      "asset_origin": "public_domain",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Banana_Plantation_(4),_photograph_by_Brother_Bertram.jpg",
+      "license_id": "PDM-1.0",
+      "attribution": "Gabriel Bertram Bellinghausen; File:Banana Plantation (4), photograph by Brother Bertram.jpg",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "real_photo",
+        "noun_banana"
+      ]
+    },
+    {
+      "asset_id": "asset::real::noun_banana::contrast::0",
+      "path": "visual/real/noun_banana_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "7430f023231595344c61b9336a2101ff1eafde103e628d09b836763ab8e39b6b",
+      "asset_origin": "public_domain",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Ambersweet_oranges.jpg",
+      "license_id": "PDM-1.0",
+      "attribution": "unknown; File:Ambersweet oranges.jpg",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "real_photo",
+        "noun_banana",
+        "contrast_source:noun_orange"
+      ]
+    },
+    {
+      "asset_id": "asset::real::noun_orange::train::0",
+      "path": "visual/real/noun_orange_train_0.png",
+      "media_type": "image/png",
+      "sha256": "7430f023231595344c61b9336a2101ff1eafde103e628d09b836763ab8e39b6b",
+      "asset_origin": "public_domain",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Ambersweet_oranges.jpg",
+      "license_id": "PDM-1.0",
+      "attribution": "unknown; File:Ambersweet oranges.jpg",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "real_photo",
+        "noun_orange"
+      ]
+    },
+    {
+      "asset_id": "asset::real::noun_orange::train::1",
+      "path": "visual/real/noun_orange_train_1.png",
+      "media_type": "image/png",
+      "sha256": "32d29b944ca83ae4542645d230ebe03509cff6d05968a2122c1890fd2bc7fae0",
+      "asset_origin": "public_domain",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Jaffa_orange_culture._Orange_tree_loaded_with_fruit_LOC_matpc.04985.jpg",
+      "license_id": "PDM-1.0",
+      "attribution": "Matson Collection; File:Jaffa orange culture. Orange tree loaded with fruit LOC matpc.04985.jpg",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "real_photo",
+        "noun_orange"
+      ]
+    },
+    {
+      "asset_id": "asset::real::noun_orange::train::2",
+      "path": "visual/real/noun_orange_train_2.png",
+      "media_type": "image/png",
+      "sha256": "dc3d8e9ed86a6a7187f7bbd9694732279a7404cb492a65a983918a4a26bdb01d",
+      "asset_origin": "cc0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Orange_citrus_fruit_pulp_juicy_453452.jpg",
+      "license_id": "CC0-1.0",
+      "attribution": "Anja (cocoparisienne); File:Orange citrus fruit pulp juicy 453452.jpg",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "real_photo",
+        "noun_orange"
+      ]
+    },
+    {
+      "asset_id": "asset::real::noun_orange::held_out::0",
+      "path": "visual/real/noun_orange_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "320da534d73ad9ac1108300f63026982b16053b1b3d965726896f6c49795bf36",
+      "asset_origin": "cc_by",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Orange_fruit.jpeg",
+      "license_id": "CC-BY-3.0",
+      "attribution": "Tshrinivasan; File:Orange fruit.jpeg",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "real_photo",
+        "noun_orange"
+      ]
+    },
+    {
+      "asset_id": "asset::real::noun_orange::contrast::0",
+      "path": "visual/real/noun_orange_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "57c5e390d967581c17a5cdc3a2b47d717396004be2e359b15983980986b75272",
+      "asset_origin": "cc_by",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Apple_Orchard_Row_with_Fruit_in_Winter_East_Hampton_New_York.jpg",
+      "license_id": "CC-BY-4.0",
+      "attribution": "Hayden Soloviev; File:Apple Orchard Row with Fruit in Winter East Hampton New York.jpg",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "real_photo",
+        "noun_orange",
+        "contrast_source:noun_apple"
+      ]
+    }
+  ]
+}

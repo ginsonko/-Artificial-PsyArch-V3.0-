@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase6.2 主动学习长期趋势</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --paper: #ffffff;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d7e0ea;
+      --blue: #2458a6;
+      --green: #087443;
+      --amber: #9a5b00;
+      --red: #b42318;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 56px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(27px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 12px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    code { background: #eef3f8; border: 1px solid #dce5ef; border-radius: 5px; padding: 1px 5px; font-family: Consolas, "Cascadia Mono", monospace; }
+    pre { margin: 10px 0; overflow: auto; background: #111827; color: #edf4ff; border-radius: 8px; padding: 14px; font-size: 13px; }
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; background: var(--paper); }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #eef3f8; }
+    .subtitle { color: var(--muted); max-width: 980px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--green); }
+    .warn { color: var(--amber); }
+    .bad { color: var(--red); }
+    .note { background: var(--paper); border-left: 4px solid var(--blue); padding: 12px 14px; margin: 14px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase6.2 主动学习长期趋势</h1>
+    <p class="subtitle">本阶段验证主动求教不是固定开关，而是随失败痕迹、成功经验、范式暴露和补习强度自然变化。LLM 标准教师仍只作为教师侧加速器，学生侧没有 LLM policy 或答案表。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">阶段状态</div>
+      <div class="value ok">Phase6.2 通过</div>
+      <p>长期趋势探针已落地。</p>
+    </div>
+    <div class="card">
+      <div class="label">目标测试</div>
+      <div class="value ok">4 passed</div>
+      <p>覆盖请求上升、请求下降、mastered 抑制和补习强度动态。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">146 passed</div>
+      <p>前序能力保持稳定。</p>
+    </div>
+    <div class="card">
+      <div class="label">纠偏</div>
+      <div class="value warn">状态隔离修复</div>
+      <p><code>observe()</code> 改为深拷贝，避免后续 tick 回写历史结果。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>设计循环</h2>
+    <table>
+      <tr><th>环节</th><th>本阶段内容</th></tr>
+      <tr><td>设计</td><td>用失败痕迹、成功观察、范式暴露和补习强度验证主动学习趋势。</td></tr>
+      <tr><td>审查完善</td><td>确认趋势必须来自 AP-native evidence，不用固定 suppress、不用答案表。</td></tr>
+      <tr><td>通过落地</td><td>新增 <code>test_phase6_2_active_learning_trend.py</code>，修复 <code>active_teacher_request.py</code> 浅拷贝。</td></tr>
+      <tr><td>严谨验收测试</td><td>目标、组合、全量测试和红线扫描全部通过。</td></tr>
+      <tr><td>最终汇总报告</td><td>明确成功样例、失败样例、边界和下一步。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>趋势样例一：失败推动求教</h2>
+    <pre><code>cue = goal::ask
+context = ctx_work
+failed ticks = 1, 20, 40
+
+failure_count = 3
+teacher_request = generated
+teacher_request.energy.P = 1.0
+teacher_request.energy.A = 1.0</code></pre>
+    <p>含义：反复失败让求教压力进入状态池，但能量有上限，不会无限堆叠。</p>
+  </section>
+
+  <section>
+    <h2>趋势样例二：成功让请求下降</h2>
+    <pre><code>失败两次: failure_count = 2
+成功一次: failure_count = 1
+再成功一次: failure_count = 0
+
+request = None
+suppressed_reason = below_request_threshold</code></pre>
+    <p>含义：请求下降不是硬压，而是成功经验让失败 trace 自然回落。</p>
+  </section>
+
+  <section>
+    <h2>趋势样例三：教师补习后 mastered</h2>
+    <pre><code>teacher_request generated
+llm_standard_teacher -> CurriculumRemediationLoop
+goal::ask -> teacher::answer
+
+validation success = True
+after_mastery.request = None
+after_mastery.suppressed_reason = mastered_expected_pid
+state has no llm_policy
+state has no answer_table</code></pre>
+    <p>含义：LLM 可以作为老师加速，但学到的内容仍是 AP-native evidence，学生侧运行态不保存 LLM 策略。</p>
+  </section>
+
+  <section>
+    <h2>趋势样例四：补习强度动态</h2>
+    <table>
+      <tr><th>掌握状态</th><th>evidence_repeats</th><th>remediation_intensity</th><th>含义</th></tr>
+      <tr><td>冷启动</td><td>2</td><td>1.0</td><td>证据不足，需要强补习。</td></tr>
+      <tr><td>已暴露范式</td><td>1</td><td>0.5</td><td>已有技能，只需弱补强。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>失败样例与修复</h2>
+    <div class="note">
+      首次 Phase6.2 目标测试失败，因为 <code>observe()</code> 使用浅拷贝，后一次成功观察会回写前一次结果里的嵌套 <code>active_learning_failures</code>。修复为 <code>deepcopy(dict(state))</code> 后，历史 tick 的趋势记录可以独立审计。
+    </div>
+  </section>
+
+  <section>
+    <h2>验收命令</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase6_2_active_learning_trend.py -q
+4 passed in 0.31s
+
+python -m pytest APV3.0test\tests\test_phase6_0_active_teacher_request.py APV3.0test\tests\test_phase6_1_active_learning_bridge.py APV3.0test\tests\test_phase6_2_active_learning_trend.py -q
+13 passed in 0.37s
+
+python -m pytest APV3.0test\tests -q
+146 passed in 3.37s</code></pre>
+  </section>
+
+  <section>
+    <h2>边界</h2>
+    <ul>
+      <li>仍不能宣称完整主动课程规划完成。</li>
+      <li>仍不能宣称 AP 已能自主选择最合适的教师。</li>
+      <li>仍不能宣称自由中文开放对话底座已经完成。</li>
+      <li>本阶段证明的是主动求教趋势和补习强度动态已经具备最小闭环。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>下一步</h2>
+    <p>建议进入 Phase6.3：把 <code>teacher_request</code> 接到标准教学协议选择器，让请求携带 cue/context/失败诊断/压力来源，生成教师侧 episode proposal，再由 AP-native teaching episode 回灌学习。</p>
+  </section>
+</main>
+</body>
+</html>

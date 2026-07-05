@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_c86e03b7e510b08d",
+  "concept": "cup",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_c86e03b7e510b08d.png",
+  "sha256": "c86e03b7e510b08dd61df539c3c9b5464bb0ee631fab66fa6290db89da4b096d",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/54117856@N08/5165249012",
+  "download_url": "https://api.openverse.org/v1/images/d82855a8-37a1-444b-8d36-c76a63748744/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "AhmadHammoud",
+  "title": "Hello Ink",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

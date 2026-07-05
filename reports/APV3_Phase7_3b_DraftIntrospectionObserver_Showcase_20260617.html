@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>APV3 Phase7.3b Draft Introspection Observer</title>
+  <style>
+    body { font-family: "Microsoft YaHei", Arial, sans-serif; margin: 32px; line-height: 1.58; color: #1f2933; background: #f7f8fa; }
+    main { max-width: 980px; margin: 0 auto; background: #fff; padding: 28px 32px; border: 1px solid #d8dee8; }
+    h1 { font-size: 24px; margin: 0 0 12px; }
+    h2 { font-size: 18px; margin-top: 26px; border-bottom: 1px solid #e5e9f0; padding-bottom: 6px; }
+    code, pre { font-family: Consolas, monospace; }
+    pre { background: #f2f5f8; padding: 12px; overflow-x: auto; border: 1px solid #dde3ea; }
+    .ok { color: #0f6b3d; font-weight: 700; }
+    .warn { color: #8a5a00; font-weight: 700; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    th, td { border: 1px solid #d8dee8; padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: #eef2f6; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>APV3 Phase7.3b 草稿内省原型 Observer-only</h1>
+  <p class="ok">状态: 通过。目标测试 11 passed, Phase7.0-7.2 回归 7 passed, 全量 191 passed。</p>
+
+  <h2>本阶段做了什么</h2>
+  <p>新增 observer-only 内省原型机制:从草稿结构事实派生 draft-introspection feeling,写入 <code>introspection_feelings</code> 子池,不改变当前对话发声路径。</p>
+
+  <h2>成功样例</h2>
+  <table>
+    <tr><th>样例</th><th>结果</th></tr>
+    <tr><td>未填 slot 后出现 shared fragment</td><td>自动产生 <code>draft_introspection_feeling</code>,并标记 <code>draft_commit_blocked=True</code></td></tr>
+    <tr><td>同结构不同内容</td><td>复用同一原型 label,验证看结构而不是看 token 内容</td></tr>
+    <tr><td>单旧原型 + 远距离 phi</td><td>能 spawn 新原型,不被 softmax 单原型响应吸附</td></tr>
+    <tr><td>mu 漂移</td><td>prototype id 保持稳定</td></tr>
+    <tr><td>warm-load 后旧原型已驱逐</td><td><code>next_id</code> 不回退,不重用旧 label</td></tr>
+  </table>
+
+  <h2>验收命令</h2>
+  <pre>python -m pytest APV3.0test\tests\test_phase7_3b_draft_introspection_observer.py -q
+python -m pytest APV3.0test\tests\test_phase7_0_teacher_off_three_stage_milestone.py APV3.0test\tests\test_phase7_1_undecidable_shared_fragment.py APV3.0test\tests\test_phase7_2_learned_uncertainty_expression.py -q
+python -m pytest APV3.0test\tests -q</pre>
+
+  <h2>边界</h2>
+  <p class="warn">这不是完整 learned uncertainty expression。Phase7.3b 尚未实现共现关联 store、reply_pressure、expression recall/rebind 或跨模态 adapter 验收。</p>
+
+  <h2>下一步</h2>
+  <p>Phase7.3c:实现 <code>CooccurrenceAssociationStore</code>,验证 feeling-expression 共现关联、干扰 token 区分、SQLite warm-load parity 和 prototype retire_label 对称清理。</p>
+</main>
+</body>
+</html>
+

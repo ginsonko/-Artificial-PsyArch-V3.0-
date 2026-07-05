@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_902e9078dfbf3f72",
+  "concept": "grape",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_902e9078dfbf3f72.png",
+  "sha256": "902e9078dfbf3f72d9cb124f90efd6d370a47ac1798ce0e379de40113ea76d17",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/52532834@N00/127551550",
+  "download_url": "https://api.openverse.org/v1/images/2056db8a-f605-4b5e-a92e-a0deca20e55d/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "farlane",
+  "title": "Red Grapes",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

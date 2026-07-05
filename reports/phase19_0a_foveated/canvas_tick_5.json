@@ -1,0 +1,12 @@
+{
+  "canvas_clarity_mean": 0.07459292560815811,
+  "canvas_confidence_mean": 0.07459292560815811,
+  "clarity_coverage": 0.0190640625,
+  "epistemic_source": "PERCEIVED_SENSORY_SKETCH",
+  "evaluator_label_accessed": false,
+  "patch_native_resolution": true,
+  "phase19_0a": true,
+  "receptor_version": "phase19_0a_foveated",
+  "render_mode": "sensory_sketch",
+  "source_image_hash": "186d7467f4e3958baa8824b3726a36f1c83044f68c5c2b8a440c5570c6594fcb"
+}

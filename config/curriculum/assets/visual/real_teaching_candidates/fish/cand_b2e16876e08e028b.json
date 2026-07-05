@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_b2e16876e08e028b",
+  "concept": "fish",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_b2e16876e08e028b.png",
+  "sha256": "b2e16876e08e028b48d9226a988ff8761b678e5ce9eaf19b1d83542ee3183925",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/27784370@N05/16968775178",
+  "download_url": "https://api.openverse.org/v1/images/0d635e4c-f0f2-41a5-b7a2-30795056525e/thumb/",
+  "license_id": "CC0-1.0",
+  "author": "U.S. Geological Survey",
+  "title": "Protecting Tranquilized Bea",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

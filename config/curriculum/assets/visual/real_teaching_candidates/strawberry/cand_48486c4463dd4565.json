@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_48486c4463dd4565",
+  "concept": "strawberry",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_48486c4463dd4565.png",
+  "sha256": "48486c4463dd4565c8c8bd2d8ffcd9acd39477283470aef9e7c21ed33d38c52c",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/83346641@N00/8677455872",
+  "download_url": "https://api.openverse.org/v1/images/2ac56054-1876-4db4-8d5a-3dec5dd1f2c8/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "JD Hancock",
+  "title": "Berry Hard Work Setup (2/11)",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

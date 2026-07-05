@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_f5e67219aebe9394",
+  "concept": "grape",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_f5e67219aebe9394.png",
+  "sha256": "f5e67219aebe9394620181b6ff8332493a3eac33f80686484b04e373b0321092",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/46210293@N08/6835629512",
+  "download_url": "https://api.openverse.org/v1/images/593a4c0b-22af-401c-9fca-fbf1d4178e16/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "rolfekolbe",
+  "title": "fRUitsALad yUMmy yumMy",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

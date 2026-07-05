@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_f05ea50a92380a75",
+  "concept": "apple",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_f05ea50a92380a75.png",
+  "sha256": "f05ea50a92380a7507daecf399d1656a20f3914841cd66c67719f24c6d14ec63",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/147592390@N06/46763463785",
+  "download_url": "https://api.openverse.org/v1/images/ff073797-1e3b-4f67-aa85-4dd1431c7790/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "John Beans",
+  "title": "red apple fruit on four pyle books - Credit to https://myfriendscoffee.com/",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 19.0：视觉感受器和内心草图</title>
+  <style>
+    :root {
+      --bg: #f4f6f4;
+      --paper: #ffffff;
+      --ink: #17211d;
+      --muted: #64736d;
+      --line: #dbe4df;
+      --accent: #2f6f5e;
+      --accent-soft: #e7f3ee;
+      --warn: #fff7e4;
+      --blue: #245a8f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif;
+      line-height: 1.62;
+      letter-spacing: 0;
+    }
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      padding: 38px 22px 24px;
+    }
+    main, .hero { max-width: 1180px; margin: 0 auto; }
+    main { padding: 20px; }
+    h1 { margin: 0 0 10px; font-size: 34px; line-height: 1.2; }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    h3 { margin: 0 0 8px; font-size: 17px; }
+    p { margin: 8px 0; color: var(--muted); }
+    .lead { max-width: 940px; color: #263630; font-size: 17px; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .pill {
+      border: 1px solid #bfd8cf;
+      background: var(--accent-soft);
+      color: #1f4a41;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 13px;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      margin: 14px 0;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fbfdfc;
+    }
+    .metric b { display: block; color: var(--blue); font-size: 26px; }
+    .metric span { color: var(--muted); font-size: 13px; }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .flow div {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      min-height: 110px;
+      background: #fbfdfc;
+    }
+    .flow b { display: block; color: var(--accent); margin-bottom: 4px; }
+    .example {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .images {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    figure {
+      margin: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfdfc;
+      padding: 8px;
+    }
+    figure img {
+      width: 100%;
+      height: 172px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 6px;
+      display: block;
+    }
+    figcaption { color: var(--muted); font-size: 12px; margin-top: 6px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 8px; text-align: left; vertical-align: top; }
+    th { color: var(--muted); background: #fbfdfc; }
+    td:first-child { color: var(--blue); font-weight: 700; white-space: nowrap; }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      border: 1px solid #d8e2de;
+      background: #f0f4f2;
+      border-radius: 6px;
+      padding: 1px 5px;
+      overflow-wrap: anywhere;
+    }
+    .boundary { background: var(--warn); }
+    @media (max-width: 980px) {
+      h1 { font-size: 26px; }
+      .metric-grid, .flow, .example, .images { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <h1>APV3 Phase 19.0：视觉感受器和内心草图</h1>
+      <p class="lead">这一阶段补的是“眼睛”和“内心画面回放”的地基：AP 不再只拿到粗颜色/粗形状，而是把一张图拆成 V0..V12 共 8654 维感受轨迹；同时把感知草图 <code>sensory_sketch</code> 和原型想象 <code>prototype_imagination</code> 分开渲染，避免把“看到的”和“想到的”混成一件事。</p>
+      <div class="pill-row">
+        <span class="pill">V0..V12 = 8654 维</span>
+        <span class="pill">fast path p95 = 2.10 ms</span>
+        <span class="pill">sensory/proto 源分离</span>
+        <span class="pill">不证明 AP 已经会识别真实照片</span>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section>
+      <h2>这次证明了什么</h2>
+      <div class="metric-grid">
+        <div class="metric"><b>8654</b><span>单张视觉 audit trace 的固定维度</span></div>
+        <div class="metric"><b>4544</b><span>V0 近原始视网膜通道维度</span></div>
+        <div class="metric"><b>2.10ms</b><span>已准备小帧上的 fast path p95</span></div>
+        <div class="metric"><b>2</b><span>渲染模式：感知草图 / 原型想象</span></div>
+      </div>
+      <p>这一步解决的是前面真实照片泛化假阳性的根部问题之一：AP 先要有足够丰富、可审计、可回放的视觉感受轨迹。后续 19.2 才会接拟人把握感公式，19.3 才会重新做真实照片视觉-only 探测。</p>
+    </section>
+
+    <section>
+      <h2>AP 看到一张图时发生了什么</h2>
+      <div class="flow">
+        <div><b>tick 快扫</b>fast path 只处理已准备的小帧，抽取粗颜色、粗边缘、粗布局，不渲染。</div>
+        <div><b>audit 细看</b>按 V0..V12 采集 8654 维特征，包含低分辨率全局图、焦点 patch、颜色、纹理、边缘、形状、局部部件和颜色块空间分布。</div>
+        <div><b>感知草图</b><code>R_sketch</code> 只从输入 trace 渲染，代表“我看到的大概样子”。</div>
+        <div><b>原型想象</b><code>R_proto</code> 从原型/特征摘要渲染，代表“我脑补的典型样子”。</div>
+        <div><b>来源审计</b>metadata 强制记录 <code>epistemic_source</code>、hash、confidence_score/tier，且不访问 evaluator label。</div>
+      </div>
+    </section>
+
+    
+    <section>
+      <h2>样例 1：输入图像到内心草图</h2>
+      <div class="example">
+        <div class="images">
+          <figure>
+            <img src="phase19_0_inner_picture/example_1_input.png" alt="输入图像 1">
+            <figcaption>输入图像：仅作为像素来源，AP trace 不读取文件名语义。</figcaption>
+          </figure>
+          <figure>
+            <img src="phase19_0_inner_picture/example_1_sensory.png" alt="sensory sketch 1">
+            <figcaption><code>sensory_sketch</code>：从输入 trace 渲染。</figcaption>
+          </figure>
+          <figure>
+            <img src="phase19_0_inner_picture/example_1_proto.png" alt="prototype imagination 1">
+            <figcaption><code>prototype_imagination</code>：原型想象草图。</figcaption>
+          </figure>
+        </div>
+        <div>
+          <h3>审计 metadata 摘要</h3>
+          <table>
+            <tr><td>feature_vector_dim</td><td>8654</td></tr>
+            <tr><td>V0..V12</td><td>{&#x27;V0&#x27;: 4544, &#x27;V1&#x27;: 288, &#x27;V2&#x27;: 1536, &#x27;V3&#x27;: 1110, &#x27;V4&#x27;: 296, &#x27;V5&#x27;: 16, &#x27;V6&#x27;: 40, &#x27;V7&#x27;: 320, &#x27;V8&#x27;: 5, &#x27;V9&#x27;: 3, &#x27;V10&#x27;: 384, &#x27;V11&#x27;: 64, &#x27;V12&#x27;: 48}</td></tr>
+            <tr><td>render_mode</td><td><code>sensory_sketch</code></td></tr>
+            <tr><td>epistemic_source</td><td><code>PERCEIVED_SENSORY_SKETCH</code></td></tr>
+            <tr><td>evaluator_label_accessed</td><td>False</td></tr>
+            <tr><td>decision_tier</td><td><code>no_call</code>（19.2 前固定不判断）</td></tr>
+            <tr><td>input_trace_hash</td><td><code>8d90a8500a55364d8a6c66b6...</code></td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+
+    <section>
+      <h2>样例 2：输入图像到内心草图</h2>
+      <div class="example">
+        <div class="images">
+          <figure>
+            <img src="phase19_0_inner_picture/example_2_input.png" alt="输入图像 2">
+            <figcaption>输入图像：仅作为像素来源，AP trace 不读取文件名语义。</figcaption>
+          </figure>
+          <figure>
+            <img src="phase19_0_inner_picture/example_2_sensory.png" alt="sensory sketch 2">
+            <figcaption><code>sensory_sketch</code>：从输入 trace 渲染。</figcaption>
+          </figure>
+          <figure>
+            <img src="phase19_0_inner_picture/example_2_proto.png" alt="prototype imagination 2">
+            <figcaption><code>prototype_imagination</code>：原型想象草图。</figcaption>
+          </figure>
+        </div>
+        <div>
+          <h3>审计 metadata 摘要</h3>
+          <table>
+            <tr><td>feature_vector_dim</td><td>8654</td></tr>
+            <tr><td>V0..V12</td><td>{&#x27;V0&#x27;: 4544, &#x27;V1&#x27;: 288, &#x27;V2&#x27;: 1536, &#x27;V3&#x27;: 1110, &#x27;V4&#x27;: 296, &#x27;V5&#x27;: 16, &#x27;V6&#x27;: 40, &#x27;V7&#x27;: 320, &#x27;V8&#x27;: 5, &#x27;V9&#x27;: 3, &#x27;V10&#x27;: 384, &#x27;V11&#x27;: 64, &#x27;V12&#x27;: 48}</td></tr>
+            <tr><td>render_mode</td><td><code>sensory_sketch</code></td></tr>
+            <tr><td>epistemic_source</td><td><code>PERCEIVED_SENSORY_SKETCH</code></td></tr>
+            <tr><td>evaluator_label_accessed</td><td>False</td></tr>
+            <tr><td>decision_tier</td><td><code>no_call</code>（19.2 前固定不判断）</td></tr>
+            <tr><td>input_trace_hash</td><td><code>6028d775a81f92320f612a1f...</code></td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+
+    <section>
+      <h2>样例 3：输入图像到内心草图</h2>
+      <div class="example">
+        <div class="images">
+          <figure>
+            <img src="phase19_0_inner_picture/example_3_input.png" alt="输入图像 3">
+            <figcaption>输入图像：仅作为像素来源，AP trace 不读取文件名语义。</figcaption>
+          </figure>
+          <figure>
+            <img src="phase19_0_inner_picture/example_3_sensory.png" alt="sensory sketch 3">
+            <figcaption><code>sensory_sketch</code>：从输入 trace 渲染。</figcaption>
+          </figure>
+          <figure>
+            <img src="phase19_0_inner_picture/example_3_proto.png" alt="prototype imagination 3">
+            <figcaption><code>prototype_imagination</code>：原型想象草图。</figcaption>
+          </figure>
+        </div>
+        <div>
+          <h3>审计 metadata 摘要</h3>
+          <table>
+            <tr><td>feature_vector_dim</td><td>8654</td></tr>
+            <tr><td>V0..V12</td><td>{&#x27;V0&#x27;: 4544, &#x27;V1&#x27;: 288, &#x27;V2&#x27;: 1536, &#x27;V3&#x27;: 1110, &#x27;V4&#x27;: 296, &#x27;V5&#x27;: 16, &#x27;V6&#x27;: 40, &#x27;V7&#x27;: 320, &#x27;V8&#x27;: 5, &#x27;V9&#x27;: 3, &#x27;V10&#x27;: 384, &#x27;V11&#x27;: 64, &#x27;V12&#x27;: 48}</td></tr>
+            <tr><td>render_mode</td><td><code>sensory_sketch</code></td></tr>
+            <tr><td>epistemic_source</td><td><code>PERCEIVED_SENSORY_SKETCH</code></td></tr>
+            <tr><td>evaluator_label_accessed</td><td>False</td></tr>
+            <tr><td>decision_tier</td><td><code>no_call</code>（19.2 前固定不判断）</td></tr>
+            <tr><td>input_trace_hash</td><td><code>b36df6d1873eecb8c68d6f2d...</code></td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+
+    <section>
+      <h2>样例 4：输入图像到内心草图</h2>
+      <div class="example">
+        <div class="images">
+          <figure>
+            <img src="phase19_0_inner_picture/example_4_input.png" alt="输入图像 4">
+            <figcaption>输入图像：仅作为像素来源，AP trace 不读取文件名语义。</figcaption>
+          </figure>
+          <figure>
+            <img src="phase19_0_inner_picture/example_4_sensory.png" alt="sensory sketch 4">
+            <figcaption><code>sensory_sketch</code>：从输入 trace 渲染。</figcaption>
+          </figure>
+          <figure>
+            <img src="phase19_0_inner_picture/example_4_proto.png" alt="prototype imagination 4">
+            <figcaption><code>prototype_imagination</code>：原型想象草图。</figcaption>
+          </figure>
+        </div>
+        <div>
+          <h3>审计 metadata 摘要</h3>
+          <table>
+            <tr><td>feature_vector_dim</td><td>8654</td></tr>
+            <tr><td>V0..V12</td><td>{&#x27;V0&#x27;: 4544, &#x27;V1&#x27;: 288, &#x27;V2&#x27;: 1536, &#x27;V3&#x27;: 1110, &#x27;V4&#x27;: 296, &#x27;V5&#x27;: 16, &#x27;V6&#x27;: 40, &#x27;V7&#x27;: 320, &#x27;V8&#x27;: 5, &#x27;V9&#x27;: 3, &#x27;V10&#x27;: 384, &#x27;V11&#x27;: 64, &#x27;V12&#x27;: 48}</td></tr>
+            <tr><td>render_mode</td><td><code>sensory_sketch</code></td></tr>
+            <tr><td>epistemic_source</td><td><code>PERCEIVED_SENSORY_SKETCH</code></td></tr>
+            <tr><td>evaluator_label_accessed</td><td>False</td></tr>
+            <tr><td>decision_tier</td><td><code>no_call</code>（19.2 前固定不判断）</td></tr>
+            <tr><td>input_trace_hash</td><td><code>8e74a0723e0d7d3abfe64f70...</code></td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+
+    <section>
+      <h2>样例 5：输入图像到内心草图</h2>
+      <div class="example">
+        <div class="images">
+          <figure>
+            <img src="phase19_0_inner_picture/example_5_input.png" alt="输入图像 5">
+            <figcaption>输入图像：仅作为像素来源，AP trace 不读取文件名语义。</figcaption>
+          </figure>
+          <figure>
+            <img src="phase19_0_inner_picture/example_5_sensory.png" alt="sensory sketch 5">
+            <figcaption><code>sensory_sketch</code>：从输入 trace 渲染。</figcaption>
+          </figure>
+          <figure>
+            <img src="phase19_0_inner_picture/example_5_proto.png" alt="prototype imagination 5">
+            <figcaption><code>prototype_imagination</code>：原型想象草图。</figcaption>
+          </figure>
+        </div>
+        <div>
+          <h3>审计 metadata 摘要</h3>
+          <table>
+            <tr><td>feature_vector_dim</td><td>8654</td></tr>
+            <tr><td>V0..V12</td><td>{&#x27;V0&#x27;: 4544, &#x27;V1&#x27;: 288, &#x27;V2&#x27;: 1536, &#x27;V3&#x27;: 1110, &#x27;V4&#x27;: 296, &#x27;V5&#x27;: 16, &#x27;V6&#x27;: 40, &#x27;V7&#x27;: 320, &#x27;V8&#x27;: 5, &#x27;V9&#x27;: 3, &#x27;V10&#x27;: 384, &#x27;V11&#x27;: 64, &#x27;V12&#x27;: 48}</td></tr>
+            <tr><td>render_mode</td><td><code>sensory_sketch</code></td></tr>
+            <tr><td>epistemic_source</td><td><code>PERCEIVED_SENSORY_SKETCH</code></td></tr>
+            <tr><td>evaluator_label_accessed</td><td>False</td></tr>
+            <tr><td>decision_tier</td><td><code>no_call</code>（19.2 前固定不判断）</td></tr>
+            <tr><td>input_trace_hash</td><td><code>42bfc5c0e6dbf929ba89e25e...</code></td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+
+    <section>
+      <h2>样例 6：输入图像到内心草图</h2>
+      <div class="example">
+        <div class="images">
+          <figure>
+            <img src="phase19_0_inner_picture/example_6_input.png" alt="输入图像 6">
+            <figcaption>输入图像：仅作为像素来源，AP trace 不读取文件名语义。</figcaption>
+          </figure>
+          <figure>
+            <img src="phase19_0_inner_picture/example_6_sensory.png" alt="sensory sketch 6">
+            <figcaption><code>sensory_sketch</code>：从输入 trace 渲染。</figcaption>
+          </figure>
+          <figure>
+            <img src="phase19_0_inner_picture/example_6_proto.png" alt="prototype imagination 6">
+            <figcaption><code>prototype_imagination</code>：原型想象草图。</figcaption>
+          </figure>
+        </div>
+        <div>
+          <h3>审计 metadata 摘要</h3>
+          <table>
+            <tr><td>feature_vector_dim</td><td>8654</td></tr>
+            <tr><td>V0..V12</td><td>{&#x27;V0&#x27;: 4544, &#x27;V1&#x27;: 288, &#x27;V2&#x27;: 1536, &#x27;V3&#x27;: 1110, &#x27;V4&#x27;: 296, &#x27;V5&#x27;: 16, &#x27;V6&#x27;: 40, &#x27;V7&#x27;: 320, &#x27;V8&#x27;: 5, &#x27;V9&#x27;: 3, &#x27;V10&#x27;: 384, &#x27;V11&#x27;: 64, &#x27;V12&#x27;: 48}</td></tr>
+            <tr><td>render_mode</td><td><code>sensory_sketch</code></td></tr>
+            <tr><td>epistemic_source</td><td><code>PERCEIVED_SENSORY_SKETCH</code></td></tr>
+            <tr><td>evaluator_label_accessed</td><td>False</td></tr>
+            <tr><td>decision_tier</td><td><code>no_call</code>（19.2 前固定不判断）</td></tr>
+            <tr><td>input_trace_hash</td><td><code>f4007ac5deb4da0f583f114c...</code></td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+
+    <section class="boundary">
+      <h2>边界说明</h2>
+      <p>Phase 19.0 不证明 AP 已经会识别真实照片，不证明“苹果/香蕉/橙子”泛化成功，也不实现 19.2 的拟人把握感公式、19.3 的 stratified LOO 探测、19.1 的听觉感受器或 19.5 的 source-aware feedback。它只把视觉通道、内心画面和来源审计地基补齐。</p>
+    </section>
+  </main>
+</body>
+</html>

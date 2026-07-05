@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_bbc197058125d97a",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_bbc197058125d97a.png",
+  "sha256": "bbc197058125d97a4c9abccf1f859f57c50fb2c9f9ce2a7edd82e60037db929f",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/30346812@N07/6831071185",
+  "download_url": "https://api.openverse.org/v1/images/9cc94d27-1c9d-42a7-b2f7-6d2ab7b0d115/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Orange County Archives",
+  "title": "Orange grove in Santa Ana Canyon, near what's now 5035 E Gerda Dr., Anaheim, 1961",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

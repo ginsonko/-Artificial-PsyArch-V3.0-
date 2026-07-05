@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_2f2b09c614c41fd9",
+  "concept": "grape",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_2f2b09c614c41fd9.png",
+  "sha256": "2f2b09c614c41fd974932d121d979473f0acca604b92fb53dc1e4090ac83b96e",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/125352975@N03/14999085362",
+  "download_url": "https://api.openverse.org/v1/images/9aaac628-1630-47d7-aaf4-32a322c808a1/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Delaware Cooperative Extension",
+  "title": "Grapes grown at University of Delaware",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

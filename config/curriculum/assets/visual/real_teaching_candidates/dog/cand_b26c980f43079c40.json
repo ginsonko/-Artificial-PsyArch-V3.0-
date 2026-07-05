@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_b26c980f43079c40",
+  "concept": "dog",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_b26c980f43079c40.png",
+  "sha256": "b26c980f43079c4043a97aad1adf0098a252e308da54045f1ad36aee28b85bf3",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/61135621@N03/13740092405",
+  "download_url": "https://api.openverse.org/v1/images/da8b8590-592d-4aa8-8208-1816cf608ec4/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "MTAPhotos",
+  "title": "Dog Rescued from Metro-North Tracks",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

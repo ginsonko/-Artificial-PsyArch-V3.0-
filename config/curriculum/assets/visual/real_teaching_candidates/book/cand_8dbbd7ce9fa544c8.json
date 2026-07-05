@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_8dbbd7ce9fa544c8",
+  "concept": "book",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_8dbbd7ce9fa544c8.png",
+  "sha256": "8dbbd7ce9fa544c8df635bae6139ac23fdd93b86230e823e06216c8785b979e3",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/44124348109@N01/14861564463",
+  "download_url": "https://api.openverse.org/v1/images/a3c8b338-a8ab-4201-ba64-98d63fa618e0/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "jurvetson",
+  "title": "At the Space Dynamics Laboratory, the WISE infrared space telescope uses solid hydrogen!",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

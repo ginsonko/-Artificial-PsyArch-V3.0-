@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 19.9：Zvec 向量召回索引</title>
+  <style>
+    body{margin:0;font-family:"Microsoft YaHei","Segoe UI",Arial,sans-serif;background:#f6f7f5;color:#17211d;line-height:1.65}
+    header,main{max-width:1040px;margin:0 auto;padding:24px}
+    section{background:white;border:1px solid #dce4df;border-radius:8px;padding:18px;margin:14px 0}
+    table{width:100%;border-collapse:collapse} th,td{border-bottom:1px solid #dce4df;padding:8px;text-align:left}
+    code{background:#edf4f0;border-radius:5px;padding:1px 5px}
+  </style>
+</head>
+<body>
+<header>
+  <h1>APV3 Phase 19.9：Zvec 向量召回索引</h1>
+  <p>这一页展示的是召回加速底座：Zvec 或 fallback 只返回 PerceptVector UUID 候选，不返回 label，也不是 AP 的识别结论。</p>
+</header>
+<main>
+  <section>
+    <h2>索引状态</h2>
+    <p>backend: <code>zvec</code>; indexed_count: <code>64</code>; fallback_available: <code>True</code>; rebuildable_from_truth: <code>True</code></p>
+    <p>Zvec topK 与 brute-force topK 是否一致: <code>True</code></p>
+  </section>
+  <section>
+    <h2>召回候选</h2>
+    <table><thead><tr><th>rank</th><th>vector_uuid</th><th>score</th><th>source</th><th>substrate</th><th>receptor_version</th></tr></thead><tbody><tr><td>1</td><td>pv_showcase_0002</td><td>1.0000</td><td>PERCEIVED</td><td>EXTERNAL_VISUAL</td><td>phase19_0a_foveated</td></tr>
+<tr><td>2</td><td>pv_showcase_0020</td><td>0.9883</td><td>PERCEIVED</td><td>EXTERNAL_VISUAL</td><td>phase19_0a_foveated</td></tr>
+<tr><td>3</td><td>pv_showcase_003e</td><td>0.9768</td><td>PERCEIVED</td><td>EXTERNAL_VISUAL</td><td>phase19_0a_foveated</td></tr>
+<tr><td>4</td><td>pv_showcase_0010</td><td>0.9014</td><td>PERCEIVED</td><td>EXTERNAL_VISUAL</td><td>phase19_0a_foveated</td></tr>
+<tr><td>5</td><td>pv_showcase_002e</td><td>0.8913</td><td>PERCEIVED</td><td>EXTERNAL_VISUAL</td><td>phase19_0a_foveated</td></tr></tbody></table>
+  </section>
+  <section>
+    <h2>边界</h2>
+    <p>Phase 19.9 不证明视觉识别更聪明，不证明真实照片泛化完成，也不把 Zvec 变成分类器。它只证明 Layer-1 向量召回可以用派生索引加速，并且删除索引后能从真源重建。</p>
+  </section>
+</main>
+</body>
+</html>

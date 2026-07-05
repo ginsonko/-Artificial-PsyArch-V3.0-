@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 11 元认知层验收展示</title>
+  <style>
+    :root { --bg:#f4f7f6; --panel:#fff; --ink:#17211d; --muted:#607168; --line:#d9e3dd; --green:#0f766e; --blue:#245a8f; --gold:#8a6418; --soft-green:#e8f6ef; --soft-blue:#e8f1fb; --soft-gold:#fff4d8; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif; line-height:1.72; letter-spacing:0; }
+    main { width:min(1220px, calc(100% - 44px)); margin:24px auto; background:var(--panel); border:1px solid var(--line); box-shadow:0 18px 45px rgba(30,44,64,.08); }
+    header { padding:36px 44px 28px; border-bottom:1px solid var(--line); background:linear-gradient(180deg,#fff 0%,#f8fbfa 100%); }
+    section { padding:28px 44px; border-bottom:1px solid var(--line); }
+    section:last-child { border-bottom:0; }
+    h1 { margin:0; font-size:31px; line-height:1.24; }
+    h2 { margin:0 0 12px; font-size:22px; }
+    h3 { margin:0 0 8px; font-size:16px; color:var(--blue); }
+    p { margin:8px 0; }
+    code { font-family:Consolas,"Courier New",monospace; background:#f2f5f7; border:1px solid #e1e7ee; border-radius:4px; padding:1px 5px; }
+    .subtitle { max-width:980px; color:var(--muted); font-size:16px; margin-top:12px; }
+    .status { display:inline-block; margin-top:18px; padding:7px 12px; color:var(--green); background:var(--soft-green); border:1px solid #bfe6d1; border-radius:6px; font-weight:700; }
+    .grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; margin-top:14px; }
+    .card { border:1px solid var(--line); border-radius:8px; padding:15px; background:#fbfdfc; min-height:158px; }
+    .card strong { display:block; color:var(--green); font-size:19px; line-height:1.25; margin-bottom:8px; }
+    .card small { display:block; color:var(--muted); margin-top:8px; font-family:Consolas,"Courier New",monospace; }
+    .flow { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; margin-top:14px; }
+    .step { border:1px solid var(--line); border-radius:8px; padding:12px; background:var(--soft-blue); min-height:112px; }
+    .step b { color:var(--blue); display:block; margin-bottom:5px; }
+    .callout { border-left:4px solid var(--gold); background:var(--soft-gold); padding:13px 15px; margin-top:12px; }
+    table { width:100%; border-collapse:collapse; margin-top:14px; font-size:14px; }
+    th,td { border:1px solid var(--line); padding:10px 12px; text-align:left; vertical-align:top; }
+    th { background:#edf3f1; }
+    @media (max-width:1000px){ main{width:calc(100% - 22px); margin:12px auto;} header,section{padding:22px;} .grid,.flow{grid-template-columns:1fr;} h1{font-size:26px;} }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3 Phase 11：让系统开始知道“我懂不懂、我要做什么、我是谁”</h1>
+    <p class="subtitle">Phase 11 不是让 AP 装作更聪明，而是把元认知、抽象、目标、虚拟推理和持续自我锚点放进同一个 AP-native 状态场。它继续不使用答案表、不使用学生侧 LLM、不靠关键词路线。</p>
+    <div class="status">验收通过：Phase 11/12 targeted 24 passed，全量回归 409 passed，红线 PASS</div>
+  </header>
+
+  <section>
+    <h2>五个能力块</h2>
+    <div class="grid">
+      <div class="card"><strong>11.1 元认知</strong>低 grasp + 高 uncertainty 时生成 <code>KNOWLEDGE_GAP</code>，系统能感到“这里我没懂”。<small>EntitySA::metacognition::*</small></div>
+      <div class="card"><strong>11.2 抽象词汇</strong>多个 cluster 共享关系槽时生成 <code>abstract_vocab</code>，先有结构再有抽象名。<small>cross_cluster_gate</small></div>
+      <div class="card"><strong>11.3 长目标</strong>目标作为 EntitySA 保持压力，随进度降低，不是脚本任务队列。<small>EntitySA::goal::*</small></div>
+      <div class="card"><strong>11.4 虚拟推理</strong>高支持 hypothesis 才 reify 到主池，并产生 <code>INFERRED</code> 来源标记。<small>deliberative_virtual_track</small></div>
+      <div class="card"><strong>11.5 自我锚点</strong><code>EntitySA::self::ap_self</code> 可衰减、可 heartbeat 拉回，形成最小持续身份。<small>self_heartbeat</small></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>为什么这对“像孩子一样学习”重要</h2>
+    <div class="flow">
+      <div class="step"><b>不知道</b>不是空白，而是可学习的 knowledge gap。</div>
+      <div class="step"><b>相似</b>不是词表，而是跨 cluster 的 shared relation。</div>
+      <div class="step"><b>想做</b>不是按钮，而是有 horizon 的 goal pressure。</div>
+      <div class="step"><b>推一下</b>不是直接改事实，而是 virtual track 先试算。</div>
+      <div class="step"><b>我是我</b>不是固定台词，而是持续 self_model 状态。</div>
+    </div>
+    <div class="callout">这一步把 Phase 8/9/10 的感受、驱力、因果和他人信念继续往上组织。AP 仍然可能不知道、想错、抽象过早，但这些都会以可审计状态出现，后续可以被反馈和课程继续塑形。</div>
+  </section>
+
+  <section>
+    <h2>验收矩阵</h2>
+    <table>
+      <tr><th>项目</th><th>证据</th><th>意义</th></tr>
+      <tr><td>Phase11/12 targeted</td><td>24 passed</td><td>五个元认知机制与三个 demo substrate 能力均有行为测试。</td></tr>
+      <tr><td>Phase gates</td><td>11.1-11.5 PASS</td><td>每阶段 runtime/test/report/showcase 交付物齐全。</td></tr>
+      <tr><td>红线与回归</td><td>红线 PASS，全量 409 passed</td><td>无学生侧 LLM、无隐藏答案路由、无 cognitive audit_db。</td></tr>
+    </table>
+  </section>
+</main>
+</body>
+</html>

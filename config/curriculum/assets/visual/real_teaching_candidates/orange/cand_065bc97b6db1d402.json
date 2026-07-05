@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_065bc97b6db1d402",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_065bc97b6db1d402.png",
+  "sha256": "065bc97b6db1d40226534652a47a840de1c944a89c86fb575806c588bf3b3941",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/41284017@N08/6276665873",
+  "download_url": "https://api.openverse.org/v1/images/2b5f8a8d-ab61-4612-a917-ea7045c8745d/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "USDAgov",
+  "title": "20111019-FNS-RBN-1642",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

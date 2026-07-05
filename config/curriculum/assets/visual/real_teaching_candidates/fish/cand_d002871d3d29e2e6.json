@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_d002871d3d29e2e6",
+  "concept": "fish",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_d002871d3d29e2e6.png",
+  "sha256": "d002871d3d29e2e649efc820a8e66dd55dbcfe0fa4aaa5ee0ecf24576bf89ed1",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/51986662@N05/12754614444",
+  "download_url": "https://api.openverse.org/v1/images/e89bc70f-b496-4add-a5d9-30926feef666/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "USFWS Mountain Prairie",
+  "title": "Albino Catfish",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

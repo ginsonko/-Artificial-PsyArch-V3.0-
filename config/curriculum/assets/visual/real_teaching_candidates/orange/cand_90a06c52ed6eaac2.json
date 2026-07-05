@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_90a06c52ed6eaac2",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_90a06c52ed6eaac2.png",
+  "sha256": "90a06c52ed6eaac2f7513debdd56adb6e7058427127bd723e1b633a6bef5e050",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/26782864@N00/52466348653",
+  "download_url": "https://api.openverse.org/v1/images/75300f86-cd02-4223-9cf7-ac85c4fa468a/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "wwarby",
+  "title": "Oogie Boogie",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

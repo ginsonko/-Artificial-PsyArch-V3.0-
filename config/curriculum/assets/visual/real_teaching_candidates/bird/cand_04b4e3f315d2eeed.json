@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_04b4e3f315d2eeed",
+  "concept": "bird",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/bird/cand_04b4e3f315d2eeed.png",
+  "sha256": "04b4e3f315d2eeed3a899a63b6c9fc2bb256516cdf06d256ea72a9d3078f40b5",
+  "source": "openverse",
+  "source_url": "https://www.rawpixel.com/image/6020185/photo-image-public-domain-tree-nature",
+  "download_url": "https://api.openverse.org/v1/images/7c96aaaf-dcd6-402b-a41b-32136b92f2b2/thumb/",
+  "license_id": "CC0-1.0",
+  "author": "",
+  "title": "Pigeon bird, animal photo",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

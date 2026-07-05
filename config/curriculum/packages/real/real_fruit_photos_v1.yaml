@@ -1,0 +1,93 @@
+{
+  "schema_id": "apv3_real_visual_curriculum_pack/v1",
+  "package_id": "real_fruit_photos_v1",
+  "phase_id": "17.0",
+  "title": "Real fruit photos v1",
+  "governance": {
+    "trust_tier": "official",
+    "license_id": "mixed-allowlisted-commons",
+    "author_id": "apv3_real_asset_collector",
+    "source_policy": "wikimedia_commons_allowlisted_static_seed",
+    "review_status": "phase17_alpha_reviewed"
+  },
+  "entries": [
+    {
+      "entry_id": "noun_apple",
+      "content_kind": "real_visual_vocabulary",
+      "public_payload": {
+        "concept_kind": "fruit",
+        "neutral_label": "苹果",
+        "teaching_intent": "real_photo_foundation"
+      },
+      "train_asset_refs": [
+        "asset::real::noun_apple::train::0",
+        "asset::real::noun_apple::train::1",
+        "asset::real::noun_apple::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::real::noun_apple::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::real::noun_apple::contrast::0"
+      ],
+      "governance_tags": [
+        "phase17",
+        "real_photo",
+        "wikimedia_commons",
+        "fruit"
+      ]
+    },
+    {
+      "entry_id": "noun_banana",
+      "content_kind": "real_visual_vocabulary",
+      "public_payload": {
+        "concept_kind": "fruit",
+        "neutral_label": "香蕉",
+        "teaching_intent": "real_photo_foundation"
+      },
+      "train_asset_refs": [
+        "asset::real::noun_banana::train::0",
+        "asset::real::noun_banana::train::1",
+        "asset::real::noun_banana::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::real::noun_banana::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::real::noun_banana::contrast::0"
+      ],
+      "governance_tags": [
+        "phase17",
+        "real_photo",
+        "wikimedia_commons",
+        "fruit"
+      ]
+    },
+    {
+      "entry_id": "noun_orange",
+      "content_kind": "real_visual_vocabulary",
+      "public_payload": {
+        "concept_kind": "fruit",
+        "neutral_label": "橙子",
+        "teaching_intent": "real_photo_foundation"
+      },
+      "train_asset_refs": [
+        "asset::real::noun_orange::train::0",
+        "asset::real::noun_orange::train::1",
+        "asset::real::noun_orange::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::real::noun_orange::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::real::noun_orange::contrast::0"
+      ],
+      "governance_tags": [
+        "phase17",
+        "real_photo",
+        "wikimedia_commons",
+        "fruit"
+      ]
+    }
+  ]
+}

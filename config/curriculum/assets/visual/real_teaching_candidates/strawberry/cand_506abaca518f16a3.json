@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_506abaca518f16a3",
+  "concept": "strawberry",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_506abaca518f16a3.png",
+  "sha256": "506abaca518f16a3d25e629e92102fe04e61155295e7f35566a31edc873ea072",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/26782864@N00/11902815824",
+  "download_url": "https://api.openverse.org/v1/images/4d326790-8739-4168-bf00-3a0259bcdeb8/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "wwarby",
+  "title": "Strawberry Splash",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

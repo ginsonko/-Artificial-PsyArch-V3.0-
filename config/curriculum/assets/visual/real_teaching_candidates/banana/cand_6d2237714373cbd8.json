@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_6d2237714373cbd8",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_6d2237714373cbd8.png",
+  "sha256": "6d2237714373cbd815f42077f8704f4d2ece9938ec65d8d5f860ec9276b9855d",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/69706441@N03/32955001003",
+  "download_url": "https://api.openverse.org/v1/images/7fd6e119-4d9b-4f78-ae38-a419ea2e6514/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "PiktourUK",
+  "title": "Amazing lived in face of an Intha lady selling bananas at the floating market on Inle Lake",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

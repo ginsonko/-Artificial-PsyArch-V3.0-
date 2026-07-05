@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_c69af5d5aa14d412",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_c69af5d5aa14d412.png",
+  "sha256": "c69af5d5aa14d41273e6af51940b27d6e7b2b4eb0456229359dca8a3d773f216",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/62528187@N00/6033999022",
+  "download_url": "https://api.openverse.org/v1/images/e53debd2-e23b-4c48-b066-f73ec54debf9/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "photofarmer",
+  "title": "Cherry Tomato Mix",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

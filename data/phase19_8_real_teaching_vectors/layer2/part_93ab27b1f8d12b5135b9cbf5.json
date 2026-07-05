@@ -1,0 +1,28 @@
+{
+  "activation_count": 1,
+  "channel": "V3",
+  "exemplar_id": "pv_70b88c88a573426f03fee594",
+  "metadata": {
+    "medoid_policy": "first_true_exemplar",
+    "source_channel": "V3"
+  },
+  "part_uuid": "part_93ab27b1f8d12b5135b9cbf5",
+  "patch_signature": [
+    63,
+    36,
+    15,
+    60,
+    57,
+    0,
+    3,
+    9,
+    63,
+    130,
+    72,
+    29,
+    38,
+    60,
+    255,
+    86
+  ]
+}

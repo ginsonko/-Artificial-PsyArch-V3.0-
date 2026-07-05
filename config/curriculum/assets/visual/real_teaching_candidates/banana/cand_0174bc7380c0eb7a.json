@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_0174bc7380c0eb7a",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_0174bc7380c0eb7a.png",
+  "sha256": "0174bc7380c0eb7a82d385b1fd1eb99eb15f2de4f55d6fbcb8a72e2d16ff17e3",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/43296902@N00/49010741313",
+  "download_url": "https://api.openverse.org/v1/images/6464167c-a11b-4983-a16c-e93adce3897c/thumb/",
+  "license_id": "CC0-1.0",
+  "author": "Dennis S. Hurd",
+  "title": "Jay Spotted Some Ripe Bananas in the Garden",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

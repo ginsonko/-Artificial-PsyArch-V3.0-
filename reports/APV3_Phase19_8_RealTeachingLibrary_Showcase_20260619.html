@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 19.8a 真实教学图库数据管线</title>
+  <style>
+    body{margin:0;font-family:"Microsoft YaHei","Segoe UI",Arial,sans-serif;background:#f6f7f5;color:#17211d;line-height:1.65}
+    header,main{max-width:1120px;margin:0 auto;padding:24px}
+    h1{font-size:30px;margin:0 0 8px} h2{font-size:21px;margin:0 0 8px}
+    section{background:#fff;border:1px solid #d9e3dd;border-radius:8px;padding:18px;margin:14px 0}
+    .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+    .metric{border:1px solid #d9e3dd;border-radius:8px;padding:12px;background:#fbfcfb}
+    .metric b{display:block;font-size:24px;color:#1d6045} .metric span{font-size:13px;color:#586b62}
+    code{background:#eef4f1;border-radius:5px;padding:1px 5px}
+    a{color:#1e5c43}
+  </style>
+</head>
+<body>
+<header>
+  <h1>APV3 Phase 19.8a：真实教学图库数据管线</h1>
+  <p>这一页证明候选下载、许可证侧车、人工筛选页和 curated 入库链条成立。它不宣称 AP 已经完成真实照片高把握识别；最终识别效果要等人工筛选后的 Phase 19.8b 再验收。</p>
+</header>
+<main>
+  <section><h2>当前状态</h2><div class="metrics"><div class='metric'><b>229</b><span>candidate_count</span></div><div class='metric'><b>20</b><span>candidate_concepts</span></div><div class='metric'><b>87</b><span>curated_count</span></div><div class='metric'><b>59</b><span>train_count</span></div><div class='metric'><b>28</b><span>held_out_count</span></div><div class='metric'><b>59</b><span>layer1_count</span></div></div></section>
+  <section>
+    <h2>流程</h2>
+    <p><code>download_real_teaching_photos.py</code> 生成候选和 sidecar；<code>real_curation.html</code> 由人工保留/删除；<code>ingest_real_teaching_photos.py</code> 只读取已保留图片,按 sha256 deterministic 拆分 train/held_out,再写入 Layer-1/2/3。</p>
+    <p>筛选页: <a href="file:///H:/AP%E5%8E%9F%E5%9E%8B%E5%AE%9E%E9%AA%8C%E7%AC%AC%E4%BA%8C%E6%9C%9F/APV2.1%E7%89%88%E6%9C%AC%E5%8E%9F%E5%9E%8B%E6%B5%8B%E8%AF%95/APV3.0test/reports/APV3_Phase19_8_RealTeachingCuration.html">reports/APV3_Phase19_8_RealTeachingCuration.html</a></p>
+  </section>
+  <section>
+    <h2>边界</h2>
+    <p>候选图片不是已教学材料。held-out 图片不会参与训练向量写入。Pexels/Pixabay/Unsplash 暂未进入 19.8a 白名单,避免许可证语义含混。当前只接受 CC0 / CC-BY / PDM 这类可写进 sidecar 的授权。</p>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_cae84b15ed56d00f",
+  "concept": "computer",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_cae84b15ed56d00f.png",
+  "sha256": "cae84b15ed56d00fc8917fd46f507f9b7944c826e4e644c321d920a26bc38ced",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/24662369@N07/35464760032",
+  "download_url": "https://api.openverse.org/v1/images/bfdecd4e-5d02-4b15-9d2c-b6d97308c38c/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "NASA Goddard Photo and Video",
+  "title": "Hubble Eyes a Powerful Galaxy",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

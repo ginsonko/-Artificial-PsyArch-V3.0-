@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_3e1d4ffa5a9f547b",
+  "concept": "computer",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_3e1d4ffa5a9f547b.png",
+  "sha256": "3e1d4ffa5a9f547b4ad42b3e826188a5f22b1c48361e716f4f9e3079fe89b0e4",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/44124348109@N01/8000143255",
+  "download_url": "https://api.openverse.org/v1/images/bf5de1a5-662f-46cd-b45e-323b201c304e/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "jurvetson",
+  "title": "Rethink Robotics — Brooks and Baxter",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

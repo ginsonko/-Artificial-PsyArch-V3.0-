@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phase20.9f 闲时学习复盘展示</title>
+  <style>
+    :root {
+      --ink: #20242a;
+      --muted: #68717d;
+      --line: #d8dee4;
+      --paper: #f4f1ea;
+      --panel: #ffffff;
+      --green: #5b9a73;
+      --blue: #4e79a8;
+      --gray: #6f7882;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    main {
+      width: min(1120px, calc(100vw - 40px));
+      margin: 0 auto;
+      padding: 34px 0 48px;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    h3 { margin: 0 0 8px; font-size: 18px; }
+    p { margin: 0 0 10px; }
+    .hero, .card, .case {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 12px 28px rgba(31, 37, 45, 0.07);
+    }
+    .muted { color: var(--muted); }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .badge {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: #fbfcfd;
+      font-size: 13px;
+      color: #4b5663;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 18px 0;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .step {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fbfcfd;
+      min-height: 100px;
+    }
+    .step strong { display: block; margin-bottom: 6px; }
+    .step span { color: var(--muted); font-size: 13px; }
+    .meter {
+      height: 10px;
+      border-radius: 999px;
+      background: #e8edf2;
+      overflow: hidden;
+      margin: 10px 0 12px;
+    }
+    .fill { height: 100%; width: var(--w); background: var(--c); }
+    dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 6px 12px;
+      margin: 0;
+      font-size: 14px;
+    }
+    dt { color: var(--muted); }
+    dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+    code {
+      background: #eef2f5;
+      padding: 2px 5px;
+      border-radius: 5px;
+      font-family: Consolas, monospace;
+    }
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      background: #20242a;
+      color: #f4f7fb;
+      border-radius: 8px;
+      padding: 16px;
+      overflow-x: auto;
+    }
+    @media (max-width: 900px) {
+      header, .grid, .flow { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <section class="hero">
+        <h1>闲时学习复盘</h1>
+        <p class="muted">Phase20.9f 让 AP 在没有用户输入时, 也能沿经验流整理刚学过的东西。它不会把内心想法发到聊天框, 而是写入私有短期结构流。</p>
+        <div class="badges">
+          <span class="badge">private thought</span>
+          <span class="badge">经验流重建</span>
+          <span class="badge">行动竞争选择</span>
+          <span class="badge">不新增课程脚本</span>
+        </div>
+      </section>
+      <section class="card">
+        <h2>工作台测试</h2>
+        <p><code>http://127.0.0.1:8776/phase20_7</code></p>
+        <p class="muted">教学一次后点“闲时 tick”, 再让它自己回答一次, 再点“闲时 tick”。观察想法流和 tick 回放。</p>
+      </section>
+    </header>
+
+    <section class="card">
+      <h2>AP 内部路径</h2>
+      <div class="flow">
+        <div class="step"><strong>经验流</strong><span>读取最近 experience_alignment、action_records、unclosed。</span></div>
+        <div class="step"><strong>闭环倾向</strong><span>形成 feedback-only、teacher-off、cold-retest、scaffold。</span></div>
+        <div class="step"><strong>行动竞争</strong><span>idle_think 与视觉、听觉、观察一起竞争。</span></div>
+        <div class="step"><strong>私有复盘</strong><span>生成 private thought, 不写聊天回复。</span></div>
+        <div class="step"><strong>短期结构流</strong><span>写入 learning_review occurrence, 后继 tick 可继续召回。</span></div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="case">
+        <h3>刚被教过</h3>
+        <p class="muted">更像“先整理刚学到的联系”。</p>
+        <div class="meter"><div class="fill" style="--w: 37.1%; --c: var(--green);"></div></div>
+        <dl>
+          <dt>action</dt><dd>idle_think</dd>
+          <dt>tendency</dt><dd>feedback_only</dd>
+          <dt>delta</dt><dd>+0.0371</dd>
+          <dt>drive</dt><dd>0.2871</dd>
+        </dl>
+      </article>
+      <article class="case">
+        <h3>已经召回过</h3>
+        <p class="muted">更像“试着自己想起来”。</p>
+        <div class="meter"><div class="fill" style="--w: 99.3%; --c: var(--blue);"></div></div>
+        <dl>
+          <dt>action</dt><dd>idle_think</dd>
+          <dt>tendency</dt><dd>teacher_off_probe</dd>
+          <dt>delta</dt><dd>+0.0993</dd>
+          <dt>drive</dt><dd>0.3493</dd>
+        </dl>
+      </article>
+      <article class="case">
+        <h3>没有经验</h3>
+        <p class="muted">不会假装有想法。</p>
+        <div class="meter"><div class="fill" style="--w: 18%; --c: var(--gray);"></div></div>
+        <dl>
+          <dt>action</dt><dd>idle_observe</dd>
+          <dt>review</dt><dd>false</dd>
+          <dt>reply</dt><dd>empty</dd>
+        </dl>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>复现步骤</h2>
+      <pre>1. 输入: phase20.9f 测试问题
+2. 教学纠正: phase20.9f 测试答案
+3. 发送后点“闲时 tick”
+   预期: 私有想法里出现“问题 -> 答案 -> 先整理刚学到的联系”
+
+4. 再次输入同一个问题, 让 AP 自己召回
+5. 再点“闲时 tick”
+   预期: 私有想法更偏向“试着自己想起来”</pre>
+    </section>
+
+    <section class="card">
+      <h2>边界</h2>
+      <p class="muted">这一步可以证明闲时复盘已经进入 AP 主流程。但仍不能声明完整六阶段 runtime、L1/L2/L3 在线嵌入、完整范式自学习、数学列竖式、object-centric 视觉想象或 Phase21 视觉教学泛化闭环已经完成。</p>
+    </section>
+  </main>
+</body>
+</html>

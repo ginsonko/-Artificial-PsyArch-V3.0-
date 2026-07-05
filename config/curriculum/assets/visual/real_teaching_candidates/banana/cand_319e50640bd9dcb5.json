@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_319e50640bd9dcb5",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_319e50640bd9dcb5.png",
+  "sha256": "319e50640bd9dcb528774a53147cd3347bada798a8a55efe2061a0a60bcb7682",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/13596192@N03/1389829842",
+  "download_url": "https://api.openverse.org/v1/images/58a8c30f-4e4c-445c-8936-9e38c298da44/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Wizan Zaini",
+  "title": "Tropical Fruits - Original Oil Painting",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

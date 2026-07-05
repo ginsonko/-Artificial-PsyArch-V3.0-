@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 9.1 驱力一等公民验收</title>
+  <style>
+    :root {
+      --bg: #f5f7f6;
+      --panel: #ffffff;
+      --ink: #17211d;
+      --muted: #607168;
+      --line: #d9e3dd;
+      --green: #0f766e;
+      --blue: #245a8f;
+      --gold: #8a6418;
+      --soft-green: #e8f6ef;
+      --soft-blue: #e8f1fb;
+      --soft-gold: #fff4d8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0;
+    }
+    main {
+      width: min(1160px, calc(100% - 40px));
+      margin: 24px auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 45px rgba(30, 44, 64, 0.08);
+    }
+    header {
+      padding: 34px 42px 28px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fff 0%, #f9fbfa 100%);
+    }
+    section { padding: 26px 42px; border-bottom: 1px solid var(--line); }
+    section:last-child { border-bottom: 0; }
+    h1 { margin: 0; font-size: 30px; line-height: 1.24; }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    h3 { margin: 0 0 8px; font-size: 16px; color: var(--blue); }
+    p { margin: 8px 0; }
+    .subtitle { max-width: 960px; color: var(--muted); font-size: 16px; margin-top: 12px; }
+    .status {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 7px 12px;
+      color: var(--green);
+      background: var(--soft-green);
+      border: 1px solid #bfe6d1;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      background: #fbfdfc;
+      min-height: 116px;
+    }
+    .card strong { display: block; color: var(--green); font-size: 24px; line-height: 1.1; margin-bottom: 8px; }
+    .flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+    .step {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: var(--soft-blue);
+      min-height: 112px;
+    }
+    .step b { color: var(--blue); display: block; margin-bottom: 5px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #edf3f1; }
+    code { font-family: Consolas, "Courier New", monospace; background: #f2f5f7; border: 1px solid #e1e7ee; border-radius: 4px; padding: 1px 5px; }
+    .callout { border-left: 4px solid var(--green); background: var(--soft-green); padding: 13px 15px; margin-top: 12px; }
+    .gold { border-left-color: var(--gold); background: var(--soft-gold); }
+    @media (max-width: 900px) {
+      main { width: calc(100% - 22px); margin: 12px auto; }
+      header, section { padding: 22px; }
+      .grid, .flow, .two { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3 Phase 9.1：驱力成为一等公民</h1>
+    <p class="subtitle">
+      Phase 8 证明了多模态、来源感、想象纠错和长期记忆的地基；Phase 9.1 开始进入更主动的心智层。
+      这一步让“想探索、想完成、想社交”等内部压力不再只是外部输入后的附属 trace，而是进入统一状态池的 EntitySA。
+    </p>
+    <div class="status">验收通过：Phase 9.1 targeted 5 passed，全量 326 passed，红线 PASS</div>
+  </header>
+
+  <section>
+    <h2>一句话价值</h2>
+    <p>
+      APV3 现在不只是等用户输入再回应；在没有外部输入的 idle tick 中，它也能产生最小的内源驱力候选。
+      这些候选不会直接变成中文台词，而是作为可竞争的 drive/action proposal，等待后续行动系统和奖励预测误差来学习筛选。
+    </p>
+    <div class="grid">
+      <div class="card"><strong>hunger</strong>来自 body deficit 的最小内稳态入口。</div>
+      <div class="card"><strong>curiosity</strong>来自 novelty gap 和安静时间。</div>
+      <div class="card"><strong>exploration</strong>来自 unexplored mass 和 idle context。</div>
+      <div class="card"><strong>social</strong>来自 social absence 和低强度 idle drift。</div>
+      <div class="card"><strong>completion</strong>来自 unfinished pressure。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>不是脚本主动</h2>
+    <div class="flow">
+      <div class="step"><b>不是中文关键词</b>runtime 不解析用户文字来决定 drive，completion 来自 unfinished pressure。</div>
+      <div class="step"><b>不是固定答案</b>drive 只产生 <code>drive_action::satisfy_drive</code> proposal，不提交回复。</div>
+      <div class="step"><b>不是平行系统</b>每个 drive 都是 <code>EntitySA::drive::*</code>，有 R/V/P/A/F。</div>
+      <div class="step"><b>不是私下注入</b>attention gain 必须写入 <code>drive_pressure</code> ledger source。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>核心证明链</h2>
+    <table>
+      <tr><th>证明点</th><th>测试断言</th><th>意义</th></tr>
+      <tr><td>drive SA 一等公民</td><td><code>EntitySA::drive::hunger</code> 出现在 StatePool snapshot 中。</td><td>驱力不是隐藏变量，而是可被注意力和审计看到的状态项。</td></tr>
+      <tr><td>idle 自发压力</td><td>无外部输入、只给 idle ticks，curiosity/exploration proposal 出现。</td><td>系统开始具备最小主动性，不再纯被动。</td></tr>
+      <tr><td>满足只影响匹配 drive</td><td>满足 hunger 后 hunger 下降，curiosity 继续随 idle 增长。</td><td>后果学习不会粗暴抹除所有内部压力。</td></tr>
+      <tr><td>completion 不靠文字</td><td>unfinished pressure 让 completion 成为最高 proposal。</td><td>“想把事做完”来自结构压力，不来自关键词。</td></tr>
+      <tr><td>审计门</td><td><code>red_line_check_v14.py --phase 9.1</code> PASS。</td><td>报告、测试、runtime 文件和展示页都被 phase gate 覆盖。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>验收结果</h2>
+    <div class="two">
+      <div class="card"><strong>5 passed</strong>Phase 9.1 targeted tests</div>
+      <div class="card"><strong>326 passed</strong>full suite regression</div>
+      <div class="card"><strong>PASS</strong>v14 red-line check + Phase 9.1 deliverable gate</div>
+      <div class="card"><strong>PASS</strong>constant governance + compileall</div>
+    </div>
+    <div class="callout">
+      已执行并通过：<code>python -m pytest -q tests/test_phase9_1_drive_homeostasis.py</code>、
+      <code>python scripts/red_line_check_v14.py --phase 9.1</code>、
+      <code>python scripts/red_line_check_v14.py</code>、
+      <code>python scripts/check_constant_governance.py</code>、
+      <code>python -m compileall apv3test runtime tests -q</code>、
+      <code>python -m pytest -q</code>。
+    </div>
+  </section>
+
+  <section>
+    <h2>下一步</h2>
+    <p class="callout gold">
+      Phase 9.2 最自然：RPE / dopamine analog。drive 现在能产生压力和候选，下一步要让行动结果产生 reward prediction error，
+      进而调节 SDPL Q 更新、attention gain 和学习率。这样“想做什么”才会开始被“做了以后好不好”塑形。
+    </p>
+  </section>
+</main>
+</body>
+</html>

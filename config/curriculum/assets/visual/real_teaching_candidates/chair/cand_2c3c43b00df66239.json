@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_2c3c43b00df66239",
+  "concept": "chair",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/chair/cand_2c3c43b00df66239.png",
+  "sha256": "2c3c43b00df66239b98dfd4304def55bf7324c7ea7ac81ce72b1213c8ab70599",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/82955120@N05/11813465365",
+  "download_url": "https://api.openverse.org/v1/images/c88fa1e5-1bca-4e24-ac20-5e7e405aa25f/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Bold Frontiers",
+  "title": "Once Upon a Bench",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

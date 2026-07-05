@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_fbf562889cde30da",
+  "concept": "grape",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_fbf562889cde30da.png",
+  "sha256": "fbf562889cde30da807147a8a52ce2b7e03d1b632db125275c944216d8340870",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/30346812@N07/18208533721",
+  "download_url": "https://api.openverse.org/v1/images/c14188b5-c093-4829-83ac-3ea789813459/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Orange County Archives",
+  "title": "Prescott Ranch Market, Highway 101 at 5th St., Tustin, circa 1940s",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

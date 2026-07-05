@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_7c300317ffeedd4f",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_7c300317ffeedd4f.png",
+  "sha256": "7c300317ffeedd4fe5a54bf3e3206389f6033ba684b650e480041cdc451a08e3",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/63311602@N08/32834852483",
+  "download_url": "https://api.openverse.org/v1/images/b3f8f8ee-0d68-43de-814e-631d526ae253/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "loustejskal.com",
+  "title": "This dessert is made to look like the over ripe banana on the Velvet Underground album cover by Andy Warhol. It's filled with banana ice cream and is accompanied with creme brûlée and banana cake. Banana Brûlée and Ice Cream, Miso, Caramel ($14)",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

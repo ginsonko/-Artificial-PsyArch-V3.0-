@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase2.6 percept token 接入范式槽填充</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d8dee8;
+      --soft: #f8fafc;
+      --accent: #0f766e;
+      --good: #166534;
+      --warn: #9a3412;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.65;
+    }
+    header {
+      padding: 34px 6vw 24px;
+      border-bottom: 1px solid var(--line);
+      background: #ecfdf5;
+    }
+    main { max-width: 1120px; margin: 0 auto; padding: 28px 24px 56px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 10px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    .meta { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      background: var(--soft);
+    }
+    .card strong { display: block; font-size: 20px; margin-bottom: 4px; }
+    .ok { color: var(--good); }
+    .warn { color: var(--warn); }
+    .band {
+      border-left: 4px solid var(--accent);
+      background: #f0fdfa;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    .warnband {
+      border-left: 4px solid var(--warn);
+      background: #fff7ed;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    code, pre {
+      font-family: Consolas, "Cascadia Mono", monospace;
+      background: #f2f4f7;
+      border-radius: 6px;
+    }
+    code { padding: 1px 5px; }
+    pre { padding: 14px; overflow: auto; border: 1px solid var(--line); }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0; }
+    th, td { border: 1px solid var(--line); padding: 9px 10px; text-align: left; }
+    th { background: #f8fafc; }
+    ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>APV3.0test Phase2.6 percept token 接入范式槽填充</h1>
+    <p class="meta">最小黄色苹果 AP-native 复刻 | 逐 token 草稿候选 | 2026-06-16</p>
+  </header>
+  <main>
+    <section class="grid">
+      <div class="card"><strong class="ok">62/62</strong>全量测试通过</div>
+      <div class="card"><strong class="ok">通过</strong>Python 编译检查</div>
+      <div class="card"><strong class="ok">无命中</strong>runtime 禁用通道扫描</div>
+      <div class="card"><strong class="warn">边界清楚</strong>仍不是完整自由对话 runtime</div>
+    </section>
+
+    <h2>阶段结论</h2>
+    <div class="band">
+      APV3.0test 现在能把稳定 percept token 接入范式槽填充候选。最小黄色苹果链路不再靠目标中文串, 而是由当前 percept token、范式槽和草稿游标共同产生逐 token 草稿候选。
+    </div>
+
+    <h2>本轮新增</h2>
+    <ul>
+      <li><code>ParadigmSlotFiller</code>: 通用槽填充器。</li>
+      <li><code>FillCandidate</code>: 槽候选及来源证据。</li>
+      <li><code>DraftCandidate</code>: 带 <code>text_visible_draft_token/v1</code> 游标 metadata 的逐 token 草稿候选。</li>
+    </ul>
+
+    <h2>关键探针</h2>
+    <pre><code>conf 0.031606 roles ['slot', 'slot']
+drafts [('percept::yellow', 'slot', ''), ('percept::apple', 'slot', 'percept::yellow')]
+joined percept::yellowpercept::apple</code></pre>
+    <p>
+      输出是 percept token 序列, 不是 <code>黄色苹果</code> 目标串。第二个 token 带 previous_prefix, 后续行动器仍应一 tick 执行一个赢家 token。
+    </p>
+
+    <h2>审查修正</h2>
+    <table>
+      <thead>
+        <tr><th>问题</th><th>修正</th><th>原则</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>同分候选按字典序会破坏工作记忆顺序</td>
+          <td>改为按候选池/焦点顺序</td>
+          <td>拟人工作记忆顺序感</td>
+        </tr>
+        <tr>
+          <td>全 slot 冷启动范式 conf 可能为 0</td>
+          <td>增加极小 all-slot confidence floor</td>
+          <td>新范式最低竞争资格, 非任务规则</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>验收命令</h2>
+    <pre><code>python -m pytest APV3.0test\tests -q
+
+$files = Get-ChildItem -Path APV3.0test\apv3test\config,APV3.0test\apv3test\runtime -Filter *.py | ForEach-Object { $_.FullName }; python -m py_compile @files
+
+rg -n --glob "*.py" "keyword|answer_table|student_side_llm|branch_alignment|math_process_tokens|regex|full_sentence_macro|黄色苹果" APV3.0test\apv3test</code></pre>
+
+    <h2>下一步硬目标</h2>
+    <div class="warnband">
+      Phase3 必须进入快系统 habit action / habit thought。它决定系统能否在低认知压、高把握、高奖赏支持的场景下“不加思索”地快速、流畅行动。同时要保留同一行动器同 tick 只能一个动作的约束, 多行动只能来自不同行动器或并行可兼容执行面。
+    </div>
+
+    <h2>通往最终目标的路径</h2>
+    <ul>
+      <li>Phase3: habit action / habit thought 最小闭环。</li>
+      <li>Phase4: 小型自由中文开放对话 runtime, 串起边界、DP、coherence、Viterbi、percept token、slot fill、草稿行动、持久化学习。</li>
+      <li>之后再进入旧 GL 成功技能小批复现和 Fresh 测试。</li>
+    </ul>
+  </main>
+</body>
+</html>

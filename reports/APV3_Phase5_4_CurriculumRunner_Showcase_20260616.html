@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase5.4 标准教学课程 Runner</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --paper: #ffffff;
+      --ink: #17202d;
+      --muted: #5f6d7c;
+      --line: #d9e1eb;
+      --accent: #255aa8;
+      --ok: #0f7b55;
+      --warn: #9b6000;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    main { max-width: 1160px; margin: 0 auto; padding: 32px 20px 52px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(26px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 28px 0 12px; font-size: 22px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); max-width: 920px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--ok); }
+    .warn { color: var(--warn); }
+    .flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 16px 0; }
+    .step { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 12px; min-height: 92px; }
+    .step strong { color: var(--accent); }
+    code { background: #eef3f8; border: 1px solid #dbe4ee; border-radius: 5px; padding: 1px 5px; font-family: Consolas, "Cascadia Mono", monospace; font-size: 0.94em; }
+    pre { overflow: auto; background: #111827; color: #edf4ff; border-radius: 8px; padding: 14px; font-size: 13px; }
+    ul { padding-left: 22px; margin: 8px 0; }
+    li { margin: 6px 0; }
+    .note { border-left: 4px solid var(--accent); background: var(--paper); padding: 12px 14px; margin: 14px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase5.4 标准教学课程 Runner</h1>
+    <p class="subtitle">本阶段把 Phase5.3 的手写教学样例整理成 APV3 标准课程 episode。Runner 只负责编排教学阶段、验证项和失败归因，不替 AP 做答案决策。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">阶段</div>
+      <div class="value ok">Phase5.4 已通过</div>
+      <p><code>APV3CurriculumRunner</code> 已落地。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">112 passed</div>
+      <p>课程 runner 未破坏前序能力。</p>
+    </div>
+    <div class="card">
+      <div class="label">样例</div>
+      <div class="value ok">成功 / 失败均记录</div>
+      <p>报告携带具体 emitted 与 diagnosis。</p>
+    </div>
+    <div class="card">
+      <div class="label">边界</div>
+      <div class="value warn">非自动补习闭环</div>
+      <p>Phase5.5 才进入补习循环。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>六段课程</h2>
+    <div class="flow">
+      <div class="step"><strong>Echo</strong><br><code>echo_imitation</code></div>
+      <div class="step"><strong>Successor</strong><br><code>successor_prediction</code></div>
+      <div class="step"><strong>Aggregation</strong><br><code>multi_reply_aggregation</code></div>
+      <div class="step"><strong>Process</strong><br><code>process_paradigm_binding</code></div>
+      <div class="step"><strong>Slot</strong><br><code>focus_slot_filling</code></div>
+      <div class="step"><strong>Validation</strong><br><code>recall_only_validation</code></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>成功样例</h2>
+    <pre><code>问候:
+cue = 你 好
+emitted = 我 在
+diagnosis = success
+
+颜色对象:
+cue = describe
+focus = percept::yellow percept::apple
+emitted = field::color percept::yellow field::object percept::apple
+diagnosis = success
+
+数学过程:
+cue = calc
+focus = 7 2 9
+emitted = math::lhs 7 math::op + 2 math::eq 9
+diagnosis = success</code></pre>
+  </section>
+
+  <section>
+    <h2>失败样例</h2>
+    <pre><code>未训练 cue:
+cue = unknown
+emitted = &lt;empty&gt;
+diagnosis = bn_not_recalled
+
+槽位焦点期望不一致:
+cue = describe
+focus = percept::yellow percept::apple
+expected = field::color percept::yellow field::object percept::pear
+emitted = field::color percept::yellow field::object percept::apple
+diagnosis = slot_focus_overridden</code></pre>
+  </section>
+
+  <section>
+    <h2>验收结果</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase5_4_curriculum_runner.py APV3.0test\tests\test_phase5_3_small_skill_reproduction.py -q
+10 passed in 0.81s
+
+python -m pytest APV3.0test\tests -q
+112 passed in 3.04s</code></pre>
+    <div class="note">禁用通道扫描仍只命中 <code>draft_action.py</code> 的 <code>if text:</code>，已审查为草稿 buffer 非空检查，不是文本模态特权分支。</div>
+  </section>
+
+  <section>
+    <h2>下一步</h2>
+    <p>Phase5.5 应进入 train → validate → diagnose → remediate → validate 的补习循环。失败后只生成 AP-native 补习建议，例如增加 cue/context 支持、补 successor observation、增加区分性上下文和奖惩、补 focus-slot 对比样例或补 commit/action outcome。</p>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_e94e84bfa3ca6aa1",
+  "concept": "cat",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_e94e84bfa3ca6aa1.png",
+  "sha256": "e94e84bfa3ca6aa1649b7d68871dc3d6e01d7c41a2eded10ce05a1e84ce2937e",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/34745138@N00/4068996309",
+  "download_url": "https://api.openverse.org/v1/images/f656c08b-a33a-4484-8f99-ae300f1f38ef/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "kaibara87",
+  "title": "Sleeping",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

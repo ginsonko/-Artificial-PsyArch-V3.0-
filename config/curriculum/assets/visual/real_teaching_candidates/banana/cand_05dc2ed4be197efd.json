@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_05dc2ed4be197efd",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_05dc2ed4be197efd.png",
+  "sha256": "05dc2ed4be197efda7c904886b1cea6c1aa3fdcf6510f3f154a77e973ac43a49",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/37996646802@N01/52751027218",
+  "download_url": "https://api.openverse.org/v1/images/6273cdce-ab6c-44d9-8245-a7afb60f2cef/thumb/",
+  "license_id": "CC0-1.0",
+  "author": "cogdogblog",
+  "title": "2023/365/70 If There Are Over Ripe Bananas...",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

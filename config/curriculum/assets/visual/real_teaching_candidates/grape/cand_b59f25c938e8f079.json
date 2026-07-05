@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_b59f25c938e8f079",
+  "concept": "grape",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_b59f25c938e8f079.png",
+  "sha256": "b59f25c938e8f079a21c9b1cce7efc00b3b93ca77205f4922b5c6e44fc1d086f",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/44124425616@N01/222745135",
+  "download_url": "https://api.openverse.org/v1/images/728530d2-eb80-4973-8903-da3897821fd3/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Hamed Saber",
+  "title": "Let's Have Grape",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

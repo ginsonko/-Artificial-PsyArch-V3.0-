@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_9d25181c551db00b",
+  "concept": "table",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_9d25181c551db00b.png",
+  "sha256": "9d25181c551db00bbe335e8597da31b5634f51b19fd773fbe13571fe64e45881",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/48889125739@N01/112866960",
+  "download_url": "https://api.openverse.org/v1/images/43b00feb-26e6-427f-8755-f4ce5f048e76/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "James Sarmiento (old account)",
+  "title": "Classroom Chairs",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

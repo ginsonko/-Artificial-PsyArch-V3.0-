@@ -1,0 +1,205 @@
+{
+  "schema_id": "apv3_phase20_7_release_demo_manifest/v1",
+  "run_id": "20260626",
+  "objective": "APV3 Phase20.7 local open dialogue foundation release demo",
+  "db_path": "H:\\AP原型实验第二期\\APV2.1版本原型测试\\APV3.0test\\data\\phase20_7_release_demo\\phase20_7_release_demo.sqlite",
+  "assets": {
+    "single_apple": "H:\\AP原型实验第二期\\APV2.1版本原型测试\\APV3.0test\\data\\phase20_7_release_demo\\assets\\single_apple.png",
+    "single_banana": "H:\\AP原型实验第二期\\APV2.1版本原型测试\\APV3.0test\\data\\phase20_7_release_demo\\assets\\single_banana.png",
+    "single_orange": "H:\\AP原型实验第二期\\APV2.1版本原型测试\\APV3.0test\\data\\phase20_7_release_demo\\assets\\single_orange.png",
+    "apple_variant_shifted": "H:\\AP原型实验第二期\\APV2.1版本原型测试\\APV3.0test\\data\\phase20_7_release_demo\\assets\\apple_variant_shifted.png",
+    "audio_tone": "H:\\AP原型实验第二期\\APV2.1版本原型测试\\APV3.0test\\data\\phase20_7_release_demo\\assets\\audio_tone.wav"
+  },
+  "reports": {
+    "html": "H:\\AP原型实验第二期\\APV2.1版本原型测试\\APV3.0test\\reports\\APV3_Phase20_7_ReleaseDemo_20260626.html",
+    "performance": "H:\\AP原型实验第二期\\APV2.1版本原型测试\\APV3.0test\\reports\\Phase20_7_performance_report_20260626.json",
+    "zip": "H:\\AP原型实验第二期\\APV2.1版本原型测试\\APV3.0test\\reports\\APV3_Phase20_7_ReleaseDemo_Package_20260626.zip"
+  },
+  "flows": {
+    "text_learning": {
+      "learn_reply": "嗯,记下了。",
+      "recall_reply": "你也好",
+      "near_reply": "你也好",
+      "near_has_structural_b": true
+    },
+    "unclosed_idle": {
+      "first_unknown_reply": "我还不太知道怎么说。",
+      "repeat_unknown_reply": "我还在想这个。",
+      "idle_action": {
+        "action_type": "idle_observe",
+        "active_unclosed": false
+      },
+      "cat_learn_reply": "嗯,记下了。",
+      "cat_recall_reply": "猫是一种动物",
+      "active_unclosed_after_learning": []
+    },
+    "visual_patch_reconstruction": {
+      "visual_tick_count": 3,
+      "focus_points": [
+        [
+          54,
+          30
+        ],
+        [
+          31,
+          35
+        ],
+        [
+          65,
+          33
+        ]
+      ],
+      "clarity": [
+        0.2939453125,
+        0.4302300347222222,
+        0.4969618055555556
+      ],
+      "inner_picture_last": "H:\\AP原型实验第二期\\APV2.1版本原型测试\\APV3.0test\\data\\phase20_7_release_demo\\phase20_7_inner_pictures\\inner_18010d7641ff0a1c_0003.png"
+    },
+    "audio_tts": {
+      "audio_tick_action": {
+        "action_type": "audio_audit_sensor",
+        "audit_only": true
+      },
+      "tts_action": {
+        "action_type": "reply_tts_audio",
+        "voice_preference": "xiaoyi",
+        "voice_id": "xiaoyi_not_available_in_local_sapi",
+        "local_only": true
+      }
+    },
+    "memory": {
+      "items": [
+        {
+          "memory_entry_id": "evt::9bfdeac7597f4452a829993b009e2b7c",
+          "active": true,
+          "memory_view": "local_memory_package_unified",
+          "processing_tendency": "slow_trace",
+          "source_event_kind": "text_receptor_observation",
+          "input_text": "这是什么",
+          "output_text": "",
+          "display_text": "这是什么",
+          "support": 0.35,
+          "created_at_ms": 1782486354852
+        },
+        {
+          "memory_entry_id": "evt::e9b98e194f7c412487620857fefdb6a8",
+          "active": true,
+          "memory_view": "local_memory_package_unified",
+          "processing_tendency": "slow_trace",
+          "source_event_kind": "text_receptor_observation",
+          "input_text": "猫是什么",
+          "output_text": "",
+          "display_text": "猫是什么",
+          "support": 0.35,
+          "created_at_ms": 1782486354803
+        },
+        {
+          "memory_entry_id": "evt::9f08a7b98280454d92beb183199ca0dc",
+          "active": true,
+          "memory_view": "local_memory_package_unified",
+          "processing_tendency": "fast_tendency",
+          "source_event_kind": "experience_alignment",
+          "input_text": "猫是什么",
+          "output_text": "猫是一种动物",
+          "visual_signature": "",
+          "display_text": "猫是什么 -> 猫是一种动物",
+          "support": 0.8999999999999999,
+          "created_at_ms": 1782486354784
+        },
+        {
+          "memory_entry_id": "evt::0e6c7088dacf43c98e8c9f7c8dc28eb4",
+          "active": true,
+          "memory_view": "local_memory_package_unified",
+          "processing_tendency": "slow_trace",
+          "source_event_kind": "text_receptor_observation",
+          "input_text": "猫是什么",
+          "output_text": "",
+          "display_text": "猫是什么",
+          "support": 0.35,
+          "created_at_ms": 1782486354783
+        },
+        {
+          "memory_entry_id": "evt::b52438a390bd4ef7b3eb1097662f2481",
+          "active": true,
+          "memory_view": "local_memory_package_unified",
+          "processing_tendency": "slow_trace",
+          "source_event_kind": "text_receptor_observation",
+          "input_text": "猫是什么",
+          "output_text": "",
+          "display_text": "猫是什么",
+          "support": 0.35,
+          "created_at_ms": 1782486354756
+        },
+        {
+          "memory_entry_id": "evt::0c270dda24304185a508bdde004a9d1a",
+          "active": true,
+          "memory_view": "local_memory_package_unified",
+          "processing_tendency": "slow_trace",
+          "source_event_kind": "text_receptor_observation",
+          "input_text": "猫是什么",
+          "output_text": "",
+          "display_text": "猫是什么",
+          "support": 0.35,
+          "created_at_ms": 1782486354739
+        },
+        {
+          "memory_entry_id": "evt::10df36e630d0491582046d170ee34020",
+          "active": true,
+          "memory_view": "local_memory_package_unified",
+          "processing_tendency": "slow_trace",
+          "source_event_kind": "text_receptor_observation",
+          "input_text": "你好呀",
+          "output_text": "",
+          "display_text": "你好呀",
+          "support": 0.35,
+          "created_at_ms": 1782486354720
+        },
+        {
+          "memory_entry_id": "evt::706548d4de8a4024a316f2814fa20188",
+          "active": true,
+          "memory_view": "local_memory_package_unified",
+          "processing_tendency": "slow_trace",
+          "source_event_kind": "text_receptor_observation",
+          "input_text": "你好啊",
+          "output_text": "",
+          "display_text": "你好啊",
+          "support": 0.35,
+          "created_at_ms": 1782486354704
+        },
+        {
+          "memory_entry_id": "evt::2b213aaf087b484fb1c5123d211ffe8d",
+          "active": true,
+          "memory_view": "local_memory_package_unified",
+          "processing_tendency": "fast_tendency",
+          "source_event_kind": "experience_alignment",
+          "input_text": "你好啊",
+          "output_text": "你也好",
+          "visual_signature": "",
+          "display_text": "你好啊 -> 你也好",
+          "support": 0.8999999999999999,
+          "created_at_ms": 1782486354692
+        },
+        {
+          "memory_entry_id": "evt::ef4f8f3f9881465d965b119ed56536fd",
+          "active": true,
+          "memory_view": "local_memory_package_unified",
+          "processing_tendency": "slow_trace",
+          "source_event_kind": "text_receptor_observation",
+          "input_text": "你好啊",
+          "output_text": "",
+          "display_text": "你好啊",
+          "support": 0.35,
+          "created_at_ms": 1782486354690
+        }
+      ]
+    }
+  },
+  "redlines": {
+    "student_side_llm": false,
+    "whole_image_label": false,
+    "ocr": false,
+    "cloud_tts": false,
+    "frontend_fake_tick": false
+  }
+}

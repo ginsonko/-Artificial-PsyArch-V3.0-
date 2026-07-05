@@ -1,0 +1,53 @@
+{
+  "schema_id": "apv3_runtime_profile/v1",
+  "profile_id": "apv3_minimalist_cli",
+  "profile_version": "8.0",
+  "runtime_entry": "apv3test.chat.APV3MinimalistChatSession",
+  "state_schema_id": "apv3_minimalist_cli_state/v1",
+  "sqlite_state_path": "state/apv3_minimalist_cli.sqlite",
+  "seed_corpus_path": "apv3test/data/introspection_phrase_seed_corpus.json",
+  "style_gate": {
+    "enabled": true,
+    "max_tokens": 3,
+    "fallback_tokens": ["不知道"]
+  },
+  "phrase_memory": {
+    "allow_new_phrases": false,
+    "seed_phrase_count": 120
+  },
+  "privacy": {
+    "persist_user_text": false,
+    "pseudonymous_id_enabled": true,
+    "pseudonymous_id_method": "hmac_sha256_per_install_salt_canonical_json",
+    "pseudonymous_id_length_chars": 32
+  },
+  "runtime_modules": [
+    "apv3test.runtime.minimalist_dialogue_flow",
+    "apv3test.runtime.expression_phrase_memory",
+    "apv3test.runtime.cooccurrence_store",
+    "apv3test.runtime.cooccurrence_learning",
+    "apv3test.runtime.draft_introspection",
+    "apv3test.runtime.style_redlines",
+    "apv3test.runtime.sqlite_runtime_store"
+  ],
+  "disabled_dev_fields": [
+    "test_fixture",
+    "tmp_path",
+    "phase_probe",
+    "case_name",
+    "user_style_label",
+    "answer_table",
+    "student_side_llm"
+  ],
+  "forbidden_runtime_markers": [
+    "answer_table",
+    "student_side_llm",
+    "_most_common_reply",
+    "must_reply",
+    "incoming_external_query ==",
+    "case_name ==",
+    "USER_A",
+    "USER_B",
+    "user_style =="
+  ]
+}

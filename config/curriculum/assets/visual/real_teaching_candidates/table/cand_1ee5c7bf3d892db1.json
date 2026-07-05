@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_1ee5c7bf3d892db1",
+  "concept": "table",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_1ee5c7bf3d892db1.png",
+  "sha256": "1ee5c7bf3d892db1c7fed0a8bfe3f6546841189f0cf4d0ffe11afe408648824d",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/148748355@N05/41278652054",
+  "download_url": "https://api.openverse.org/v1/images/94d675eb-c179-437b-8be1-c2832b0cc3bb/thumb/",
+  "license_id": "PDM-1.0",
+  "author": "The White House",
+  "title": "Photo of the Day: May 9, 2018",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

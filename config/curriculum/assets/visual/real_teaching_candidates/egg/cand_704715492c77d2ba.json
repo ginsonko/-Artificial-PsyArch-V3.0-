@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_704715492c77d2ba",
+  "concept": "egg",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_704715492c77d2ba.png",
+  "sha256": "704715492c77d2ba17bf1b49bac854b51e5d0a0385b3327027241e3daab35218",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/30809410@N04/3408725453",
+  "download_url": "https://api.openverse.org/v1/images/53d579a2-9e43-4779-ae98-f452192e249d/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "greglobinski",
+  "title": "Happy Easter",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

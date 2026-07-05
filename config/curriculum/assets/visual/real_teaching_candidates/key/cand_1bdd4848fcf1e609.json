@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_1bdd4848fcf1e609",
+  "concept": "key",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/key/cand_1bdd4848fcf1e609.png",
+  "sha256": "1bdd4848fcf1e6095e9b1edb2b717075516dc5e22c23c0f3d454f7def27144fc",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/50785054@N03/7728467748",
+  "download_url": "https://api.openverse.org/v1/images/cadc401e-9557-4233-8b85-7cd7d1088175/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "James Webb Space Telescope",
+  "title": "A Lift for Webb's Fine Guidance Sensor",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

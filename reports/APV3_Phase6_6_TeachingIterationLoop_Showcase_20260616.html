@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase6.6 教学迭代闭环</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --paper: #ffffff;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d7e0ea;
+      --blue: #2458a6;
+      --green: #087443;
+      --amber: #9a5b00;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 56px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(27px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 12px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    code { background: #eef3f8; border: 1px solid #dce5ef; border-radius: 5px; padding: 1px 5px; font-family: Consolas, "Cascadia Mono", monospace; }
+    pre { margin: 10px 0; overflow: auto; background: #111827; color: #edf4ff; border-radius: 8px; padding: 14px; font-size: 13px; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; background: var(--paper); }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #eef3f8; }
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .subtitle { color: var(--muted); max-width: 980px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--green); }
+    .warn { color: var(--amber); }
+    .note { background: var(--paper); border-left: 4px solid var(--blue); padding: 12px 14px; margin: 14px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase6.6 教学迭代闭环</h1>
+    <p class="subtitle">本阶段在 Claude 纠偏后，以 <code>RepeatedEvidenceCourseProposal</code> 为基础，打通 proposal -> runner -> validation diagnosis -> TeachingPlanContext -> next proposal 的最小闭环。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">阶段状态</div>
+      <div class="value ok">Phase6.6 通过</div>
+      <p><code>APV3TeachingIterationLoop</code> 已落地。</p>
+    </div>
+    <div class="card">
+      <div class="label">目标测试</div>
+      <div class="value ok">4 passed</div>
+      <p>覆盖等待、成功停止、失败再提案和 state 接力。</p>
+    </div>
+    <div class="card">
+      <div class="label">Phase6 组合</div>
+      <div class="value ok">30 passed</div>
+      <p>Phase6.0-6.6 保持一致。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">163 passed</div>
+      <p>前序能力未回归。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>设计循环</h2>
+    <table>
+      <tr><th>环节</th><th>本阶段内容</th></tr>
+      <tr><td>设计</td><td>串接重复证据 proposal、课程 runner、validation diagnosis 和下一轮 proposal。</td></tr>
+      <tr><td>审查完善</td><td>保留 Claude 纠偏后的诚实命名，不恢复真多轮课程叙事。</td></tr>
+      <tr><td>通过落地</td><td>新增 <code>teaching_iteration_loop.py</code>，避免 selector 继续膨胀。</td></tr>
+      <tr><td>严谨验收测试</td><td>目标、组合、全量测试和红线扫描全部通过。</td></tr>
+      <tr><td>最终汇总报告</td><td>明确成功样例、失败样例、边界和下一步。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>迭代链路</h2>
+    <pre><code>RepeatedEvidenceCourseProposal
+  -> APV3CurriculumRunner
+  -> recall-only validation
+  -> diagnosis
+  -> TeachingPlanContext
+  -> next RepeatedEvidenceCourseProposal</code></pre>
+  </section>
+
+  <section>
+    <h2>样例一：无教师证据时等待</h2>
+    <pre><code>reply_tokens = ()
+failure_kind = bn_not_recalled
+
+proposal.status = awaiting_teacher_evidence
+run_result = None
+next_proposal = None
+state unchanged</code></pre>
+  </section>
+
+  <section>
+    <h2>样例二：成功后停止</h2>
+    <pre><code>reply_tokens = teacher::answer
+case_name = skill_teacher_answer
+expected_pid = p:discovered:skill_teacher_answer
+
+validation success = true
+next_context.failure_kind = ""
+next_proposal = None</code></pre>
+  </section>
+
+  <section>
+    <h2>样例三：失败后进入下一轮</h2>
+    <pre><code>case_name = skill_wrong
+expected_pid = p:discovered:skill_teacher_answer
+
+validation success = false
+next_context.failure_kind = attention_wrong
+next_context.current_focus_pid = p:discovered:skill_wrong
+next_proposal.previous_failure_kind = attention_wrong
+failure_followup_repeats = 1</code></pre>
+  </section>
+
+  <section>
+    <h2>样例四：state 接力</h2>
+    <pre><code>first proposal:
+  was_exposed_at_check_time = false
+  initial_support_repeats = 2
+
+second proposal using first.run_result.state:
+  was_exposed_at_check_time = true
+  initial_support_repeats = 1</code></pre>
+  </section>
+
+  <section>
+    <h2>验收命令</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase6_6_teaching_iteration_loop.py -q
+4 passed in 0.32s
+
+python -m pytest APV3.0test\tests\test_phase6_0_active_teacher_request.py APV3.0test\tests\test_phase6_1_active_learning_bridge.py APV3.0test\tests\test_phase6_2_active_learning_trend.py APV3.0test\tests\test_phase6_3_teaching_protocol_selector.py APV3.0test\tests\test_phase6_4_diagnostic_teaching_plan.py APV3.0test\tests\test_phase6_5_multiround_teacher_course.py APV3.0test\tests\test_phase6_6_teaching_iteration_loop.py -q
+30 passed in 0.63s
+
+python -m pytest APV3.0test\tests -q
+163 passed in 3.19s</code></pre>
+  </section>
+
+  <section>
+    <h2>边界</h2>
+    <ul>
+      <li>仍不能宣称 AP 能自己生成教师答案。</li>
+      <li>仍不能宣称 AP 能自己选择教师。</li>
+      <li>仍不能宣称已实现真实差异化多轮课程。</li>
+      <li>本阶段证明的是重复证据 proposal 与 validation diagnosis 的最小迭代闭环。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>下一步</h2>
+    <p>建议进入 Phase6.7：把教学迭代 loop 接回 <code>active_learning_bridge</code>，让 <code>teacher_request SA</code> 可以触发 repeated-evidence proposal、运行验证、失败迭代，并在成功后抑制进一步求教。</p>
+  </section>
+</main>
+</body>
+</html>

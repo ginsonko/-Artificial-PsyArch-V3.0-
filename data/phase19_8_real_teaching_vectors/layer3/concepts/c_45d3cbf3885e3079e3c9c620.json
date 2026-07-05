@@ -1,0 +1,184 @@
+{
+  "concept_uuid": "c_45d3cbf3885e3079e3c9c620",
+  "epistemic_source": "PERCEIVED",
+  "lifecycle_status": "promoted",
+  "lifetime_observations": 6,
+  "metadata": {
+    "teacher_label_source": "visible_curriculum_signal",
+    "used_filename_label": false,
+    "visible_teacher_label": "cake"
+  },
+  "part_weights": [
+    {
+      "part_uuid": "part_56f0dca0dafc57d305c917f8",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_faa429056fccc5f51349f70c",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_d1d257fbf894d543815322bd",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_34ee342d7ef9518bec3367a7",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_6ebc5f48ab1222687f38dca2",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_7ac988294a5b05cf78a5077e",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_95753c06f98a047a77aaceb4",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_b6bb79f7d8b4e743142504cc",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_5be374181a07fa823701c642",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_c30dec7674423439888fa1eb",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_cfd37f636081a98db2755241",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_2dc1af8dc667b38e4128d8e0",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_370fb245f901c4097e98de2c",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_aa34d8387c8b555725390359",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_8c2d08cf20dac94f54769654",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_034a101ef3f87d467b7efbc0",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_69639c2c64a184e55f761d24",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_3e4f000904bb2287cc43e523",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_c413ec12227d9c6d3f72ee7c",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_fc6e31ac61e01595c4d3917e",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_8646fadaa8096059c96d74b2",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_bfbd5d827e6b915021cb0d99",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_54e8125b999166b1c05b2687",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_d94eeca2262ff2063c7ae928",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_1c19fbb51080e6d4c351fbac",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_7d902e88c089939d31f884eb",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_fd88f4fa44758fff8c4c01f1",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_1cf35cbe5e7c09f458e4aaf3",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_a65b1977ca7cf07ffa5ec126",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_0b315a88b0911257d30c6189",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_0e54a8c0390c699074ee6c5a",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_ef703d83e282a4999561f256",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_22bf9c2fd7faf8e523a040b0",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_d3be09b66f0dd7092dbeee89",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_d7f8cd864459da35226fd97d",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_830e827aa8a16cff74438e77",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_b917950eece41120aace0110",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_3aab31294a8b77d2cc5ffdb8",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_1cc2d1e503356fddcb9ff921",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_84b6dcccde04d7b30347fa07",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_0eccf1a9f8f30eac44aef420",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_40f0e755a86d891eff544704",
+      "weight": 1.0
+    }
+  ],
+  "vocab_associations": [
+    "teacher_visible::32cdb6191962"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_5cd85f0f0bbc0680",
+  "concept": "fish",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_5cd85f0f0bbc0680.png",
+  "sha256": "5cd85f0f0bbc0680410214ac25abbe3a6f84f772c2a77dd73acc9f9b08b54da5",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/51647007@N08/9664003207",
+  "download_url": "https://api.openverse.org/v1/images/b37d6c51-ff9c-49b5-b62b-795bfb788ad6/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "NOAA Photo Library",
+  "title": "expl6513",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

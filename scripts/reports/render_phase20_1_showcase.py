@@ -1,0 +1,150 @@
+from __future__ import annotations
+
+import html
+import sys
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from apv3test.runtime.phase20_open_dialogue import Phase20MultimodalSession
+
+
+REPORT = Path("reports/APV3_Phase20_1_WebDemoTeachingParadigm_Showcase_20260620.html")
+APPLE = Path("config/curriculum/assets/visual/clean_cards/noun_apple_held_out_0.png")
+
+
+def main() -> None:
+    db_path = Path("data/phase20_1_showcase/phase20_1.sqlite")
+    if db_path.exists():
+        db_path.unlink()
+    db_path.parent.mkdir(parents=True, exist_ok=True)
+    session = Phase20MultimodalSession(state_db_path=db_path)
+
+    greet_first = session.turn({"text": "你好"})
+    teach_greet = session.teach_latest({"teaching_reply_text": "你好。"})
+    image_first = session.turn({"text": "这是什么", "image_path": str(APPLE)})
+    teach_image = session.teach_latest({"teaching_reply_text": "像苹果。"})
+    image_again = session.turn({"text": "这是什么", "image_path": str(APPLE)})
+    greet_again = session.turn({"text": "你好"})
+
+    REPORT.parent.mkdir(parents=True, exist_ok=True)
+    REPORT.write_text(
+        _render(
+            turns=(greet_first, image_first, image_again, greet_again),
+            teachings=(teach_greet, teach_image),
+            db_path=db_path,
+        ),
+        encoding="utf-8",
+    )
+    print(REPORT.as_posix())
+
+
+def _render(*, turns, teachings, db_path: Path) -> str:
+    cards = "\n".join(
+        (
+            _turn_card("1. 普通问候", "用户输入: 你好", turns[0]),
+            _teaching_card("2. 教问候情境", teachings[0]),
+            _turn_card("3. 图文问题", "题目: 看这张苹果卡片,问“这是什么”", turns[1], image=APPLE),
+            _teaching_card("4. 教图文情境", teachings[1]),
+            _turn_card("5. 再问同一图文情境", "题目: 同样问“这是什么”", turns[2], image=APPLE),
+            _turn_card("6. 再说你好", "用户输入: 你好", turns[3]),
+        )
+    )
+    return f"""<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 20.1：情境隔离教学范式</title>
+  <style>
+    body{{margin:0;background:#f4f7f8;color:#172126;font-family:"Microsoft YaHei","Segoe UI",Arial,sans-serif;line-height:1.68;letter-spacing:0}}
+    header,main{{max-width:1160px;margin:0 auto;padding:24px}}
+    section{{background:#fff;border:1px solid #d8e2e7;border-radius:8px;padding:18px;margin:14px 0}}
+    h1{{margin:0 0 8px;font-size:28px}} h2{{margin:0 0 10px;font-size:20px}} h3{{margin:0 0 8px;font-size:17px}}
+    p{{margin:7px 0;color:#34454d}} code{{background:#edf4f2;border-radius:5px;padding:2px 5px}}
+    .grid{{display:grid;grid-template-columns:minmax(260px,.9fr) minmax(340px,1.1fr);gap:14px;align-items:start}}
+    .imgbox{{border:1px solid #d8e2e7;border-radius:8px;padding:10px;background:#fbfdff;text-align:center}}
+    .imgbox img{{max-width:100%;height:220px;object-fit:contain;background:#fff;border-radius:6px}}
+    .kv{{display:grid;grid-template-columns:148px minmax(0,1fr);gap:8px;margin:5px 0}}
+    .kv b{{color:#63727a;font-weight:500}} .mono{{font-family:Consolas,"Courier New",monospace;overflow-wrap:anywhere}}
+    .ok{{color:#0f766e;font-weight:700}} .warn{{color:#a33b35;font-weight:700}}
+    .pill{{display:inline-block;border:1px solid #cbdeda;background:#e8f4f2;border-radius:6px;padding:2px 7px;margin:2px}}
+    .flow{{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}}
+    .flow div{{border:1px solid #d8e2e7;background:#fbfdff;border-radius:8px;padding:10px;min-height:92px}}
+    @media(max-width:860px){{.grid,.flow{{grid-template-columns:1fr}}}}
+  </style>
+</head>
+<body>
+<header>
+  <h1>APV3 Phase 20.1：不满意就教它,但不串场</h1>
+  <p>这页用一条完整小实验展示: AP 原本可能把图文问题回得太短或不自然; 用户可以直接教一个更合适的短回复; 系统奖励新回复、轻罚旧回复,并且只在同类情境中调用。</p>
+</header>
+<main>
+  <section>
+    <h2>这次证明了什么</h2>
+    <div class="flow">
+      <div><b>1 输入</b><br>用户说话或带图提问。</div>
+      <div><b>2 看图</b><br>AP 生成 ObjectFiles,保留 image hash。</div>
+      <div><b>3 回答</b><br>styled corpus 给出小默风格短句。</div>
+      <div><b>4 教学</b><br>用户教“这种情况这样回”。</div>
+      <div><b>5 再遇到</b><br>同一结构情境命中 taught candidate。</div>
+    </div>
+    <p>重点不是证明 AP 已经完整懂中文,而是证明“开放对话底座 + 多模态输入 + 情境隔离教学”已经接通。</p>
+  </section>
+  {cards}
+  <section>
+    <h2>为什么不会再把“你好”和“这是什么”搅在一起</h2>
+    <p>每轮都会生成一个不可逆的 <code>context_signature</code>:包含用户输入 hash、是否有图、对象数量、对象把握层级、styled 范式等结构信息。教学只绑定这个签名,所以图文问答的教学不会覆盖纯文本问候。</p>
+    <p><span class="ok">已守住:</span>普通用户原文不持久化; 图片不存原路径; 教学文本显式标记为 <code>teacher_reply_paradigm</code>; 不把教学句塞进 <code>incoming_external_query</code>。</p>
+  </section>
+  <section>
+    <h2>边界</h2>
+    <p><span class="warn">仍不能宣称:</span>完整中文理解、真实照片鲁棒识别完成、一次教学后视觉 raw_confidence 必然提升、桌宠产品完成或具身智能完成。Phase 20.1 证明的是可审计的情境隔离回复教学。</p>
+    <p>演示状态库: <code>{html.escape(str(db_path))}</code></p>
+  </section>
+</main>
+</body>
+</html>"""
+
+
+def _turn_card(title: str, prompt: str, turn, *, image: Path | None = None) -> str:
+    objects = "".join(
+        f"<span class='pill'>{html.escape(item.top_visible_label)} · {html.escape(item.decision_tier)} · {item.raw_confidence:.3f}</span>"
+        for item in turn.object_files
+    ) or "<span class='pill'>无图片对象</span>"
+    styled = turn.styled_response
+    image_html = ""
+    if image is not None:
+        image_html = f"<div class='imgbox'><img src='../{html.escape(image.as_posix())}' alt='课程图片'><p>{html.escape(image.name)}</p></div>"
+    return f"""<section>
+  <h3>{html.escape(title)}</h3>
+  <div class="grid">
+    <div>{image_html or f"<p>{html.escape(prompt)}</p>"}</div>
+    <div>
+      <div class="kv"><b>题目/输入</b><span>{html.escape(prompt)}</span></div>
+      <div class="kv"><b>AP 输出</b><span>{html.escape(turn.reply_text)}</span></div>
+      <div class="kv"><b>ObjectFiles</b><span>{objects}</span></div>
+      <div class="kv"><b>styled 来源</b><span class="mono">{html.escape(styled.paradigm_id if styled else '')} / {html.escape(styled.entry_id if styled else '')}</span></div>
+      <div class="kv"><b>context</b><span class="mono">{html.escape(str(turn.metadata.get('context_signature', '')))}</span></div>
+      <div class="kv"><b>教学命中</b><span>{'是' if turn.metadata.get('teaching_candidate_applied') else '否'}</span></div>
+    </div>
+  </div>
+</section>"""
+
+
+def _teaching_card(title: str, teaching) -> str:
+    trace = teaching.teaching_trace
+    return f"""<section>
+  <h3>{html.escape(title)}</h3>
+  <div class="kv"><b>教的新回复</b><span>{html.escape(trace.response_text)}</span></div>
+  <div class="kv"><b>奖励</b><span class="mono">+{trace.reward_delta:.2f} 给 taught candidate</span></div>
+  <div class="kv"><b>轻罚</b><span class="mono">-{trace.previous_reply_punish_delta:.2f} 给上一轮 reply hash {html.escape(trace.previous_reply_hash)}</span></div>
+  <div class="kv"><b>来源</b><span class="mono">{html.escape(trace.source)}</span></div>
+  <div class="kv"><b>target context</b><span class="mono">{html.escape(trace.target_context_signature)}</span></div>
+</section>"""
+
+
+if __name__ == "__main__":
+    main()

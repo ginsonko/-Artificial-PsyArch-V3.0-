@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_56bbf5b60eeaca5a",
+  "concept": "strawberry",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_56bbf5b60eeaca5a.png",
+  "sha256": "56bbf5b60eeaca5ab60298e82c72f6969e33640ebddef08ff36bd3f44d0367b6",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/92269745@N00/5434298641",
+  "download_url": "https://api.openverse.org/v1/images/353cfa10-e180-4999-8bd2-5086b33e2d12/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "ralph and jenny",
+  "title": "Belgian Waffle",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

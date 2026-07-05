@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_d2bc9a52b8073d86",
+  "concept": "cake",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_d2bc9a52b8073d86.png",
+  "sha256": "d2bc9a52b8073d864b7b4a5f38c54e11e5a50f3c1ea1d07be290ee85a946b685",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/51035768826@N01/34704932",
+  "download_url": "https://api.openverse.org/v1/images/43bf312d-92ef-4831-a902-88312629af32/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Afroswede",
+  "title": "Wedding Cake, Before",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

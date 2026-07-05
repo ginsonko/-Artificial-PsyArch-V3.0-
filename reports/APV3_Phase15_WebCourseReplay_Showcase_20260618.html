@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase 15：课程回放工作台</title>
+  <style>
+    :root {
+      --bg: #f5f7f8;
+      --paper: #ffffff;
+      --ink: #172126;
+      --muted: #60727a;
+      --line: #d9e3e7;
+      --accent: #0f766e;
+      --accent-soft: #e7f4f1;
+      --blue: #245a8f;
+      --good: #16734e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif;
+      letter-spacing: 0;
+      line-height: 1.65;
+    }
+    header {
+      padding: 40px 24px 24px;
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
+    }
+    main { max-width: 1180px; margin: 0 auto; padding: 22px; }
+    .hero { max-width: 1180px; margin: 0 auto; }
+    h1 { margin: 0; font-size: 34px; line-height: 1.2; }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    h3 { margin: 0 0 8px; font-size: 17px; }
+    p { margin: 8px 0; color: var(--muted); }
+    .lead { max-width: 840px; font-size: 17px; color: #2c3b41; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .pill {
+      border: 1px solid #bfdbd6;
+      background: var(--accent-soft);
+      color: #17453f;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 13px;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      margin: 14px 0;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfdff;
+      padding: 14px;
+    }
+    .metric b { display: block; color: var(--blue); font-size: 26px; }
+    .metric span { color: var(--muted); font-size: 13px; }
+    .demo {
+      display: grid;
+      grid-template-columns: minmax(260px, .82fr) minmax(420px, 1.18fr);
+      gap: 14px;
+      align-items: start;
+    }
+    .material-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .asset {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfdff;
+      padding: 8px;
+      min-height: 126px;
+      display: grid;
+      place-items: center;
+    }
+    .asset img { max-width: 100%; height: 102px; object-fit: contain; border-radius: 6px; background: #fff; }
+    .asset audio { width: 100%; }
+    .answer {
+      margin-top: 12px;
+      border-left: 4px solid var(--good);
+      background: #edf8f2;
+      padding: 10px 12px;
+      border-radius: 0 8px 8px 0;
+      font-weight: 700;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 8px; vertical-align: top; text-align: left; }
+    th { color: var(--muted); font-weight: 600; background: #fbfdff; }
+    td:first-child { color: var(--blue); font-weight: 700; white-space: nowrap; }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      background: #f0f4f5;
+      border: 1px solid #d8e2e7;
+      border-radius: 6px;
+      padding: 1px 5px;
+      overflow-wrap: anywhere;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .flow div {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfdff;
+      padding: 10px;
+      min-height: 92px;
+    }
+    .flow b { display: block; color: var(--blue); margin-bottom: 4px; }
+    .boundary { background: #fffdf7; }
+    @media (max-width: 900px) {
+      h1 { font-size: 26px; }
+      .metric-grid, .demo, .flow { grid-template-columns: 1fr; }
+      .material-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      table { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <h1>APV3 Phase 15：让人看见 AP 是怎么学的</h1>
+      <p class="lead">Phase 14 已经准备好干净、可追溯的课程材料。Phase 15 把这些材料接进本地 Web 课程回放工作台，让外行也能看到：一张图或一段声音进入 AP 后，如何形成学习包、如何用未见材料探测、如何区分干扰项，最后如何给出可审计回应。</p>
+      <div class="pill-row">
+        <span class="pill">5 个课程 demo</span>
+        <span class="pill">每个 6 tick 回放</span>
+        <span class="pill">PERCEIVED 来源标记</span>
+        <span class="pill">SDPL LearningPacket</span>
+        <span class="pill">held-out 与 contrast 对照</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>一句话结论</h2>
+      <p>这一步证明：APV3 已经可以把 Phase 14 的课程材料跑成可检查的逐 tick 学习回放，并用网页展示“题目、材料、内部学习包、来源标记、Q 倾向、最终输出”。这不是一张静态宣传图，而是由 runtime 生成 trace，前端只负责渲染。</p>
+      <div class="metric-grid">
+        <div class="metric"><b>5</b><span>标杆课程回放</span></div>
+        <div class="metric"><b>6</b><span>每个 demo 的 tick 数</span></div>
+        <div class="metric"><b>10/10</b><span>Phase 15 预验收通过</span></div>
+        <div class="metric"><b>0.04s</b><span>首个课程 trace 生成约耗时</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>AP 内部流程怎么读</h2>
+      <div class="flow">
+        <div><b>tick 1</b>训练材料进入，AP 看到来自课程包的真实资产引用。</div>
+        <div><b>tick 2</b>形成 SDPL 学习包，把内容、来源、感受合在一起。</div>
+        <div><b>tick 3</b>换成 held-out 未见材料，检查同类倾向是否仍然存在。</div>
+        <div><b>tick 4</b>加入 contrast 干扰项，确认它不会被当成同一类。</div>
+        <div><b>tick 5</b>行动竞争阶段，课程倾向进入可解释输出候选。</div>
+        <div><b>tick 6</b>提交可审计回应，例如 <code>像是 黄</code>。</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>案例 1：颜色“黄”</h2>
+      <div class="demo">
+        <div>
+          <h3>题目内容</h3>
+          <p>这组材料在教什么颜色？训练材料是几张合成黄色图，held-out 是未见过的黄色变体，contrast 是对照材料。</p>
+          <div class="material-strip">
+            <div class="asset"><img src="../config/curriculum/assets/visual/synthetic/color_yellow_train_0.png" alt="黄色训练图 0"></div>
+            <div class="asset"><img src="../config/curriculum/assets/visual/synthetic/color_yellow_train_1.png" alt="黄色训练图 1"></div>
+            <div class="asset"><img src="../config/curriculum/assets/visual/synthetic/color_yellow_held_out_0.png" alt="黄色 held-out 图"></div>
+          </div>
+          <div class="answer">AP 最终输出：像是 黄</div>
+        </div>
+        <div>
+          <table>
+            <tr><th>tick</th><th>AP 内部过程</th><th>Q 倾向</th><th>输出</th></tr>
+            <tr><td>1</td><td>课程材料进入，来源为 <code>COURSE_REPLAY_ASSET</code>，marker 为 <code>PERCEIVED</code></td><td>1.0</td><td>看到训练材料</td></tr>
+            <tr><td>2</td><td>形成 <code>LearningPacket</code>，content/source/feeling 三路进入 SDPL</td><td>1.0</td><td>把材料和中性标签联结</td></tr>
+            <tr><td>3</td><td>held-out 探测：未见黄色变体仍得到同类倾向</td><td>1.0</td><td>未见材料仍能得到同类倾向</td></tr>
+            <tr><td>4</td><td>contrast 对照：干扰项被单独标记</td><td>0.0</td><td>干扰项被单独标记为对照</td></tr>
+            <tr><td>5</td><td>行动竞争：课程倾向进入回应候选</td><td>1.0</td><td>课程倾向进入可解释输出候选</td></tr>
+            <tr><td>6</td><td>提交可审计回应</td><td>1.0</td><td>像是 黄</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>案例 2：形状“三角”</h2>
+      <div class="demo">
+        <div>
+          <h3>题目内容</h3>
+          <p>这组材料在教什么形状？AP 看到三角形训练材料后，用未见三角变体做 held-out 探测。</p>
+          <div class="material-strip">
+            <div class="asset"><img src="../config/curriculum/assets/visual/synthetic/shape_triangle_train_0.png" alt="三角训练图 0"></div>
+            <div class="asset"><img src="../config/curriculum/assets/visual/synthetic/shape_triangle_train_1.png" alt="三角训练图 1"></div>
+            <div class="asset"><img src="../config/curriculum/assets/visual/synthetic/shape_triangle_held_out_0.png" alt="三角 held-out 图"></div>
+          </div>
+          <div class="answer">AP 最终输出：像是 三角</div>
+        </div>
+        <div>
+          <table>
+            <tr><th>tick</th><th>AP 内部过程</th><th>Q 倾向</th><th>输出</th></tr>
+            <tr><td>1</td><td>课程材料进入</td><td>1.0</td><td>看到训练材料</td></tr>
+            <tr><td>2</td><td>形成 SDPL 学习包</td><td>1.0</td><td>把材料和中性标签联结</td></tr>
+            <tr><td>3</td><td>held-out 探测通过</td><td>1.0</td><td>未见材料仍能得到同类倾向</td></tr>
+            <tr><td>4</td><td>contrast 对照分离</td><td>0.0</td><td>干扰项被单独标记为对照</td></tr>
+            <tr><td>5</td><td>行动竞争</td><td>1.0</td><td>课程倾向进入可解释输出候选</td></tr>
+            <tr><td>6</td><td>提交回应</td><td>1.0</td><td>像是 三角</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>案例 3：日常物体“苹果”</h2>
+      <div class="demo">
+        <div>
+          <h3>题目内容</h3>
+          <p>这组材料在教什么日常物体？AP 不是读文件名回答，前端也没有答案表；页面展示的是 runtime 返回的 tick trace。</p>
+          <div class="material-strip">
+            <div class="asset"><img src="../config/curriculum/assets/visual/synthetic/noun_apple_train_0.png" alt="苹果训练图 0"></div>
+            <div class="asset"><img src="../config/curriculum/assets/visual/synthetic/noun_apple_train_1.png" alt="苹果训练图 1"></div>
+            <div class="asset"><img src="../config/curriculum/assets/visual/synthetic/noun_apple_held_out_0.png" alt="苹果 held-out 图"></div>
+          </div>
+          <div class="answer">AP 最终输出：像是 苹果</div>
+        </div>
+        <div>
+          <table>
+            <tr><th>tick</th><th>AP 内部过程</th><th>Q 倾向</th><th>输出</th></tr>
+            <tr><td>1</td><td>课程材料进入</td><td>1.0</td><td>看到训练材料</td></tr>
+            <tr><td>2</td><td>形成 SDPL 学习包</td><td>1.0</td><td>把材料和中性标签联结</td></tr>
+            <tr><td>3</td><td>held-out 探测通过</td><td>1.0</td><td>未见材料仍能得到同类倾向</td></tr>
+            <tr><td>4</td><td>contrast 对照分离</td><td>0.0</td><td>干扰项被单独标记为对照</td></tr>
+            <tr><td>5</td><td>行动竞争</td><td>1.0</td><td>课程倾向进入可解释输出候选</td></tr>
+            <tr><td>6</td><td>提交回应</td><td>1.0</td><td>像是 苹果</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>案例 4：声音“轻声呼唤”</h2>
+      <div class="demo">
+        <div>
+          <h3>题目内容</h3>
+          <p>这组声音材料在教什么模式？音频材料和图像材料走同样的课程回放框架，只是感受通道不同。</p>
+          <div class="material-strip">
+            <div class="asset"><audio controls src="../config/curriculum/assets/audio/synthetic/audio_soft_call_train_0.wav"></audio></div>
+            <div class="asset"><audio controls src="../config/curriculum/assets/audio/synthetic/audio_soft_call_train_1.wav"></audio></div>
+            <div class="asset"><audio controls src="../config/curriculum/assets/audio/synthetic/audio_soft_call_held_out_0.wav"></audio></div>
+          </div>
+          <div class="answer">AP 最终输出：像是 轻声呼唤</div>
+        </div>
+        <div>
+          <table>
+            <tr><th>tick</th><th>AP 内部过程</th><th>Q 倾向</th><th>输出</th></tr>
+            <tr><td>1</td><td>课程音频进入，source 仍是可审计课程资产</td><td>1.0</td><td>看到训练材料</td></tr>
+            <tr><td>2</td><td>形成 SDPL 学习包</td><td>1.0</td><td>把材料和中性标签联结</td></tr>
+            <tr><td>3</td><td>held-out 音频探测通过</td><td>1.0</td><td>未见材料仍能得到同类倾向</td></tr>
+            <tr><td>4</td><td>contrast 音频对照分离</td><td>0.0</td><td>干扰项被单独标记为对照</td></tr>
+            <tr><td>5</td><td>行动竞争</td><td>1.0</td><td>课程倾向进入可解释输出候选</td></tr>
+            <tr><td>6</td><td>提交回应</td><td>1.0</td><td>像是 轻声呼唤</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>案例 5：反馈信号“对”</h2>
+      <div class="demo">
+        <div>
+          <h3>题目内容</h3>
+          <p>这组材料在教什么反馈信号？这类材料未来可以接到奖励/惩罚与自然纠错体验里。</p>
+          <div class="material-strip">
+            <div class="asset"><img src="../config/curriculum/assets/visual/synthetic/feedback_correct_train_0.png" alt="正确反馈训练图 0"></div>
+            <div class="asset"><img src="../config/curriculum/assets/visual/synthetic/feedback_correct_train_1.png" alt="正确反馈训练图 1"></div>
+            <div class="asset"><img src="../config/curriculum/assets/visual/synthetic/feedback_correct_held_out_0.png" alt="正确反馈 held-out 图"></div>
+          </div>
+          <div class="answer">AP 最终输出：像是 对</div>
+        </div>
+        <div>
+          <table>
+            <tr><th>tick</th><th>AP 内部过程</th><th>Q 倾向</th><th>输出</th></tr>
+            <tr><td>1</td><td>课程材料进入</td><td>1.0</td><td>看到训练材料</td></tr>
+            <tr><td>2</td><td>形成 SDPL 学习包</td><td>1.0</td><td>把材料和中性标签联结</td></tr>
+            <tr><td>3</td><td>held-out 探测通过</td><td>1.0</td><td>未见材料仍能得到同类倾向</td></tr>
+            <tr><td>4</td><td>contrast 对照分离</td><td>0.0</td><td>干扰项被单独标记为对照</td></tr>
+            <tr><td>5</td><td>行动竞争</td><td>1.0</td><td>课程倾向进入可解释输出候选</td></tr>
+            <tr><td>6</td><td>提交回应</td><td>1.0</td><td>像是 对</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>这证明了什么</h2>
+      <p>第一，课程材料不是散乱文件，而是 manifest 管理的资产；第二，AP 的回放不是前端写死答案，而是 runtime 生成的 tick trace；第三，held-out 未见材料和 contrast 干扰项在回放里被分开处理；第四，Web 工作台已经能把“材料进入、学习包、来源标记、Q 倾向、最终输出”这条链展示给普通读者。</p>
+    </section>
+
+    <section class="boundary">
+      <h2>当前边界</h2>
+      <p>Phase 15 证明的是“课程回放工作台 + 5 个短课程 trace + 可审计展示”成立。它还不是完整公开发布版，也不宣称 AP 已经掌握全部基础词汇、完整数学课程、真实外部素材库或长期真实用户训练。下一步可以基于这个工作台跑更长课程，并把后续风格化表达语料接进来。</p>
+    </section>
+  </main>
+</body>
+</html>

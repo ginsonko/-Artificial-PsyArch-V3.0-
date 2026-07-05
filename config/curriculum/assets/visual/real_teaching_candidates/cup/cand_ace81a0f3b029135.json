@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_ace81a0f3b029135",
+  "concept": "cup",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_ace81a0f3b029135.png",
+  "sha256": "ace81a0f3b02913563443f79e612f7f14d23b9423b6a44603b35ca381cc436fb",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/147875007@N03/27665205838",
+  "download_url": "https://api.openverse.org/v1/images/1e8403a5-40b8-46d6-8ad2-adfe8ddf9daa/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Rawpixel Ltd",
+  "title": "Aerial view of computer laptop and a cup of tea",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_76ceb2abf3cf3187",
+  "concept": "strawberry",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_76ceb2abf3cf3187.png",
+  "sha256": "76ceb2abf3cf3187248232a68a5bd0c2dadacb85ff8221d1d7ebd008466eb66e",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/36281822@N08/4457196728",
+  "download_url": "https://api.openverse.org/v1/images/707b6f56-1648-439a-b68b-d311430b78aa/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "US Army Africa",
+  "title": "35th U.S. Army Culinary Arts Competition 100307-A-5449R-096",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

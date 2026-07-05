@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_0c45014cdfcca92b",
+  "concept": "cake",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cake/cand_0c45014cdfcca92b.png",
+  "sha256": "0c45014cdfcca92baf9607c32d5d42f31bb7937e7cc42ac34561661bebd32a62",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/23088039@N08/3029854145",
+  "download_url": "https://api.openverse.org/v1/images/7825d2a3-04b1-4ae5-a734-337b7d88f605/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Rachel from Cupcakes Take the Cake",
+  "title": "Confetti Cakes for Kids book party",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

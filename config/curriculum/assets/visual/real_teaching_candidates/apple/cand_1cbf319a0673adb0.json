@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_1cbf319a0673adb0",
+  "concept": "apple",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_1cbf319a0673adb0.png",
+  "sha256": "1cbf319a0673adb0ec16a50383eac96ec0b128d4c8d13b306c7673bb7d1fb7f5",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/45776673@N04/15283164149",
+  "download_url": "https://api.openverse.org/v1/images/6e18b5ba-fc3b-420e-a718-fb7b5afc9ac1/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Steven Pisano",
+  "title": "Brooklyn Street Scenes",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

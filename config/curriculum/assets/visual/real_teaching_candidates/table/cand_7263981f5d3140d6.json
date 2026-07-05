@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_7263981f5d3140d6",
+  "concept": "table",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/table/cand_7263981f5d3140d6.png",
+  "sha256": "7263981f5d3140d6720433e949b9a799648d26bb78904912401d467efbc43a38",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/97247234@N00/3516216396",
+  "download_url": "https://api.openverse.org/v1/images/195ca307-785a-470e-b6e3-fff9d0dd0d99/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Dennis Wong",
+  "title": "Mr. Shimoni's table",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

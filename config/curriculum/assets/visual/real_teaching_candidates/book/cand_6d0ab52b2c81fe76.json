@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_6d0ab52b2c81fe76",
+  "concept": "book",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_6d0ab52b2c81fe76.png",
+  "sha256": "6d0ab52b2c81fe7629210f8fa1d17ed4a1ee9992d0b3ecbf809b4a8662e77304",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/47346831@N00/1804381678",
+  "download_url": "https://api.openverse.org/v1/images/dfdda146-9447-42c8-b31d-94c5b76887a5/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "uteart",
+  "title": "El Altar de Muertos - para mis abuelos",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_7dd5fa3a2eb28a40",
+  "concept": "cup",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_7dd5fa3a2eb28a40.png",
+  "sha256": "7dd5fa3a2eb28a40d67248150149f8f028694876618ac9ebbf2856f466a67acb",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/50744999@N02/6508860689",
+  "download_url": "https://api.openverse.org/v1/images/c434f325-e9b9-4c00-80d1-6e66ebaff53a/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Tree Leaf Clover",
+  "title": "Fancy a glass of water?",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

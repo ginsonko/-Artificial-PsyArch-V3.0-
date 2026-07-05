@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_72925529805f1017",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_72925529805f1017.png",
+  "sha256": "72925529805f10175b5428ff3d503596c7bc8d80ca31a474241e9c4b36eb9620",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/44124425616@N01/1552383685",
+  "download_url": "https://api.openverse.org/v1/images/11f92b06-6b8f-4f14-9883-ad95a52e5128/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Hamed Saber",
+  "title": "Eid Mubarak - عید فطر مبارک",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

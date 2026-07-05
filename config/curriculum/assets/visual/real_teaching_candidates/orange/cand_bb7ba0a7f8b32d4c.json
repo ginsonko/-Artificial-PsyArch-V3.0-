@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_bb7ba0a7f8b32d4c",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_bb7ba0a7f8b32d4c.png",
+  "sha256": "bb7ba0a7f8b32d4c2cb6bc385210248731f9319a53d3ed2a9df805ec73795754",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/21484712@N00/15729994747",
+  "download_url": "https://api.openverse.org/v1/images/5e6256b0-8f76-4c89-8500-d4eb3d63ff61/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Caitlinator",
+  "title": "Sliced Oranges",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

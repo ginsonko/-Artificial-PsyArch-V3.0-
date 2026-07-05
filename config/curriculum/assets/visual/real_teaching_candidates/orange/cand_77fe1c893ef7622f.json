@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_77fe1c893ef7622f",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_77fe1c893ef7622f.png",
+  "sha256": "77fe1c893ef7622fba002a92cced13ce958471c5428153e5682b595fd5e37b1f",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/30346812@N07/8100481357",
+  "download_url": "https://api.openverse.org/v1/images/c321239d-8d11-4e5b-b384-978db2825253/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Orange County Archives",
+  "title": "Sun-Tag orange crate label",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_080d4a7b120f9e07",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_080d4a7b120f9e07.png",
+  "sha256": "080d4a7b120f9e07c538561a2073f3f7417ba6104c9c21d939058efced088722",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/33227787@N05/11549761586",
+  "download_url": "https://api.openverse.org/v1/images/9ef0e2b1-9847-42f4-a145-292e33aa51f0/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "r.nial.bradshaw",
+  "title": "orange-christmas-tree-bokeh.jpg",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

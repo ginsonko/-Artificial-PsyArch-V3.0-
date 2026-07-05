@@ -1,0 +1,265 @@
+{
+  "schema_id": "apv3_asset_manifest/v1",
+  "manifest_id": "phase18_clean_concept_cards_v1",
+  "asset_origin_policy": "clean_generated_cards_no_text_before_real_photo_generalization",
+  "assets": [
+    {
+      "asset_id": "asset::clean_card::noun_apple::train::0",
+      "path": "visual/clean_cards/noun_apple_train_0.png",
+      "media_type": "image/png",
+      "sha256": "091d1671136b305ea14bc1f331bf37d3b3228b0b66b4d42f9ad2ee31632d211f",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_clean_concept_cards.py#asset::clean_card::noun_apple::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 clean concept card generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "clean_card",
+        "noun_apple"
+      ]
+    },
+    {
+      "asset_id": "asset::clean_card::noun_apple::train::1",
+      "path": "visual/clean_cards/noun_apple_train_1.png",
+      "media_type": "image/png",
+      "sha256": "c2aaa544d599404902070206f24c177fabcca1ae87c33acb9ad9c0ee91a4cf4b",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_clean_concept_cards.py#asset::clean_card::noun_apple::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 clean concept card generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "clean_card",
+        "noun_apple"
+      ]
+    },
+    {
+      "asset_id": "asset::clean_card::noun_apple::train::2",
+      "path": "visual/clean_cards/noun_apple_train_2.png",
+      "media_type": "image/png",
+      "sha256": "7220e27dc7b0da157d796af11d763932b407ad27c6d0f54666715bfc647954d7",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_clean_concept_cards.py#asset::clean_card::noun_apple::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 clean concept card generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "clean_card",
+        "noun_apple"
+      ]
+    },
+    {
+      "asset_id": "asset::clean_card::noun_apple::held_out::0",
+      "path": "visual/clean_cards/noun_apple_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "4c7a56341579c3bb0d32dbca87c1340bf7456ffcbd263f1b443711301888daff",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_clean_concept_cards.py#asset::clean_card::noun_apple::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 clean concept card generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "clean_card",
+        "noun_apple"
+      ]
+    },
+    {
+      "asset_id": "asset::clean_card::noun_apple::contrast::0",
+      "path": "visual/clean_cards/noun_apple_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "39a713c3eb84c07badcc46ade859db34a7aa38dc664d1ceb57b6b1385e03341c",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_clean_concept_cards.py#asset::clean_card::noun_apple::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 clean concept card generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "clean_card",
+        "noun_apple",
+        "contrast_source:noun_banana"
+      ]
+    },
+    {
+      "asset_id": "asset::clean_card::noun_banana::train::0",
+      "path": "visual/clean_cards/noun_banana_train_0.png",
+      "media_type": "image/png",
+      "sha256": "4a4474038ab5bc25b045497e4a0a31ff5d2a797dfe67fc9e33f08e200343d754",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_clean_concept_cards.py#asset::clean_card::noun_banana::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 clean concept card generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "clean_card",
+        "noun_banana"
+      ]
+    },
+    {
+      "asset_id": "asset::clean_card::noun_banana::train::1",
+      "path": "visual/clean_cards/noun_banana_train_1.png",
+      "media_type": "image/png",
+      "sha256": "330fc6d867db646f811d2584245b3b6548e2eada681d564f4f17b7e243b09f4a",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_clean_concept_cards.py#asset::clean_card::noun_banana::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 clean concept card generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "clean_card",
+        "noun_banana"
+      ]
+    },
+    {
+      "asset_id": "asset::clean_card::noun_banana::train::2",
+      "path": "visual/clean_cards/noun_banana_train_2.png",
+      "media_type": "image/png",
+      "sha256": "34ee16d45b60558fef0003b7452af44d25316916ed5b5b2db32dbeca6bb88aaf",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_clean_concept_cards.py#asset::clean_card::noun_banana::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 clean concept card generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "clean_card",
+        "noun_banana"
+      ]
+    },
+    {
+      "asset_id": "asset::clean_card::noun_banana::held_out::0",
+      "path": "visual/clean_cards/noun_banana_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "3dca1ae40ca3b62d60e587e5cb41a405085c64f5c13dfc300938299d24c08c63",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_clean_concept_cards.py#asset::clean_card::noun_banana::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 clean concept card generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "clean_card",
+        "noun_banana"
+      ]
+    },
+    {
+      "asset_id": "asset::clean_card::noun_banana::contrast::0",
+      "path": "visual/clean_cards/noun_banana_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "e97e473fffb74749ee373c3e820d249dcd51dd5d231110a950f42c5c4eafa1c6",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_clean_concept_cards.py#asset::clean_card::noun_banana::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 clean concept card generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "clean_card",
+        "noun_banana",
+        "contrast_source:noun_orange"
+      ]
+    },
+    {
+      "asset_id": "asset::clean_card::noun_orange::train::0",
+      "path": "visual/clean_cards/noun_orange_train_0.png",
+      "media_type": "image/png",
+      "sha256": "c8ad3e62becd1a49bb4c04f0ae373ad0c089e1c3bfea7fd15abb12c289398ff6",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_clean_concept_cards.py#asset::clean_card::noun_orange::train::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 clean concept card generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "clean_card",
+        "noun_orange"
+      ]
+    },
+    {
+      "asset_id": "asset::clean_card::noun_orange::train::1",
+      "path": "visual/clean_cards/noun_orange_train_1.png",
+      "media_type": "image/png",
+      "sha256": "da1c87386fc305dfd89055fa033ce93c3d94a1e4e47cd07dab37da88bcccba75",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_clean_concept_cards.py#asset::clean_card::noun_orange::train::1",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 clean concept card generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "clean_card",
+        "noun_orange"
+      ]
+    },
+    {
+      "asset_id": "asset::clean_card::noun_orange::train::2",
+      "path": "visual/clean_cards/noun_orange_train_2.png",
+      "media_type": "image/png",
+      "sha256": "3dbdded13f1b1fb1e734c30ba583a68aabb76705cec75b24f0f3a7238447507d",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_clean_concept_cards.py#asset::clean_card::noun_orange::train::2",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 clean concept card generator",
+      "intended_use": "curriculum_train",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "clean_card",
+        "noun_orange"
+      ]
+    },
+    {
+      "asset_id": "asset::clean_card::noun_orange::held_out::0",
+      "path": "visual/clean_cards/noun_orange_held_out_0.png",
+      "media_type": "image/png",
+      "sha256": "7a9eb9fe321f3113cc919b3a253f51f19dc6dfee7643362cb486bea73c2b056b",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_clean_concept_cards.py#asset::clean_card::noun_orange::held_out::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 clean concept card generator",
+      "intended_use": "held_out",
+      "held_out_group": "fold_0",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "clean_card",
+        "noun_orange"
+      ]
+    },
+    {
+      "asset_id": "asset::clean_card::noun_orange::contrast::0",
+      "path": "visual/clean_cards/noun_orange_contrast_0.png",
+      "media_type": "image/png",
+      "sha256": "43dc419d0c0e7021015b562a8630aa97d28d1df12420bbfedaf0579857fa6a91",
+      "asset_origin": "generated_local",
+      "source_url": "script://scripts/curriculum/generate_clean_concept_cards.py#asset::clean_card::noun_orange::contrast::0",
+      "license_id": "LicenseRef-APV3-Synthetic-Generated",
+      "attribution": "APV3 clean concept card generator",
+      "intended_use": "contrast",
+      "held_out_group": "",
+      "content_safety_review": "pass",
+      "semantic_tags": [
+        "clean_card",
+        "noun_orange",
+        "contrast_source:noun_apple"
+      ]
+    }
+  ]
+}

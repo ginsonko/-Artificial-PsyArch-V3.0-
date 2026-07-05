@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_a6c43a42e22094af",
+  "concept": "dog",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_a6c43a42e22094af.png",
+  "sha256": "a6c43a42e22094af06f2a1c54d1e38b70179a1c485fc508e07c674dff8fb9519",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/52132044@N07/5597083289",
+  "download_url": "https://api.openverse.org/v1/images/ae912722-c9e7-4d4c-9ac5-de6939d5926d/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "whatjeanlikes",
+  "title": "Buddy the Chihuahua",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

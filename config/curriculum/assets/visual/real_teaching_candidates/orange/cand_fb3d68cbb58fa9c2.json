@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_fb3d68cbb58fa9c2",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_fb3d68cbb58fa9c2.png",
+  "sha256": "fb3d68cbb58fa9c227e6a78c72d6f544e331618cff416a265e8b016b1887e5d8",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/10019047@N05/11560135213",
+  "download_url": "https://api.openverse.org/v1/images/fbc41c06-a11b-441b-a41a-40de222b902b/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "basheertome",
+  "title": "Orange Punch",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

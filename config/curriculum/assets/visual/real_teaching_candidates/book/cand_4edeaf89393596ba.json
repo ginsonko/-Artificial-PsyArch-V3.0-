@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_4edeaf89393596ba",
+  "concept": "book",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/book/cand_4edeaf89393596ba.png",
+  "sha256": "4edeaf89393596ba9a14390e2782cb6db738c509aedc5797a64352c9217ebc44",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/28752865@N08/8624132445",
+  "download_url": "https://api.openverse.org/v1/images/5b688d4b-cd33-4a95-900a-c581d7a69364/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Karen Roe",
+  "title": "The Big Egg Hunt 2013 - Covent Garden, London",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

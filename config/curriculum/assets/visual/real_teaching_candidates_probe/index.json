@@ -1,0 +1,43 @@
+{
+  "schema_id": "apv3_real_teaching_candidates_index/v1",
+  "generated_at_unix": 1781872646,
+  "allowed_license_ids": [
+    "CC-BY-2.0",
+    "CC-BY-3.0",
+    "CC-BY-4.0",
+    "CC0-1.0",
+    "PDM-1.0"
+  ],
+  "records": [
+    {
+      "schema_id": "apv3_real_teaching_candidate/v1",
+      "candidate_id": "cand_261b746df71550e3",
+      "concept": "apple",
+      "path": "config/curriculum/assets/visual/real_teaching_candidates_probe/apple/cand_261b746df71550e3.png",
+      "sha256": "261b746df71550e3e6b46cb1f89d8d536e3fb1d15816ac8ae2306491d311fef3",
+      "source": "openverse",
+      "source_url": "https://www.flickr.com/photos/71753457@N00/212833788",
+      "download_url": "https://api.openverse.org/v1/images/d7ac9b7d-5a5a-4ecf-bd23-d1a1e893248f/thumb/",
+      "license_id": "CC-BY-2.0",
+      "author": "orangeacid",
+      "title": "Apple",
+      "curation_status": "keep",
+      "content_safety_review": "pending_human"
+    },
+    {
+      "schema_id": "apv3_real_teaching_candidate/v1",
+      "candidate_id": "cand_e885cfcf6e03965a",
+      "concept": "apple",
+      "path": "config/curriculum/assets/visual/real_teaching_candidates_probe/apple/cand_e885cfcf6e03965a.png",
+      "sha256": "e885cfcf6e03965a4420b3d31fac2dd37b9843c3943b61427e56dfa740c93dc2",
+      "source": "openverse",
+      "source_url": "https://www.flickr.com/photos/94085795@N08/9558525521",
+      "download_url": "https://api.openverse.org/v1/images/cd4ca841-457f-4876-abdd-b2db0481920d/thumb/",
+      "license_id": "CC-BY-2.0",
+      "author": "Kirinohana",
+      "title": "Camera Test Apple",
+      "curation_status": "keep",
+      "content_safety_review": "pending_human"
+    }
+  ]
+}

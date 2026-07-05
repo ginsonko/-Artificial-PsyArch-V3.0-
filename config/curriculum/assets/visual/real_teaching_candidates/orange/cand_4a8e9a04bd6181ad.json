@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_4a8e9a04bd6181ad",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_4a8e9a04bd6181ad.png",
+  "sha256": "4a8e9a04bd6181adb3faad0b2fcfe4a61fea5ee7edd5e87874ec29883fd887ae",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/126391065@N03/15746906808",
+  "download_url": "https://api.openverse.org/v1/images/5807506a-6544-4665-9049-7ae6213a1e60/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "www.nmcqueenphotography.com",
+  "title": "An Orange a Day...",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

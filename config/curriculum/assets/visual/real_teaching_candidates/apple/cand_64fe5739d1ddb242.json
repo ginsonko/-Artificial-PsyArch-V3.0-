@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_64fe5739d1ddb242",
+  "concept": "apple",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/apple/cand_64fe5739d1ddb242.png",
+  "sha256": "64fe5739d1ddb242ae55e05c945698eaf352ef03013eb39c0a1d74a1ad01df56",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/113312228@N06/12197650876",
+  "download_url": "https://api.openverse.org/v1/images/bf4bb3b5-922d-421b-907a-329b0d2766ab/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Apple and Pear Australia Ltd",
+  "title": "Royal Gala",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

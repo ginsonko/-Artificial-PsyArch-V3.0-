@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3 Phase8.0 干净运行入口与最小中文 CLI</title>
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #637083;
+      --line: #d8e1ea;
+      --bg: #f5f7f8;
+      --panel: #ffffff;
+      --green: #0f7a55;
+      --blue: #235a91;
+      --gold: #8a6418;
+      --soft-green: #e9f7f0;
+      --soft-blue: #e8f1fb;
+      --soft-gold: #fff4d8;
+      --soft-gray: #f1f5f8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.68;
+    }
+    main {
+      width: min(1160px, calc(100% - 44px));
+      margin: 28px auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 45px rgba(30, 44, 64, 0.08);
+    }
+    header {
+      padding: 38px 42px 28px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbfc 100%);
+    }
+    h1 { margin: 0; font-size: 30px; line-height: 1.25; letter-spacing: 0; }
+    h2 { margin: 0 0 12px; font-size: 21px; }
+    h3 { margin: 18px 0 8px; color: var(--blue); font-size: 16px; }
+    p { margin: 8px 0; }
+    section { padding: 28px 42px; border-bottom: 1px solid var(--line); }
+    section:last-child { border-bottom: 0; }
+    code { font-family: Consolas, "Courier New", monospace; background: #f2f5f7; border: 1px solid #e1e7ee; border-radius: 4px; padding: 1px 5px; }
+    pre {
+      margin: 12px 0 0;
+      padding: 14px 16px;
+      background: #17202a;
+      color: #f5fbff;
+      border-radius: 8px;
+      overflow: auto;
+      font-family: Consolas, "Courier New", monospace;
+      line-height: 1.55;
+    }
+    table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #edf3f8; }
+    .subtitle { max-width: 940px; color: var(--muted); font-size: 16px; margin-top: 12px; }
+    .status {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 7px 12px;
+      border-radius: 6px;
+      color: var(--green);
+      background: var(--soft-green);
+      border: 1px solid #bfe6d1;
+      font-weight: 700;
+    }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fbfdff;
+      min-height: 118px;
+    }
+    .card strong { display: block; color: var(--green); font-size: 28px; line-height: 1.1; margin-bottom: 8px; }
+    .pill {
+      display: inline-block;
+      margin: 3px 4px 3px 0;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid #c6dbf3;
+      background: var(--soft-blue);
+      color: #23466b;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .step {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: var(--soft-gray);
+      min-height: 96px;
+      font-size: 14px;
+    }
+    .step b { display: block; color: var(--blue); margin-bottom: 5px; }
+    .callout {
+      border-left: 4px solid var(--green);
+      background: var(--soft-green);
+      padding: 12px 14px;
+      margin-top: 12px;
+    }
+    .gold { border-left-color: var(--gold); background: var(--soft-gold); }
+    @media (max-width: 860px) {
+      main { width: calc(100% - 24px); margin: 12px auto; }
+      header, section { padding: 24px 20px; }
+      .grid, .flow { grid-template-columns: 1fr; }
+      h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Phase8.0：从验证机制走到干净可玩的本地中文对话入口</h1>
+      <p class="subtitle">APV3.0test 已经把 7.8-7.11 验证过的极简中文表达、多轮对话、长期稳定性和用户风格趋同，整理成一个清晰 runtime profile，并提供第一个可直接启动的本地 CLI。</p>
+      <span class="status">状态：Phase8.0a + Phase8.0b 通过</span>
+    </header>
+
+    <section>
+      <h2>这一步证明了什么</h2>
+      <div class="grid">
+        <div class="card"><strong>7</strong>Phase8 targeted tests 全部通过</div>
+        <div class="card"><strong>32</strong>Phase7.8 到 Phase8.0 组合回归通过</div>
+        <div class="card"><strong>120</strong>固定中文短表达词库保持为稳定按钮库</div>
+        <div class="card"><strong>0</strong>运行时红线命中：无答案表、无学生侧 LLM、无整句 fallback</div>
+      </div>
+      <div class="callout">
+        这不是把测试脚本包装成 demo，而是把已验证的 AP-native 对话机制放进一个可加载、可保存、可重启的真实运行入口。
+      </div>
+    </section>
+
+    <section>
+      <h2>干净 runtime profile</h2>
+      <p>新增的 <code>runtime_profile_minimalist_cli.json</code> 是启动合同。它声明真实运行需要加载的模块、固定 seed corpus、SQLite 状态路径、style gate 和禁止进入上线 profile 的 dev/test 字段。</p>
+      <table>
+        <tr><th>项目</th><th>Phase8.0 的处理</th><th>意义</th></tr>
+        <tr><td>词库</td><td>固定加载 <code>introspection_phrase_seed_corpus.json</code></td><td>表达按钮稳定存在，不被长跑 compact 误删</td></tr>
+        <tr><td>动态扩词</td><td><code>allow_new_phrases=false</code></td><td>防止真实用户输入或 LLM 句式倒灌进学生词库</td></tr>
+        <tr><td>状态</td><td>默认写入 <code>state/apv3_minimalist_cli.sqlite</code></td><td>用户体验状态和测试临时数据库分离</td></tr>
+        <tr><td>风格</td><td>style gate 启用，最多 3 token</td><td>输出保持短、轻、诚实</td></tr>
+        <tr><td>红线</td><td>显式列出 forbidden runtime markers</td><td>启动合同层面排除答案表、学生侧 LLM 和硬编码后门</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>最小 CLI 体验入口</h2>
+      <p>现在可以直接在本地运行：</p>
+      <pre>cd APV3.0test
+python -m apv3test.chat</pre>
+      <p>可用命令：</p>
+      <p>
+        <span class="pill">输入中文：运行一轮 AP 对话</span>
+        <span class="pill">:top：查看当前高支持短表达</span>
+        <span class="pill">:mode：切换结构态</span>
+        <span class="pill">:+：轻微奖励上一轮输出</span>
+        <span class="pill">:-：轻微惩罚上一轮输出</span>
+        <span class="pill">:quit：退出</span>
+      </p>
+      <div class="callout gold">
+        CLI 命令只是外部体验壳。学生侧普通输入仍然走 AP-native 统计、共现、内省 feeling 和 style gate，不按用户文本写答案分支。
+      </div>
+    </section>
+
+    <section>
+      <h2>一轮输入如何变成输出</h2>
+      <div class="flow">
+        <div class="step"><b>1. 用户输入</b>作为外部 query 进入当前结构态，不做关键词回答。</div>
+        <div class="step"><b>2. 词库匹配</b>只有完全匹配 seed phrase 的短表达才成为共现证据。</div>
+        <div class="step"><b>3. 内省 feeling</b>由结构态 view 触发当前认知感受标签。</div>
+        <div class="step"><b>4. 共现召回</b>从 feeling 到 phrase 的后天关联中选候选表达。</div>
+        <div class="step"><b>5. 风格门</b>输出经过 style gate，保存到 SQLite。</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>正面验收样例</h2>
+      <table>
+        <tr><th>场景</th><th>输入/操作</th><th>验收结果</th></tr>
+        <tr><td>首次启动</td><td><code>python -m apv3test.chat --once 嗯</code></td><td>CLI 正常输出短表达，并写入 SQLite runtime DB</td></tr>
+        <tr><td>用户风格学习</td><td>连续输入 seed corpus 内的 <code>嗯</code></td><td>重启后 <code>:top</code> 仍保留该表达的高支持倾向</td></tr>
+        <tr><td>词库外输入</td><td>输入一段很长的新口头禅</td><td>不会新增 phrase；词库记录数保持 120</td></tr>
+        <tr><td>持久化恢复</td><td>保存、关闭、重新创建 session</td><td>top phrase 与重启前一致，说明 warm-load 有效</td></tr>
+        <tr><td>红线扫描</td><td>扫描 <code>chat.py</code> 和 runtime 模块</td><td>未发现 answer table、student-side LLM、whole-reply fallback 或用户特例路由</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>验收命令</h2>
+      <pre>python -m pytest tests\test_phase8_0a_runtime_profile.py tests\test_phase8_0b_minimal_cli_entry.py -q
+# 7 passed
+
+python -m pytest tests\test_phase7_8_minimalist_expression_corpus.py tests\test_phase7_9_minimalist_multiturn_dialogue_flow.py tests\test_phase7_10_longrun_stability.py tests\test_phase7_11_user_style_mirroring.py tests\test_phase8_0a_runtime_profile.py tests\test_phase8_0b_minimal_cli_entry.py -q
+# 32 passed</pre>
+    </section>
+
+    <section>
+      <h2>结论</h2>
+      <p>Phase8.0 完成了从“机制已经在测试中成立”到“可以干净启动、连续输入、保存重启”的工程化第一步。它保留 APV3 的核心边界：后天共现学习、固定安全词库、无学生侧 LLM、无答案表、无测试数据库污染。</p>
+      <p>这意味着项目已经具备最小真实体验条件。下一步可以在这个入口上进行真实用户试玩观察，再决定是否优先扩词库、做 Web UI，或加入更细的 context 条件化表达。</p>
+    </section>
+  </main>
+</body>
+</html>

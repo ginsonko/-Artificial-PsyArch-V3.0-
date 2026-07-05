@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_4b508c600ea48388",
+  "concept": "dog",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_4b508c600ea48388.png",
+  "sha256": "4b508c600ea48388b0b25b56ee8cdf12d8406a49d0b47a0fa4a69d090bb3c39a",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/11399912@N00/7261144",
+  "download_url": "https://api.openverse.org/v1/images/3523e801-be69-440d-954b-f84918765206/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "basykes",
+  "title": "Sleeping Pups",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_defa64c6ce0b5e10",
+  "concept": "bird",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/bird/cand_defa64c6ce0b5e10.png",
+  "sha256": "defa64c6ce0b5e104fb7c0b7a30cdbde78bb843496534219b82928ec2bd3af83",
+  "source": "openverse",
+  "source_url": "https://www.rawpixel.com/image/6019312/photo-image-public-domain-nature-bird",
+  "download_url": "https://api.openverse.org/v1/images/79368ad3-7797-4a96-b87c-7a3b2e6c6bd8/thumb/",
+  "license_id": "CC0-1.0",
+  "author": "",
+  "title": "Robin bird, animal photo",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_cf11beeae11e6be2",
+  "concept": "phone",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/phone/cand_cf11beeae11e6be2.png",
+  "sha256": "cf11beeae11e6be21de42ca4196974806713ab2785d97ba62ba5fd63dc919088",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/147875007@N03/40823157244",
+  "download_url": "https://api.openverse.org/v1/images/3ce8d879-9e3c-4795-b03b-013d2379be20/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Rawpixel Ltd",
+  "title": "Flat lay of business concept",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

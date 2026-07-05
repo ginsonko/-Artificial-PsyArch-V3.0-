@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase5.0 增量式范式统计池</title>
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --paper: #ffffff;
+      --ink: #18212f;
+      --muted: #5f6b7a;
+      --line: #d8e0ea;
+      --accent: #2458a6;
+      --ok: #0d7a56;
+      --warn: #9a5c00;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    main {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 32px 20px 52px;
+    }
+    header {
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 22px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 4vw, 42px);
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 28px 0 12px;
+      font-size: 22px;
+    }
+    p { margin: 8px 0; }
+    .subtitle {
+      color: var(--muted);
+      max-width: 920px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .label {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    .value {
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .ok { color: var(--ok); }
+    .warn { color: var(--warn); }
+    code {
+      background: #eef3f8;
+      border: 1px solid #dbe4ee;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: Consolas, "Cascadia Mono", monospace;
+      font-size: 0.94em;
+    }
+    pre {
+      overflow: auto;
+      background: #111827;
+      color: #edf4ff;
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 13px;
+    }
+    ul { padding-left: 22px; margin: 8px 0; }
+    li { margin: 6px 0; }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .step {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 88px;
+    }
+    .step strong { color: var(--accent); }
+    .note {
+      border-left: 4px solid var(--accent);
+      background: var(--paper);
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase5.0 增量式范式统计池</h1>
+    <p class="subtitle">本阶段把范式发现从“批量观察后处理”推进到最小在线形态：单条 observation 进入 dirty bucket，局部更新统计，生成或刷新 ParadigmSA，并通过 SQLite 保存恢复。自然教学与 LLM 标准教学在运行证据层保持等价。</p>
+  </header>
+
+  <section class="grid" aria-label="阶段状态">
+    <div class="card">
+      <div class="label">阶段</div>
+      <div class="value ok">Phase5.0 已通过</div>
+      <p>增量观察池、统计池和角色转移统计已落地。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">89 passed</div>
+      <p>当前 APV3.0test 测试集全部通过。</p>
+    </div>
+    <div class="card">
+      <div class="label">教学等价</div>
+      <div class="value ok">最小 probe 通过</div>
+      <p>自然教学与 LLM 标准教学产生等价 ParadigmSA。</p>
+    </div>
+    <div class="card">
+      <div class="label">边界</div>
+      <div class="value warn">仍非完整底座</div>
+      <p>完整 tick 主循环与大规模自由对话尚未完成。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>核心链路</h2>
+    <div class="flow">
+      <div class="step"><strong>1. Observation</strong><br>自然教学或 LLM 标准教学产生同构 SA 经验。</div>
+      <div class="step"><strong>2. Dirty Bucket</strong><br>只更新所属 cue/case 桶，不全局重算。</div>
+      <div class="step"><strong>3. Local Discovery</strong><br>局部调用 DP / coherence / Viterbi。</div>
+      <div class="step"><strong>4. ParadigmSA</strong><br>范式作为状态池一等对象进入运行态。</div>
+      <div class="step"><strong>5. Persistence</strong><br>SQLite 保存观察、统计和角色转移证据。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>本轮吸收的纠偏</h2>
+    <ul>
+      <li>相似 context 只通过 promoted learned vector 泛化，未 promoted token 不参与相似泛化。</li>
+      <li>范式惩罚暴露门复用行动后果同类半衰期和近因衰减。</li>
+      <li>统计池只存细节，<code>ParadigmSA</code> 必须同步进入 <code>paradigms</code> 和 <code>state_field_items</code>。</li>
+      <li>自然教学与 LLM 教学的 provenance 可以不同，但 runtime 竞争对象必须等价。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>验收结果</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase5_0_incremental_paradigm.py APV3.0test\tests\test_phase2_4_role_viterbi.py APV3.0test\tests\test_sqlite_store_contract.py -q
+15 passed in 0.82s
+
+python -m pytest APV3.0test\tests -q
+89 passed in 2.17s</code></pre>
+    <div class="note">
+      禁用通道扫描只命中 <code>draft_action.py</code> 的 <code>if text:</code>，人工审查确认它是草稿 buffer 非空检查，不是文本模态特权分支。
+    </div>
+  </section>
+
+  <section>
+    <h2>仍不宣称</h2>
+    <ul>
+      <li>不宣称完整 APV3.0 中文开放自由对话底座完成。</li>
+      <li>不宣称完整跨模态自由泛化完成。</li>
+      <li>不宣称完整 tick 主循环已经接入所有 Phase5 统计。</li>
+      <li>不宣称 LLM 标准教学协议全阶段已经落地。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>下一步</h2>
+    <p>Phase5.1 应把 <code>IncrementalParadigmLearner</code> 接入最小 tick runtime：commit 或 feedback 后才提高 support，idle tick 整理 dirty bucket，实时范式解码读取 <code>RoleTransitionStats.bias_map()</code>，并用自然教学 episode 与 LLM 标准教学 episode 复现同一技能。</p>
+  </section>
+</main>
+</body>
+</html>

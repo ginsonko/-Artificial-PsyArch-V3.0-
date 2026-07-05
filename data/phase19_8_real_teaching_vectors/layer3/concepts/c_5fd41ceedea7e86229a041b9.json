@@ -1,0 +1,212 @@
+{
+  "concept_uuid": "c_5fd41ceedea7e86229a041b9",
+  "epistemic_source": "PERCEIVED",
+  "lifecycle_status": "promoted",
+  "lifetime_observations": 7,
+  "metadata": {
+    "teacher_label_source": "visible_curriculum_signal",
+    "used_filename_label": false,
+    "visible_teacher_label": "strawberry"
+  },
+  "part_weights": [
+    {
+      "part_uuid": "part_cf4841ecba601181a1000529",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_e40f1b0a63fae6702b55eddd",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_5f6eb817abe2c6f8b0e9cacc",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_4cb847c3bf5387c267294478",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_fcd91764d2368fb11f80d8f8",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_85998a2b97dd45bc5933967d",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_75f4b9040d12613b89c7d059",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_d72d965683dd17bf5e4f6511",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_e5bc50660353db37ace1954f",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_c861e4df6fe7417dee563cfb",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_938893e26033cefacbb19a4e",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_4b9d6bbf3336eefb2068a885",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_23008b6fbd14ec9315213692",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_97e75127d037ffdb92116e6f",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_fd666cd0e7c526e968a33b0b",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_125f0759e2941be45e4806e3",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_42eeb8f7af1f31f2c4565110",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_e0002533aaad48096579d181",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_dbb2d6a3d820cd3f6f07a957",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_5ad5be5ec24bb493fd713874",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_b8f2ba964fd1ad8a47582831",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_9d46dd18a1ae3a0b49aa4deb",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_b278945fc790ba426df698ff",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_7fdbfca603c3c52cf5d42000",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_dd4eb3a792702b5c2181b281",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_5485e593fbaa75747171805e",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_ddc7d5d411f662ac63ee34c9",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_06b1a501c7e86736059db91e",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_93ab27b1f8d12b5135b9cbf5",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_aed70b895a658b03a5e6872e",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_d99234710b698cf16e19dc41",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_0265e5369c316954402408fe",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_d3e1cfc202e42a5671e79478",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_6bd8dfc4bb8bace08fa405d3",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_1d54c7612cdef1fee2b1483f",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_9a205c9be74663275afa9c5a",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_da863b00afcf909fbe9a1b8a",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_0bb4db8d889392f5f5c70450",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_bfbbff97e08069d52c73286b",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_4b257fa11f49dce72558814e",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_a9e538896909ba462eacde3b",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_8aa8376dd1c6150fb9fad285",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_f39928310f0c136f962ed781",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_003ce1de55f1551b5b078fb7",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_049a3b76339c651937eec68a",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_6b6f34026b21f295c6cc8866",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_d0f349f3233f284b34aae759",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_15dfa8762394777a967dc959",
+      "weight": 1.0
+    },
+    {
+      "part_uuid": "part_0a84cc3a1521a8bbbd41eebb",
+      "weight": 1.0
+    }
+  ],
+  "vocab_associations": [
+    "teacher_visible::5e737f891db1"
+  ]
+}

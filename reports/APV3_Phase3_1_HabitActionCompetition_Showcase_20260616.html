@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase3.1 habit 候选接行动竞争 trace</title>
+  <style>
+    :root {
+      --ink: #162033;
+      --muted: #667085;
+      --line: #d8dee8;
+      --soft: #f8fafc;
+      --accent: #7c3aed;
+      --good: #166534;
+      --warn: #9a3412;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.65;
+    }
+    header {
+      padding: 34px 6vw 24px;
+      border-bottom: 1px solid var(--line);
+      background: #f5f3ff;
+    }
+    main { max-width: 1120px; margin: 0 auto; padding: 28px 24px 56px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 10px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    .meta { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      background: var(--soft);
+    }
+    .card strong { display: block; font-size: 20px; margin-bottom: 4px; }
+    .ok { color: var(--good); }
+    .warn { color: var(--warn); }
+    .band {
+      border-left: 4px solid var(--accent);
+      background: #f5f3ff;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    .warnband {
+      border-left: 4px solid var(--warn);
+      background: #fff7ed;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    code, pre {
+      font-family: Consolas, "Cascadia Mono", monospace;
+      background: #f2f4f7;
+      border-radius: 6px;
+    }
+    code { padding: 1px 5px; }
+    pre { padding: 14px; overflow: auto; border: 1px solid var(--line); }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0; }
+    th, td { border: 1px solid var(--line); padding: 9px 10px; text-align: left; }
+    th { background: #f8fafc; }
+    ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>APV3.0test Phase3.1 habit 候选接行动竞争 trace</h1>
+    <p class="meta">fast habit candidate -> action proposal -> actuator conflict domain | 2026-06-16</p>
+  </header>
+  <main>
+    <section class="grid">
+      <div class="card"><strong class="ok">5/5</strong>Phase3.1 专门测试通过</div>
+      <div class="card"><strong class="ok">72/72</strong>APV3.0test 全量测试通过</div>
+      <div class="card"><strong class="ok">无命中</strong>禁用通道与脚手架扫描</div>
+      <div class="card"><strong class="warn">边界清楚</strong>pre-execution trace, 不是完整 tick loop</div>
+    </section>
+
+    <h2>阶段结论</h2>
+    <div class="band">
+      Phase3.1 已经把快系统习惯候选接入行动竞争前 trace。现在可以看到同一 tick 内, 同一行动器只保留一个赢家, 不同行动器的行动/想法候选可以并存, 慢系统复核压力也会保留在 trace 中。
+    </div>
+
+    <h2>链路</h2>
+    <pre><code>action_outcomes
+  -> FastHabitSystem.candidates()
+  -> ActionProposal.from_habit_candidate()
+  -> ActionCompetition.compete()
+  -> per-actuator selected/rejected trace</code></pre>
+
+    <h2>AP 原理对齐</h2>
+    <table>
+      <thead>
+        <tr><th>原则</th><th>本阶段实现</th><th>说明</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>行动/想法都是一等 SA</td>
+          <td><code>ActionProposal</code> 统一承载 action/thought</td>
+          <td>不做文本专属捷径</td>
+        </tr>
+        <tr>
+          <td>同一行动器互斥</td>
+          <td>每个 <code>actuator_id</code> 只选 drive 最高候选</td>
+          <td>保留一 tick 一个执行面动作的约束</td>
+        </tr>
+        <tr>
+          <td>快系统不绕过慢系统</td>
+          <td><code>requires_slow_review</code> 保留复核压力</td>
+          <td>Phase4 再接监督/修订</td>
+        </tr>
+        <tr>
+          <td>持久化等价</td>
+          <td>SQLite 恢复后 trace 完全一致</td>
+          <td>不是内存孤例</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>验收命令</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase3_1_habit_action_competition.py -q
+python -m pytest APV3.0test\tests -q
+
+rg -n --glob "*.py" "keyword|answer_table|student_side_llm|branch_alignment|math_process_tokens|regex|full_sentence_macro|黄色苹果" APV3.0test\apv3test
+
+rg -n "TODO|FIXME|hardcode|shortcut|route|magic" APV3.0test\apv3test\runtime\action_competition.py APV3.0test\tests\test_phase3_1_habit_action_competition.py</code></pre>
+
+    <h2>下一步</h2>
+    <div class="warnband">
+      Phase4 应进入小型自由中文开放对话 runtime skeleton, 把边界/跨 tick 分段、Bn/Cn、范式槽填充、快系统习惯、行动竞争、草稿行动和持久化学习串成一个最小可跑 tick 链。
+    </div>
+  </main>
+</body>
+</html>

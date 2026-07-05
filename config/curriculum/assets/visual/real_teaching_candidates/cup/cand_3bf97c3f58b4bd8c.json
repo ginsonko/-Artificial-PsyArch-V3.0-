@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_3bf97c3f58b4bd8c",
+  "concept": "cup",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cup/cand_3bf97c3f58b4bd8c.png",
+  "sha256": "3bf97c3f58b4bd8c3f4e9cf697aecec3e3b6ebd3fe3b6adfdaafb5ece4077c5d",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/10257668@N04/1267260097",
+  "download_url": "https://api.openverse.org/v1/images/7225322b-2b0b-4aa5-9d5a-c053d6fd008c/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "portableantiquities",
+  "title": "The Ringlemere and Rillaton Gold Cups",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

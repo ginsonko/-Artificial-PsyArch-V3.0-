@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_970fb6541685b272",
+  "concept": "bread",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/bread/cand_970fb6541685b272.png",
+  "sha256": "970fb6541685b272a4cf914286e882d1bc22c27435ac954c127497dd997144ae",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/94513428@N00/3922205232",
+  "download_url": "https://api.openverse.org/v1/images/48ae4e52-9d9b-430d-8144-5595e06b15db/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "suavehouse113",
+  "title": "Oat Bread",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

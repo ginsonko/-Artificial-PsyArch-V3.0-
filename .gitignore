@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Data - runtime sqlite (user generates fresh)
+data/*.sqlite
+data/phase20_workbench_media/tmp_*
+state/
+
+# Temp files
+*.tmp
+tmp_*
+apv3test/tmp_*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Keep demo assets and release artifacts
+!data/phase20_7_release_demo/
+!data/phase20_7_stage5_demo/
+!data/phase20_7_stage6_demo/

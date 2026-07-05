@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_04f7acc9fded13d6",
+  "concept": "strawberry",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_04f7acc9fded13d6.png",
+  "sha256": "04f7acc9fded13d6fd61c56ac9ee0b98b94ed184841134e13793df24eb77fb49",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/40632439@N00/15446945533",
+  "download_url": "https://api.openverse.org/v1/images/e5b18cda-49a1-48dc-baa5-ca8fcb28bba7/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Thad Zajdowicz",
+  "title": "Fruit tarts",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

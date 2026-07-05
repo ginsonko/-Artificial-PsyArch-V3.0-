@@ -1,0 +1,140 @@
+{
+  "schema_id": "apv3_neutral_curriculum_pack/v1",
+  "package_id": "neutral_colors_v1",
+  "phase_id": "14.2",
+  "title": "Neutral colors v1",
+  "governance": {
+    "trust_tier": "official",
+    "license_id": "LicenseRef-APV3-Synthetic-Generated",
+    "author_id": "apv3_synthetic_generator",
+    "source_policy": "generated_static_seed",
+    "review_status": "phase14_alpha_reviewed"
+  },
+  "entries": [
+    {
+      "entry_id": "color_red",
+      "content_kind": "vocabulary_visual",
+      "public_payload": {
+        "concept_kind": "color",
+        "neutral_label": "红",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::color_red::train::0",
+        "asset::color_red::train::1",
+        "asset::color_red::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::color_red::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::color_red::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "color"
+      ]
+    },
+    {
+      "entry_id": "color_yellow",
+      "content_kind": "vocabulary_visual",
+      "public_payload": {
+        "concept_kind": "color",
+        "neutral_label": "黄",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::color_yellow::train::0",
+        "asset::color_yellow::train::1",
+        "asset::color_yellow::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::color_yellow::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::color_yellow::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "color"
+      ]
+    },
+    {
+      "entry_id": "color_blue",
+      "content_kind": "vocabulary_visual",
+      "public_payload": {
+        "concept_kind": "color",
+        "neutral_label": "蓝",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::color_blue::train::0",
+        "asset::color_blue::train::1",
+        "asset::color_blue::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::color_blue::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::color_blue::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "color"
+      ]
+    },
+    {
+      "entry_id": "color_green",
+      "content_kind": "vocabulary_visual",
+      "public_payload": {
+        "concept_kind": "color",
+        "neutral_label": "绿",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::color_green::train::0",
+        "asset::color_green::train::1",
+        "asset::color_green::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::color_green::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::color_green::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "color"
+      ]
+    },
+    {
+      "entry_id": "color_white",
+      "content_kind": "vocabulary_visual",
+      "public_payload": {
+        "concept_kind": "color",
+        "neutral_label": "白",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::color_white::train::0",
+        "asset::color_white::train::1",
+        "asset::color_white::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::color_white::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::color_white::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "color"
+      ]
+    }
+  ]
+}

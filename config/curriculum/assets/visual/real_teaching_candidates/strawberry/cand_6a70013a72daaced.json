@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_6a70013a72daaced",
+  "concept": "strawberry",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_6a70013a72daaced.png",
+  "sha256": "6a70013a72daaced3fa4630f60d0fd5680ec0eccbea1141244bb3ba7b84fa989",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/26782864@N00/11902390455",
+  "download_url": "https://api.openverse.org/v1/images/b3f6c7c3-1d7b-4a3a-ab7e-0831a7343694/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "wwarby",
+  "title": "Strawberries",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

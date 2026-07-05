@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_614428f9586435a1",
+  "concept": "computer",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_614428f9586435a1.png",
+  "sha256": "614428f9586435a1d5b7bf7d1fff263c508bd65e3c9399f94fb8c193bf8bfdcd",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/34427466731@N01/878270",
+  "download_url": "https://api.openverse.org/v1/images/7e64bc1e-8f4f-48db-89e0-aeecd1ac4bbb/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "striatic",
+  "title": "what's in my bag {notes}",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

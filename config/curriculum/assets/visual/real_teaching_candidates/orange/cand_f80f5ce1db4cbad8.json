@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_f80f5ce1db4cbad8",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_f80f5ce1db4cbad8.png",
+  "sha256": "f80f5ce1db4cbad8c86825bef37dbcc3b982b54a553e2a2a2aec9cfa8e6790b2",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/30346812@N07/6831074557",
+  "download_url": "https://api.openverse.org/v1/images/8b4bf2b0-165f-4037-94c1-25bb1e95cecf/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Orange County Archives",
+  "title": "Rumbolt Orange Grove, Orange County, May 1955",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

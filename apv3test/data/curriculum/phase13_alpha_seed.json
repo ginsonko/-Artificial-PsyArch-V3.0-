@@ -1,0 +1,63 @@
+{
+  "schema_id": "apv3_curriculum_package/v1",
+  "package_id": "phase13_alpha_seed",
+  "phase_id": "13.9",
+  "title": "Phase 13 alpha seed curriculum",
+  "governance": {
+    "trust_tier": "official",
+    "license_id": "APV3-ALPHA-LOCAL",
+    "author_id": "ap_architect",
+    "source_policy": "reviewed_static_seed",
+    "review_status": "phase13_alpha_reviewed"
+  },
+  "entries": [
+    {
+      "entry_id": "char_radical_water_001",
+      "content_kind": "character",
+      "public_payload": {"cognitive_content": {"radical": "water_like", "prototype": [0.9, 0.1, 0.2]}},
+      "governance_tags": ["char", "radical", "text"]
+    },
+    {
+      "entry_id": "word_fresh_learning_001",
+      "content_kind": "vocabulary",
+      "public_payload": {"components": ["char_radical_water_001", "usage_context_calm"]},
+      "governance_tags": ["vocabulary", "memory", "chat"]
+    },
+    {
+      "entry_id": "visual_yellow_apple_001",
+      "content_kind": "visual",
+      "public_payload": {"channels": ["vision", "color", "shape"]},
+      "governance_tags": ["vision", "joint_attention"]
+    },
+    {
+      "entry_id": "audio_soft_call_001",
+      "content_kind": "audio",
+      "public_payload": {"channels": ["audio", "voice_pattern"]},
+      "governance_tags": ["audio", "chat"]
+    },
+    {
+      "entry_id": "expression_quiet_short_001",
+      "content_kind": "expression",
+      "public_payload": {"tokens": ["嗯"]},
+      "governance_tags": ["expression", "chat"]
+    },
+    {
+      "entry_id": "action_reward_adjust_001",
+      "content_kind": "action",
+      "public_payload": {"action_id": "action::accept_feedback"},
+      "governance_tags": ["action", "reward"]
+    },
+    {
+      "entry_id": "social_correction_soft_001",
+      "content_kind": "social",
+      "public_payload": {"pattern": "soft_correction"},
+      "governance_tags": ["social", "trust"]
+    },
+    {
+      "entry_id": "math_vertical_fact_001",
+      "content_kind": "math",
+      "public_payload": {"substrate": "draft_grid"},
+      "governance_tags": ["math", "audit", "deliberative"]
+    }
+  ]
+}

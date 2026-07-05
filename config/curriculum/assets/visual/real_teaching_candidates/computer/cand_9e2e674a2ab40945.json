@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_9e2e674a2ab40945",
+  "concept": "computer",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_9e2e674a2ab40945.png",
+  "sha256": "9e2e674a2ab40945f21008618d4aada626c5b4874b15a96dcec95caa53a71680",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/26782864@N00/5146212293",
+  "download_url": "https://api.openverse.org/v1/images/398fab13-f9c7-4d21-89f4-d36cd5907ac9/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "wwarby",
+  "title": "Mouse",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

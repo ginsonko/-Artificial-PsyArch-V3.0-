@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_fc9a2640582b8e77",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_fc9a2640582b8e77.png",
+  "sha256": "fc9a2640582b8e776d7331928703126f47673d0ab3674432fcc7ebdb9e8792fd",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/127294011@N07/16225943125",
+  "download_url": "https://api.openverse.org/v1/images/f749e648-42b6-437f-bf14-7616c5826f4e/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "PersonalCreations.com",
+  "title": "Kid friendly green smoothie in a personalized glass with spinach, Greek yogurt, frozen blueberries, blackberries and strawberries and berries, banana in a glass bowl on a wood table",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

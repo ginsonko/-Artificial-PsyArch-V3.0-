@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase5.5 补习闭环</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --paper: #ffffff;
+      --ink: #182230;
+      --muted: #667085;
+      --line: #d7e0ea;
+      --blue: #2458a6;
+      --green: #087443;
+      --amber: #a15c00;
+      --red: #b42318;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 56px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(27px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 12px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    code { background: #eef3f8; border: 1px solid #dce5ef; border-radius: 5px; padding: 1px 5px; font-family: Consolas, "Cascadia Mono", monospace; }
+    pre { margin: 10px 0; overflow: auto; background: #111827; color: #edf4ff; border-radius: 8px; padding: 14px; font-size: 13px; }
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .subtitle { color: var(--muted); max-width: 980px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--green); }
+    .warn { color: var(--amber); }
+    .bad { color: var(--red); }
+    .flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin: 16px 0; }
+    .step { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 13px; min-height: 92px; }
+    .step strong { color: var(--blue); }
+    .note { background: var(--paper); border-left: 4px solid var(--blue); padding: 12px 14px; margin: 14px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase5.5 补习闭环</h1>
+    <p class="subtitle">本阶段把课程验证失败推进成最小补习闭环：失败先被诊断，再生成 AP-native 教师证据，最后重新走 Bn/Cn、attention 和逐 token 草稿行动验证。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">阶段</div>
+      <div class="value ok">Phase5.5 通过</div>
+      <p><code>APV3CurriculumRemediationLoop</code> 已落地。</p>
+    </div>
+    <div class="card">
+      <div class="label">目标测试</div>
+      <div class="value ok">4 passed</div>
+      <p>覆盖缺失技能补习、教学等价、冲突拒绝固化。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">117 passed</div>
+      <p>未破坏此前 Phase1-5.4 能力。</p>
+    </div>
+    <div class="card">
+      <div class="label">边界</div>
+      <div class="value warn">非答案补丁</div>
+      <p>补习只写教学 evidence，不改 runtime 输出规则。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>闭环路径</h2>
+    <div class="flow">
+      <div class="step"><strong>Train</strong><br>运行原始教学 episode。</div>
+      <div class="step"><strong>Validate</strong><br>只给 cue / context / 合法当前 focus。</div>
+      <div class="step"><strong>Diagnose</strong><br>记录 <code>bn_not_recalled</code> 等 failure_kind。</div>
+      <div class="step"><strong>Remediate</strong><br>生成 AP-native <code>CurriculumTeachingStep</code>。</div>
+      <div class="step"><strong>Validate</strong><br>补习后重新验证。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>成功样例</h2>
+    <pre><code>初始验证:
+cue = 你 好
+expected = 我 在
+emitted = &lt;empty&gt;
+diagnosis = bn_not_recalled
+
+补习:
+stage = remediate:bn_not_recalled
+case_name = skill_greeting
+cue = 你 好
+reply = 我 在
+teaching step count = min_support
+
+补习后:
+cue = 你 好
+emitted = 我 在
+diagnosis = success</code></pre>
+  </section>
+
+  <section>
+    <h2>教学等价</h2>
+    <pre><code>natural final emitted = 我 在
+llm_standard_teacher final emitted = 我 在
+natural final focus_pid = llm final focus_pid
+state 中没有 llm_policy</code></pre>
+    <div class="note">LLM 可以是教师，但不能是学生侧运行时策略。两种教学来源最终都落成同构 AP-native evidence。</div>
+  </section>
+
+  <section>
+    <h2>拒绝固化样例</h2>
+    <pre><code>当前输入冲突:
+cue = describe
+focus = percept::yellow percept::apple
+expected = field::color percept::yellow field::object percept::pear
+
+结果:
+remediation teaching_steps = &lt;empty&gt;
+rationale = current focus tokens conflict with expected target; do not solidify contradictory memory</code></pre>
+  </section>
+
+  <section>
+    <h2>验收记录</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase5_5_remediation_loop.py -q
+4 passed in 0.29s
+
+python -m pytest APV3.0test\tests -q
+117 passed in 3.15s
+
+红线扫描:
+仅命中 draft_action.py:126 if text:
+审查为草稿 buffer 非空检查，不是文本模态特权。</code></pre>
+  </section>
+
+  <section>
+    <h2>下一步</h2>
+    <ul>
+      <li>Phase5.6: 多技能冲突补习与奖惩细化。</li>
+      <li>验证相同 cue / 不同 context 是否能稳定区分回复。</li>
+      <li>验证错误范式受惩罚后是否降低竞争，正确范式受奖励后是否更容易进入 attention。</li>
+      <li>继续禁止关键词分支、答案表、整句宏和学生侧 LLM 策略。</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase5.4 后纠偏吸收</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --paper: #ffffff;
+      --ink: #182230;
+      --muted: #667085;
+      --line: #d8e0ea;
+      --blue: #2458a6;
+      --green: #087443;
+      --amber: #a15c00;
+      --red: #b42318;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 56px; }
+    header { padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(27px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 12px; font-size: 22px; letter-spacing: 0; }
+    h3 { margin: 18px 0 8px; font-size: 17px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    code { background: #eef3f8; border: 1px solid #dce5ef; border-radius: 5px; padding: 1px 5px; font-family: Consolas, "Cascadia Mono", monospace; }
+    pre { margin: 10px 0; overflow: auto; background: #111827; color: #edf4ff; border-radius: 8px; padding: 14px; font-size: 13px; }
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .subtitle { color: var(--muted); max-width: 980px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--green); }
+    .warn { color: var(--amber); }
+    .bad { color: var(--red); }
+    .note { background: var(--paper); border-left: 4px solid var(--blue); padding: 12px 14px; margin: 14px 0; }
+    .flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin: 16px 0; }
+    .step { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 13px; min-height: 98px; }
+    .step strong { color: var(--blue); }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase5.4 后纠偏吸收</h1>
+    <p class="subtitle">本页记录进入 Phase5.5 前对课程 runner、Cn 后继、候选池边界与增量学习模块的理论纠偏。目标是继续推进 APV3.0test 数学模型重构，而不是回到 APV2.1 式脚手架。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">状态</div>
+      <div class="value ok">纠偏通过</div>
+      <p>阶段标签、候选池、Cn、模块边界均已审查并落地。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">113 passed</div>
+      <p><code>python -m pytest APV3.0test\tests -q</code></p>
+    </div>
+    <div class="card">
+      <div class="label">目标测试</div>
+      <div class="value ok">17 passed</div>
+      <p>覆盖 curriculum、Bn/Cn recall、小批技能复现。</p>
+    </div>
+    <div class="card">
+      <div class="label">下一步</div>
+      <div class="value warn">Phase5.5</div>
+      <p>进入补习闭环: train -> validate -> diagnose -> remediate -> validate。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>吸收与保留</h2>
+    <div class="flow">
+      <div class="step"><strong>课程标签</strong><br><code>CURRICULUM_STAGES</code> 改为 trace-only，不再硬校验。</div>
+      <div class="step"><strong>候选池</strong><br>课程验证固定 <code>candidate_pool=()</code>，关闭答案候选作弊门。</div>
+      <div class="step"><strong>当前 focus</strong><br>默认关闭；显式 <code>allow_current_focus=True</code> 才允许当前输入 SA 进槽。</div>
+      <div class="step"><strong>Cn 后继</strong><br>优先从 column-level anchor / shared fragment 聚合，而不是整句 reply 回放。</div>
+      <div class="step"><strong>模块拆分</strong><br>类型、统计、存储、编排拆开，预防新的 god-object。</div>
+    </div>
+    <div class="note">对 Claude 的部分反驳: focus 不能一律为空。黄色、苹果、题目数字这类当前外界输入是合法感受器 SA，是范式填槽所需的积木；真正需要关闭的是答案候选池。</div>
+  </section>
+
+  <section>
+    <h2>反伪科学 Cn 验证</h2>
+    <pre><code>教学:
+stem -> a shared_tail
+stem -> b shared_tail
+stem -> c shared_tail
+stem -> d shared_tail
+stem -> e shared_tail
+
+验证:
+cue = stem
+focus = z
+Cn = shared_tail
+emitted = z shared_tail
+
+边界:
+输出不是任何一条原始教学 reply，说明它不是整句回放。</code></pre>
+  </section>
+
+  <section>
+    <h2>成功样例</h2>
+    <pre><code>问候:
+cue = 你 好
+emitted = 我 在
+diagnosis = success
+
+成语:
+cue = 三 顾
+emitted = 茅 庐
+diagnosis = success
+
+颜色对象:
+cue = describe
+focus = percept::yellow percept::apple
+candidate_pool = &lt;empty&gt;
+emitted = field::color percept::yellow field::object percept::apple
+diagnosis = success
+
+简单数学过程:
+cue = calc
+focus = 7 2 9
+candidate_pool = &lt;empty&gt;
+emitted = math::lhs 7 math::op + 2 math::eq 9
+diagnosis = success</code></pre>
+  </section>
+
+  <section>
+    <h2>失败样例</h2>
+    <pre><code>未训练 cue:
+cue = unknown
+emitted = &lt;empty&gt;
+diagnosis = bn_not_recalled
+
+槽焦点和期望不一致:
+cue = describe
+focus = percept::yellow percept::apple
+expected = field::color percept::yellow field::object percept::pear
+emitted = field::color percept::yellow field::object percept::apple
+diagnosis = slot_focus_overridden</code></pre>
+    <p>这些失败只作为 Phase5.5 的 AP-native 补习入口，不用关键词规则、答案表或硬编码抑制修复。</p>
+  </section>
+
+  <section>
+    <h2>验收记录</h2>
+    <pre><code>目标测试:
+python -m pytest APV3.0test\tests\test_phase5_4_curriculum_runner.py APV3.0test\tests\test_phase5_2_recall_attention_runtime.py APV3.0test\tests\test_phase5_3_small_skill_reproduction.py -q
+17 passed in 0.93s
+
+全量测试:
+python -m pytest APV3.0test\tests -q
+113 passed in 2.81s
+
+红线扫描:
+仅命中 APV3.0test\apv3test\runtime\draft_action.py:126: if text:
+审查为草稿 buffer 非空检查，不是文本模态特权。</code></pre>
+  </section>
+
+  <section>
+    <h2>仍不能宣称</h2>
+    <ul>
+      <li>不能宣称完整中文开放自由对话底座已经完成。</li>
+      <li>不能宣称任意跨模态自发范畴发现已经完成。</li>
+      <li>不能宣称任意数学计算能力已经完成。</li>
+      <li>不能宣称 Fresh300 或旧 GL 全技能迁移已经完成。</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

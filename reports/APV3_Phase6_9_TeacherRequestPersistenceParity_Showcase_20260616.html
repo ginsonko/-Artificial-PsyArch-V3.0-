@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase6.9 teacher_request 持久化恢复 parity</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --paper: #ffffff;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d7e0ea;
+      --green: #087443;
+      --amber: #9a5b00;
+      --blue: #2458a6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 56px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(27px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 12px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    code { background: #eef3f8; border: 1px solid #dce5ef; border-radius: 5px; padding: 1px 5px; font-family: Consolas, "Cascadia Mono", monospace; }
+    pre { margin: 10px 0; overflow: auto; background: #111827; color: #edf4ff; border-radius: 8px; padding: 14px; font-size: 13px; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; background: var(--paper); }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #eef3f8; }
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .subtitle { color: var(--muted); max-width: 980px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--green); }
+    .warn { color: var(--amber); }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase6.9 teacher_request 持久化恢复 parity</h1>
+    <p class="subtitle">本阶段验证 Phase6.8 的主动求教闭环跨 SQLite save/load 后仍能继续运行：失败、求教、教师 evidence、已学范式、工作记忆项都必须在 warm-load 后保留，并且同 cue 召回成功后不重复求教。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">阶段状态</div>
+      <div class="value ok">Phase6.9 通过</div>
+      <p>新增 teacher_request 持久化 parity probe。</p>
+    </div>
+    <div class="card">
+      <div class="label">目标测试</div>
+      <div class="value ok">2 passed</div>
+      <p>覆盖直接求教与工作记忆求教两条恢复链路。</p>
+    </div>
+    <div class="card">
+      <div class="label">Phase6 组合</div>
+      <div class="value ok">40 passed</div>
+      <p>Phase6.0-6.9 保持一致。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">173 passed</div>
+      <p>前序能力未回归。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>设计链路</h2>
+    <pre><code>failure / teacher_request / teacher evidence / learned ParadigmSA / work_memory item
+  -> SQLiteRuntimeStore.save_state()
+  -> SQLiteRuntimeStore.load_state()
+  -> warm-loaded state continues runtime
+  -> same cue recall succeeds
+  -> no repeated teacher_request</code></pre>
+  </section>
+
+  <section>
+    <h2>持久化语义</h2>
+    <table>
+      <tr><th>层级</th><th>用途</th><th>Phase6.9 验收</th></tr>
+      <tr><td>runtime_states.blob</td><td>权威完整运行态</td><td>恢复 teacher_requests、working_memory_items、state_field_items、paradigms、paradigm_stats、paradigm_observations。</td></tr>
+      <tr><td>ontology projection</td><td>结构化审计与检索视图</td><td>恢复 paradigm_sa、paradigm_observations、paradigm_stats。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>落地文件</h2>
+    <pre><code>APV3.0test/apv3test/runtime/work_memory.py
+APV3.0test/tests/test_phase6_9_teacher_request_persistence_parity.py</code></pre>
+    <p>修复了工作记忆 runtime 浅拷贝导致的输入 state 污染问题，改为深拷贝以保持纯函数式状态语义。</p>
+  </section>
+
+  <section>
+    <h2>验收命令</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase6_9_teacher_request_persistence_parity.py -q
+# 2 passed in 0.52s
+
+python -m pytest APV3.0test\tests\test_phase5_7_work_memory_recovery.py APV3.0test\tests\test_phase5_8_work_memory_attention_bridge.py APV3.0test\tests\test_phase5_9_work_memory_remediation_conflict_combo.py -q
+# 12 passed in 0.36s
+
+python -m pytest APV3.0test\tests\test_phase6_0_active_teacher_request.py APV3.0test\tests\test_phase6_1_active_learning_bridge.py APV3.0test\tests\test_phase6_2_active_learning_trend.py APV3.0test\tests\test_phase6_3_teaching_protocol_selector.py APV3.0test\tests\test_phase6_4_diagnostic_teaching_plan.py APV3.0test\tests\test_phase6_5_multiround_teacher_course.py APV3.0test\tests\test_phase6_6_teaching_iteration_loop.py APV3.0test\tests\test_phase6_7_active_learning_teaching_bridge.py APV3.0test\tests\test_phase6_8_active_learning_end_to_end.py APV3.0test\tests\test_phase6_9_teacher_request_persistence_parity.py -q
+# 40 passed in 1.04s
+
+python -m pytest APV3.0test\tests -q
+# 173 passed in 3.35s</code></pre>
+  </section>
+
+  <section>
+    <h2>直接求教恢复样例</h2>
+    <pre><code>cue = goal::ask
+initial recall = failed
+teacher_request = created
+teacher reply_tokens = teacher::answer
+SQLite save/load
+
+restored == learned.state
+warm recall emitted = teacher::answer
+after warm recall = no teacher_request
+projection.paradigm_sa = p:discovered:skill_teacher_answer</code></pre>
+  </section>
+
+  <section>
+    <h2>工作记忆恢复样例</h2>
+    <pre><code>work_memory focus = goal::resume
+idle recall before teaching = failed
+teacher_request = created
+teacher reply_tokens = continue::resume
+SQLite save/load
+
+restored working_memory_items[0] = goal::resume
+state_field_items contains work_memory_unfinished
+state_field_items contains teacher_request
+warm idle resume emitted = continue::resume
+warm idle resume = no teacher_request</code></pre>
+  </section>
+
+  <section>
+    <h2>发现并修复的问题</h2>
+    <pre><code>old:
+  _ensure_work_memory_state(dict(state))
+
+new:
+  _ensure_work_memory_state(deepcopy(dict(state)))</code></pre>
+    <p>浅拷贝会复用嵌套 trace，破坏保存前/恢复后严格 parity。修复后工作记忆与其他 runtime 一样不污染输入 state。</p>
+  </section>
+
+  <section>
+    <h2>红线扫描</h2>
+    <pre><code>rg -n --glob "*.py" "keyword|answer_table|student_side_llm|branch_alignment|math_process_tokens|regex|full_sentence_macro|llm_policy|if vision|if text|黄色苹果" APV3.0test\apv3test
+
+APV3.0test\apv3test\runtime\draft_action.py:126:        if text:</code></pre>
+    <p>该命中是 draft buffer 非空检查，不是文本模态特权分支。额外扫描未发现旧 fallback、旧多轮命名、学生侧答案表或 LLM 策略。</p>
+  </section>
+
+  <section>
+    <h2>最终汇总</h2>
+    <p class="ok">可以宣称：主动求教直接链路和工作记忆求教链路已经通过 SQLite warm-load parity；恢复态能继续召回，并在成功后停止重复求教。</p>
+    <p class="warn">仍不能宣称：SQLite 10G 遗忘淘汰、完整热/温/冷层策略、AP 自主生成教师答案、完整自由中文开放对话底座、Fresh300 或完整旧 GL 迁移已完成。</p>
+    <p>下一步建议 Phase7.0：做主动学习 + 持久化 + 长期趋势整合探针，验证多周期 save/load 中 support 上升、求教压力下降，以及持续失败进入抑制窗口。</p>
+  </section>
+</main>
+</body>
+</html>

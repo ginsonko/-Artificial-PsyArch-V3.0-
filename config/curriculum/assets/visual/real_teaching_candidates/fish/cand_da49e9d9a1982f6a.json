@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_da49e9d9a1982f6a",
+  "concept": "fish",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_da49e9d9a1982f6a.png",
+  "sha256": "da49e9d9a1982f6aafa0ce574384fc80c25dbddb0fc4e99a09c73b48a2551e57",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/61063858@N02/14377464264",
+  "download_url": "https://api.openverse.org/v1/images/45b38528-26bb-4b29-9f7b-86c649b32746/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "mdalmuld",
+  "title": "Apex Predator (Explored)",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_efd81bf5d2679768",
+  "concept": "strawberry",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/strawberry/cand_efd81bf5d2679768.png",
+  "sha256": "efd81bf5d2679768cf501657e8e75d3d9bcb83db3e187182aa37110d0b3d691b",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/64148767@N00/6693554459",
+  "download_url": "https://api.openverse.org/v1/images/613d28b5-1884-4df6-8dc5-7fe7acfb8f59/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "penelope waits",
+  "title": "frozen berries and white peaches",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

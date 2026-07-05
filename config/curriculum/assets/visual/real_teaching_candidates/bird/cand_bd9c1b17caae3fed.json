@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_bd9c1b17caae3fed",
+  "concept": "bird",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/bird/cand_bd9c1b17caae3fed.png",
+  "sha256": "bd9c1b17caae3fed2fe065b8bba816d2683015a110b11c46e6118339e2474820",
+  "source": "openverse",
+  "source_url": "https://www.rawpixel.com/image/6028348/photo-image-public-domain-nature-bird",
+  "download_url": "https://api.openverse.org/v1/images/e5a23d3a-1fe7-44c7-b295-dba0a35a42cf/thumb/",
+  "license_id": "CC0-1.0",
+  "author": "",
+  "title": "Pelican bird, animal photo",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

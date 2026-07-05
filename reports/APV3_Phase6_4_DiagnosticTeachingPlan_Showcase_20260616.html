@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APV3.0test Phase6.4 诊断上下文教学计划轮廓</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --paper: #ffffff;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d7e0ea;
+      --blue: #2458a6;
+      --green: #087443;
+      --amber: #9a5b00;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 20px 56px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(27px, 4vw, 42px); letter-spacing: 0; }
+    h2 { margin: 30px 0 12px; font-size: 22px; letter-spacing: 0; }
+    p { margin: 8px 0; }
+    code { background: #eef3f8; border: 1px solid #dce5ef; border-radius: 5px; padding: 1px 5px; font-family: Consolas, "Cascadia Mono", monospace; }
+    pre { margin: 10px 0; overflow: auto; background: #111827; color: #edf4ff; border-radius: 8px; padding: 14px; font-size: 13px; }
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; background: var(--paper); }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #eef3f8; }
+    .subtitle { color: var(--muted); max-width: 980px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 14px; margin: 18px 0; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .label { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+    .value { font-weight: 700; font-size: 18px; }
+    .ok { color: var(--green); }
+    .warn { color: var(--amber); }
+    .note { background: var(--paper); border-left: 4px solid var(--blue); padding: 12px 14px; margin: 14px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>APV3.0test Phase6.4 诊断上下文教学计划轮廓</h1>
+    <p class="subtitle">本阶段让教师侧 proposal 能携带失败诊断、工作记忆、竞争范式和压力来源，并生成不同 plan outline。学生侧仍只接收普通 AP-native teaching evidence。</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">阶段状态</div>
+      <div class="value ok">Phase6.4 通过</div>
+      <p><code>TeachingPlanContext</code> 已落地。</p>
+    </div>
+    <div class="card">
+      <div class="label">目标测试</div>
+      <div class="value ok">4 passed</div>
+      <p>覆盖诊断差异、工作记忆、多技能冲突和 evidence 隔离。</p>
+    </div>
+    <div class="card">
+      <div class="label">Phase6 组合</div>
+      <div class="value ok">21 passed</div>
+      <p>Phase6.0-6.4 保持一致。</p>
+    </div>
+    <div class="card">
+      <div class="label">全量测试</div>
+      <div class="value ok">154 passed</div>
+      <p>前序能力未回归。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>设计循环</h2>
+    <table>
+      <tr><th>环节</th><th>本阶段内容</th></tr>
+      <tr><td>设计</td><td>让 proposal 携带诊断上下文并生成教师侧 plan outline。</td></tr>
+      <tr><td>审查完善</td><td>确认 plan outline 不进入学生 runtime 决策。</td></tr>
+      <tr><td>通过落地</td><td>新增 <code>TeachingPlanContext</code> 和 Phase6.4 测试。</td></tr>
+      <tr><td>严谨验收测试</td><td>目标、组合、全量测试和红线扫描全部通过。</td></tr>
+      <tr><td>最终汇总报告</td><td>明确成功样例、失败样例、边界和下一步。</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>诊断轮廓</h2>
+    <table>
+      <tr><th>诊断</th><th>教师侧 plan outline</th><th>学生侧行为</th></tr>
+      <tr><td>Bn 未召回</td><td><code>increase_cue_context_support</code></td><td>等待或接收普通 teaching step</td></tr>
+      <tr><td>Cn 后继弱</td><td><code>strengthen_successor_distribution</code></td><td>等待或接收普通 teaching step</td></tr>
+      <tr><td>注意力选错</td><td><code>teach_context_disambiguation</code></td><td>等待或接收普通 teaching step</td></tr>
+      <tr><td>工作记忆恢复失败</td><td><code>bind_unfinished_bundle_to_successor</code></td><td>等待或接收普通 teaching step</td></tr>
+      <tr><td>多技能冲突</td><td><code>contrast_competing_paradigms_with_feedback</code></td><td>不把竞争标签写入 runtime</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>样例一：不同失败类型</h2>
+    <pre><code>failure_kind = bn_not_recalled
+  -> increase_cue_context_support
+
+failure_kind = cn_successor_weak
+  -> strengthen_successor_distribution
+
+failure_kind = attention_wrong
+  -> teach_context_disambiguation</code></pre>
+    <p>没有教师 tokens 时，三者都保持 <code>awaiting_teacher_evidence</code>，不生成答案。</p>
+  </section>
+
+  <section>
+    <h2>样例二：工作记忆未完成 bundle</h2>
+    <pre><code>work_memory_bundle = goal::ask, subgoal::resume
+pressure_sources = work_memory_unfinished, teacher_request
+
+plan_outline includes:
+  bind_unfinished_bundle_to_successor
+  include_work_memory_resume_cue
+  mark_pressure_source_for_teacher
+
+teaching_steps = ()
+validation_cases = ()</code></pre>
+    <p>工作记忆和压力只作为教师诊断材料；没有教师证据时不进入学生。</p>
+  </section>
+
+  <section>
+    <h2>样例三：冲突补习仍是普通证据</h2>
+    <pre><code>failure_kind = attention_wrong
+competing_pids = skill_wrong, skill_teacher_answer
+reply_tokens = teacher::answer
+
+validation success = true
+emitted = teacher::answer
+
+student state:
+  no contrast_competing_paradigms_with_feedback
+  no p:discovered:skill_wrong
+  no llm_policy
+  no answer_table</code></pre>
+  </section>
+
+  <section>
+    <h2>样例四：教师侧不同，学生侧同形</h2>
+    <pre><code>work_memory_resume_failed plan_outline != attention_wrong plan_outline
+
+但:
+teaching_steps 相同
+validation_cases 相同</code></pre>
+    <p>含义：教师可以差异化理解失败，学生不会因为标签不同而得到特殊捷径。</p>
+  </section>
+
+  <section>
+    <h2>验收命令</h2>
+    <pre><code>python -m pytest APV3.0test\tests\test_phase6_4_diagnostic_teaching_plan.py -q
+4 passed in 0.41s
+
+python -m pytest APV3.0test\tests\test_phase6_0_active_teacher_request.py APV3.0test\tests\test_phase6_1_active_learning_bridge.py APV3.0test\tests\test_phase6_2_active_learning_trend.py APV3.0test\tests\test_phase6_3_teaching_protocol_selector.py APV3.0test\tests\test_phase6_4_diagnostic_teaching_plan.py -q
+21 passed in 0.49s
+
+python -m pytest APV3.0test\tests -q
+154 passed in 3.12s</code></pre>
+  </section>
+
+  <section>
+    <h2>边界</h2>
+    <ul>
+      <li>仍不能宣称完整主动课程规划系统完成。</li>
+      <li>仍不能宣称 AP 能自己生成教师答案。</li>
+      <li>仍不能宣称 AP 能自己选择教师。</li>
+      <li>本阶段证明的是诊断上下文到教师侧教学轮廓的最小闭环。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>下一步</h2>
+    <p>建议进入 Phase6.5：把教师侧 plan outline 扩展成多轮课程 proposal 草案，验证“先补 cue/context support，再补 successor evidence，再 recall-only validation，再按失败补习”的闭环。</p>
+  </section>
+</main>
+</body>
+</html>

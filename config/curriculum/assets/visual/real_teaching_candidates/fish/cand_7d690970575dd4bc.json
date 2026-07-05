@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_7d690970575dd4bc",
+  "concept": "fish",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/fish/cand_7d690970575dd4bc.png",
+  "sha256": "7d690970575dd4bcbc854e16c7963801cd1f56a0fcb3eb0db734089af83bf66d",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/63312719@N08/8694630543",
+  "download_url": "https://api.openverse.org/v1/images/dfceedef-9afc-455d-a821-f4be3074b4ad/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "lensonjapan",
+  "title": "Porcupine fish (Okinawa tropical fish market)",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

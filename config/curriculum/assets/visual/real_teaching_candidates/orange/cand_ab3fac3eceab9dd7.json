@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_ab3fac3eceab9dd7",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_ab3fac3eceab9dd7.png",
+  "sha256": "ab3fac3eceab9dd7d52868392fd571a93375a8faca2724178cb64e65efd182de",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/46018453@N06/5522940446",
+  "download_url": "https://api.openverse.org/v1/images/69399429-3adf-460a-853b-848ef8d8ba1c/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Leshaines123",
+  "title": "Dailyshoot 2013~ Still Life. Oranges and Lemons!",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

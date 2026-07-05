@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_49091907b1b27f08",
+  "concept": "dog",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/dog/cand_49091907b1b27f08.png",
+  "sha256": "49091907b1b27f08e67c353051d4942a2e810f805eea2baab1ae58c96310d1f1",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/44345361@N06/7293671144",
+  "download_url": "https://api.openverse.org/v1/images/0660b1e1-7e47-4fb7-91e5-300d7fb04adf/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "VinothChandar",
+  "title": "The look of Dhole (Asiatic Wild Dog)",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

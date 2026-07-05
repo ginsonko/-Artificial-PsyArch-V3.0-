@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_9b6002157af5a8bf",
+  "concept": "grape",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_9b6002157af5a8bf.png",
+  "sha256": "9b6002157af5a8bfe5860bb622ae030fb4724e11c9df62e844cdef70f86e0bff",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/44124425616@N01/222745133",
+  "download_url": "https://api.openverse.org/v1/images/39c4503e-2da2-48e1-b083-2faf38de4aa1/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Hamed Saber",
+  "title": "The Amazon Wild Life (This program: Grape Climbers)",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

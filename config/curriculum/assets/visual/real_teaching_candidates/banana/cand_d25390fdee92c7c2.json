@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_d25390fdee92c7c2",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_d25390fdee92c7c2.png",
+  "sha256": "d25390fdee92c7c24cd0ca042b0803b3826d71235775cf2d49ff9c3f9b87d5d1",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/48744088@N07/5220614125",
+  "download_url": "https://api.openverse.org/v1/images/2c3ebc03-5c1c-45fd-bb17-e6656af555db/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "estoy_caliente",
+  "title": "THE RIPE BANANAS",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

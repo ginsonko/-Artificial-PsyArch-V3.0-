@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_d5df4ac1b3fab3b5",
+  "concept": "banana",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/banana/cand_d5df4ac1b3fab3b5.png",
+  "sha256": "d5df4ac1b3fab3b560cea4636be0d455051ef7a024955efadf3992bf990d03fb",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/9417211@N06/7020078727",
+  "download_url": "https://api.openverse.org/v1/images/824c4bee-0302-4a05-9fef-205545eb716b/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "ylmworkshop",
+  "title": "At it again...I felt bad that there were bunches of ripe bananas at the store on the verge of being overripe! :-( so I bought some to make banana bread. My display is missing sugar :-p #baking",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

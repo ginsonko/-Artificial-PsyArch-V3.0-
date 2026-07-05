@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_f1f62529bb882f7a",
+  "concept": "cat",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/cat/cand_f1f62529bb882f7a.png",
+  "sha256": "f1f62529bb882f7a2d4f774d72e9205f87b690178484d018d9893696c9e15437",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/26782864@N00/7190871098",
+  "download_url": "https://api.openverse.org/v1/images/b65c4cab-0d3f-40b6-be1f-6cfb43ad8ee4/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "wwarby",
+  "title": "Lion",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>APV3 Phase20.7 Release Demo</title>
+  <style>
+    body { font-family: 'Microsoft YaHei', system-ui, sans-serif; margin: 28px; background: #f7f7f8; color: #20242a; }
+    h1 { font-size: 22px; }
+    h2 { font-size: 16px; margin-top: 24px; }
+    pre { background: #fff; border: 1px solid #dfe3e8; border-radius: 8px; padding: 12px; white-space: pre-wrap; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    img { max-width: 160px; image-rendering: pixelated; border: 1px solid #ccd4dd; background: #fff; }
+  </style>
+</head>
+<body>
+  <h1>APV3 Phase20.7 发布 demo</h1>
+  <p>目标: 会学的 3-5 岁小孩级本地 AP 对话底座。不是全知 LLM。</p>
+  <h2>文本学习与结构类比</h2>
+  <pre>{
+  "learn_reply": "嗯,记下了。",
+  "recall_reply": "你也好",
+  "near_reply": "你也好",
+  "near_has_structural_b": true
+}</pre>
+  <h2>未闭合感与闲时思考</h2>
+  <pre>{
+  "first_unknown_reply": "我还不太知道怎么说。",
+  "repeat_unknown_reply": "我还在想这个。",
+  "idle_action": {
+    "action_type": "idle_observe",
+    "active_unclosed": false
+  },
+  "cat_learn_reply": "嗯,记下了。",
+  "cat_recall_reply": "猫是一种动物",
+  "active_unclosed_after_learning": []
+}</pre>
+  <h2>视觉 patch 与内心画面</h2>
+  <pre>{
+  "visual_tick_count": 3,
+  "focus_points": [
+    [
+      54,
+      30
+    ],
+    [
+      31,
+      35
+    ],
+    [
+      65,
+      33
+    ]
+  ],
+  "clarity": [
+    0.2939453125,
+    0.4302300347222222,
+    0.4969618055555556
+  ],
+  "inner_picture_last": "H:\\AP原型实验第二期\\APV2.1版本原型测试\\APV3.0test\\data\\phase20_7_release_demo\\phase20_7_inner_pictures\\inner_18010d7641ff0a1c_0003.png"
+}</pre>
+  <h2>音频 audit 与 xiaoyi TTS</h2>
+  <pre>{
+  "audio_tick_action": {
+    "action_type": "audio_audit_sensor",
+    "audit_only": true
+  },
+  "tts_action": {
+    "action_type": "reply_tts_audio",
+    "voice_preference": "xiaoyi",
+    "voice_id": "xiaoyi_not_available_in_local_sapi",
+    "local_only": true
+  }
+}</pre>
+  <h2>性能摘要</h2>
+  <pre>{
+  "schema_id": "apv3_phase20_7_performance_report/v1",
+  "thresholds": {
+    "text_turn_p95_ms": 1500,
+    "visual_turn_p95_ms": 3000,
+    "stage6_turn_p95_ms": 3000
+  },
+  "samples": {
+    "text_ms": {
+      "count": 8,
+      "min_ms": 10.657,
+      "median_ms": 16.771,
+      "p95_ms": 154.188,
+      "max_ms": 154.188
+    },
+    "visual_ms": {
+      "count": 1,
+      "min_ms": 52.247,
+      "median_ms": 52.247,
+      "p95_ms": 52.247,
+      "max_ms": 52.247
+    },
+    "stage6_ms": {
+      "count": 1,
+      "min_ms": 11.481,
+      "median_ms": 11.481,
+      "p95_ms": 11.481,
+      "max_ms": 11.481
+    }
+  },
+  "notes": [
+    "Performance is local prototype timing, not a final optimized benchmark.",
+    "TTS voice enumeration may be slower on first local run."
+  ]
+}</pre>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_86e99c5d28351d58",
+  "concept": "phone",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/phone/cand_86e99c5d28351d58.png",
+  "sha256": "86e99c5d28351d5850614ffb282f9a556383245cf9e43939261b602ea82acd79",
+  "source": "openverse",
+  "source_url": "https://wordpress.org/photos/photo/1646518610/",
+  "download_url": "https://api.openverse.org/v1/images/eba6d7b7-cdd1-404c-a7af-6a7927d9d08c/thumb/",
+  "license_id": "CC0-1.0",
+  "author": "Blazej Zablotny",
+  "title": "The photo presents a scene set in a conference hall. On a foldable table, an ID badge with a blue lanyard and the WordPress logo is visible. Next to it lies a mobile phone. The objects are captured as if casually left on the table, suggesting an ongoing event or a brief intermission.",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_5765d9f933b2ee28",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_5765d9f933b2ee28.png",
+  "sha256": "5765d9f933b2ee280403ad78574d989023feaf340628093c84a2ff8d404fabbf",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/80901381@N04/7530054972",
+  "download_url": "https://api.openverse.org/v1/images/b4607268-e30a-4d69-8804-18db0948b381/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "A Guy Taking Pictures",
+  "title": "Drops On Bright Orange Flower",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,140 @@
+{
+  "schema_id": "apv3_neutral_curriculum_pack/v1",
+  "package_id": "neutral_numbers_v1",
+  "phase_id": "14.2",
+  "title": "Neutral numbers v1",
+  "governance": {
+    "trust_tier": "official",
+    "license_id": "LicenseRef-APV3-Synthetic-Generated",
+    "author_id": "apv3_synthetic_generator",
+    "source_policy": "generated_static_seed",
+    "review_status": "phase14_alpha_reviewed"
+  },
+  "entries": [
+    {
+      "entry_id": "number_0",
+      "content_kind": "vocabulary_visual",
+      "public_payload": {
+        "concept_kind": "number",
+        "neutral_label": "0",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::number_0::train::0",
+        "asset::number_0::train::1",
+        "asset::number_0::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::number_0::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::number_0::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "number"
+      ]
+    },
+    {
+      "entry_id": "number_1",
+      "content_kind": "vocabulary_visual",
+      "public_payload": {
+        "concept_kind": "number",
+        "neutral_label": "1",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::number_1::train::0",
+        "asset::number_1::train::1",
+        "asset::number_1::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::number_1::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::number_1::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "number"
+      ]
+    },
+    {
+      "entry_id": "number_2",
+      "content_kind": "vocabulary_visual",
+      "public_payload": {
+        "concept_kind": "number",
+        "neutral_label": "2",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::number_2::train::0",
+        "asset::number_2::train::1",
+        "asset::number_2::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::number_2::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::number_2::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "number"
+      ]
+    },
+    {
+      "entry_id": "number_3",
+      "content_kind": "vocabulary_visual",
+      "public_payload": {
+        "concept_kind": "number",
+        "neutral_label": "3",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::number_3::train::0",
+        "asset::number_3::train::1",
+        "asset::number_3::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::number_3::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::number_3::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "number"
+      ]
+    },
+    {
+      "entry_id": "number_4",
+      "content_kind": "vocabulary_visual",
+      "public_payload": {
+        "concept_kind": "number",
+        "neutral_label": "4",
+        "teaching_intent": "neutral_foundation"
+      },
+      "train_asset_refs": [
+        "asset::number_4::train::0",
+        "asset::number_4::train::1",
+        "asset::number_4::train::2"
+      ],
+      "held_out_asset_refs": [
+        "asset::number_4::held_out::0"
+      ],
+      "contrast_asset_refs": [
+        "asset::number_4::contrast::0"
+      ],
+      "governance_tags": [
+        "phase14",
+        "synthetic",
+        "number"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_5681206c2ccb9916",
+  "concept": "rice",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/rice/cand_5681206c2ccb9916.png",
+  "sha256": "5681206c2ccb991636ce49e5d690e599b52f8d6bb0a250828966a69163f3429e",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/26176646@N04/2910109041",
+  "download_url": "https://api.openverse.org/v1/images/077be4dd-58d8-47af-b39b-fe3d2e1a98f6/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "TheBusyBrain",
+  "title": "Chinese Plate with Chopsticks (b)",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

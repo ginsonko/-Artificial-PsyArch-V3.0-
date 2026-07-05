@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_9c4ee5e5a599052a",
+  "concept": "egg",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_9c4ee5e5a599052a.png",
+  "sha256": "9c4ee5e5a599052aadde47d5f47a22216f9783c367cc81e1ed05075bb46cbc2a",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/25873089@N00/432185570",
+  "download_url": "https://api.openverse.org/v1/images/80fe6a38-08bc-40ad-bb15-89d2b7cc2676/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Michiel Thomas",
+  "title": "easter eggs in my garden..",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_4d49adc95bafddab",
+  "concept": "grape",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_4d49adc95bafddab.png",
+  "sha256": "4d49adc95bafddab9db67bd94446bfc209d96b178cd9ab8b5b147d6d40bc0adf",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/40579917@N00/2197601918",
+  "download_url": "https://api.openverse.org/v1/images/d142c9e5-9a17-4a93-8349-4ccc37c3500a/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "mysza831",
+  "title": "So...tell me what you see:-)",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

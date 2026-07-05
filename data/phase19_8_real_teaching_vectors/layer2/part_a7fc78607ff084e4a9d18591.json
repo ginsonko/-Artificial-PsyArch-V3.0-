@@ -1,0 +1,28 @@
+{
+  "activation_count": 1,
+  "channel": "V8",
+  "exemplar_id": "pv_ead01473f6f2a7cf09ad0449",
+  "metadata": {
+    "medoid_policy": "first_true_exemplar",
+    "source_channel": "V8"
+  },
+  "part_uuid": "part_a7fc78607ff084e4a9d18591",
+  "patch_signature": [
+    123,
+    118,
+    113,
+    108,
+    97,
+    68,
+    39,
+    10,
+    0,
+    8,
+    17,
+    25,
+    73,
+    133,
+    194,
+    255
+  ]
+}

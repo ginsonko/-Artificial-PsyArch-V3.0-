@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_3a240d519a144fda",
+  "concept": "computer",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/computer/cand_3a240d519a144fda.png",
+  "sha256": "3a240d519a144fda3d88f7deb96c8bdf34a9d95b1b72e4e233682b6991a4adff",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/32443938@N03/5225841771",
+  "download_url": "https://api.openverse.org/v1/images/34584767-0289-42f0-a5f6-7329f60a732a/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "jnyemb",
+  "title": "Shocked Face [1]",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

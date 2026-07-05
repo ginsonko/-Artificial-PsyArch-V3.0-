@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_27444393c094b564",
+  "concept": "orange",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/orange/cand_27444393c094b564.png",
+  "sha256": "27444393c094b5647324bdc427dcf83d7a3b7b210fa7c4924db9216c4b9ea2e6",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/63089153@N00/2282457985",
+  "download_url": "https://api.openverse.org/v1/images/64b63a87-ea57-4c4d-bfa7-9aabd468079c/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "dayataglance",
+  "title": "oranges and kumquats from my parents tree",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

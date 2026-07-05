@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_5dafda28911bcef6",
+  "concept": "egg",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/egg/cand_5dafda28911bcef6.png",
+  "sha256": "5dafda28911bcef6f0d0269e386ad71ef45820a8980c4f44100bc4b4b2ec8f8d",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/37882873@N00/4264098269",
+  "download_url": "https://api.openverse.org/v1/images/1c144ed5-0292-4a6f-adba-c08dccb76f4c/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "ex_magician",
+  "title": "Cell Biology",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}

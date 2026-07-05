@@ -1,0 +1,15 @@
+{
+  "schema_id": "apv3_real_teaching_candidate/v1",
+  "candidate_id": "cand_ba5421f21431998e",
+  "concept": "grape",
+  "path": "config/curriculum/assets/visual/real_teaching_candidates/grape/cand_ba5421f21431998e.png",
+  "sha256": "ba5421f21431998eb264a304cd3de70c5f8e26346b8d1b1a38950c105df7ecd3",
+  "source": "openverse",
+  "source_url": "https://www.flickr.com/photos/9290458@N07/3087659344",
+  "download_url": "https://api.openverse.org/v1/images/03bb28a2-3231-4f6a-a422-ed5771068c34/thumb/",
+  "license_id": "CC-BY-2.0",
+  "author": "Shoes on Wires",
+  "title": "St. Sadurni d'Anoia - Bunches - Shoes on Wires",
+  "curation_status": "keep",
+  "content_safety_review": "pending_human"
+}
